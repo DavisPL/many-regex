@@ -8,7 +8,7 @@ Run a regex on tons of different libraries.
 - [ ] include Go libraries
 - [ ] include Rust libraries
 - [ ] Vary input size and not just input pattern
-- [ ] Make table of Regex libraries
+- [x] Make table of Regex libraries
 
 ## Libraries
 
