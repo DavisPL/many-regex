@@ -142,7 +142,7 @@ if __name__ == "__main__":
     ]
 
     all_results = []
-    num_runs = 5
+    num_runs = 3
 
     print(
         f"Running {num_runs} iterations of {len(tests)} tests across {len(libraries)} libraries..."
