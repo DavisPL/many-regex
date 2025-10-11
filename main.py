@@ -8,7 +8,6 @@ import re  # default python
 import rure  # https://pypi.org/project/rure/
 import regex  # https://pypi.org/project/regex/
 import re2 as pyre2  # https://pypi.org/project/pyre2/
-import hyperscan  # https://pypi.org/project/hyperscan/
 
 
 class RegexLibrary(ABC):
@@ -71,13 +70,6 @@ class Pyre2(RegexLibrary):
         match = pyre2.match(pattern, input)
         # Convert to picklable format
         return match is not None
-
-
-class Hyperscan(RegexLibrary):
-    def setup_test(self, pattern: str, input: str):
-        match = hyperscan.match(pattern, input)
-        # Convert to picklable format
-        return bool(match) if match is not None else None
 
 
 if __name__ == "__main__":
