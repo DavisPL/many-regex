@@ -2,6 +2,14 @@
 
 Run a regex on tons of different libraries.
 
+## Roadmap
+
+- [ ] include JavaScript / TypeScript libraries
+- [ ] include Go libraries
+- [ ] include Rust libraries
+- [ ] Vary input size and not just input pattern
+- [ ] Make table of Regex libraries
+
 ## Tentative Results
 
 <img width="3947" height="2950" alt="regex_benchmark_comparison" src="https://github.com/user-attachments/assets/09dbd171-e07f-4d9f-add2-d89f2f86d2b3" />
