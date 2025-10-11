@@ -50,6 +50,7 @@ class Rure(RegexLibrary):
 
     def setup_test(self, pattern: str, input: str):
         match = rure.match(pattern, input)
+        # Convert to picklable format
         return bool(match) if match is not None else None
 
 
@@ -57,6 +58,7 @@ class Re(RegexLibrary):
 
     def setup_test(self, pattern: str, input: str):
         match = re.match(pattern, input)
+        # Convert to picklable format
         return match is not None
 
 
@@ -64,6 +66,7 @@ class Regex(RegexLibrary):
 
     def setup_test(self, pattern: str, input: str):
         match = regex.match(pattern, input)
+        # Convert to picklable format
         return match is not None
 
 
@@ -71,6 +74,7 @@ class Pyre2(RegexLibrary):
 
     def setup_test(self, pattern: str, input: str):
         match = pyre2.match(pattern, input)
+        # Convert to picklable format
         return match is not None
 
 
@@ -78,6 +82,7 @@ class Hyperscan(RegexLibrary):
 
     def setup_test(self, pattern: str, input: str):
         match = hyperscan.match(pattern, input)
+        # Convert to picklable format
         return bool(match) if match is not None else None
 
 
@@ -156,7 +161,7 @@ if __name__ == "__main__":
     ]
 
     all_results = []
-    num_runs = 1
+    num_runs = 5
 
     print(f"Running {num_runs} iterations of {len(tests)} tests across {len(libraries)} libraries...")
 
@@ -180,6 +185,50 @@ if __name__ == "__main__":
                 }
                 all_results.append(result_entry)
 
+    # Calculate summary statistics
+    summary_stats = {}
+
+    for lib in libraries:
+        lib_name = lib.__class__.__name__
+
+        # Filter results for this library
+        lib_results = [r for r in all_results if r["library"] == lib_name]
+
+        # Extract times and timeout info
+        times = []
+        timeout_count = 0
+
+        for r in lib_results:
+            result_dict = eval(r["result"])  # Convert string back to dict
+            if result_dict["timed_out"]:
+                timeout_count += 1
+            else:
+                times.append(result_dict["time"])
+
+        # Calculate stats
+        if times:
+            times_sorted = sorted(times)
+            n = len(times)
+            summary_stats[lib_name] = {
+                "mean_time": sum(times) / n,
+                "median_time": times_sorted[n // 2] if n % 2 == 1 else (times_sorted[n // 2 - 1] + times_sorted[n // 2]) / 2,
+                "min_time": min(times),
+                "max_time": max(times),
+                "timeout_count": timeout_count,
+                "successful_count": len(times),
+                "total_count": len(lib_results)
+            }
+        else:
+            summary_stats[lib_name] = {
+                "mean_time": None,
+                "median_time": None,
+                "min_time": None,
+                "max_time": None,
+                "timeout_count": timeout_count,
+                "successful_count": 0,
+                "total_count": len(lib_results)
+            }
+
     output_data = {
         "metadata": {
             "timestamp": datetime.now().isoformat(),
@@ -188,6 +237,7 @@ if __name__ == "__main__":
             "total_libraries": len(libraries),
             "libraries": [lib.__class__.__name__ for lib in libraries]
         },
+        "summary_stats": summary_stats,
         "results": all_results
     }
 
@@ -196,4 +246,11 @@ if __name__ == "__main__":
         json.dump(output_data, f, indent=2)
 
     print(f"\nComplete! {len(all_results)} total test results saved to {output_filename}")
-    exit()
+    print("\nSummary Statistics:")
+    for lib_name, stats in summary_stats.items():
+        print(f"\n{lib_name}:")
+        print(f"  Mean time: {stats['mean_time']:.6f}s" if stats['mean_time'] else "  Mean time: N/A")
+        print(f"  Median time: {stats['median_time']:.6f}s" if stats['median_time'] else "  Median time: N/A")
+        print(f"  Min time: {stats['min_time']:.6f}s" if stats['min_time'] else "  Min time: N/A")
+        print(f"  Max time: {stats['max_time']:.6f}s" if stats['max_time'] else "  Max time: N/A")
+        print(f"  Timeouts: {stats['timeout_count']}/{stats['total_count']}")
