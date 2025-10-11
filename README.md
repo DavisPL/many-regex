@@ -10,6 +10,16 @@ Run a regex on tons of different libraries.
 - [ ] Vary input size and not just input pattern
 - [ ] Make table of Regex libraries
 
+## Libraries
+
+| name | language | claimed to be linear | found to be harmful |
+| ---  | --      | -- | -- |
+| Re | Python | No | Yes |
+| Rure | Python | Yes "guarantees linear time" | No |
+| Regex | Python | Not sure | No |
+| Pyre2 | Python | Yes "guarantees linear-time behavior" | No |
+
+
 ## Tentative Results
 
 <img width="3947" height="2950" alt="regex_benchmark_comparison" src="https://github.com/user-attachments/assets/09dbd171-e07f-4d9f-add2-d89f2f86d2b3" />
