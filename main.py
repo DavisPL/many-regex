@@ -32,7 +32,6 @@ class RegexLibrary(ABC):
                     "timed_out": False,
                 }
             except TimeoutError:
-                # Force kill the process by canceling and shutting down
                 future.cancel()
                 executor.shutdown(wait=False, cancel_futures=True)
                 duration = time.perf_counter() - start_time
@@ -47,105 +46,145 @@ class RegexLibrary(ABC):
 class Rure(RegexLibrary):
     def setup_test(self, pattern: str, input: str):
         match = rure.match(pattern, input)
-        # Convert to picklable format
         return bool(match) if match is not None else None
 
 
 class Re(RegexLibrary):
     def setup_test(self, pattern: str, input: str):
         match = re.match(pattern, input)
-        # Convert to picklable format
         return match is not None
 
 
 class Regex(RegexLibrary):
     def setup_test(self, pattern: str, input: str):
         match = regex.match(pattern, input)
-        # Convert to picklable format
         return match is not None
 
 
 class Pyre2(RegexLibrary):
     def setup_test(self, pattern: str, input: str):
         match = pyre2.match(pattern, input)
-        # Convert to picklable format
         return match is not None
 
 
-if __name__ == "__main__":
-    libraries = [Rure(), Re(), Regex(), Pyre2()]
-
-    tests = [
+def get_test_cases(input_size=20):
+    return [
         # Classic nested quantifiers
-        ("^(a+)+$", "a" * 20 + "B"),
-        ("^(a*)*$", "a" * 20 + "B"),
-        ("^(a+)+b$", "a" * 20 + "c"),
+        ("^(a+)+$", "a" * input_size + "B"),
+        ("^(a*)*$", "a" * input_size + "B"),
+        ("^(a+)+b$", "a" * input_size + "c"),
         # Alternation with overlapping patterns
-        ("^(a|a)*$", "a" * 20 + "B"),
-        ("^(a|ab)*$", "a" * 20 + "B"),
-        ("(a|a|a|a|a|b)*c", "a" * 25 + "d"),
+        ("^(a|a)*$", "a" * input_size + "B"),
+        ("^(a|ab)*$", "a" * input_size + "B"),
+        ("(a|a|a|a|a|b)*c", "a" * (input_size + 5) + "d"),
         # Nested groups with quantifiers
-        ("^((a+)+)+$", "a" * 18 + "B"),
-        ("^(a*)*b$", "a" * 20 + "c"),
-        ("^(a+)*b$", "a" * 20 + "c"),
+        ("^((a+)+)+$", "a" * (input_size - 2) + "B"),
+        ("^(a*)*b$", "a" * input_size + "c"),
+        ("^(a+)*b$", "a" * input_size + "c"),
         # Email-like patterns (common real-world ReDoS)
         (
             "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
-            "a" * 30 + "@",
+            "a" * (input_size + 10) + "@",
         ),
         # Overlapping character classes
-        ("^([a-z]+)+[A-Z]$", "a" * 25 + "1"),
-        ("^([0-9a-z]+)+[A-Z]$", "a" * 25 + "!"),
+        ("^([a-z]+)+[A-Z]$", "a" * (input_size + 5) + "1"),
+        ("^([0-9a-z]+)+[A-Z]$", "a" * (input_size + 5) + "!"),
         # Grouping with wildcards
-        ("^(.*)*$", "a" * 20 + "B"),
-        ("^(.+)+$", "a" * 20 + "B"),
-        ("^(.*)+b$", "a" * 20 + "c"),
+        ("^(.*)*$", "a" * input_size + "B"),
+        ("^(.+)+$", "a" * input_size + "B"),
+        ("^(.*)+b$", "a" * input_size + "c"),
         # Multiple overlapping quantifiers
-        ("^(a*)+b$", "a" * 25 + "c"),
-        ("^(a?)+b$", "a" * 25 + "c"),
-        ("^(a*?)*b$", "a" * 20 + "c"),
+        ("^(a*)+b$", "a" * (input_size + 5) + "c"),
+        ("^(a?)+b$", "a" * (input_size + 5) + "c"),
+        ("^(a*?)*b$", "a" * input_size + "c"),
         # Word boundary catastrophic cases
-        ("^(\\w+\\s*)+$", "a " * 15 + "!"),
-        ("^([\\w]+[\\s]*)*$", "test " * 10 + "!"),
+        ("^(\\w+\\s*)+$", "a " * (input_size - 5) + "!"),
+        ("^([\\w]+[\\s]*)*$", "test " * (input_size // 2) + "!"),
         # Digit patterns
-        ("^(\\d+)+$", "1" * 25 + "a"),
-        ("^([0-9]+)*$", "9" * 25 + "x"),
+        ("^(\\d+)+$", "1" * (input_size + 5) + "a"),
+        ("^([0-9]+)*$", "9" * (input_size + 5) + "x"),
         # Complex alternation
-        ("^(a+|a+)+$", "a" * 20 + "B"),
-        ("^(a*|a*)*$", "a" * 20 + "B"),
-        ("^(aa+|a+)+$", "a" * 22 + "B"),
+        ("^(a+|a+)+$", "a" * input_size + "B"),
+        ("^(a*|a*)*$", "a" * input_size + "B"),
+        ("^(aa+|a+)+$", "a" * (input_size + 2) + "B"),
         # Real-world URL pattern (simplified)
-        ("^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$", "http://a." * 10 + "!"),
+        (
+            "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
+            "http://a." * (input_size // 2) + "!",
+        ),
         # Whitespace patterns
-        ("^(\\s*a+\\s*)+$", " a" * 15 + "!"),
-        ("^(\\s+|a+)*b$", "a " * 15 + "c"),
+        ("^(\\s*a+\\s*)+$", " a" * (input_size - 5) + "!"),
+        ("^(\\s+|a+)*b$", "a " * (input_size - 5) + "c"),
         # Optional group patterns
-        ("^(a+)?b?(a+)?$", "a" * 25 + "c"),
-        ("^(a+b?)+c$", "a" * 20 + "d"),
+        ("^(a+)?b?(a+)?$", "a" * (input_size + 5) + "c"),
+        ("^(a+b?)+c$", "a" * input_size + "d"),
         # Character class repetition
-        ("^([a-zA-Z]+)*$", "a" * 25 + "1"),
-        ("^([a-z0-9]+)+[!]$", "abc123" * 5 + "?"),
+        ("^([a-zA-Z]+)*$", "a" * (input_size + 5) + "1"),
+        ("^([a-z0-9]+)+[!]$", "abc123" * (input_size // 4) + "?"),
         # Nested alternation
-        ("^((a|b)+)+c$", "a" * 25 + "d"),
-        ("^((a|ab)+)+c$", "a" * 20 + "d"),
+        ("^((a|b)+)+c$", "a" * (input_size + 5) + "d"),
+        ("^((a|ab)+)+c$", "a" * input_size + "d"),
         # Long repeating patterns
-        ("^(a+b)+c$", "ab" * 15 + "d"),
-        ("^(ab+)+c$", "ab" * 15 + "d"),
+        ("^(a+b)+c$", "ab" * (input_size - 5) + "d"),
+        ("^(ab+)+c$", "ab" * (input_size - 5) + "d"),
     ]
 
+
+def get_libraries():
+    """Get all regex library instances."""
+    return [Rure(), Re(), Regex(), Pyre2()]
+
+
+def run_single_test(test_id, libraries=None, input_size=20):
+    """Run a single test case across all libraries."""
+    if libraries is None:
+        libraries = get_libraries()
+
+    tests = get_test_cases(input_size)
+
+    if test_id < 1 or test_id > len(tests):
+        raise ValueError(f"Invalid test_id. Must be between 1 and {len(tests)}")
+
+    pattern, text = tests[test_id - 1]
+    results = []
+
+    print(f"Running test {test_id}: pattern={pattern}, input_length={len(text)}")
+
+    for library in libraries:
+        print(f"  Testing with {library.__class__.__name__}...")
+        res = library.test(pattern, text)
+        results.append(
+            {
+                "test_id": test_id,
+                "pattern": pattern,
+                "input": text,
+                "library": library.__class__.__name__,
+                "result": res,
+            }
+        )
+
+    return results
+
+
+def run_all_tests(num_runs=3, libraries=None, input_size=20):
+    """Run all test cases for multiple iterations."""
+    if libraries is None:
+        libraries = get_libraries()
+
+    tests = get_test_cases(input_size)
     all_results = []
-    num_runs = 3
 
     print(
         f"Running {num_runs} iterations of {len(tests)} tests across {len(libraries)} libraries..."
     )
+    print(f"Input size multiplier: {input_size}")
 
     for run in range(num_runs):
-        print(f"Run {run + 1}/{num_runs}")
+        print(f"\nRun {run + 1}/{num_runs}")
 
         for test_idx, (pattern, text) in enumerate(tests):
             for library in libraries:
-                print(f"Running {library.__class__.__name__} test {pattern} on {text}")
+                print(f"  {library.__class__.__name__} - Test {test_idx + 1}")
 
                 res = library.test(pattern, text)
 
@@ -159,27 +198,27 @@ if __name__ == "__main__":
                 }
                 all_results.append(result_entry)
 
-    # Calculate summary statistics
+    return all_results
+
+
+def calculate_summary_stats(all_results, libraries):
+    """Calculate summary statistics from test results."""
     summary_stats = {}
 
     for lib in libraries:
         lib_name = lib.__class__.__name__
-
-        # Filter results for this library
         lib_results = [r for r in all_results if r["library"] == lib_name]
 
-        # Extract times and timeout info
         times = []
         timeout_count = 0
 
         for r in lib_results:
-            result_dict = eval(r["result"])  # Convert string back to dict
+            result_dict = eval(r["result"])
             if result_dict["timed_out"]:
                 timeout_count += 1
             else:
                 times.append(result_dict["time"])
 
-        # Calculate stats
         if times:
             times_sorted = sorted(times)
             n = len(times)
@@ -205,11 +244,23 @@ if __name__ == "__main__":
                 "total_count": len(lib_results),
             }
 
+    return summary_stats
+
+
+def save_results(
+    all_results,
+    summary_stats,
+    libraries,
+    num_runs,
+    tests_count,
+    filename="redos_test_results.json",
+):
+    """Save results to a JSON file."""
     output_data = {
         "metadata": {
             "timestamp": datetime.now().isoformat(),
             "total_runs": num_runs,
-            "total_tests": len(tests),
+            "total_tests": tests_count,
             "total_libraries": len(libraries),
             "libraries": [lib.__class__.__name__ for lib in libraries],
         },
@@ -217,34 +268,52 @@ if __name__ == "__main__":
         "results": all_results,
     }
 
-    output_filename = "redos_test_results.json"
-    with open(output_filename, "w") as f:
+    with open(filename, "w") as f:
         json.dump(output_data, f, indent=2)
 
-    print(
-        f"\nComplete! {len(all_results)} total test results saved to {output_filename}"
-    )
+    print(f"\n{len(all_results)} total test results saved to {filename}")
+
+
+def print_summary_stats(summary_stats):
+    """Print summary statistics in a readable format."""
     print("\nSummary Statistics:")
     for lib_name, stats in summary_stats.items():
         print(f"\n{lib_name}:")
-        print(
-            f"  Mean time: {stats['mean_time']:.6f}s"
-            if stats["mean_time"]
-            else "  Mean time: N/A"
-        )
-        print(
-            f"  Median time: {stats['median_time']:.6f}s"
-            if stats["median_time"]
-            else "  Median time: N/A"
-        )
-        print(
-            f"  Min time: {stats['min_time']:.6f}s"
-            if stats["min_time"]
-            else "  Min time: N/A"
-        )
-        print(
-            f"  Max time: {stats['max_time']:.6f}s"
-            if stats["max_time"]
-            else "  Max time: N/A"
-        )
+        if stats["mean_time"]:
+            print(f"  Mean time: {stats['mean_time']:.6f}s")
+            print(f"  Median time: {stats['median_time']:.6f}s")
+            print(f"  Min time: {stats['min_time']:.6f}s")
+            print(f"  Max time: {stats['max_time']:.6f}s")
+        else:
+            print("  No successful completions")
         print(f"  Timeouts: {stats['timeout_count']}/{stats['total_count']}")
+
+
+if __name__ == "__main__":
+    INPUT_SIZE = 20
+    NUM_RUNS = 3
+
+    # Either a test ID to run or None
+    run_specific_test = None
+
+    if run_specific_test is None:
+        # Run all tests
+        libraries = get_libraries()
+        all_results = run_all_tests(
+            num_runs=NUM_RUNS, libraries=libraries, input_size=INPUT_SIZE
+        )
+        summary_stats = calculate_summary_stats(all_results, libraries)
+        save_results(
+            all_results,
+            summary_stats,
+            libraries,
+            NUM_RUNS,
+            len(get_test_cases(INPUT_SIZE)),
+        )
+        print_summary_stats(summary_stats)
+    else:
+        # Run a single test
+        print("Running single test example:")
+        results = run_single_test(test_id=run_specific_test, input_size=INPUT_SIZE)
+        for result in results:
+            print(f"{result['library']}: {result['result']}")

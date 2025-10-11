@@ -246,7 +246,7 @@ for test_id in test_ids:
         input_str = input_str[:5] + "..."
     labels.append(f"T{test_id}\n{pattern}\n{input_str}")
 
-ax.set_xticklabels(labels, fontsize=8, rotation=90, ha='center')
+ax.set_xticklabels(labels, fontsize=8, rotation=90, ha="center")
 ax.legend(loc="upper left", fontsize=11, framealpha=0.9)
 ax.grid(True, alpha=0.3, linestyle="--", linewidth=0.7)
 ax.set_yscale("log")
