@@ -12,12 +12,12 @@ Run a regex on tons of different libraries.
 
 ## Libraries
 
-| name | language | claimed to be linear | found to be harmful |
-| ---  | --      | -- | -- |
-| Re | Python | No | Yes |
-| Rure | Python | Yes "guarantees linear time" | No |
-| Regex | Python | Not sure | No |
-| Pyre2 | Python | Yes "guarantees linear-time behavior" | No |
+| Name  | Language | Claimed to be linear                  | Found to be harmful |
+| ---   | --       | --                                    | --                  |
+| Re    | Python   | No                                    | Yes                 |
+| Rure  | Python   | Yes "guarantees linear time"          | No                  |
+| Regex | Python   | Not sure                              | No                  |
+| Pyre2 | Python   | Yes "guarantees linear-time behavior" | No                  |
 
 
 ## Tentative Results
