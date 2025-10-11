@@ -44,8 +44,8 @@ colors = {"Rure": "#3498db", "Re": "#e74c3c", "Regex": "#2ecc71", "Pyre2": "#f39
 ###############################################################################
 # FIGURE 1: Original Overview Charts
 ###############################################################################
-fig1 = plt.figure(figsize=(16, 12))
-gs1 = fig1.add_gridspec(3, 2, height_ratios=[1, 1.2, 1], hspace=0.3)
+fig1 = plt.figure(figsize=(16, 10))
+gs1 = fig1.add_gridspec(2, 2, height_ratios=[1, 1], hspace=0.3)
 
 fig1.suptitle(
     "Regex Library Performance Benchmark Comparison", fontsize=16, fontweight="bold"
@@ -114,51 +114,8 @@ for i, (lib, timeout) in enumerate(zip(libraries, timeout_counts)):
         color="red" if timeout > 0 else "black",
     )
 
-# 3. Performance by Test (Bar Chart - spans full width)
-ax3 = fig1.add_subplot(gs1[1, :])
-
-# Get sorted test IDs
-test_ids = sorted(test_averages.keys())
-x = np.arange(len(test_ids))
-width = 0.2  # Width of bars
-
-# Plot bars for each library
-for i, lib in enumerate(libraries):
-    times = [test_averages[test_id].get(lib, 0) for test_id in test_ids]
-    offset = (i - len(libraries) / 2 + 0.5) * width
-    bars = ax3.bar(
-        x + offset,
-        times,
-        width,
-        label=lib,
-        color=colors[lib],
-        alpha=0.7,
-        edgecolor="black",
-    )
-
-ax3.set_ylabel("Average Time (ms)", fontweight="bold")
-ax3.set_title(
-    "Average Execution Time by Test Pattern (Bar Chart)", fontweight="bold", pad=10
-)
-ax3.set_xticks(x)
-
-# Create compact labels with pattern and input
-labels = []
-for test_id in test_ids:
-    pattern = test_patterns[test_id]["pattern"]
-    input_str = test_patterns[test_id]["input"]
-    # Truncate long inputs
-    if len(input_str) > 15:
-        input_str = input_str[:12] + "..."
-    labels.append(f"Test {test_id}\n{pattern}\n{input_str}")
-
-ax3.set_xticklabels(labels, fontsize=8, rotation=90, ha='center')
-ax3.legend(loc="upper left", ncol=4)
-ax3.grid(axis="y", alpha=0.3, linestyle="--")
-ax3.set_yscale("log")
-
-# 4. Min/Max Range Comparison
-ax4 = fig1.add_subplot(gs1[2, 0])
+# 3. Min/Max Range Comparison
+ax4 = fig1.add_subplot(gs1[1, 0])
 for i, lib in enumerate(libraries):
     min_time = summary[lib]["min_time"] * 1000
     max_time = summary[lib]["max_time"] * 1000
@@ -192,8 +149,8 @@ ax4.set_yscale("log")
 ax4.grid(True, alpha=0.3, linestyle="--")
 ax4.legend(["Range", "Median"], loc="upper left")
 
-# 5. Performance Summary Table
-ax5 = fig1.add_subplot(gs1[2, 1])
+# 4. Performance Summary Table
+ax5 = fig1.add_subplot(gs1[1, 1])
 ax5.axis("off")
 
 # Create table data
@@ -282,8 +239,11 @@ labels = []
 for test_id in test_ids:
     pattern = test_patterns[test_id]["pattern"]
     input_str = test_patterns[test_id]["input"]
-    if len(input_str) > 15:
-        input_str = input_str[:12] + "..."
+    # Truncate to 5 characters
+    if len(pattern) > 5:
+        pattern = pattern[:5] + "..."
+    if len(input_str) > 5:
+        input_str = input_str[:5] + "..."
     labels.append(f"T{test_id}\n{pattern}\n{input_str}")
 
 ax.set_xticklabels(labels, fontsize=8, rotation=90, ha='center')
