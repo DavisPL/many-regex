@@ -2,6 +2,30 @@
 
 Run a regex on tons of different libraries.
 
+## Roadmap
+
+- [ ] include JavaScript / TypeScript libraries
+- [ ] include Go libraries
+- [ ] include Rust libraries
+- [ ] Vary input size and not just input pattern
+- [ ] Make table of Regex libraries
+
+## Libraries
+
+| name | language | claimed to be linear | found to be harmful |
+| ---  | --      | -- | -- |
+| Re | Python | No | Yes |
+| Rure | Python | Yes "guarantees linear time" | No |
+| Regex | Python | Not sure | No |
+| Pyre2 | Python | Yes "guarantees linear-time behavior" | No |
+
+
+## Tentative Results
+
+<img width="3947" height="2950" alt="regex_benchmark_comparison" src="https://github.com/user-attachments/assets/09dbd171-e07f-4d9f-add2-d89f2f86d2b3" />
+
+<img width="4760" height="2993" alt="regex_benchmark_line_chart" src="https://github.com/user-attachments/assets/b38cc7e2-e5fc-460f-bf4f-613f2663e779" />
+
 ### Issue with [re2](https://pypi.org/project/re2/)
 
 ```
