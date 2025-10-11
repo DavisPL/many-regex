@@ -49,31 +49,36 @@ class RegexLibrary(ABC):
 class Rure(RegexLibrary):
 
     def setup_test(self, pattern: str, input: str):
-        return rure.match(pattern, input)
+        match = rure.match(pattern, input)
+        return bool(match) if match is not None else None
 
 
 class Re(RegexLibrary):
 
     def setup_test(self, pattern: str, input: str):
-        return re.match(pattern, input)
+        match = re.match(pattern, input)
+        return match is not None
 
 
 class Regex(RegexLibrary):
 
     def setup_test(self, pattern: str, input: str):
-        return regex.match(pattern, input)
+        match = regex.match(pattern, input)
+        return match is not None
 
 
 class Pyre2(RegexLibrary):
 
     def setup_test(self, pattern: str, input: str):
-        return pyre2.match(pattern, input)
+        match = pyre2.match(pattern, input)
+        return match is not None
 
 
 class Hyperscan(RegexLibrary):
 
     def setup_test(self, pattern: str, input: str):
-        return hyperscan.match(pattern, input)
+        match = hyperscan.match(pattern, input)
+        return bool(match) if match is not None else None
 
 
 if __name__ == "__main__":
@@ -151,7 +156,7 @@ if __name__ == "__main__":
     ]
 
     all_results = []
-    num_runs = 30
+    num_runs = 1
 
     print(f"Running {num_runs} iterations of {len(tests)} tests across {len(libraries)} libraries...")
 
@@ -191,3 +196,4 @@ if __name__ == "__main__":
         json.dump(output_data, f, indent=2)
 
     print(f"\nComplete! {len(all_results)} total test results saved to {output_filename}")
+    exit()

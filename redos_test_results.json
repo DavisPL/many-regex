@@ -1,0 +1,5776 @@
+{
+  "metadata": {
+    "timestamp": "2025-10-11T14:17:53.640547",
+    "total_runs": 5,
+    "total_tests": 36,
+    "total_libraries": 4,
+    "libraries": [
+      "Rure",
+      "Re",
+      "Regex",
+      "Pyre2"
+    ]
+  },
+  "results": [
+    {
+      "run": 1,
+      "test_id": 1,
+      "pattern": "^(a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.009678272999735782, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 1,
+      "pattern": "^(a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.06333023099978163, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 1,
+      "pattern": "^(a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.009556384000461549, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 1,
+      "pattern": "^(a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.007111719000022276, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 2,
+      "pattern": "^(a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.00932718600051885, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 2,
+      "pattern": "^(a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.08504708299915364, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 2,
+      "pattern": "^(a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.007634066999344213, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 2,
+      "pattern": "^(a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.00641346300017176, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 3,
+      "pattern": "^(a+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.008967392999693402, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 3,
+      "pattern": "^(a+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.06194114099980652, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 3,
+      "pattern": "^(a+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.008157326000400644, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 3,
+      "pattern": "^(a+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.006455742000071041, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 4,
+      "pattern": "^(a|a)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.008179047000339779, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 4,
+      "pattern": "^(a|a)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.11419891100013047, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 4,
+      "pattern": "^(a|a)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.20413139599986607, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 4,
+      "pattern": "^(a|a)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0059147490001123515, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 5,
+      "pattern": "^(a|ab)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.00938696799948957, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 5,
+      "pattern": "^(a|ab)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.006060120999791252, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 5,
+      "pattern": "^(a|ab)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.004932730999826163, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 5,
+      "pattern": "^(a|ab)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.00767946199994185, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 6,
+      "pattern": "(a|a|a|a|a|b)*c",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.0054905249999137595, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 6,
+      "pattern": "(a|a|a|a|a|b)*c",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.006344664000607736, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 6,
+      "pattern": "(a|a|a|a|a|b)*c",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.004726465999738139, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 6,
+      "pattern": "(a|a|a|a|a|b)*c",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005582968999988225, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 7,
+      "pattern": "^((a+)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005563881999478326, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 7,
+      "pattern": "^((a+)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.002212178999798, 'timed_out': True}"
+    },
+    {
+      "run": 1,
+      "test_id": 7,
+      "pattern": "^((a+)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.01042455999959202, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 7,
+      "pattern": "^((a+)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005623715000183438, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 8,
+      "pattern": "^(a*)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.009092266000152449, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 8,
+      "pattern": "^(a*)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.08453249000012875, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 8,
+      "pattern": "^(a*)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.008397184999921592, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 8,
+      "pattern": "^(a*)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005790406999949482, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 9,
+      "pattern": "^(a+)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.008263895000709454, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 9,
+      "pattern": "^(a+)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.060006480000083684, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 9,
+      "pattern": "^(a+)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.007717172000411665, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 9,
+      "pattern": "^(a+)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.006559657000252628, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 10,
+      "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.008574546999625454, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 10,
+      "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.004327337000177, 'timed_out': True}"
+    },
+    {
+      "run": 1,
+      "test_id": 10,
+      "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.01600343999962206, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 10,
+      "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0063935059997675125, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 11,
+      "pattern": "^([a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.01573107100011839, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 11,
+      "pattern": "^([a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 1.9300082110003132, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 11,
+      "pattern": "^([a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.02245801000026404, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 11,
+      "pattern": "^([a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0058298210005887086, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 12,
+      "pattern": "^([0-9a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.008281188000182738, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 12,
+      "pattern": "^([0-9a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 1.6533634070001426, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 12,
+      "pattern": "^([0-9a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006051985999874887, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 12,
+      "pattern": "^([0-9a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004769745999510633, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 13,
+      "pattern": "^(.*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': True, 'time': 0.005093812000268372, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 13,
+      "pattern": "^(.*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': True, 'time': 0.004711036000117019, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 13,
+      "pattern": "^(.*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': True, 'time': 0.0037528929997279192, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 13,
+      "pattern": "^(.*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': True, 'time': 0.0035951589998148847, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 14,
+      "pattern": "^(.+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': True, 'time': 0.004642118000447226, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 14,
+      "pattern": "^(.+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': True, 'time': 0.0034213030003229505, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 14,
+      "pattern": "^(.+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': True, 'time': 0.004161036999903445, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 14,
+      "pattern": "^(.+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': True, 'time': 0.004578117999699316, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 15,
+      "pattern": "^(.*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.0038352679994204664, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 15,
+      "pattern": "^(.*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.24178691799988883, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 15,
+      "pattern": "^(.*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.0051902639997933875, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 15,
+      "pattern": "^(.*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0038582209999731276, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 16,
+      "pattern": "^(a*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005988197000078799, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 16,
+      "pattern": "^(a*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0029513919998863, 'timed_out': True}"
+    },
+    {
+      "run": 1,
+      "test_id": 16,
+      "pattern": "^(a*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.007719496999925468, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 16,
+      "pattern": "^(a*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004171024999777728, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 17,
+      "pattern": "^(a?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.004820981999728247, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 17,
+      "pattern": "^(a?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.004338118000305258, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 17,
+      "pattern": "^(a?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.004424650000146357, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 17,
+      "pattern": "^(a?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004980319999958738, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 18,
+      "pattern": "^(a*?)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005175806999432098, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 18,
+      "pattern": "^(a*?)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.08880731099998229, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 18,
+      "pattern": "^(a*?)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006565657000464853, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 18,
+      "pattern": "^(a*?)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005300470000292989, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 19,
+      "pattern": "^(\\w+\\s*)+$",
+      "input": "a a a a a a a a a a a a a a a !",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.007380361999821616, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 19,
+      "pattern": "^(\\w+\\s*)+$",
+      "input": "a a a a a a a a a a a a a a a !",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.004713922000519233, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 19,
+      "pattern": "^(\\w+\\s*)+$",
+      "input": "a a a a a a a a a a a a a a a !",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.0056116730002031545, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 19,
+      "pattern": "^(\\w+\\s*)+$",
+      "input": "a a a a a a a a a a a a a a a !",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004748085999381146, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 20,
+      "pattern": "^([\\w]+[\\s]*)*$",
+      "input": "test test test test test test test test test test !",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.00749720099975093, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 20,
+      "pattern": "^([\\w]+[\\s]*)*$",
+      "input": "test test test test test test test test test test !",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.00250396499996, 'timed_out': True}"
+    },
+    {
+      "run": 1,
+      "test_id": 20,
+      "pattern": "^([\\w]+[\\s]*)*$",
+      "input": "test test test test test test test test test test !",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.007638144999873475, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 20,
+      "pattern": "^([\\w]+[\\s]*)*$",
+      "input": "test test test test test test test test test test !",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005972857999950065, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 21,
+      "pattern": "^(\\d+)+$",
+      "input": "1111111111111111111111111a",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006565637000676361, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 21,
+      "pattern": "^(\\d+)+$",
+      "input": "1111111111111111111111111a",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 1.8288161620002938, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 21,
+      "pattern": "^(\\d+)+$",
+      "input": "1111111111111111111111111a",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006635808999817527, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 21,
+      "pattern": "^(\\d+)+$",
+      "input": "1111111111111111111111111a",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0056058410000332515, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 22,
+      "pattern": "^([0-9]+)*$",
+      "input": "9999999999999999999999999x",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005538585000067542, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 22,
+      "pattern": "^([0-9]+)*$",
+      "input": "9999999999999999999999999x",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 1.7392547509998622, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 22,
+      "pattern": "^([0-9]+)*$",
+      "input": "9999999999999999999999999x",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.0063276020000557764, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 22,
+      "pattern": "^([0-9]+)*$",
+      "input": "9999999999999999999999999x",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004880894000052649, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 23,
+      "pattern": "^(a+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005360641999686777, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 23,
+      "pattern": "^(a+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.004030070999761, 'timed_out': True}"
+    },
+    {
+      "run": 1,
+      "test_id": 23,
+      "pattern": "^(a+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.00768417099970975, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 23,
+      "pattern": "^(a+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004858883999986574, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 24,
+      "pattern": "^(a*|a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005814863000523474, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 24,
+      "pattern": "^(a*|a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0026660980001907, 'timed_out': True}"
+    },
+    {
+      "run": 1,
+      "test_id": 24,
+      "pattern": "^(a*|a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.0075143530002605985, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 24,
+      "pattern": "^(a*|a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005087119999188872, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 25,
+      "pattern": "^(aa+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.00608322500011127, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 25,
+      "pattern": "^(aa+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0029052349991616, 'timed_out': True}"
+    },
+    {
+      "run": 1,
+      "test_id": 25,
+      "pattern": "^(aa+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.0076922560001548845, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 25,
+      "pattern": "^(aa+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.006348110000544693, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 26,
+      "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
+      "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.0078057580003587645, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 26,
+      "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
+      "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.0059373009999035276, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 26,
+      "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
+      "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.005733460000556079, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 26,
+      "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
+      "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004695145999903616, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 27,
+      "pattern": "^(\\s*a+\\s*)+$",
+      "input": " a a a a a a a a a a a a a a a!",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006265756000175315, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 27,
+      "pattern": "^(\\s*a+\\s*)+$",
+      "input": " a a a a a a a a a a a a a a a!",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.011115473000245402, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 27,
+      "pattern": "^(\\s*a+\\s*)+$",
+      "input": " a a a a a a a a a a a a a a a!",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.005311521000294306, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 27,
+      "pattern": "^(\\s*a+\\s*)+$",
+      "input": " a a a a a a a a a a a a a a a!",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004933662999974331, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 28,
+      "pattern": "^(\\s+|a+)*b$",
+      "input": "a a a a a a a a a a a a a a a c",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.0060186230002727825, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 28,
+      "pattern": "^(\\s+|a+)*b$",
+      "input": "a a a a a a a a a a a a a a a c",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.00611134700011462, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 28,
+      "pattern": "^(\\s+|a+)*b$",
+      "input": "a a a a a a a a a a a a a a a c",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.005371171999286162, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 28,
+      "pattern": "^(\\s+|a+)*b$",
+      "input": "a a a a a a a a a a a a a a a c",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005227663999903598, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 29,
+      "pattern": "^(a+)?b?(a+)?$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005764327000179037, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 29,
+      "pattern": "^(a+)?b?(a+)?$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.004140228999858664, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 29,
+      "pattern": "^(a+)?b?(a+)?$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.004681281000557647, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 29,
+      "pattern": "^(a+)?b?(a+)?$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0045046609993733, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 30,
+      "pattern": "^(a+b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.007131746999220923, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 30,
+      "pattern": "^(a+b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.09991475799961336, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 30,
+      "pattern": "^(a+b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.00758038599997235, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 30,
+      "pattern": "^(a+b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005595632000222395, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 31,
+      "pattern": "^([a-zA-Z]+)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.007401761999972223, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 31,
+      "pattern": "^([a-zA-Z]+)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.003308260000267, 'timed_out': True}"
+    },
+    {
+      "run": 1,
+      "test_id": 31,
+      "pattern": "^([a-zA-Z]+)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.008041881000281137, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 31,
+      "pattern": "^([a-zA-Z]+)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0057295329997941735, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 32,
+      "pattern": "^([a-z0-9]+)+[!]$",
+      "input": "abc123abc123abc123abc123abc123?",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006843918999948073, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 32,
+      "pattern": "^([a-z0-9]+)+[!]$",
+      "input": "abc123abc123abc123abc123abc123?",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0032747780005593, 'timed_out': True}"
+    },
+    {
+      "run": 1,
+      "test_id": 32,
+      "pattern": "^([a-z0-9]+)+[!]$",
+      "input": "abc123abc123abc123abc123abc123?",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.00802068099983444, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 32,
+      "pattern": "^([a-z0-9]+)+[!]$",
+      "input": "abc123abc123abc123abc123abc123?",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004526491000433452, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 33,
+      "pattern": "^((a|b)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.00606281599993963, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 33,
+      "pattern": "^((a|b)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0029091630003677, 'timed_out': True}"
+    },
+    {
+      "run": 1,
+      "test_id": 33,
+      "pattern": "^((a|b)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.008081864999439858, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 33,
+      "pattern": "^((a|b)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005555255999752262, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 34,
+      "pattern": "^((a|ab)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.007380742999885115, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 34,
+      "pattern": "^((a|ab)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.16840501600017888, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 34,
+      "pattern": "^((a|ab)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.008174327999768138, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 34,
+      "pattern": "^((a|ab)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005625257999781752, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 35,
+      "pattern": "^(a+b)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.00792331800039392, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 35,
+      "pattern": "^(a+b)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.0062156219992175465, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 35,
+      "pattern": "^(a+b)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006497299999864481, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 35,
+      "pattern": "^(a+b)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004992654000488983, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 36,
+      "pattern": "^(ab+)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005657077000250865, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 36,
+      "pattern": "^(ab+)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.004797798999788938, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 36,
+      "pattern": "^(ab+)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.005130020999786211, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 36,
+      "pattern": "^(ab+)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005472390999784693, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 1,
+      "pattern": "^(a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006692754999676254, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 1,
+      "pattern": "^(a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.0773924180002723, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 1,
+      "pattern": "^(a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.0070483310000781785, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 1,
+      "pattern": "^(a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0055176060004669125, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 2,
+      "pattern": "^(a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006682535999971151, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 2,
+      "pattern": "^(a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.10628750500018214, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 2,
+      "pattern": "^(a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.004918235000332061, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 2,
+      "pattern": "^(a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004647136999665236, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 3,
+      "pattern": "^(a+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005415494999397197, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 3,
+      "pattern": "^(a+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.07993101899955946, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 3,
+      "pattern": "^(a+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.005312252000294393, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 3,
+      "pattern": "^(a+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004747513999973307, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 4,
+      "pattern": "^(a|a)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005942820999734977, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 4,
+      "pattern": "^(a|a)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.14910044800035394, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 4,
+      "pattern": "^(a|a)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.2678794490002474, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 4,
+      "pattern": "^(a|a)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0045477720004782896, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 5,
+      "pattern": "^(a|ab)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.0063965110002754955, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 5,
+      "pattern": "^(a|ab)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.005088412999612046, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 5,
+      "pattern": "^(a|ab)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.0050488090000726515, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 5,
+      "pattern": "^(a|ab)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004420453000420821, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 6,
+      "pattern": "(a|a|a|a|a|b)*c",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.00575896800000919, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 6,
+      "pattern": "(a|a|a|a|a|b)*c",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.004373966000457585, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 6,
+      "pattern": "(a|a|a|a|a|b)*c",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.005464636999931827, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 6,
+      "pattern": "(a|a|a|a|a|b)*c",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0047591370002919575, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 7,
+      "pattern": "^((a+)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006206474999999045, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 7,
+      "pattern": "^((a+)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0031301270000768, 'timed_out': True}"
+    },
+    {
+      "run": 2,
+      "test_id": 7,
+      "pattern": "^((a+)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.00815149600020959, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 7,
+      "pattern": "^((a+)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.00585052899987204, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 8,
+      "pattern": "^(a*)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.007763728999634623, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 8,
+      "pattern": "^(a*)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.10401869799989072, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 8,
+      "pattern": "^(a*)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.007361296999988554, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 8,
+      "pattern": "^(a*)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005488482000146178, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 9,
+      "pattern": "^(a+)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.007389819999843894, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 9,
+      "pattern": "^(a+)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.07525843500025076, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 9,
+      "pattern": "^(a+)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.0076022580005883356, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 9,
+      "pattern": "^(a+)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005493650999596866, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 10,
+      "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.00793741500001488, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 10,
+      "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0033021090002876, 'timed_out': True}"
+    },
+    {
+      "run": 2,
+      "test_id": 10,
+      "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.010063302999697044, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 10,
+      "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.006604990999221627, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 11,
+      "pattern": "^([a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.007369822999862663, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 11,
+      "pattern": "^([a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0043858359995284, 'timed_out': True}"
+    },
+    {
+      "run": 2,
+      "test_id": 11,
+      "pattern": "^([a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.008792575000370562, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 11,
+      "pattern": "^([a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005780407999736781, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 12,
+      "pattern": "^([0-9a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.007901957999820297, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 12,
+      "pattern": "^([0-9a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0041811629998847, 'timed_out': True}"
+    },
+    {
+      "run": 2,
+      "test_id": 12,
+      "pattern": "^([0-9a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.0087738399997761, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 12,
+      "pattern": "^([0-9a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.006514802000310738, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 13,
+      "pattern": "^(.*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': True, 'time': 0.007674352999856637, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 13,
+      "pattern": "^(.*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': True, 'time': 0.005220389999522013, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 13,
+      "pattern": "^(.*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': True, 'time': 0.005960313999821665, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 13,
+      "pattern": "^(.*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': True, 'time': 0.004918696000459022, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 14,
+      "pattern": "^(.+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': True, 'time': 0.0064715309999883175, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 14,
+      "pattern": "^(.+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': True, 'time': 0.004764987000271503, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 14,
+      "pattern": "^(.+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': True, 'time': 0.005987104999803705, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 14,
+      "pattern": "^(.+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': True, 'time': 0.004683254999690689, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 15,
+      "pattern": "^(.*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006932354000127816, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 15,
+      "pattern": "^(.*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.5739624859998003, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 15,
+      "pattern": "^(.*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.0060227509993637796, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 15,
+      "pattern": "^(.*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005080378000457131, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 16,
+      "pattern": "^(a*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.00663302399971144, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 16,
+      "pattern": "^(a*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0035903680000047, 'timed_out': True}"
+    },
+    {
+      "run": 2,
+      "test_id": 16,
+      "pattern": "^(a*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.007080752000547363, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 16,
+      "pattern": "^(a*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005072482999821659, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 17,
+      "pattern": "^(a?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.0064365859998360975, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 17,
+      "pattern": "^(a?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.004955104000146093, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 17,
+      "pattern": "^(a?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006078384999455011, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 17,
+      "pattern": "^(a?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004663998999603791, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 18,
+      "pattern": "^(a*?)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.00637481099965953, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 18,
+      "pattern": "^(a*?)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.168000067000321, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 18,
+      "pattern": "^(a*?)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006097681000028388, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 18,
+      "pattern": "^(a*?)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005049319999670843, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 19,
+      "pattern": "^(\\w+\\s*)+$",
+      "input": "a a a a a a a a a a a a a a a !",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.009064824999768462, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 19,
+      "pattern": "^(\\w+\\s*)+$",
+      "input": "a a a a a a a a a a a a a a a !",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.005268580000119982, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 19,
+      "pattern": "^(\\w+\\s*)+$",
+      "input": "a a a a a a a a a a a a a a a !",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006276265999986208, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 19,
+      "pattern": "^(\\w+\\s*)+$",
+      "input": "a a a a a a a a a a a a a a a !",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0065424030008216505, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 20,
+      "pattern": "^([\\w]+[\\s]*)*$",
+      "input": "test test test test test test test test test test !",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.008766326000113622, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 20,
+      "pattern": "^([\\w]+[\\s]*)*$",
+      "input": "test test test test test test test test test test !",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.003488237000056, 'timed_out': True}"
+    },
+    {
+      "run": 2,
+      "test_id": 20,
+      "pattern": "^([\\w]+[\\s]*)*$",
+      "input": "test test test test test test test test test test !",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.007194645000708988, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 20,
+      "pattern": "^([\\w]+[\\s]*)*$",
+      "input": "test test test test test test test test test test !",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.006622824000260152, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 21,
+      "pattern": "^(\\d+)+$",
+      "input": "1111111111111111111111111a",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.0066738199993778835, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 21,
+      "pattern": "^(\\d+)+$",
+      "input": "1111111111111111111111111a",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0034277539998584, 'timed_out': True}"
+    },
+    {
+      "run": 2,
+      "test_id": 21,
+      "pattern": "^(\\d+)+$",
+      "input": "1111111111111111111111111a",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.0079036819997782, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 21,
+      "pattern": "^(\\d+)+$",
+      "input": "1111111111111111111111111a",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005227693000051659, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 22,
+      "pattern": "^([0-9]+)*$",
+      "input": "9999999999999999999999999x",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.0067419469996821135, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 22,
+      "pattern": "^([0-9]+)*$",
+      "input": "9999999999999999999999999x",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0033821590004663, 'timed_out': True}"
+    },
+    {
+      "run": 2,
+      "test_id": 22,
+      "pattern": "^([0-9]+)*$",
+      "input": "9999999999999999999999999x",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006868765000035637, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 22,
+      "pattern": "^([0-9]+)*$",
+      "input": "9999999999999999999999999x",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005297042999700352, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 23,
+      "pattern": "^(a+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006806778999816743, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 23,
+      "pattern": "^(a+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0033824189995357, 'timed_out': True}"
+    },
+    {
+      "run": 2,
+      "test_id": 23,
+      "pattern": "^(a+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006969613999899593, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 23,
+      "pattern": "^(a+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005101246999402065, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 24,
+      "pattern": "^(a*|a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006677075999505178, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 24,
+      "pattern": "^(a*|a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0034579700004542, 'timed_out': True}"
+    },
+    {
+      "run": 2,
+      "test_id": 24,
+      "pattern": "^(a*|a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.007327063000047929, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 24,
+      "pattern": "^(a*|a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004998745000193594, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 25,
+      "pattern": "^(aa+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006657960000666208, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 25,
+      "pattern": "^(aa+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0037508580007852, 'timed_out': True}"
+    },
+    {
+      "run": 2,
+      "test_id": 25,
+      "pattern": "^(aa+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.007762506999824836, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 25,
+      "pattern": "^(aa+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0051486949996615294, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 26,
+      "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
+      "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.007339655999203387, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 26,
+      "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
+      "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.005602896000709734, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 26,
+      "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
+      "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.007222467000246979, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 26,
+      "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
+      "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005239334999714629, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 27,
+      "pattern": "^(\\s*a+\\s*)+$",
+      "input": " a a a a a a a a a a a a a a a!",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006932725000297069, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 27,
+      "pattern": "^(\\s*a+\\s*)+$",
+      "input": " a a a a a a a a a a a a a a a!",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.01656678500057751, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 27,
+      "pattern": "^(\\s*a+\\s*)+$",
+      "input": " a a a a a a a a a a a a a a a!",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006198039999617322, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 27,
+      "pattern": "^(\\s*a+\\s*)+$",
+      "input": " a a a a a a a a a a a a a a a!",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0051963050000267685, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 28,
+      "pattern": "^(\\s+|a+)*b$",
+      "input": "a a a a a a a a a a a a a a a c",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006669843000054243, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 28,
+      "pattern": "^(\\s+|a+)*b$",
+      "input": "a a a a a a a a a a a a a a a c",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.005407268999988446, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 28,
+      "pattern": "^(\\s+|a+)*b$",
+      "input": "a a a a a a a a a a a a a a a c",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006433490000745223, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 28,
+      "pattern": "^(\\s+|a+)*b$",
+      "input": "a a a a a a a a a a a a a a a c",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005281172999275441, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 29,
+      "pattern": "^(a+)?b?(a+)?$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006749250999746437, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 29,
+      "pattern": "^(a+)?b?(a+)?$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.005238333999841416, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 29,
+      "pattern": "^(a+)?b?(a+)?$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006271948000176053, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 29,
+      "pattern": "^(a+)?b?(a+)?$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005075078000118083, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 30,
+      "pattern": "^(a+b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006969473000026483, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 30,
+      "pattern": "^(a+b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.1634589990007953, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 30,
+      "pattern": "^(a+b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006967609999264823, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 30,
+      "pattern": "^(a+b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005263440999442537, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 31,
+      "pattern": "^([a-zA-Z]+)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.007148487999984354, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 31,
+      "pattern": "^([a-zA-Z]+)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0036799049994443, 'timed_out': True}"
+    },
+    {
+      "run": 2,
+      "test_id": 31,
+      "pattern": "^([a-zA-Z]+)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.008070252999459626, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 31,
+      "pattern": "^([a-zA-Z]+)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005302143000335491, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 32,
+      "pattern": "^([a-z0-9]+)+[!]$",
+      "input": "abc123abc123abc123abc123abc123?",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.007025328000054287, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 32,
+      "pattern": "^([a-z0-9]+)+[!]$",
+      "input": "abc123abc123abc123abc123abc123?",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.004345500999989, 'timed_out': True}"
+    },
+    {
+      "run": 2,
+      "test_id": 32,
+      "pattern": "^([a-z0-9]+)+[!]$",
+      "input": "abc123abc123abc123abc123abc123?",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.0072305719995711115, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 32,
+      "pattern": "^([a-z0-9]+)+[!]$",
+      "input": "abc123abc123abc123abc123abc123?",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.008078488999672118, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 33,
+      "pattern": "^((a|b)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006934928000191576, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 33,
+      "pattern": "^((a|b)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0107671790001405, 'timed_out': True}"
+    },
+    {
+      "run": 2,
+      "test_id": 33,
+      "pattern": "^((a|b)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.009270489999835263, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 33,
+      "pattern": "^((a|b)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.007285263999619929, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 34,
+      "pattern": "^((a|ab)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.007246552000651718, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 34,
+      "pattern": "^((a|ab)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.2576528210001925, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 34,
+      "pattern": "^((a|ab)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.007655858000362059, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 34,
+      "pattern": "^((a|ab)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0055541939991599065, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 35,
+      "pattern": "^(a+b)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.008252313999946637, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 35,
+      "pattern": "^(a+b)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.0058133989996349555, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 35,
+      "pattern": "^(a+b)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006903038999553246, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 35,
+      "pattern": "^(a+b)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005409353000686679, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 36,
+      "pattern": "^(ab+)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006945619000362058, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 36,
+      "pattern": "^(ab+)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.0053640480000467505, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 36,
+      "pattern": "^(ab+)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006645786999797565, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 36,
+      "pattern": "^(ab+)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005564864999541896, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 1,
+      "pattern": "^(a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.008026952000363963, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 1,
+      "pattern": "^(a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.1254249189996699, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 1,
+      "pattern": "^(a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006642942000326002, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 1,
+      "pattern": "^(a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005603086000519397, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 2,
+      "pattern": "^(a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.007718073999967601, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 2,
+      "pattern": "^(a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.168732158000239, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 2,
+      "pattern": "^(a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006082783999772801, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 2,
+      "pattern": "^(a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005510471999514266, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 3,
+      "pattern": "^(a+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.00707791599961638, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 3,
+      "pattern": "^(a+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.11456944400015345, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 3,
+      "pattern": "^(a+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006501116999970691, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 3,
+      "pattern": "^(a+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.00560982899969531, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 4,
+      "pattern": "^(a|a)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.007108482999683474, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 4,
+      "pattern": "^(a|a)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.2204771280003115, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 4,
+      "pattern": "^(a|a)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.5060717110000041, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 4,
+      "pattern": "^(a|a)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005666193999786628, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 5,
+      "pattern": "^(a|ab)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.007202228000096511, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 5,
+      "pattern": "^(a|ab)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.006709106000016618, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 5,
+      "pattern": "^(a|ab)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.00771896599962929, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 5,
+      "pattern": "^(a|ab)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.007745645999420958, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 6,
+      "pattern": "(a|a|a|a|a|b)*c",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.00803329400059738, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 6,
+      "pattern": "(a|a|a|a|a|b)*c",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.005489022999427107, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 6,
+      "pattern": "(a|a|a|a|a|b)*c",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006843687000582577, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 6,
+      "pattern": "(a|a|a|a|a|b)*c",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.00656080800035852, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 7,
+      "pattern": "^((a+)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.007389899999907357, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 7,
+      "pattern": "^((a+)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.003638547999799, 'timed_out': True}"
+    },
+    {
+      "run": 3,
+      "test_id": 7,
+      "pattern": "^((a+)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.008102734000203782, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 7,
+      "pattern": "^((a+)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.007017181999799504, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 8,
+      "pattern": "^(a*)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.00994473199989443, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 8,
+      "pattern": "^(a*)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.17259217199989507, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 8,
+      "pattern": "^(a*)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.00832559099944774, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 8,
+      "pattern": "^(a*)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.006927474999429251, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 9,
+      "pattern": "^(a+)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.009003259000564867, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 9,
+      "pattern": "^(a+)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.12349056999937602, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 9,
+      "pattern": "^(a+)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.007564577000266581, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 9,
+      "pattern": "^(a+)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.007223538000289409, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 10,
+      "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.009912931999679131, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 10,
+      "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0049242539998886, 'timed_out': True}"
+    },
+    {
+      "run": 3,
+      "test_id": 10,
+      "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.009397908000210009, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 10,
+      "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0087269430005108, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 11,
+      "pattern": "^([a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.009185279999655904, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 11,
+      "pattern": "^([a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.005465145999551, 'timed_out': True}"
+    },
+    {
+      "run": 3,
+      "test_id": 11,
+      "pattern": "^([a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.009780022999620996, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 11,
+      "pattern": "^([a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.008649157000036212, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 12,
+      "pattern": "^([0-9a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.012005778000457212, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 12,
+      "pattern": "^([0-9a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0049743780000426, 'timed_out': True}"
+    },
+    {
+      "run": 3,
+      "test_id": 12,
+      "pattern": "^([0-9a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.01254508799956966, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 12,
+      "pattern": "^([0-9a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.010282963999998174, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 13,
+      "pattern": "^(.*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': True, 'time': 0.009911148999890429, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 13,
+      "pattern": "^(.*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': True, 'time': 0.008830685999782872, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 13,
+      "pattern": "^(.*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': True, 'time': 0.009143451999989338, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 13,
+      "pattern": "^(.*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': True, 'time': 0.010076847999698657, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 14,
+      "pattern": "^(.+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': True, 'time': 0.009703820000140695, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 14,
+      "pattern": "^(.+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': True, 'time': 0.008147378000103345, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 14,
+      "pattern": "^(.+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': True, 'time': 0.008939790000113135, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 14,
+      "pattern": "^(.+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': True, 'time': 0.008190898999600904, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 15,
+      "pattern": "^(.*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.007826456999282527, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 15,
+      "pattern": "^(.*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.6373930039999323, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 15,
+      "pattern": "^(.*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.007680192999941937, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 15,
+      "pattern": "^(.*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.007058339000650449, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 16,
+      "pattern": "^(a*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.008939360000113084, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 16,
+      "pattern": "^(a*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.004375297000479, 'timed_out': True}"
+    },
+    {
+      "run": 3,
+      "test_id": 16,
+      "pattern": "^(a*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.010237288000098488, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 16,
+      "pattern": "^(a*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.007889655999861134, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 17,
+      "pattern": "^(a?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.01239195100060897, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 17,
+      "pattern": "^(a?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.008512309999787249, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 17,
+      "pattern": "^(a?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.009000924999782, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 17,
+      "pattern": "^(a?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.008121980000396434, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 18,
+      "pattern": "^(a*?)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.009803175999877567, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 18,
+      "pattern": "^(a*?)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.1939143059998969, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 18,
+      "pattern": "^(a*?)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.008884957999725884, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 18,
+      "pattern": "^(a*?)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.008159340000020165, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 19,
+      "pattern": "^(\\w+\\s*)+$",
+      "input": "a a a a a a a a a a a a a a a !",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.013092291999782901, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 19,
+      "pattern": "^(\\w+\\s*)+$",
+      "input": "a a a a a a a a a a a a a a a !",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.007310943000447878, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 19,
+      "pattern": "^(\\w+\\s*)+$",
+      "input": "a a a a a a a a a a a a a a a !",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.009718798999529099, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 19,
+      "pattern": "^(\\w+\\s*)+$",
+      "input": "a a a a a a a a a a a a a a a !",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.008367428999918047, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 20,
+      "pattern": "^([\\w]+[\\s]*)*$",
+      "input": "test test test test test test test test test test !",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.009578165999300836, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 20,
+      "pattern": "^([\\w]+[\\s]*)*$",
+      "input": "test test test test test test test test test test !",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0066496230001576, 'timed_out': True}"
+    },
+    {
+      "run": 3,
+      "test_id": 20,
+      "pattern": "^([\\w]+[\\s]*)*$",
+      "input": "test test test test test test test test test test !",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.012997634999919683, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 20,
+      "pattern": "^([\\w]+[\\s]*)*$",
+      "input": "test test test test test test test test test test !",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.015521839000030013, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 21,
+      "pattern": "^(\\d+)+$",
+      "input": "1111111111111111111111111a",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.011120381000182533, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 21,
+      "pattern": "^(\\d+)+$",
+      "input": "1111111111111111111111111a",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0063496920001853, 'timed_out': True}"
+    },
+    {
+      "run": 3,
+      "test_id": 21,
+      "pattern": "^(\\d+)+$",
+      "input": "1111111111111111111111111a",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.017861017000541324, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 21,
+      "pattern": "^(\\d+)+$",
+      "input": "1111111111111111111111111a",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.009434996999516443, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 22,
+      "pattern": "^([0-9]+)*$",
+      "input": "9999999999999999999999999x",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.014017493999745056, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 22,
+      "pattern": "^([0-9]+)*$",
+      "input": "9999999999999999999999999x",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0060645280000244, 'timed_out': True}"
+    },
+    {
+      "run": 3,
+      "test_id": 22,
+      "pattern": "^([0-9]+)*$",
+      "input": "9999999999999999999999999x",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.012184874000013224, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 22,
+      "pattern": "^([0-9]+)*$",
+      "input": "9999999999999999999999999x",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.010795303000122658, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 23,
+      "pattern": "^(a+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.01394442600030743, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 23,
+      "pattern": "^(a+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0091269399999874, 'timed_out': True}"
+    },
+    {
+      "run": 3,
+      "test_id": 23,
+      "pattern": "^(a+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.015260821000083524, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 23,
+      "pattern": "^(a+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0106355040006747, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 24,
+      "pattern": "^(a*|a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.014464500000030966, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 24,
+      "pattern": "^(a*|a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0071270260004894, 'timed_out': True}"
+    },
+    {
+      "run": 3,
+      "test_id": 24,
+      "pattern": "^(a*|a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.01972947300055239, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 24,
+      "pattern": "^(a*|a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.009616798000024573, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 25,
+      "pattern": "^(aa+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.012986003000150959, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 25,
+      "pattern": "^(aa+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0094194270004664, 'timed_out': True}"
+    },
+    {
+      "run": 3,
+      "test_id": 25,
+      "pattern": "^(aa+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.014379610999640136, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 25,
+      "pattern": "^(aa+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.010578137000265997, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 26,
+      "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
+      "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.013841723999576061, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 26,
+      "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
+      "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.011728770000445365, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 26,
+      "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
+      "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.016275658999802545, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 26,
+      "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
+      "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.010883539000133169, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 27,
+      "pattern": "^(\\s*a+\\s*)+$",
+      "input": " a a a a a a a a a a a a a a a!",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.01229838600011135, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 27,
+      "pattern": "^(\\s*a+\\s*)+$",
+      "input": " a a a a a a a a a a a a a a a!",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.03761344199938321, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 27,
+      "pattern": "^(\\s*a+\\s*)+$",
+      "input": " a a a a a a a a a a a a a a a!",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.010824197000147251, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 27,
+      "pattern": "^(\\s*a+\\s*)+$",
+      "input": " a a a a a a a a a a a a a a a!",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.014702184999805468, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 28,
+      "pattern": "^(\\s+|a+)*b$",
+      "input": "a a a a a a a a a a a a a a a c",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.011886736000633391, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 28,
+      "pattern": "^(\\s+|a+)*b$",
+      "input": "a a a a a a a a a a a a a a a c",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.010840246999578085, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 28,
+      "pattern": "^(\\s+|a+)*b$",
+      "input": "a a a a a a a a a a a a a a a c",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.012859336000474286, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 28,
+      "pattern": "^(\\s+|a+)*b$",
+      "input": "a a a a a a a a a a a a a a a c",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.009583375000147498, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 29,
+      "pattern": "^(a+)?b?(a+)?$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.01282920900030149, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 29,
+      "pattern": "^(a+)?b?(a+)?$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.010852410000552482, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 29,
+      "pattern": "^(a+)?b?(a+)?$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.011640924999483104, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 29,
+      "pattern": "^(a+)?b?(a+)?$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.008319569999912346, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 30,
+      "pattern": "^(a+b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.009730881999530538, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 30,
+      "pattern": "^(a+b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.17463618800047698, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 30,
+      "pattern": "^(a+b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.013819292999869504, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 30,
+      "pattern": "^(a+b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.012652219000301557, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 31,
+      "pattern": "^([a-zA-Z]+)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.017121782999311108, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 31,
+      "pattern": "^([a-zA-Z]+)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.008780811000179, 'timed_out': True}"
+    },
+    {
+      "run": 3,
+      "test_id": 31,
+      "pattern": "^([a-zA-Z]+)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.014438721999795234, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 31,
+      "pattern": "^([a-zA-Z]+)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.013639325999974972, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 32,
+      "pattern": "^([a-z0-9]+)+[!]$",
+      "input": "abc123abc123abc123abc123abc123?",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.01869822299977386, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 32,
+      "pattern": "^([a-z0-9]+)+[!]$",
+      "input": "abc123abc123abc123abc123abc123?",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0067747479997706, 'timed_out': True}"
+    },
+    {
+      "run": 3,
+      "test_id": 32,
+      "pattern": "^([a-z0-9]+)+[!]$",
+      "input": "abc123abc123abc123abc123abc123?",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.016764254000008805, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 32,
+      "pattern": "^([a-z0-9]+)+[!]$",
+      "input": "abc123abc123abc123abc123abc123?",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.011272515999735333, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 33,
+      "pattern": "^((a|b)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.013846252999428543, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 33,
+      "pattern": "^((a|b)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0092630240005747, 'timed_out': True}"
+    },
+    {
+      "run": 3,
+      "test_id": 33,
+      "pattern": "^((a|b)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.016822172000502178, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 33,
+      "pattern": "^((a|b)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.01265246900038619, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 34,
+      "pattern": "^((a|ab)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.011632259000180056, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 34,
+      "pattern": "^((a|ab)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.46856729200044356, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 34,
+      "pattern": "^((a|ab)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.01661660799982201, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 34,
+      "pattern": "^((a|ab)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.010800233000736625, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 35,
+      "pattern": "^(a+b)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.012437476999366481, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 35,
+      "pattern": "^(a+b)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.010890892000134045, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 35,
+      "pattern": "^(a+b)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.010763733999738179, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 35,
+      "pattern": "^(a+b)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.011646024999208748, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 36,
+      "pattern": "^(ab+)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.012363949000246066, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 36,
+      "pattern": "^(ab+)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.01088119399992138, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 36,
+      "pattern": "^(ab+)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.01392312700045295, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 36,
+      "pattern": "^(ab+)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.011808348999693408, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 1,
+      "pattern": "^(a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.014632925000114483, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 1,
+      "pattern": "^(a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.1906599650001226, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 1,
+      "pattern": "^(a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.013807309999720019, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 1,
+      "pattern": "^(a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.010399091999715893, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 2,
+      "pattern": "^(a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.012541542000690242, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 2,
+      "pattern": "^(a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.24200792200008436, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 2,
+      "pattern": "^(a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.013456223000503087, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 2,
+      "pattern": "^(a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.009659197000473796, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 3,
+      "pattern": "^(a+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.010586722999505582, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 3,
+      "pattern": "^(a+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.14369101400006912, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 3,
+      "pattern": "^(a+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.01263483599996107, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 3,
+      "pattern": "^(a+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.010499729999537522, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 4,
+      "pattern": "^(a|a)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.012473422999391914, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 4,
+      "pattern": "^(a|a)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.39363958699959767, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 4,
+      "pattern": "^(a|a)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.6828827680001268, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 4,
+      "pattern": "^(a|a)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.014498694000394607, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 5,
+      "pattern": "^(a|ab)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.013113241000610287, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 5,
+      "pattern": "^(a|ab)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.010586291999970854, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 5,
+      "pattern": "^(a|ab)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.010638550000294344, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 5,
+      "pattern": "^(a|ab)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.009943498999746225, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 6,
+      "pattern": "(a|a|a|a|a|b)*c",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.016153540999766847, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 6,
+      "pattern": "(a|a|a|a|a|b)*c",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.013229038000645232, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 6,
+      "pattern": "(a|a|a|a|a|b)*c",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.012263431000064884, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 6,
+      "pattern": "(a|a|a|a|a|b)*c",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.011189390999788884, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 7,
+      "pattern": "^((a+)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.015149933000429883, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 7,
+      "pattern": "^((a+)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0125701030001437, 'timed_out': True}"
+    },
+    {
+      "run": 4,
+      "test_id": 7,
+      "pattern": "^((a+)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.016016423999644758, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 7,
+      "pattern": "^((a+)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.00973072999931901, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 8,
+      "pattern": "^(a*)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.014927045999684196, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 8,
+      "pattern": "^(a*)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.2849475520006308, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 8,
+      "pattern": "^(a*)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.011024271999303892, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 8,
+      "pattern": "^(a*)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.012906553999528114, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 9,
+      "pattern": "^(a+)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.013720908999857784, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 9,
+      "pattern": "^(a+)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.23065433299962024, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 9,
+      "pattern": "^(a+)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.010349248000238731, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 9,
+      "pattern": "^(a+)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.010834676999365911, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 10,
+      "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.016855523999765865, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 10,
+      "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0072156229998654, 'timed_out': True}"
+    },
+    {
+      "run": 4,
+      "test_id": 10,
+      "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.017815892000726308, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 10,
+      "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.012050793000526028, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 11,
+      "pattern": "^([a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.013981386000523344, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 11,
+      "pattern": "^([a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0083493849997467, 'timed_out': True}"
+    },
+    {
+      "run": 4,
+      "test_id": 11,
+      "pattern": "^([a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.016741951999392768, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 11,
+      "pattern": "^([a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.013253985000119428, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 12,
+      "pattern": "^([0-9a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.014427891999730491, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 12,
+      "pattern": "^([0-9a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.00842105799984, 'timed_out': True}"
+    },
+    {
+      "run": 4,
+      "test_id": 12,
+      "pattern": "^([0-9a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.021003286999984994, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 12,
+      "pattern": "^([0-9a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.012656836999667576, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 13,
+      "pattern": "^(.*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': True, 'time': 0.01370505900013086, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 13,
+      "pattern": "^(.*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': True, 'time': 0.0130259780007691, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 13,
+      "pattern": "^(.*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': True, 'time': 0.012272678000044834, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 13,
+      "pattern": "^(.*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': True, 'time': 0.013548716000514105, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 14,
+      "pattern": "^(.+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': True, 'time': 0.014563686000656162, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 14,
+      "pattern": "^(.+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': True, 'time': 0.01368900899979053, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 14,
+      "pattern": "^(.+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': True, 'time': 0.012848745999690436, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 14,
+      "pattern": "^(.+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': True, 'time': 0.009701815999505925, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 15,
+      "pattern": "^(.*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.01562340899999981, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 15,
+      "pattern": "^(.*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.8758767110002736, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 15,
+      "pattern": "^(.*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.01385245399978885, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 15,
+      "pattern": "^(.*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.01293869400069525, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 16,
+      "pattern": "^(a*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.012349802000244381, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 16,
+      "pattern": "^(a*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.009875230000034, 'timed_out': True}"
+    },
+    {
+      "run": 4,
+      "test_id": 16,
+      "pattern": "^(a*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.021406171999842627, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 16,
+      "pattern": "^(a*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.017440370000258554, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 17,
+      "pattern": "^(a?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.01559358299982705, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 17,
+      "pattern": "^(a?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.013636130000122648, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 17,
+      "pattern": "^(a?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.02079777299968555, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 17,
+      "pattern": "^(a?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.015515406999838888, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 18,
+      "pattern": "^(a*?)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.015081735999956436, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 18,
+      "pattern": "^(a*?)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.22313567199944373, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 18,
+      "pattern": "^(a*?)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.016612649999842688, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 18,
+      "pattern": "^(a*?)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.013345264999770734, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 19,
+      "pattern": "^(\\w+\\s*)+$",
+      "input": "a a a a a a a a a a a a a a a !",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.024808227999528754, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 19,
+      "pattern": "^(\\w+\\s*)+$",
+      "input": "a a a a a a a a a a a a a a a !",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.016455085999950825, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 19,
+      "pattern": "^(\\w+\\s*)+$",
+      "input": "a a a a a a a a a a a a a a a !",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.016984496000077343, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 19,
+      "pattern": "^(\\w+\\s*)+$",
+      "input": "a a a a a a a a a a a a a a a !",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.017346142999485892, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 20,
+      "pattern": "^([\\w]+[\\s]*)*$",
+      "input": "test test test test test test test test test test !",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.020875047999652452, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 20,
+      "pattern": "^([\\w]+[\\s]*)*$",
+      "input": "test test test test test test test test test test !",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.011538533000021, 'timed_out': True}"
+    },
+    {
+      "run": 4,
+      "test_id": 20,
+      "pattern": "^([\\w]+[\\s]*)*$",
+      "input": "test test test test test test test test test test !",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.012756393000017852, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 20,
+      "pattern": "^([\\w]+[\\s]*)*$",
+      "input": "test test test test test test test test test test !",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.016917380000450066, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 21,
+      "pattern": "^(\\d+)+$",
+      "input": "1111111111111111111111111a",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.015810149000571982, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 21,
+      "pattern": "^(\\d+)+$",
+      "input": "1111111111111111111111111a",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0128317629996673, 'timed_out': True}"
+    },
+    {
+      "run": 4,
+      "test_id": 21,
+      "pattern": "^(\\d+)+$",
+      "input": "1111111111111111111111111a",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.016769394000220927, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 21,
+      "pattern": "^(\\d+)+$",
+      "input": "1111111111111111111111111a",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.011366771999746561, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 22,
+      "pattern": "^([0-9]+)*$",
+      "input": "9999999999999999999999999x",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.015617817999554973, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 22,
+      "pattern": "^([0-9]+)*$",
+      "input": "9999999999999999999999999x",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0126798989995223, 'timed_out': True}"
+    },
+    {
+      "run": 4,
+      "test_id": 22,
+      "pattern": "^([0-9]+)*$",
+      "input": "9999999999999999999999999x",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.023451259000466962, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 22,
+      "pattern": "^([0-9]+)*$",
+      "input": "9999999999999999999999999x",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.013193260999287304, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 23,
+      "pattern": "^(a+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.013697614999728103, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 23,
+      "pattern": "^(a+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.009460023000429, 'timed_out': True}"
+    },
+    {
+      "run": 4,
+      "test_id": 23,
+      "pattern": "^(a+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.020807150000109687, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 23,
+      "pattern": "^(a+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.01300198300032207, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 24,
+      "pattern": "^(a*|a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.013433951000479283, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 24,
+      "pattern": "^(a*|a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.007734292999885, 'timed_out': True}"
+    },
+    {
+      "run": 4,
+      "test_id": 24,
+      "pattern": "^(a*|a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.016887594999388966, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 24,
+      "pattern": "^(a*|a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.013052307000180008, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 25,
+      "pattern": "^(aa+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.013341629000024113, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 25,
+      "pattern": "^(aa+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.009785811999791, 'timed_out': True}"
+    },
+    {
+      "run": 4,
+      "test_id": 25,
+      "pattern": "^(aa+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.02298158899975533, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 25,
+      "pattern": "^(aa+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.01480481700036762, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 26,
+      "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
+      "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.01480271300079039, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 26,
+      "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
+      "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.011752274000173202, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 26,
+      "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
+      "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.013454779999847233, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 26,
+      "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
+      "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.010078772999804642, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 27,
+      "pattern": "^(\\s*a+\\s*)+$",
+      "input": " a a a a a a a a a a a a a a a!",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.015908241999568418, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 27,
+      "pattern": "^(\\s*a+\\s*)+$",
+      "input": " a a a a a a a a a a a a a a a!",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.03534174099968368, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 27,
+      "pattern": "^(\\s*a+\\s*)+$",
+      "input": " a a a a a a a a a a a a a a a!",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.014869147000354133, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 27,
+      "pattern": "^(\\s*a+\\s*)+$",
+      "input": " a a a a a a a a a a a a a a a!",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.010545544999331469, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 28,
+      "pattern": "^(\\s+|a+)*b$",
+      "input": "a a a a a a a a a a a a a a a c",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.013093243000184884, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 28,
+      "pattern": "^(\\s+|a+)*b$",
+      "input": "a a a a a a a a a a a a a a a c",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.012567929999931948, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 28,
+      "pattern": "^(\\s+|a+)*b$",
+      "input": "a a a a a a a a a a a a a a a c",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.014393587000085972, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 28,
+      "pattern": "^(\\s+|a+)*b$",
+      "input": "a a a a a a a a a a a a a a a c",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.011400866000258247, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 29,
+      "pattern": "^(a+)?b?(a+)?$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.01320698600011383, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 29,
+      "pattern": "^(a+)?b?(a+)?$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.010975449999932607, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 29,
+      "pattern": "^(a+)?b?(a+)?$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.017153021000012814, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 29,
+      "pattern": "^(a+)?b?(a+)?$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.012607595000190486, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 30,
+      "pattern": "^(a+b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.011718421000296075, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 30,
+      "pattern": "^(a+b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.33982061500046257, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 30,
+      "pattern": "^(a+b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.014693117999740934, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 30,
+      "pattern": "^(a+b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.013643322999996599, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 31,
+      "pattern": "^([a-zA-Z]+)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.013011269999879005, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 31,
+      "pattern": "^([a-zA-Z]+)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0076491139998325, 'timed_out': True}"
+    },
+    {
+      "run": 4,
+      "test_id": 31,
+      "pattern": "^([a-zA-Z]+)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.025030233000506996, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 31,
+      "pattern": "^([a-zA-Z]+)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.013406631000179914, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 32,
+      "pattern": "^([a-z0-9]+)+[!]$",
+      "input": "abc123abc123abc123abc123abc123?",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.014423573999920336, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 32,
+      "pattern": "^([a-z0-9]+)+[!]$",
+      "input": "abc123abc123abc123abc123abc123?",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0117632940000476, 'timed_out': True}"
+    },
+    {
+      "run": 4,
+      "test_id": 32,
+      "pattern": "^([a-z0-9]+)+[!]$",
+      "input": "abc123abc123abc123abc123abc123?",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.01891053999952419, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 32,
+      "pattern": "^([a-z0-9]+)+[!]$",
+      "input": "abc123abc123abc123abc123abc123?",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.016922611000154575, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 33,
+      "pattern": "^((a|b)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.015583193000566098, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 33,
+      "pattern": "^((a|b)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0097395259999757, 'timed_out': True}"
+    },
+    {
+      "run": 4,
+      "test_id": 33,
+      "pattern": "^((a|b)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.021442959999149025, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 33,
+      "pattern": "^((a|b)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.01102437099962117, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 34,
+      "pattern": "^((a|ab)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.01812240599974757, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 34,
+      "pattern": "^((a|ab)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.5745187069996973, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 34,
+      "pattern": "^((a|ab)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.01592905100005737, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 34,
+      "pattern": "^((a|ab)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.015546294000159833, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 35,
+      "pattern": "^(a+b)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.017867919999844162, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 35,
+      "pattern": "^(a+b)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.010829736999767192, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 35,
+      "pattern": "^(a+b)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.017822624000473297, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 35,
+      "pattern": "^(a+b)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.011948231000133092, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 36,
+      "pattern": "^(ab+)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.019098262000625255, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 36,
+      "pattern": "^(ab+)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.015225764000206254, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 36,
+      "pattern": "^(ab+)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.016600437000306556, 'timed_out': False}"
+    },
+    {
+      "run": 4,
+      "test_id": 36,
+      "pattern": "^(ab+)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.015739004999886674, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 1,
+      "pattern": "^(a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.015895156999249593, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 1,
+      "pattern": "^(a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.22052979599993705, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 1,
+      "pattern": "^(a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.017592002999663237, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 1,
+      "pattern": "^(a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.01376866800001153, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 2,
+      "pattern": "^(a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.013468686000123853, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 2,
+      "pattern": "^(a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.24182573100006266, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 2,
+      "pattern": "^(a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.012391661000037857, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 2,
+      "pattern": "^(a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.015444614999978512, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 3,
+      "pattern": "^(a+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.015635721999387897, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 3,
+      "pattern": "^(a+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.21201466000002256, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 3,
+      "pattern": "^(a+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.016793499000414158, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 3,
+      "pattern": "^(a+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.01119142399966222, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 4,
+      "pattern": "^(a|a)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.012953793000633596, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 4,
+      "pattern": "^(a|a)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.3511762380003347, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 4,
+      "pattern": "^(a|a)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.7414006420003716, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 4,
+      "pattern": "^(a|a)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.013633654999466671, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 5,
+      "pattern": "^(a|ab)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.016248437999820453, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 5,
+      "pattern": "^(a|ab)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.012781980999534426, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 5,
+      "pattern": "^(a|ab)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.01404425300006551, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 5,
+      "pattern": "^(a|ab)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.013934327999777452, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 6,
+      "pattern": "(a|a|a|a|a|b)*c",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.013685392000297725, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 6,
+      "pattern": "(a|a|a|a|a|b)*c",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.015033765999760362, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 6,
+      "pattern": "(a|a|a|a|a|b)*c",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.018855358000109845, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 6,
+      "pattern": "(a|a|a|a|a|b)*c",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.009712706999380316, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 7,
+      "pattern": "^((a+)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.017429759000151535, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 7,
+      "pattern": "^((a+)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0077328509996732, 'timed_out': True}"
+    },
+    {
+      "run": 5,
+      "test_id": 7,
+      "pattern": "^((a+)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.01973408199955884, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 7,
+      "pattern": "^((a+)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.01339979700060212, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 8,
+      "pattern": "^(a*)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.0187579450002886, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 8,
+      "pattern": "^(a*)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.32716903900018224, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 8,
+      "pattern": "^(a*)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.015536867000264465, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 8,
+      "pattern": "^(a*)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.014170008999826678, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 9,
+      "pattern": "^(a+)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.018113789000381075, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 9,
+      "pattern": "^(a+)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.23852591500053677, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 9,
+      "pattern": "^(a+)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.018490814999495342, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 9,
+      "pattern": "^(a+)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.013842575999660767, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 10,
+      "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.01801780999994662, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 10,
+      "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.009235964000254, 'timed_out': True}"
+    },
+    {
+      "run": 5,
+      "test_id": 10,
+      "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.021192260999669088, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 10,
+      "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.013644225000462029, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 11,
+      "pattern": "^([a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.014532186999531405, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 11,
+      "pattern": "^([a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0089611889998196, 'timed_out': True}"
+    },
+    {
+      "run": 5,
+      "test_id": 11,
+      "pattern": "^([a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.018727097000009962, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 11,
+      "pattern": "^([a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.014109124999777123, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 12,
+      "pattern": "^([0-9a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.015717014000074414, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 12,
+      "pattern": "^([0-9a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.01074237299963, 'timed_out': True}"
+    },
+    {
+      "run": 5,
+      "test_id": 12,
+      "pattern": "^([0-9a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.022584757000004174, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 12,
+      "pattern": "^([0-9a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.016794730000583513, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 13,
+      "pattern": "^(.*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': True, 'time': 0.01729705100024148, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 13,
+      "pattern": "^(.*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': True, 'time': 0.01683811200018681, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 13,
+      "pattern": "^(.*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': True, 'time': 0.023025803000564338, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 13,
+      "pattern": "^(.*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': True, 'time': 0.012437998000677908, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 14,
+      "pattern": "^(.+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': True, 'time': 0.019886477000000014, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 14,
+      "pattern": "^(.+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': True, 'time': 0.014356478000081552, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 14,
+      "pattern": "^(.+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': True, 'time': 0.014101390000178071, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 14,
+      "pattern": "^(.+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': True, 'time': 0.012592145999406057, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 15,
+      "pattern": "^(.*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.016356439999981376, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 15,
+      "pattern": "^(.*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 1.2350234139994427, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 15,
+      "pattern": "^(.*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.013858675999472325, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 15,
+      "pattern": "^(.*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.014383378000275115, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 16,
+      "pattern": "^(a*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.015328876999774366, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 16,
+      "pattern": "^(a*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0091757710006277, 'timed_out': True}"
+    },
+    {
+      "run": 5,
+      "test_id": 16,
+      "pattern": "^(a*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.01931340499959333, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 16,
+      "pattern": "^(a*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.01156026400076371, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 17,
+      "pattern": "^(a?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.014440906000345421, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 17,
+      "pattern": "^(a?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.012638442000024952, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 17,
+      "pattern": "^(a?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.01574234199961211, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 17,
+      "pattern": "^(a?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.011836591000246699, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 18,
+      "pattern": "^(a*?)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.015031812000415812, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 18,
+      "pattern": "^(a*?)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.37291837700013275, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 18,
+      "pattern": "^(a*?)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.01740879000044515, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 18,
+      "pattern": "^(a*?)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.014478876999419299, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 19,
+      "pattern": "^(\\w+\\s*)+$",
+      "input": "a a a a a a a a a a a a a a a !",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.02418405000025814, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 19,
+      "pattern": "^(\\w+\\s*)+$",
+      "input": "a a a a a a a a a a a a a a a !",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.011630656999841449, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 19,
+      "pattern": "^(\\w+\\s*)+$",
+      "input": "a a a a a a a a a a a a a a a !",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.015828912999495515, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 19,
+      "pattern": "^(\\w+\\s*)+$",
+      "input": "a a a a a a a a a a a a a a a !",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.017707909999444382, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 20,
+      "pattern": "^([\\w]+[\\s]*)*$",
+      "input": "test test test test test test test test test test !",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.02055504799955088, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 20,
+      "pattern": "^([\\w]+[\\s]*)*$",
+      "input": "test test test test test test test test test test !",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.012240085000485, 'timed_out': True}"
+    },
+    {
+      "run": 5,
+      "test_id": 20,
+      "pattern": "^([\\w]+[\\s]*)*$",
+      "input": "test test test test test test test test test test !",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.018079624999700172, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 20,
+      "pattern": "^([\\w]+[\\s]*)*$",
+      "input": "test test test test test test test test test test !",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.020618487000319874, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 21,
+      "pattern": "^(\\d+)+$",
+      "input": "1111111111111111111111111a",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.018074857000101474, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 21,
+      "pattern": "^(\\d+)+$",
+      "input": "1111111111111111111111111a",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0091981620007573, 'timed_out': True}"
+    },
+    {
+      "run": 5,
+      "test_id": 21,
+      "pattern": "^(\\d+)+$",
+      "input": "1111111111111111111111111a",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.017225325999788765, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 21,
+      "pattern": "^(\\d+)+$",
+      "input": "1111111111111111111111111a",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.014036919999853126, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 22,
+      "pattern": "^([0-9]+)*$",
+      "input": "9999999999999999999999999x",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.013738069999817526, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 22,
+      "pattern": "^([0-9]+)*$",
+      "input": "9999999999999999999999999x",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.011222862000068, 'timed_out': True}"
+    },
+    {
+      "run": 5,
+      "test_id": 22,
+      "pattern": "^([0-9]+)*$",
+      "input": "9999999999999999999999999x",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.02423037700009445, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 22,
+      "pattern": "^([0-9]+)*$",
+      "input": "9999999999999999999999999x",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.021677429000192205, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 23,
+      "pattern": "^(a+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.02572765900004015, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 23,
+      "pattern": "^(a+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0128621399999247, 'timed_out': True}"
+    },
+    {
+      "run": 5,
+      "test_id": 23,
+      "pattern": "^(a+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.029824554999322572, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 23,
+      "pattern": "^(a+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.014387765999344992, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 24,
+      "pattern": "^(a*|a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.027602868000030867, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 24,
+      "pattern": "^(a*|a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0103386870005124, 'timed_out': True}"
+    },
+    {
+      "run": 5,
+      "test_id": 24,
+      "pattern": "^(a*|a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.024845367000125407, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 24,
+      "pattern": "^(a*|a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0295895669996753, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 25,
+      "pattern": "^(aa+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaB",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.022988802999861946, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 25,
+      "pattern": "^(aa+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaB",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0105046480002784, 'timed_out': True}"
+    },
+    {
+      "run": 5,
+      "test_id": 25,
+      "pattern": "^(aa+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaB",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.025706419000016467, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 25,
+      "pattern": "^(aa+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaB",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.013870688000679365, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 26,
+      "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
+      "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.015550121999694966, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 26,
+      "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
+      "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.016845746999933908, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 26,
+      "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
+      "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.020849749999797496, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 26,
+      "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
+      "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.016830598000524333, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 27,
+      "pattern": "^(\\s*a+\\s*)+$",
+      "input": " a a a a a a a a a a a a a a a!",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.02011306100030197, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 27,
+      "pattern": "^(\\s*a+\\s*)+$",
+      "input": " a a a a a a a a a a a a a a a!",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.03662048399928608, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 27,
+      "pattern": "^(\\s*a+\\s*)+$",
+      "input": " a a a a a a a a a a a a a a a!",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.018618103000335395, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 27,
+      "pattern": "^(\\s*a+\\s*)+$",
+      "input": " a a a a a a a a a a a a a a a!",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.01462536100007128, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 28,
+      "pattern": "^(\\s+|a+)*b$",
+      "input": "a a a a a a a a a a a a a a a c",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.017666763000306673, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 28,
+      "pattern": "^(\\s+|a+)*b$",
+      "input": "a a a a a a a a a a a a a a a c",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.015424777999214712, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 28,
+      "pattern": "^(\\s+|a+)*b$",
+      "input": "a a a a a a a a a a a a a a a c",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.018600090000290948, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 28,
+      "pattern": "^(\\s+|a+)*b$",
+      "input": "a a a a a a a a a a a a a a a c",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.01578127399989171, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 29,
+      "pattern": "^(a+)?b?(a+)?$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.022712496000167448, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 29,
+      "pattern": "^(a+)?b?(a+)?$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.01547803700032091, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 29,
+      "pattern": "^(a+)?b?(a+)?$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.017540415999974357, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 29,
+      "pattern": "^(a+)?b?(a+)?$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.010804981000546832, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 30,
+      "pattern": "^(a+b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.016004461999727937, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 30,
+      "pattern": "^(a+b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.349529013999927, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 30,
+      "pattern": "^(a+b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.018728940999608312, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 30,
+      "pattern": "^(a+b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.018838216000403918, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 31,
+      "pattern": "^([a-zA-Z]+)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.017618261999814422, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 31,
+      "pattern": "^([a-zA-Z]+)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.009729065999636, 'timed_out': True}"
+    },
+    {
+      "run": 5,
+      "test_id": 31,
+      "pattern": "^([a-zA-Z]+)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.023309963999963657, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 31,
+      "pattern": "^([a-zA-Z]+)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.016738504999921133, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 32,
+      "pattern": "^([a-z0-9]+)+[!]$",
+      "input": "abc123abc123abc123abc123abc123?",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.01650490800057014, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 32,
+      "pattern": "^([a-z0-9]+)+[!]$",
+      "input": "abc123abc123abc123abc123abc123?",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0118863030002103, 'timed_out': True}"
+    },
+    {
+      "run": 5,
+      "test_id": 32,
+      "pattern": "^([a-z0-9]+)+[!]$",
+      "input": "abc123abc123abc123abc123abc123?",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.02864069100087363, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 32,
+      "pattern": "^([a-z0-9]+)+[!]$",
+      "input": "abc123abc123abc123abc123abc123?",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.015638627000043925, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 33,
+      "pattern": "^((a|b)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.023086434999640915, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 33,
+      "pattern": "^((a|b)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0137031140002364, 'timed_out': True}"
+    },
+    {
+      "run": 5,
+      "test_id": 33,
+      "pattern": "^((a|b)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.02501830199980759, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 33,
+      "pattern": "^((a|b)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.016677001000061864, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 34,
+      "pattern": "^((a|ab)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.01785721900068893, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 34,
+      "pattern": "^((a|ab)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.5027816229994642, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 34,
+      "pattern": "^((a|ab)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.022406713000236778, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 34,
+      "pattern": "^((a|ab)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaad",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.015486182000131521, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 35,
+      "pattern": "^(a+b)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.02946451200023148, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 35,
+      "pattern": "^(a+b)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.01465567800005374, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 35,
+      "pattern": "^(a+b)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.018055739999908837, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 35,
+      "pattern": "^(a+b)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.014476311999715108, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 36,
+      "pattern": "^(ab+)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Rure",
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.01850048300002527, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 36,
+      "pattern": "^(ab+)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Re",
+      "result": "{'library': 'Re', 'result': False, 'time': 0.01465142899996863, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 36,
+      "pattern": "^(ab+)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Regex",
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.01483539400032896, 'timed_out': False}"
+    },
+    {
+      "run": 5,
+      "test_id": 36,
+      "pattern": "^(ab+)+c$",
+      "input": "abababababababababababababababd",
+      "library": "Pyre2",
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.013583971999651112, 'timed_out': False}"
+    }
+  ]
+}
