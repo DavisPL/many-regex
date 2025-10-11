@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "timestamp": "2025-10-11T15:06:06.513371",
+    "timestamp": "2025-10-11T16:51:24.281358",
     "total_runs": 3,
     "total_tests": 36,
     "total_libraries": 4,
@@ -13,37 +13,37 @@
   },
   "summary_stats": {
     "Rure": {
-      "mean_time": 0.008301913546128399,
-      "median_time": 0.007253174499965098,
-      "min_time": 0.0031743199997436022,
-      "max_time": 0.016923471999689355,
+      "mean_time": 0.007352243935159735,
+      "median_time": 0.0062092069999835076,
+      "min_time": 0.00267295000003287,
+      "max_time": 0.02072920000000522,
       "timeout_count": 0,
       "successful_count": 108,
       "total_count": 108
     },
     "Re": {
-      "mean_time": 0.17245405047152806,
-      "median_time": 0.02713488249992224,
-      "min_time": 0.0036496600005193613,
-      "max_time": 1.8813342489993374,
-      "timeout_count": 38,
-      "successful_count": 70,
+      "mean_time": 0.15565532865216286,
+      "median_time": 0.01577148899968961,
+      "min_time": 0.0021627440000884235,
+      "max_time": 1.8432223039999371,
+      "timeout_count": 39,
+      "successful_count": 69,
       "total_count": 108
     },
     "Regex": {
-      "mean_time": 0.01695548597220935,
-      "median_time": 0.007596250999085896,
-      "min_time": 0.0037398490003397455,
-      "max_time": 0.5152941800006374,
+      "mean_time": 0.016141382527810794,
+      "median_time": 0.006170409000105792,
+      "min_time": 0.002439291999962734,
+      "max_time": 0.5186642419998861,
       "timeout_count": 0,
       "successful_count": 108,
       "total_count": 108
     },
     "Pyre2": {
-      "mean_time": 0.006534938481544722,
-      "median_time": 0.005574236999564164,
-      "min_time": 0.002869380001357058,
-      "max_time": 0.013727510000535403,
+      "mean_time": 0.005961956620357914,
+      "median_time": 0.004869095499998366,
+      "min_time": 0.001906793999751244,
+      "max_time": 0.020535587999802374,
       "timeout_count": 0,
       "successful_count": 108,
       "total_count": 108
@@ -56,7 +56,7 @@
       "pattern": "^(a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.009711805998449563, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005464079999910609, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -64,7 +64,7 @@
       "pattern": "^(a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.04358919599872024, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.04359128799978862, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -72,7 +72,7 @@
       "pattern": "^(a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.006792352000047686, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.0032342320000680047, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -80,7 +80,7 @@
       "pattern": "^(a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.007331992001127219, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.002080690000184404, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -88,7 +88,7 @@
       "pattern": "^(a*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.010241926998787676, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.003219093000097928, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -96,7 +96,7 @@
       "pattern": "^(a*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.05832513399946038, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.05894068599991442, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -104,7 +104,7 @@
       "pattern": "^(a*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.008001154001249233, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.003223992000130238, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -112,7 +112,7 @@
       "pattern": "^(a*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005966557000647299, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.002413923999938561, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -120,7 +120,7 @@
       "pattern": "^(a+)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.008547186000214424, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.002950539999801549, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -128,7 +128,7 @@
       "pattern": "^(a+)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.0407969409989164, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.04223251199982769, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -136,7 +136,7 @@
       "pattern": "^(a+)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.008253687001342769, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.0028373280001687817, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -144,7 +144,7 @@
       "pattern": "^(a+)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.008122280001771287, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.001906793999751244, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -152,7 +152,7 @@
       "pattern": "^(a|a)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.008686897999723442, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.002927927000200725, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -160,7 +160,7 @@
       "pattern": "^(a|a)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.07868740100093419, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.07967910299976211, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -168,7 +168,7 @@
       "pattern": "^(a|a)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.1403797869988921, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.1357587259999491, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -176,7 +176,7 @@
       "pattern": "^(a|a)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0057785049993981374, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.00442485299981854, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -184,7 +184,7 @@
       "pattern": "^(a|ab)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.007545962000222062, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.003461256999798934, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -192,7 +192,7 @@
       "pattern": "^(a|ab)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.006101970000599977, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.0021627440000884235, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -200,7 +200,7 @@
       "pattern": "^(a|ab)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.003768572998524178, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.002645058000325662, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -208,7 +208,7 @@
       "pattern": "^(a|ab)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0043726130006689345, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0021869990000595863, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -216,7 +216,7 @@
       "pattern": "(a|a|a|a|a|b)*c",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.0038428819989348995, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.002925592999872606, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -224,7 +224,7 @@
       "pattern": "(a|a|a|a|a|b)*c",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.0036496600005193613, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.0027129540003443253, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -232,7 +232,7 @@
       "pattern": "(a|a|a|a|a|b)*c",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.005810824999571196, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.002439291999962734, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -240,7 +240,7 @@
       "pattern": "(a|a|a|a|a|b)*c",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.002869380001357058, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.001985691999834671, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -248,7 +248,7 @@
       "pattern": "^((a+)+)+$",
       "input": "aaaaaaaaaaaaaaaaaaB",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.0031743199997436022, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.00267295000003287, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -256,7 +256,7 @@
       "pattern": "^((a+)+)+$",
       "input": "aaaaaaaaaaaaaaaaaaB",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.0017082249996747, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.001869488000011, 'timed_out': True}"
     },
     {
       "run": 1,
@@ -264,7 +264,7 @@
       "pattern": "^((a+)+)+$",
       "input": "aaaaaaaaaaaaaaaaaaB",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.00730320699949516, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.005945251999946777, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -272,7 +272,7 @@
       "pattern": "^((a+)+)+$",
       "input": "aaaaaaaaaaaaaaaaaaB",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0046484489994327305, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0025933799997801543, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -280,7 +280,7 @@
       "pattern": "^(a*)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.00455456400050025, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.002935781999894971, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -288,7 +288,7 @@
       "pattern": "^(a*)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.0644656259992189, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.06803988899991964, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -296,7 +296,7 @@
       "pattern": "^(a*)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.005975934000161942, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.0038550949998352735, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -304,7 +304,7 @@
       "pattern": "^(a*)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0036042860010638833, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0022920459996385034, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -312,7 +312,7 @@
       "pattern": "^(a+)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.006012472000293201, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.0032558419998167665, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -320,7 +320,7 @@
       "pattern": "^(a+)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.04636540200044692, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.04767644499997914, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -328,7 +328,7 @@
       "pattern": "^(a+)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.004563469999993686, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.003771518000121432, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -336,7 +336,7 @@
       "pattern": "^(a+)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0033652579986664932, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0021668110002792673, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -344,7 +344,7 @@
       "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.007314018001125078, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.0036642680001932604, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -352,7 +352,7 @@
       "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.0022971569997026, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.001644977000069, 'timed_out': True}"
     },
     {
       "run": 1,
@@ -360,7 +360,7 @@
       "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.014951752000342822, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006424490999961563, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -368,7 +368,7 @@
       "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004175825000857003, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0031409869998242357, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -376,7 +376,7 @@
       "pattern": "^([a-z]+)+[A-Z]$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.013714155998968636, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.0033113259996753186, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -384,7 +384,7 @@
       "pattern": "^([a-z]+)+[A-Z]$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 1.5087419619994762, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 1.5057041639997806, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -392,7 +392,7 @@
       "pattern": "^([a-z]+)+[A-Z]$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.019279251000625663, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.003520829000080994, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -400,7 +400,7 @@
       "pattern": "^([a-z]+)+[A-Z]$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.00415320300089661, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.002704578999782825, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -408,7 +408,7 @@
       "pattern": "^([0-9a-z]+)+[A-Z]$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.004753355999127962, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.003475293000064994, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -416,7 +416,7 @@
       "pattern": "^([0-9a-z]+)+[A-Z]$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 1.6898563430004288, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 1.7797080870000173, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -424,7 +424,7 @@
       "pattern": "^([0-9a-z]+)+[A-Z]$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.0053613639993272955, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.0045354300000326475, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -432,7 +432,7 @@
       "pattern": "^([0-9a-z]+)+[A-Z]$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.003719340998941334, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0031954190003489202, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -440,7 +440,7 @@
       "pattern": "^(.*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': True, 'time': 0.005648230000588228, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': True, 'time': 0.0038089180002316425, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -448,7 +448,7 @@
       "pattern": "^(.*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': True, 'time': 0.0044241899995540734, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': True, 'time': 0.003087907000008272, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -456,7 +456,7 @@
       "pattern": "^(.*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': True, 'time': 0.005607524999504676, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': True, 'time': 0.0036418859999685083, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -464,7 +464,7 @@
       "pattern": "^(.*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': True, 'time': 0.005147343001226545, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': True, 'time': 0.00314506499989875, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -472,7 +472,7 @@
       "pattern": "^(.+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': True, 'time': 0.004655683000237332, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': True, 'time': 0.003962205999869184, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -480,7 +480,7 @@
       "pattern": "^(.+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': True, 'time': 0.004019222000351874, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': True, 'time': 0.0029799150001963426, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -488,7 +488,7 @@
       "pattern": "^(.+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': True, 'time': 0.0037398490003397455, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': True, 'time': 0.003511971999614616, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -496,7 +496,7 @@
       "pattern": "^(.+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': True, 'time': 0.0044101929997850675, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': True, 'time': 0.002866613000151119, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -504,7 +504,7 @@
       "pattern": "^(.*)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.006477001999883214, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.004221330999826023, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -512,7 +512,7 @@
       "pattern": "^(.*)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.2695315210003173, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.3105553380000856, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -520,7 +520,7 @@
       "pattern": "^(.*)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.006642841999564553, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.003657775000192487, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -528,7 +528,7 @@
       "pattern": "^(.*)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005167420998986927, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.003470764999747189, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -536,7 +536,7 @@
       "pattern": "^(a*)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.005566488000113168, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.0036612019998756296, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -544,7 +544,7 @@
       "pattern": "^(a*)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.0031859509999776, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0019855560003634, 'timed_out': True}"
     },
     {
       "run": 1,
@@ -552,7 +552,7 @@
       "pattern": "^(a*)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.007807381000020541, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.004698425000242423, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -560,7 +560,7 @@
       "pattern": "^(a*)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005465038000693312, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.003070274000037898, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -568,7 +568,7 @@
       "pattern": "^(a?)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.00505924800017965, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.003971703999923193, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -576,7 +576,7 @@
       "pattern": "^(a?)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.0046278509998956, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.003222570000161795, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -584,7 +584,7 @@
       "pattern": "^(a?)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.004701519001173438, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.004069396999966557, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -592,7 +592,7 @@
       "pattern": "^(a?)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005133205999300117, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.002915724000104092, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -600,7 +600,7 @@
       "pattern": "^(a*?)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.006262290000449866, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.004032035999898653, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -608,7 +608,7 @@
       "pattern": "^(a*?)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.08578031499928329, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.09228605099997367, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -616,7 +616,7 @@
       "pattern": "^(a*?)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.006164406000607414, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.003677421999782382, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -624,7 +624,7 @@
       "pattern": "^(a*?)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004977626000254531, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0034463189999769384, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -632,7 +632,7 @@
       "pattern": "^(\\w+\\s*)+$",
       "input": "a a a a a a a a a a a a a a a !",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.006301333000010345, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.0051914900000156194, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -640,7 +640,7 @@
       "pattern": "^(\\w+\\s*)+$",
       "input": "a a a a a a a a a a a a a a a !",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.005446302000564174, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.003157617999931972, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -648,7 +648,7 @@
       "pattern": "^(\\w+\\s*)+$",
       "input": "a a a a a a a a a a a a a a a !",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.00632308300009754, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.003958388999762974, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -656,7 +656,7 @@
       "pattern": "^(\\w+\\s*)+$",
       "input": "a a a a a a a a a a a a a a a !",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004861277999225422, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004113168999992922, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -664,7 +664,7 @@
       "pattern": "^([\\w]+[\\s]*)*$",
       "input": "test test test test test test test test test test !",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.006594119999135728, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005469781000101648, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -672,7 +672,7 @@
       "pattern": "^([\\w]+[\\s]*)*$",
       "input": "test test test test test test test test test test !",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.0029052959998808, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.00216495199993, 'timed_out': True}"
     },
     {
       "run": 1,
@@ -680,7 +680,7 @@
       "pattern": "^([\\w]+[\\s]*)*$",
       "input": "test test test test test test test test test test !",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.007446325998898828, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.005049382999914087, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -688,7 +688,7 @@
       "pattern": "^([\\w]+[\\s]*)*$",
       "input": "test test test test test test test test test test !",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.006014606000462663, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004440082000201073, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -696,7 +696,7 @@
       "pattern": "^(\\d+)+$",
       "input": "1111111111111111111111111a",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.005254364001302747, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005443412000204262, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -704,7 +704,7 @@
       "pattern": "^(\\d+)+$",
       "input": "1111111111111111111111111a",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 1.8813342489993374, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0021935059999123, 'timed_out': True}"
     },
     {
       "run": 1,
@@ -712,7 +712,7 @@
       "pattern": "^(\\d+)+$",
       "input": "1111111111111111111111111a",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.006762014998457744, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.008634322000034444, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -720,7 +720,7 @@
       "pattern": "^(\\d+)+$",
       "input": "1111111111111111111111111a",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005344843000784749, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.00354706799998894, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -728,7 +728,7 @@
       "pattern": "^([0-9]+)*$",
       "input": "9999999999999999999999999x",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.005033990999436355, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.004445981999651849, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -736,7 +736,7 @@
       "pattern": "^([0-9]+)*$",
       "input": "9999999999999999999999999x",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 1.7341248600005201, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 1.8432223039999371, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -744,7 +744,7 @@
       "pattern": "^([0-9]+)*$",
       "input": "9999999999999999999999999x",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.006739263000781648, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.004417859999648499, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -752,7 +752,7 @@
       "pattern": "^([0-9]+)*$",
       "input": "9999999999999999999999999x",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0048586730008537415, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0032647490002091217, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -760,7 +760,7 @@
       "pattern": "^(a+|a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.004834377999941353, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.004166118000284769, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -768,7 +768,7 @@
       "pattern": "^(a+|a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.003291127000921, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0021121720001247, 'timed_out': True}"
     },
     {
       "run": 1,
@@ -776,7 +776,7 @@
       "pattern": "^(a+|a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.007800018000125419, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006685419999939768, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -784,7 +784,7 @@
       "pattern": "^(a+|a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004802127999937511, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004552572000193322, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -792,7 +792,7 @@
       "pattern": "^(a*|a*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.0050082620000466704, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.00643259600019519, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -800,7 +800,7 @@
       "pattern": "^(a*|a*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.0029711890001636, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.003036614999928, 'timed_out': True}"
     },
     {
       "run": 1,
@@ -808,7 +808,7 @@
       "pattern": "^(a*|a*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.007716091000474989, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.005177203000130248, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -816,7 +816,7 @@
       "pattern": "^(a*|a*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005047075001129997, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.003701406999880419, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -824,7 +824,7 @@
       "pattern": "^(aa+|a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaB",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.005835961001139367, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.004367766000086704, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -832,7 +832,7 @@
       "pattern": "^(aa+|a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaB",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.0031840869996813, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0023370449998765, 'timed_out': True}"
     },
     {
       "run": 1,
@@ -840,7 +840,7 @@
       "pattern": "^(aa+|a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaB",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.008512049998898874, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.005657052000060503, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -848,7 +848,7 @@
       "pattern": "^(aa+|a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaB",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.00545087099999364, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004079825999724562, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -856,7 +856,7 @@
       "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
       "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.00691969999934372, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005509005000021716, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -864,7 +864,7 @@
       "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
       "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.00438710099842865, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.003966665000007197, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -872,7 +872,7 @@
       "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
       "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.005568942000536481, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.004960936999850674, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -880,7 +880,7 @@
       "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
       "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004351484001745121, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.003803267999956006, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -888,7 +888,7 @@
       "pattern": "^(\\s*a+\\s*)+$",
       "input": " a a a a a a a a a a a a a a a!",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.00569181200080493, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005035807999774988, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -896,7 +896,7 @@
       "pattern": "^(\\s*a+\\s*)+$",
       "input": " a a a a a a a a a a a a a a a!",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.01088920800066262, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.010985759000050166, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -904,7 +904,7 @@
       "pattern": "^(\\s*a+\\s*)+$",
       "input": " a a a a a a a a a a a a a a a!",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.006004697999742348, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.004639324999970995, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -912,7 +912,7 @@
       "pattern": "^(\\s*a+\\s*)+$",
       "input": " a a a a a a a a a a a a a a a!",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004377492999992683, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.003977894999934506, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -920,7 +920,7 @@
       "pattern": "^(\\s+|a+)*b$",
       "input": "a a a a a a a a a a a a a a a c",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.005134017999807838, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005031750999933138, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -928,7 +928,7 @@
       "pattern": "^(\\s+|a+)*b$",
       "input": "a a a a a a a a a a a a a a a c",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.004269139999450999, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.0038481020001199795, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -936,7 +936,7 @@
       "pattern": "^(\\s+|a+)*b$",
       "input": "a a a a a a a a a a a a a a a c",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.005146101000718772, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.004949656999997387, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -944,7 +944,7 @@
       "pattern": "^(\\s+|a+)*b$",
       "input": "a a a a a a a a a a a a a a a c",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.006120093999925302, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0037699549998251314, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -952,7 +952,7 @@
       "pattern": "^(a+)?b?(a+)?$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.007110356998964562, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005353753999770561, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -960,7 +960,7 @@
       "pattern": "^(a+)?b?(a+)?$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.004817977000129758, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.004106396000224777, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -968,7 +968,7 @@
       "pattern": "^(a+)?b?(a+)?$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.00544915799946466, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.0041610990001572645, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -976,7 +976,7 @@
       "pattern": "^(a+)?b?(a+)?$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004888800000117044, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004150518999722408, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -984,7 +984,7 @@
       "pattern": "^(a+b?)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaad",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.005888800000320771, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.004953192999892053, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -992,7 +992,7 @@
       "pattern": "^(a+b?)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaad",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.10122656299972732, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.11652598099999523, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -1000,7 +1000,7 @@
       "pattern": "^(a+b?)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaad",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.007294281000213232, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.004833478000364266, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -1008,7 +1008,7 @@
       "pattern": "^(a+b?)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaad",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005489503000717377, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004183660999842687, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -1016,7 +1016,7 @@
       "pattern": "^([a-zA-Z]+)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.006281615998886991, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005229000000326778, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -1024,7 +1024,7 @@
       "pattern": "^([a-zA-Z]+)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.0033609490001254, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0028434939999897, 'timed_out': True}"
     },
     {
       "run": 1,
@@ -1032,7 +1032,7 @@
       "pattern": "^([a-zA-Z]+)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.00821596600144403, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.005949109000084718, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -1040,7 +1040,7 @@
       "pattern": "^([a-zA-Z]+)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0052819350003119325, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004088421999767888, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -1048,7 +1048,7 @@
       "pattern": "^([a-z0-9]+)+[!]$",
       "input": "abc123abc123abc123abc123abc123?",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.006959654998354381, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005381907000355568, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -1056,7 +1056,7 @@
       "pattern": "^([a-z0-9]+)+[!]$",
       "input": "abc123abc123abc123abc123abc123?",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.0034207299995614, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.002610225999888, 'timed_out': True}"
     },
     {
       "run": 1,
@@ -1064,7 +1064,7 @@
       "pattern": "^([a-z0-9]+)+[!]$",
       "input": "abc123abc123abc123abc123abc123?",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.008140365000144811, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.0058360980001452845, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -1072,7 +1072,7 @@
       "pattern": "^([a-z0-9]+)+[!]$",
       "input": "abc123abc123abc123abc123abc123?",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.00531935500112013, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004123528000036458, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -1080,7 +1080,7 @@
       "pattern": "^((a|b)+)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.00811063899891451, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.0052106160001130775, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -1088,7 +1088,7 @@
       "pattern": "^((a|b)+)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.0029399110007944, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0026794260002134, 'timed_out': True}"
     },
     {
       "run": 1,
@@ -1096,7 +1096,7 @@
       "pattern": "^((a|b)+)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.008558045999961905, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006327668999801972, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -1104,7 +1104,7 @@
       "pattern": "^((a|b)+)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.006454468999436358, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0044456920004449785, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -1112,7 +1112,7 @@
       "pattern": "^((a|ab)+)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaad",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.007955278000736143, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005696206000266102, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -1120,7 +1120,7 @@
       "pattern": "^((a|ab)+)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaad",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.16632596499948704, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.17288752300009946, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -1128,7 +1128,7 @@
       "pattern": "^((a|ab)+)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaad",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.007822969999324414, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.005674704999819369, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -1136,7 +1136,7 @@
       "pattern": "^((a|ab)+)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaad",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005384977999710827, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004589091000070766, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -1144,7 +1144,7 @@
       "pattern": "^(a+b)+c$",
       "input": "abababababababababababababababd",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.006955237000511261, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005606546999842976, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -1152,7 +1152,7 @@
       "pattern": "^(a+b)+c$",
       "input": "abababababababababababababababd",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.005090255999675719, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.0041550269997969735, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -1160,7 +1160,7 @@
       "pattern": "^(a+b)+c$",
       "input": "abababababababababababababababd",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.006869074999485747, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.004997165000077075, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -1168,7 +1168,7 @@
       "pattern": "^(a+b)+c$",
       "input": "abababababababababababababababd",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.006487230999482563, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004392892999931064, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -1176,7 +1176,7 @@
       "pattern": "^(ab+)+c$",
       "input": "abababababababababababababababd",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.007403044999591657, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005373251000037271, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -1184,7 +1184,7 @@
       "pattern": "^(ab+)+c$",
       "input": "abababababababababababababababd",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.006368909000229905, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.004401078999762831, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -1192,7 +1192,7 @@
       "pattern": "^(ab+)+c$",
       "input": "abababababababababababababababd",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.0075344010001572315, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.005268775000331516, 'timed_out': False}"
     },
     {
       "run": 1,
@@ -1200,7 +1200,7 @@
       "pattern": "^(ab+)+c$",
       "input": "abababababababababababababababd",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005033921001086128, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.003858420999677037, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1208,7 +1208,7 @@
       "pattern": "^(a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.006602696999834734, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005582001999755448, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1216,7 +1216,7 @@
       "pattern": "^(a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.07646243799899821, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.08158899199997904, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1224,7 +1224,7 @@
       "pattern": "^(a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.006864396998935263, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.0050633689997994225, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1232,7 +1232,7 @@
       "pattern": "^(a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005838275999849429, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004460238999854482, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1240,7 +1240,7 @@
       "pattern": "^(a*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.00616394600001513, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005731501999889588, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1248,7 +1248,7 @@
       "pattern": "^(a*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.10377911000068707, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.11540803599973515, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1256,7 +1256,7 @@
       "pattern": "^(a*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.006627372998991632, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.005317496000316169, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1264,7 +1264,7 @@
       "pattern": "^(a*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.006436896001105197, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004468785000426578, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1272,7 +1272,7 @@
       "pattern": "^(a+)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.0071084529990912415, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.00556471900017641, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1280,7 +1280,7 @@
       "pattern": "^(a+)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.07601874700048938, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.07873371100004078, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1288,7 +1288,7 @@
       "pattern": "^(a+)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.007041939001283026, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.0049349790001542715, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1296,7 +1296,7 @@
       "pattern": "^(a+)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.007518701000662986, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004544016000181728, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1304,7 +1304,7 @@
       "pattern": "^(a|a)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.006870647999676294, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005781434999789781, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1312,7 +1312,7 @@
       "pattern": "^(a|a)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.14290195800094807, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.16248222100011844, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1320,7 +1320,7 @@
       "pattern": "^(a|a)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.2658434599998145, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.2736123699996824, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1328,7 +1328,7 @@
       "pattern": "^(a|a)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005058237000412191, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004759971000112273, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1336,7 +1336,7 @@
       "pattern": "^(a|ab)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.0059043700002803234, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005591409999851749, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1344,7 +1344,7 @@
       "pattern": "^(a|ab)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.004758515000503394, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.004541702000096848, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1352,7 +1352,7 @@
       "pattern": "^(a|ab)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.00569952700061549, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.005811973000163562, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1360,7 +1360,7 @@
       "pattern": "^(a|ab)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004607663000570028, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004413571999975829, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1368,7 +1368,7 @@
       "pattern": "(a|a|a|a|a|b)*c",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.006136604999483097, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.00535076799997114, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1376,7 +1376,7 @@
       "pattern": "(a|a|a|a|a|b)*c",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.0047102150001592236, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.004616852999788534, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1384,7 +1384,7 @@
       "pattern": "(a|a|a|a|a|b)*c",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.005572078000113834, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.005263916000330937, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1392,7 +1392,7 @@
       "pattern": "(a|a|a|a|a|b)*c",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004384134999781963, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004334342999754881, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1400,7 +1400,7 @@
       "pattern": "^((a+)+)+$",
       "input": "aaaaaaaaaaaaaaaaaaB",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.005745141999796033, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.0059241929998279375, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1408,7 +1408,7 @@
       "pattern": "^((a+)+)+$",
       "input": "aaaaaaaaaaaaaaaaaaB",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.003381848000572, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.002678324000044, 'timed_out': True}"
     },
     {
       "run": 2,
@@ -1416,7 +1416,7 @@
       "pattern": "^((a+)+)+$",
       "input": "aaaaaaaaaaaaaaaaaaB",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.006276125999647775, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006924888999947143, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1424,7 +1424,7 @@
       "pattern": "^((a+)+)+$",
       "input": "aaaaaaaaaaaaaaaaaaB",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004881786000623833, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0045806849998371035, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1432,7 +1432,7 @@
       "pattern": "^(a*)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.005960365000646561, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005833773000176734, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1440,7 +1440,7 @@
       "pattern": "^(a*)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.1102929500011669, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.11796189200003937, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1448,7 +1448,7 @@
       "pattern": "^(a*)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.005409825000242563, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.005279875999804062, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1456,7 +1456,7 @@
       "pattern": "^(a*)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004881315000602626, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004396508999889193, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1464,7 +1464,7 @@
       "pattern": "^(a+)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.005936950999966939, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005604594000033103, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1472,7 +1472,7 @@
       "pattern": "^(a+)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.08036137499948381, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.08032636600000842, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1480,7 +1480,7 @@
       "pattern": "^(a+)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.005956678000075044, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.005312837000019499, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1488,7 +1488,7 @@
       "pattern": "^(a+)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0046693990007042885, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004599599999892234, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1496,7 +1496,7 @@
       "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.006772173999706865, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006035520999830624, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1504,7 +1504,7 @@
       "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.0029745350002486, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0031036909999784, 'timed_out': True}"
     },
     {
       "run": 2,
@@ -1512,7 +1512,7 @@
       "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.008509015000527143, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.014526995999858627, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1520,7 +1520,7 @@
       "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005041455000537098, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004866630999913468, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1528,7 +1528,7 @@
       "pattern": "^([a-z]+)+[A-Z]$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.006527495999762323, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.011969553000199085, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1536,7 +1536,7 @@
       "pattern": "^([a-z]+)+[A-Z]$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.0045704920012213, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0030795650000073, 'timed_out': True}"
     },
     {
       "run": 2,
@@ -1544,7 +1544,7 @@
       "pattern": "^([a-z]+)+[A-Z]$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.008642243999929633, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.01483109599985255, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1552,7 +1552,7 @@
       "pattern": "^([a-z]+)+[A-Z]$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.006197738999617286, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004567038999994111, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1560,7 +1560,7 @@
       "pattern": "^([0-9a-z]+)+[A-Z]$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.00799579399972572, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.00610327899994445, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1568,7 +1568,7 @@
       "pattern": "^([0-9a-z]+)+[A-Z]$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.003596660000767, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.003177478999987, 'timed_out': True}"
     },
     {
       "run": 2,
@@ -1576,7 +1576,7 @@
       "pattern": "^([0-9a-z]+)+[A-Z]$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.009004832001664909, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.007162763999986055, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1584,7 +1584,7 @@
       "pattern": "^([0-9a-z]+)+[A-Z]$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.00612730700049724, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004897318000075757, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1592,7 +1592,7 @@
       "pattern": "^(.*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': True, 'time': 0.008237976999225793, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': True, 'time': 0.006475486999988789, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1600,7 +1600,7 @@
       "pattern": "^(.*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': True, 'time': 0.006424904000596143, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': True, 'time': 0.004937464000249747, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1608,7 +1608,7 @@
       "pattern": "^(.*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': True, 'time': 0.006027369998264476, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': True, 'time': 0.006144045000382903, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1616,7 +1616,7 @@
       "pattern": "^(.*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': True, 'time': 0.005123708999235532, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': True, 'time': 0.005049353999766026, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1624,7 +1624,7 @@
       "pattern": "^(.+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': True, 'time': 0.006952972998988116, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': True, 'time': 0.006289317000209849, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1632,7 +1632,7 @@
       "pattern": "^(.+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': True, 'time': 0.004835981000724132, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': True, 'time': 0.005013837000205967, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1640,7 +1640,7 @@
       "pattern": "^(.+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': True, 'time': 0.005818258998260717, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': True, 'time': 0.005193975000111095, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1648,7 +1648,7 @@
       "pattern": "^(.+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': True, 'time': 0.004749478999656276, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': True, 'time': 0.0045525629998337536, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1656,7 +1656,7 @@
       "pattern": "^(.*)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.006886217999635846, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005892662999940512, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1664,7 +1664,7 @@
       "pattern": "^(.*)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.5972410009999294, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.6195935410000857, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1672,7 +1672,7 @@
       "pattern": "^(.*)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.0063082360011321725, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006126130999746238, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1680,7 +1680,7 @@
       "pattern": "^(.*)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005353569000362768, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005566964000081498, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1688,7 +1688,7 @@
       "pattern": "^(a*)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.006597216000955086, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.008271653000065271, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1696,7 +1696,7 @@
       "pattern": "^(a*)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.003372440000021, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.004030348000015, 'timed_out': True}"
     },
     {
       "run": 2,
@@ -1704,7 +1704,7 @@
       "pattern": "^(a*)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.0070921330006967764, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006482570000116539, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1712,7 +1712,7 @@
       "pattern": "^(a*)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.00514105200090853, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004461532000277657, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1720,7 +1720,7 @@
       "pattern": "^(a?)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.006694247998893843, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005809396999666205, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1728,7 +1728,7 @@
       "pattern": "^(a?)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.005379517999244854, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.004460889999791107, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1736,7 +1736,7 @@
       "pattern": "^(a?)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.006278238999584573, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.005424887000117451, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1744,7 +1744,7 @@
       "pattern": "^(a?)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004948380999849178, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004382384000109596, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1752,7 +1752,7 @@
       "pattern": "^(a*?)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.006228335998457624, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005755556999702094, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1760,7 +1760,7 @@
       "pattern": "^(a*?)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.17447848200026783, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.16989814999988084, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1768,7 +1768,7 @@
       "pattern": "^(a*?)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.006478924999100855, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.005570310000166501, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1776,7 +1776,7 @@
       "pattern": "^(a*?)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005087440998977399, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0044734839998454845, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1784,7 +1784,7 @@
       "pattern": "^(\\w+\\s*)+$",
       "input": "a a a a a a a a a a a a a a a !",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.009512792999885278, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.007955229000344843, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1792,7 +1792,7 @@
       "pattern": "^(\\w+\\s*)+$",
       "input": "a a a a a a a a a a a a a a a !",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.005006460000004154, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.004500895000091987, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1800,7 +1800,7 @@
       "pattern": "^(\\w+\\s*)+$",
       "input": "a a a a a a a a a a a a a a a !",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.0060708210003213026, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.005388478999975632, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1808,7 +1808,7 @@
       "pattern": "^(\\w+\\s*)+$",
       "input": "a a a a a a a a a a a a a a a !",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.006229016998986481, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005810420000216254, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1816,7 +1816,7 @@
       "pattern": "^([\\w]+[\\s]*)*$",
       "input": "test test test test test test test test test test !",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.008929652000006172, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.00811737300000459, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1824,7 +1824,7 @@
       "pattern": "^([\\w]+[\\s]*)*$",
       "input": "test test test test test test test test test test !",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.003332986001624, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.003097440000147, 'timed_out': True}"
     },
     {
       "run": 2,
@@ -1832,7 +1832,7 @@
       "pattern": "^([\\w]+[\\s]*)*$",
       "input": "test test test test test test test test test test !",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.007344595000176923, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.007087323000178003, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1840,7 +1840,7 @@
       "pattern": "^([\\w]+[\\s]*)*$",
       "input": "test test test test test test test test test test !",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.006560067000464187, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.006353438000132883, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1848,7 +1848,7 @@
       "pattern": "^(\\d+)+$",
       "input": "1111111111111111111111111a",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.0068901949998689815, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.0067404730002635915, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1856,7 +1856,7 @@
       "pattern": "^(\\d+)+$",
       "input": "1111111111111111111111111a",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.0034280649997527, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.003340465000292, 'timed_out': True}"
     },
     {
       "run": 2,
@@ -1864,7 +1864,7 @@
       "pattern": "^(\\d+)+$",
       "input": "1111111111111111111111111a",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.007625280999491224, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006949114000235568, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1872,7 +1872,7 @@
       "pattern": "^(\\d+)+$",
       "input": "1111111111111111111111111a",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005597305000264896, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005658875999870361, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1880,7 +1880,7 @@
       "pattern": "^([0-9]+)*$",
       "input": "9999999999999999999999999x",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.007622375000210013, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.0064899540002443246, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1888,7 +1888,7 @@
       "pattern": "^([0-9]+)*$",
       "input": "9999999999999999999999999x",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.0035751900013565, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.004677921000166, 'timed_out': True}"
     },
     {
       "run": 2,
@@ -1896,7 +1896,7 @@
       "pattern": "^([0-9]+)*$",
       "input": "9999999999999999999999999x",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.007351938998908736, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.020673556000019744, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1904,7 +1904,7 @@
       "pattern": "^([0-9]+)*$",
       "input": "9999999999999999999999999x",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.00587955300034082, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.011824070999864489, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1912,7 +1912,7 @@
       "pattern": "^(a+|a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.00842426600138424, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.009283739000238711, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1920,7 +1920,7 @@
       "pattern": "^(a+|a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.0036345110002003, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0039024880002216, 'timed_out': True}"
     },
     {
       "run": 2,
@@ -1928,7 +1928,7 @@
       "pattern": "^(a+|a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.0071993130004557315, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.007435365000219463, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1936,7 +1936,7 @@
       "pattern": "^(a+|a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005206594001720077, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004871560000083264, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1944,7 +1944,7 @@
       "pattern": "^(a*|a*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.006748850000803941, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006414701999801764, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1952,7 +1952,7 @@
       "pattern": "^(a*|a*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.003699572000187, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.003295309999885, 'timed_out': True}"
     },
     {
       "run": 2,
@@ -1960,7 +1960,7 @@
       "pattern": "^(a*|a*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.007454660999428597, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006997635000061564, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1968,7 +1968,7 @@
       "pattern": "^(a*|a*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005322901999534224, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004909140000108891, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1976,7 +1976,7 @@
       "pattern": "^(aa+|a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaB",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.006846924001365551, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.007726020000063727, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -1984,7 +1984,7 @@
       "pattern": "^(aa+|a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaB",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.003729808000571, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0033796180000536, 'timed_out': True}"
     },
     {
       "run": 2,
@@ -1992,7 +1992,7 @@
       "pattern": "^(aa+|a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaB",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.00803624000036507, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.007032430999970529, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2000,7 +2000,7 @@
       "pattern": "^(aa+|a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaB",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005414993998783757, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.00504564599987134, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2008,7 +2008,7 @@
       "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
       "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.007662619998882292, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.007164478000049712, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2016,7 +2016,7 @@
       "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
       "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.005812027999127167, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.0051801680001517525, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2024,7 +2024,7 @@
       "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
       "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.0070840270000189776, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.00617160599995259, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2032,7 +2032,7 @@
       "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
       "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.00559472100030689, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004911495000214927, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2040,7 +2040,7 @@
       "pattern": "^(\\s*a+\\s*)+$",
       "input": " a a a a a a a a a a a a a a a!",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.006941460998859839, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006220397999641136, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2048,7 +2048,7 @@
       "pattern": "^(\\s*a+\\s*)+$",
       "input": " a a a a a a a a a a a a a a a!",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.01684159899923543, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.01577148899968961, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2056,7 +2056,7 @@
       "pattern": "^(\\s*a+\\s*)+$",
       "input": " a a a a a a a a a a a a a a a!",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.006444982000175514, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.00659066200023517, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2064,7 +2064,7 @@
       "pattern": "^(\\s*a+\\s*)+$",
       "input": " a a a a a a a a a a a a a a a!",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005396178999944823, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005110788999900251, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2072,7 +2072,7 @@
       "pattern": "^(\\s+|a+)*b$",
       "input": "a a a a a a a a a a a a a a a c",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.0067557339989434695, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.00680644600015512, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2080,7 +2080,7 @@
       "pattern": "^(\\s+|a+)*b$",
       "input": "a a a a a a a a a a a a a a a c",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.0052753020008822205, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.005152586999884079, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2088,7 +2088,7 @@
       "pattern": "^(\\s+|a+)*b$",
       "input": "a a a a a a a a a a a a a a a c",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.006693186000120477, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006109720000040397, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2096,7 +2096,7 @@
       "pattern": "^(\\s+|a+)*b$",
       "input": "a a a a a a a a a a a a a a a c",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005355632998544024, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.00493778400004885, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2104,7 +2104,7 @@
       "pattern": "^(a+)?b?(a+)?$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.006911364000188769, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006389614999989135, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2112,7 +2112,7 @@
       "pattern": "^(a+)?b?(a+)?$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.005357575999369146, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.005186300000332267, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2120,7 +2120,7 @@
       "pattern": "^(a+)?b?(a+)?$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.0065394779994676355, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.005725350000375329, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2128,7 +2128,7 @@
       "pattern": "^(a+)?b?(a+)?$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005145539000295685, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0051652709998961654, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2136,7 +2136,7 @@
       "pattern": "^(a+b?)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaad",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.0071330089995171875, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.007841556999665045, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2144,7 +2144,7 @@
       "pattern": "^(a+b?)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaad",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.16397030600091966, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.16792212600012135, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2152,7 +2152,7 @@
       "pattern": "^(a+b?)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaad",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.00699981000070693, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.0058526690004327975, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2160,7 +2160,7 @@
       "pattern": "^(a+b?)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaad",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005854094999449444, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0046845099996062345, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2168,7 +2168,7 @@
       "pattern": "^([a-zA-Z]+)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.007254977999764378, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.005888036000214925, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2176,7 +2176,7 @@
       "pattern": "^([a-zA-Z]+)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.003610095000113, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0031259319998753, 'timed_out': True}"
     },
     {
       "run": 2,
@@ -2184,7 +2184,7 @@
       "pattern": "^([a-zA-Z]+)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.008070342999417335, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006830271000126231, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2192,7 +2192,7 @@
       "pattern": "^([a-zA-Z]+)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005411187001300277, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0049576920000617974, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2200,7 +2200,7 @@
       "pattern": "^([a-z0-9]+)+[!]$",
       "input": "abc123abc123abc123abc123abc123?",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.007114243999239989, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006346574999952281, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2208,7 +2208,7 @@
       "pattern": "^([a-z0-9]+)+[!]$",
       "input": "abc123abc123abc123abc123abc123?",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.0037017570011812, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0036951600000066, 'timed_out': True}"
     },
     {
       "run": 2,
@@ -2216,7 +2216,7 @@
       "pattern": "^([a-z0-9]+)+[!]$",
       "input": "abc123abc123abc123abc123abc123?",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.007451235000189627, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006751993999841943, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2224,7 +2224,7 @@
       "pattern": "^([a-z0-9]+)+[!]$",
       "input": "abc123abc123abc123abc123abc123?",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.00555607799833524, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004763317000197276, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2232,7 +2232,7 @@
       "pattern": "^((a|b)+)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.007203651999589056, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006035290999989229, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2240,7 +2240,7 @@
       "pattern": "^((a|b)+)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.0036944719995518, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0031682620001448, 'timed_out': True}"
     },
     {
       "run": 2,
@@ -2248,7 +2248,7 @@
       "pattern": "^((a|b)+)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.008517058999132132, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.007941513999867311, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2256,7 +2256,7 @@
       "pattern": "^((a|b)+)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005566236999584362, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005018315000143048, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2264,7 +2264,7 @@
       "pattern": "^((a|ab)+)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaad",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.007429623999996693, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006392930999936652, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2272,7 +2272,7 @@
       "pattern": "^((a|ab)+)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaad",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.24050764400089975, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.23801515299965104, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2280,7 +2280,7 @@
       "pattern": "^((a|ab)+)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaad",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.007837667999410769, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.009962972000266745, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2288,7 +2288,7 @@
       "pattern": "^((a|ab)+)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaad",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005612873999780277, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.00818815699994957, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2296,7 +2296,7 @@
       "pattern": "^(a+b)+c$",
       "input": "abababababababababababababababd",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.007251371000165818, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006436433000089892, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2304,7 +2304,7 @@
       "pattern": "^(a+b)+c$",
       "input": "abababababababababababababababd",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.005843184999321238, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.005076082999948994, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2312,7 +2312,7 @@
       "pattern": "^(a+b)+c$",
       "input": "abababababababababababababababd",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.008636512999146362, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006649121999998897, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2320,7 +2320,7 @@
       "pattern": "^(a+b)+c$",
       "input": "abababababababababababababababd",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005333872000846895, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005251141999906395, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2328,7 +2328,7 @@
       "pattern": "^(ab+)+c$",
       "input": "abababababababababababababababd",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.007255127999087563, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006322428999737895, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2336,7 +2336,7 @@
       "pattern": "^(ab+)+c$",
       "input": "abababababababababababababababd",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.008378760001505725, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.005279363999761699, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2344,7 +2344,7 @@
       "pattern": "^(ab+)+c$",
       "input": "abababababababababababababababd",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.006731948000378907, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.005860613000095327, 'timed_out': False}"
     },
     {
       "run": 2,
@@ -2352,7 +2352,7 @@
       "pattern": "^(ab+)+c$",
       "input": "abababababababababababababababd",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005534276999242138, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005390733000240289, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2360,7 +2360,7 @@
       "pattern": "^(a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.00953499500064936, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006109610999828874, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2368,7 +2368,7 @@
       "pattern": "^(a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.12067518000003474, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.11610801799997716, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2376,7 +2376,7 @@
       "pattern": "^(a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.006615870999667095, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.005905006999910256, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2384,7 +2384,7 @@
       "pattern": "^(a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0056237149983644485, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.004814003000319644, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2392,7 +2392,7 @@
       "pattern": "^(a*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.007171010998717975, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006305708000127197, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2400,7 +2400,7 @@
       "pattern": "^(a*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.17337470600068627, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.17220417199996518, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2408,7 +2408,7 @@
       "pattern": "^(a*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.006666485998721328, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.005828654000197275, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2416,7 +2416,7 @@
       "pattern": "^(a*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005622291000690893, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0049547769999662705, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2424,7 +2424,7 @@
       "pattern": "^(a+)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.007402703999105142, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006266203999985009, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2432,7 +2432,7 @@
       "pattern": "^(a+)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.11410292100117658, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.11501484900009018, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2440,7 +2440,7 @@
       "pattern": "^(a+)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.007567220998680568, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006026295000083337, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2448,7 +2448,7 @@
       "pattern": "^(a+)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005533686000489979, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0048763189997771406, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2456,7 +2456,7 @@
       "pattern": "^(a|a)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.008573515999160009, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006216760999905091, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2464,7 +2464,7 @@
       "pattern": "^(a|a)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.22213328600082605, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.22010138099994947, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2472,7 +2472,7 @@
       "pattern": "^(a|a)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.5152941800006374, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.5186642419998861, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2480,7 +2480,7 @@
       "pattern": "^(a|a)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.006363499000144657, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005043411999849923, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2488,7 +2488,7 @@
       "pattern": "^(a|ab)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.007357488999332418, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006413749999865104, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2496,7 +2496,7 @@
       "pattern": "^(a|ab)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.006208198999956949, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.004994389999865234, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2504,7 +2504,7 @@
       "pattern": "^(a|ab)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.0071276090002356796, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.0057800929998848005, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2512,7 +2512,7 @@
       "pattern": "^(a|ab)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005989088000205811, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0050360189998173155, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2520,7 +2520,7 @@
       "pattern": "(a|a|a|a|a|b)*c",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.00836283100034052, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.00618843799975366, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2528,7 +2528,7 @@
       "pattern": "(a|a|a|a|a|b)*c",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.0058257420005247695, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.0049705860001267865, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2536,7 +2536,7 @@
       "pattern": "(a|a|a|a|a|b)*c",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.00723743500020646, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006030632999681984, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2544,7 +2544,7 @@
       "pattern": "(a|a|a|a|a|b)*c",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005308104000505409, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005629100000078324, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2552,7 +2552,7 @@
       "pattern": "^((a+)+)+$",
       "input": "aaaaaaaaaaaaaaaaaaB",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.007089337999786949, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006201653000061924, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2560,7 +2560,7 @@
       "pattern": "^((a+)+)+$",
       "input": "aaaaaaaaaaaaaaaaaaB",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.003634360999058, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0035021079997932, 'timed_out': True}"
     },
     {
       "run": 3,
@@ -2568,7 +2568,7 @@
       "pattern": "^((a+)+)+$",
       "input": "aaaaaaaaaaaaaaaaaaB",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.009756608998941374, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.008029419000195048, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2576,7 +2576,7 @@
       "pattern": "^((a+)+)+$",
       "input": "aaaaaaaaaaaaaaaaaaB",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.01012470799832954, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005730810000386555, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2584,7 +2584,7 @@
       "pattern": "^(a*)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.008844371999657596, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006847362999906181, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2592,7 +2592,7 @@
       "pattern": "^(a*)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.17081065800084616, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.16702064699984476, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2600,7 +2600,7 @@
       "pattern": "^(a*)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.009460445000513573, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.0071567830000276444, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2608,7 +2608,7 @@
       "pattern": "^(a*)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.009650820999013376, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005247745000360737, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2616,7 +2616,7 @@
       "pattern": "^(a+)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.009469993001403054, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006592576000002737, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2624,7 +2624,7 @@
       "pattern": "^(a+)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.1213809510009014, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.11307688699980645, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2632,7 +2632,7 @@
       "pattern": "^(a+)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.008844501999192289, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.00618216599968946, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2640,7 +2640,7 @@
       "pattern": "^(a+)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.007816789000571589, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005076874999758729, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2648,7 +2648,7 @@
       "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.00930690799941658, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.006894641999679152, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2656,7 +2656,7 @@
       "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.006974199999604, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0044033260001015, 'timed_out': True}"
     },
     {
       "run": 3,
@@ -2664,7 +2664,7 @@
       "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.014166441998895607, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.01655658100025903, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2672,7 +2672,7 @@
       "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.006996694000918069, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.010364225000103033, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2680,7 +2680,7 @@
       "pattern": "^([a-z]+)+[A-Z]$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.009278143999836175, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.01144861700004185, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2688,7 +2688,7 @@
       "pattern": "^([a-z]+)+[A-Z]$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.005267967999316, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0044534310000017, 'timed_out': True}"
     },
     {
       "run": 3,
@@ -2696,7 +2696,7 @@
       "pattern": "^([a-z]+)+[A-Z]$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.009846346998529043, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.007988090999788255, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2704,7 +2704,7 @@
       "pattern": "^([a-z]+)+[A-Z]$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.007740687000477919, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.006821824999860837, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2712,7 +2712,7 @@
       "pattern": "^([0-9a-z]+)+[A-Z]$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.007555640999271418, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.00888098399991577, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2720,7 +2720,7 @@
       "pattern": "^([0-9a-z]+)+[A-Z]$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.0076814940002805, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.005965746000129, 'timed_out': True}"
     },
     {
       "run": 3,
@@ -2728,7 +2728,7 @@
       "pattern": "^([0-9a-z]+)+[A-Z]$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.011603025001022615, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.011410104999868054, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2736,7 +2736,7 @@
       "pattern": "^([0-9a-z]+)+[A-Z]$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa!",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0074462249995121965, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.008016314000087732, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2744,7 +2744,7 @@
       "pattern": "^(.*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': True, 'time': 0.010975871000482584, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': True, 'time': 0.009230639999714185, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2752,7 +2752,7 @@
       "pattern": "^(.*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': True, 'time': 0.007466503000614466, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': True, 'time': 0.007007493999935832, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2760,7 +2760,7 @@
       "pattern": "^(.*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': True, 'time': 0.007673110001633177, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': True, 'time': 0.007799346999945556, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2768,7 +2768,7 @@
       "pattern": "^(.*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': True, 'time': 0.007618597999680787, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': True, 'time': 0.007606977000250481, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2776,7 +2776,7 @@
       "pattern": "^(.+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': True, 'time': 0.010077029000967741, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': True, 'time': 0.008130187000006117, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2784,7 +2784,7 @@
       "pattern": "^(.+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': True, 'time': 0.020447798000532202, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': True, 'time': 0.006983367999964685, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2792,7 +2792,7 @@
       "pattern": "^(.+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': True, 'time': 0.013072706000457401, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': True, 'time': 0.00736120600004142, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2800,7 +2800,7 @@
       "pattern": "^(.+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': True, 'time': 0.006921993999640108, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': True, 'time': 0.00698486999999659, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2808,7 +2808,7 @@
       "pattern": "^(.*)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.008450414999970235, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.00992440100026215, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2816,7 +2816,7 @@
       "pattern": "^(.*)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.6527354480003851, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.6577168220001113, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2824,7 +2824,7 @@
       "pattern": "^(.*)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.007704137999098748, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006919618000210903, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2832,7 +2832,7 @@
       "pattern": "^(.*)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.009082186999876285, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.006879182999909972, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2840,7 +2840,7 @@
       "pattern": "^(a*)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.009566774000631995, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.010680056999717635, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2848,7 +2848,7 @@
       "pattern": "^(a*)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.0070877430007386, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0049734649996935, 'timed_out': True}"
     },
     {
       "run": 3,
@@ -2856,7 +2856,7 @@
       "pattern": "^(a*)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.01115271200069401, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.009247231000244938, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2864,7 +2864,7 @@
       "pattern": "^(a*)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.006930810999620007, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005789630999970541, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2872,7 +2872,7 @@
       "pattern": "^(a?)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.008840815000439761, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.0065469999999550055, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2880,7 +2880,7 @@
       "pattern": "^(a?)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.007652631000382826, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.005331722999926569, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2888,7 +2888,7 @@
       "pattern": "^(a?)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.008235743000113871, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006246447000194166, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2896,7 +2896,7 @@
       "pattern": "^(a?)+b$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.01051633099996252, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005337003000022378, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2904,7 +2904,7 @@
       "pattern": "^(a*?)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.008396583998546703, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.010460455000156799, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2912,7 +2912,7 @@
       "pattern": "^(a*?)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.18893087899959937, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.19049854900003993, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2920,7 +2920,7 @@
       "pattern": "^(a*?)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.007975565999004175, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.0061692120002589945, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2928,7 +2928,7 @@
       "pattern": "^(a*?)*b$",
       "input": "aaaaaaaaaaaaaaaaaaaac",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005582236999543966, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.005141997000009724, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2936,7 +2936,7 @@
       "pattern": "^(\\w+\\s*)+$",
       "input": "a a a a a a a a a a a a a a a !",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.011141139999381267, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.00893550699993284, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2944,7 +2944,7 @@
       "pattern": "^(\\w+\\s*)+$",
       "input": "a a a a a a a a a a a a a a a !",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.007249125999805983, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.005731742000079976, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2952,7 +2952,7 @@
       "pattern": "^(\\w+\\s*)+$",
       "input": "a a a a a a a a a a a a a a a !",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.009480673001235118, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.006707911999910721, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2960,7 +2960,7 @@
       "pattern": "^(\\w+\\s*)+$",
       "input": "a a a a a a a a a a a a a a a !",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.012151891998655628, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.006348628000068857, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2968,7 +2968,7 @@
       "pattern": "^([\\w]+[\\s]*)*$",
       "input": "test test test test test test test test test test !",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.012347698000667151, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.009001140000236774, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2976,7 +2976,7 @@
       "pattern": "^([\\w]+[\\s]*)*$",
       "input": "test test test test test test test test test test !",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.0045661439999094, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0096472650002397, 'timed_out': True}"
     },
     {
       "run": 3,
@@ -2984,7 +2984,7 @@
       "pattern": "^([\\w]+[\\s]*)*$",
       "input": "test test test test test test test test test test !",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.011221851998925558, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.012343203999989782, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -2992,7 +2992,7 @@
       "pattern": "^([\\w]+[\\s]*)*$",
       "input": "test test test test test test test test test test !",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.012605611000253703, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.0117377290002878, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3000,7 +3000,7 @@
       "pattern": "^(\\d+)+$",
       "input": "1111111111111111111111111a",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.012060961998940911, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.01174571299998206, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3008,7 +3008,7 @@
       "pattern": "^(\\d+)+$",
       "input": "1111111111111111111111111a",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.0042505330002314, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0077846139997746, 'timed_out': True}"
     },
     {
       "run": 3,
@@ -3016,7 +3016,7 @@
       "pattern": "^(\\d+)+$",
       "input": "1111111111111111111111111a",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.01585094500114792, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.013649280999743496, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3024,7 +3024,7 @@
       "pattern": "^(\\d+)+$",
       "input": "1111111111111111111111111a",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.011512054999911925, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.012184997000076692, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3032,7 +3032,7 @@
       "pattern": "^([0-9]+)*$",
       "input": "9999999999999999999999999x",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.012628383999981452, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.010793999999805237, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3040,7 +3040,7 @@
       "pattern": "^([0-9]+)*$",
       "input": "9999999999999999999999999x",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.0097339450003346, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.01076356700014, 'timed_out': True}"
     },
     {
       "run": 3,
@@ -3048,7 +3048,7 @@
       "pattern": "^([0-9]+)*$",
       "input": "9999999999999999999999999x",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.017038396999851102, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.01456920500004344, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3056,7 +3056,7 @@
       "pattern": "^([0-9]+)*$",
       "input": "9999999999999999999999999x",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.010918152998783626, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.013201141000081407, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3064,7 +3064,7 @@
       "pattern": "^(a+|a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.01651543799926003, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.018760108999686054, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3072,7 +3072,7 @@
       "pattern": "^(a+|a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.0071318760001304, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.009299404000103, 'timed_out': True}"
     },
     {
       "run": 3,
@@ -3080,7 +3080,7 @@
       "pattern": "^(a+|a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.014321012000436895, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.017458680999880016, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3088,7 +3088,7 @@
       "pattern": "^(a+|a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.010638349000146263, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.010818616000051406, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3096,7 +3096,7 @@
       "pattern": "^(a*|a*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.015707536000263644, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.016174984999906883, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3104,7 +3104,7 @@
       "pattern": "^(a*|a*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.0091580279986374, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0081768889999694, 'timed_out': True}"
     },
     {
       "run": 3,
@@ -3112,7 +3112,7 @@
       "pattern": "^(a*|a*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.015029768001113553, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.014388566999969044, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3120,7 +3120,7 @@
       "pattern": "^(a*|a*)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaB",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.010607861999233137, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.01309412099999463, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3128,7 +3128,7 @@
       "pattern": "^(aa+|a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaB",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.014553045999491587, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.013424901000234968, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3136,7 +3136,7 @@
       "pattern": "^(aa+|a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaB",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.0088638170000195, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0108462219996, 'timed_out': True}"
     },
     {
       "run": 3,
@@ -3144,7 +3144,7 @@
       "pattern": "^(aa+|a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaB",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.016714461000447045, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.013485553999998956, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3152,7 +3152,7 @@
       "pattern": "^(aa+|a+)+$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaB",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.012585583001055056, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.013272725999740942, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3160,7 +3160,7 @@
       "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
       "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.013340927000172087, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.010546866999902704, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3168,7 +3168,7 @@
       "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
       "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.009808236000026227, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.0106697470000654, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3176,7 +3176,7 @@
       "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
       "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.015699641000537667, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.011062903000038204, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3184,7 +3184,7 @@
       "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
       "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.!",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.009790862999579986, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.01209910600027797, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3192,7 +3192,7 @@
       "pattern": "^(\\s*a+\\s*)+$",
       "input": " a a a a a a a a a a a a a a a!",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.016923471999689355, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.012688340999829961, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3200,7 +3200,7 @@
       "pattern": "^(\\s*a+\\s*)+$",
       "input": " a a a a a a a a a a a a a a a!",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.03382196699931228, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.035988249000183714, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3208,7 +3208,7 @@
       "pattern": "^(\\s*a+\\s*)+$",
       "input": " a a a a a a a a a a a a a a a!",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.01288848100011819, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.020797498999854724, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3216,7 +3216,7 @@
       "pattern": "^(\\s*a+\\s*)+$",
       "input": " a a a a a a a a a a a a a a a!",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.008084799999778625, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.012826749999931053, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3224,7 +3224,7 @@
       "pattern": "^(\\s+|a+)*b$",
       "input": "a a a a a a a a a a a a a a a c",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.015688499999669148, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.01269154699957653, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3232,7 +3232,7 @@
       "pattern": "^(\\s+|a+)*b$",
       "input": "a a a a a a a a a a a a a a a c",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.011785726999733015, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.012023344000226643, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3240,7 +3240,7 @@
       "pattern": "^(\\s+|a+)*b$",
       "input": "a a a a a a a a a a a a a a a c",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.015516709001531126, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.013273898000079498, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3248,7 +3248,7 @@
       "pattern": "^(\\s+|a+)*b$",
       "input": "a a a a a a a a a a a a a a a c",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.009627567998904851, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.014615573000355653, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3256,7 +3256,7 @@
       "pattern": "^(a+)?b?(a+)?$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.015516858999035321, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.02072920000000522, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3264,7 +3264,7 @@
       "pattern": "^(a+)?b?(a+)?$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.01070265999987896, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.011598066999795265, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3272,7 +3272,7 @@
       "pattern": "^(a+)?b?(a+)?$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.01086297999972885, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.01207802700037064, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3280,7 +3280,7 @@
       "pattern": "^(a+)?b?(a+)?$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaac",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.009129555999606964, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.012513992999629409, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3288,7 +3288,7 @@
       "pattern": "^(a+b?)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaad",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.01259173499965982, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.014978082000197901, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3296,7 +3296,7 @@
       "pattern": "^(a+b?)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaad",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.18078231900108221, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.23104472999966674, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3304,7 +3304,7 @@
       "pattern": "^(a+b?)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaad",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.010712678000345477, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.016791359999842825, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3312,7 +3312,7 @@
       "pattern": "^(a+b?)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaad",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.010393581000244012, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.012036718999752338, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3320,7 +3320,7 @@
       "pattern": "^([a-zA-Z]+)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.012449850000848528, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.013821953999922698, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3328,7 +3328,7 @@
       "pattern": "^([a-zA-Z]+)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.0107349190002424, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.0094267020003826, 'timed_out': True}"
     },
     {
       "run": 3,
@@ -3336,7 +3336,7 @@
       "pattern": "^([a-zA-Z]+)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.014479408000624971, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.01815031700016334, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3344,7 +3344,7 @@
       "pattern": "^([a-zA-Z]+)*$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaa1",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.01059815400003572, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.01268330099992454, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3352,7 +3352,7 @@
       "pattern": "^([a-z0-9]+)+[!]$",
       "input": "abc123abc123abc123abc123abc123?",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.013213930000347318, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.016782473000148457, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3360,7 +3360,7 @@
       "pattern": "^([a-z0-9]+)+[!]$",
       "input": "abc123abc123abc123abc123abc123?",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.0072023479988275, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.009187593999741, 'timed_out': True}"
     },
     {
       "run": 3,
@@ -3368,7 +3368,7 @@
       "pattern": "^([a-z0-9]+)+[!]$",
       "input": "abc123abc123abc123abc123abc123?",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.016420330000983085, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.01839179900025556, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3376,7 +3376,7 @@
       "pattern": "^([a-z0-9]+)+[!]$",
       "input": "abc123abc123abc123abc123abc123?",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.009985217000576085, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.010610405999614159, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3384,7 +3384,7 @@
       "pattern": "^((a|b)+)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.01202060600007826, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.011303123999823583, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3392,7 +3392,7 @@
       "pattern": "^((a|b)+)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': None, 'time': 2.0081454519986437, 'timed_out': True}"
+      "result": "{'library': 'Re', 'result': None, 'time': 2.007241276000059, 'timed_out': True}"
     },
     {
       "run": 3,
@@ -3400,7 +3400,7 @@
       "pattern": "^((a|b)+)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.01739548499972443, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.019321963000038522, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3408,7 +3408,7 @@
       "pattern": "^((a|b)+)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaaaaaaad",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.010675539000658318, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.014782806000312121, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3416,7 +3416,7 @@
       "pattern": "^((a|ab)+)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaad",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.014168747000439907, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.018253540999921825, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3424,7 +3424,7 @@
       "pattern": "^((a|ab)+)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaad",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.30595341399930476, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.5150974170001064, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3432,7 +3432,7 @@
       "pattern": "^((a|ab)+)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaad",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.014192561000527348, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.01713787000016964, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3440,7 +3440,7 @@
       "pattern": "^((a|ab)+)+c$",
       "input": "aaaaaaaaaaaaaaaaaaaad",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.013727510000535403, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.009573271999670396, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3448,7 +3448,7 @@
       "pattern": "^(a+b)+c$",
       "input": "abababababababababababababababd",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.015415709998706006, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.01762457099994208, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3456,7 +3456,7 @@
       "pattern": "^(a+b)+c$",
       "input": "abababababababababababababababd",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.009894266999253887, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.0113566240002001, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3464,7 +3464,7 @@
       "pattern": "^(a+b)+c$",
       "input": "abababababababababababababababd",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.014361356999870623, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.01521584800002529, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3472,7 +3472,7 @@
       "pattern": "^(a+b)+c$",
       "input": "abababababababababababababababd",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.009677480999016552, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.012288260999866907, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3480,7 +3480,7 @@
       "pattern": "^(ab+)+c$",
       "input": "abababababababababababababababd",
       "library": "Rure",
-      "result": "{'library': 'Rure', 'result': None, 'time': 0.015816790000826586, 'timed_out': False}"
+      "result": "{'library': 'Rure', 'result': None, 'time': 0.02048921000005066, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3488,7 +3488,7 @@
       "pattern": "^(ab+)+c$",
       "input": "abababababababababababababababd",
       "library": "Re",
-      "result": "{'library': 'Re', 'result': False, 'time': 0.012159597001300426, 'timed_out': False}"
+      "result": "{'library': 'Re', 'result': False, 'time': 0.014194943999882526, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3496,7 +3496,7 @@
       "pattern": "^(ab+)+c$",
       "input": "abababababababababababababababd",
       "library": "Regex",
-      "result": "{'library': 'Regex', 'result': False, 'time': 0.014458117999311071, 'timed_out': False}"
+      "result": "{'library': 'Regex', 'result': False, 'time': 0.01552365399993505, 'timed_out': False}"
     },
     {
       "run": 3,
@@ -3504,7 +3504,7 @@
       "pattern": "^(ab+)+c$",
       "input": "abababababababababababababababd",
       "library": "Pyre2",
-      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.011600199999520555, 'timed_out': False}"
+      "result": "{'library': 'Pyre2', 'result': False, 'time': 0.020535587999802374, 'timed_out': False}"
     }
   ]
 }
