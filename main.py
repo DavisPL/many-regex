@@ -292,8 +292,8 @@ def print_summary_stats(summary_stats):
 def run_scaling_test():
     all_results = []
 
-    for test_id in range(1, 3):
-        for size in range(25):
+    for test_id in range(1, 37):
+        for size in range(30):
             results = run_single_test(test_id=test_id, input_size=size)
 
             all_results.append(

@@ -38,7 +38,8 @@ for test_id in sorted(tests.keys()):
         plt.plot(sizes, times, marker="o", label=library, linewidth=2)
 
     plt.xlabel('Input Size (number of "a" characters)', fontsize=12)
-    plt.ylabel("Time (seconds)", fontsize=12)
+    plt.ylabel("Time (seconds, log scale)", fontsize=12)
+    plt.yscale("log")
 
     pattern = pattern_info.get(test_id, "Unknown")
     plt.title(
@@ -48,7 +49,7 @@ for test_id in sorted(tests.keys()):
     )
 
     plt.legend(fontsize=10)
-    plt.grid(True, alpha=0.3)
+    plt.grid(True, alpha=0.3, which="both")
     plt.tight_layout()
 
     # Save the figure
