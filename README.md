@@ -9,6 +9,7 @@ Run a regex on tons of different libraries.
 - [ ] include Rust libraries
 - [x] Vary input size and not just input pattern
 - [x] Make table of Regex libraries
+- [ ] Collect more regex patterns from literature
 
 ## Libraries Tested
 
@@ -27,7 +28,7 @@ I use Python's default "re" library as a control even though it does not claim t
 
 #### Methods
 
-Each Regex pattern was run with an input size of 0 to 30 on all 4 of the tested Regex libraries. Each line represents a different Regex library, the y axis represents time on a log scale with a hard timeout at 2 seconds.
+Each Regex pattern was run with an input size of 0 to 30 on all 4 of the tested Regex libraries. Each line represents a different Regex library, the y axis represents time on a log scale with a hard timeout at 2 seconds. The regex patterns where created by asking Claude Sonnet 4.5 for regex patterns that may lead to catastrophic backtracking.
 
 Here is an example of one of the tests where both Regex and Re can be considered harmful.
 
