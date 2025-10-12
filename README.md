@@ -57,12 +57,12 @@ Here is an example of one of the tests.
 
 ## Libraries
 
-| Name  | Language | Claimed to be linear                         | Found to be harmful |
-| ---   | --       | --                                           | --                  |
-| Re    | Python   | No                                           | Yes                 |
-| Rure  | Python   | Yes "guarantees linear time"                 | No                  |
-| Regex | Python   | Reduces backtracking chance but no guarantee | Yes                 |
-| Pyre2 | Python   | Yes "guarantees linear-time behavior"        | No                  |
+| Name  | Language | Claimed to be linear                         | Found to be harmful | Quantity of harmful results (out of 36) |
+| ---   | --       | --                                           | --                  | --                                      |
+| Re    | Python   | No                                           | Yes                 | 25                                      |
+| Rure  | Python   | Yes "guarantees linear time"                 | No                  | 0                                       |
+| Regex | Python   | Reduces backtracking chance but no guarantee | Yes                 | 1                                       |
+| Pyre2 | Python   | Yes "guarantees linear-time behavior"        | No                  | 0                                       |
 
 
 ## Tentative Results
