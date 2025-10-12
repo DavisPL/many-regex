@@ -10,13 +10,30 @@ Run a regex on tons of different libraries.
 - [x] Vary input size and not just input pattern
 - [x] Make table of Regex libraries
 
-## Tests
+## Libraries Tested
 
-Each Regex pattern was run with an input size of 0 to 30 on all 4 of the tested Regex libraries.
+| Name  | Language | Claimed to be linear                         |
+| ---   | --       | --                                           |
+| Re    | Python   | No                                           |
+| Rure  | Python   | Yes "guarantees linear time"                 |
+| Regex | Python   | Reduces backtracking chance but no guarantee |
+| Pyre2 | Python   | Yes "guarantees linear-time behavior"        |
+
+These libraries were picked after I searched for "linear time regex library python". [Re2](https://pypi.org/project/re2/) was removed from the test because it could not be installed. Similarly, [Regexy](https://pypi.org/project/regexy) was archived and out of date, so it too was excluded.
+
+I use Python's default "re" library as a control even though it does not claim to be linear time.
+
+## Test 1 -- Scaling Test
+
+#### Methods
+
+Each Regex pattern was run with an input size of 0 to 30 on all 4 of the tested Regex libraries. Each line represents a different Regex library, the y axis represents time on a log scale with a hard timeout at 2 seconds.
+
+Here is an example of one of the tests where both Regex and Re can be considered harmful.
 
 <img width="3560" height="2063" alt="test_4_performance" src="https://github.com/user-attachments/assets/b60917b1-aa53-447a-a316-55182d26ed6b" />
 
-Here is an example of one of the tests.
+Here is a list of each test run that links to its corresponding graph.
 
 1. [Nested quantifiers (`^(a+)+$`)](images/test_1_performance.png)
 2. [Nested quantifiers with Kleene star (`^(a*)*$`)](images/test_2_performance.png)
@@ -55,7 +72,7 @@ Here is an example of one of the tests.
 35. [Long repeating with suffix (`^(a+b)+c$`)](images/test_35_performance.png)
 36. [Repeating pattern variation (`^(ab+)+c$`)](images/test_36_performance.png)
 
-## Libraries
+#### Results
 
 | Name  | Language | Claimed to be linear                         | Found to be harmful | Quantity of harmful results (out of 36) |
 | ---   | --       | --                                           | --                  | --                                      |
@@ -64,76 +81,14 @@ Here is an example of one of the tests.
 | Regex | Python   | Reduces backtracking chance but no guarantee | Yes                 | 1                                       |
 | Pyre2 | Python   | Yes "guarantees linear-time behavior"        | No                  | 0                                       |
 
+## Test 2 -- Preliminary Results
 
-## Tentative Results
+This was the first test I ran where each pattern was run with a single input size. These results are preliminary and were to test if I was using a reasonable method for running regex patterns.
 
 <img width="3947" height="2950" alt="regex_benchmark_comparison" src="https://github.com/user-attachments/assets/09dbd171-e07f-4d9f-add2-d89f2f86d2b3" />
 
 <img width="4760" height="2993" alt="regex_benchmark_line_chart" src="https://github.com/user-attachments/assets/b38cc7e2-e5fc-460f-bf4f-613f2663e779" />
 
-### Issue with [re2](https://pypi.org/project/re2/)
+## Notes
 
-```
-            |         |
-            |         PyObject* {aka _object*}
-      src/re2.cpp:15568:25: error: too few arguments to function ‘PyCodeObject* PyCode_New(int, int, int, int, int, PyObject*, PyObject*, PyObject*, PyObject*, PyObject*, PyObject*, PyObject*, PyObject*, PyObject*, int, PyObject*, PyObject*)’
-      15568 |     py_code = PyCode_New(
-            |               ~~~~~~~~~~^
-      15569 |         0,            /*int argcount,*/
-            |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      15570 |         #if PY_MAJOR_VERSION >= 3
-            |         ~~~~~~~~~~~~~~~~~~~~~~~~~
-      15571 |         0,            /*int kwonlyargcount,*/
-            |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      15572 |         #endif
-            |         ~~~~~~
-      15573 |         0,            /*int nlocals,*/
-            |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      15574 |         0,            /*int stacksize,*/
-            |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      15575 |         0,            /*int flags,*/
-            |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      15576 |         __pyx_empty_bytes, /*PyObject *code,*/
-            |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      15577 |         __pyx_empty_tuple,  /*PyObject *consts,*/
-            |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      15578 |         __pyx_empty_tuple,  /*PyObject *names,*/
-            |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      15579 |         __pyx_empty_tuple,  /*PyObject *varnames,*/
-            |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      15580 |         __pyx_empty_tuple,  /*PyObject *freevars,*/
-            |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      15581 |         __pyx_empty_tuple,  /*PyObject *cellvars,*/
-            |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      15582 |         py_srcfile,   /*PyObject *filename,*/
-            |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      15583 |         py_funcname,  /*PyObject *name,*/
-            |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      15584 |         __pyx_lineno,   /*int firstlineno,*/
-            |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      15585 |         __pyx_empty_bytes  /*PyObject *lnotab*/
-            |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      15586 |     );
-            |     ~
-      /usr/include/python3.13/cpython/code.h:213:1: note: declared here
-        213 | PyCode_New(
-            | ^~~~~~~~~~
-      src/re2.cpp:15595:13: error: invalid use of incomplete type ‘PyFrameObject’ {aka ‘struct _frame’}
-      15595 |     py_frame->f_lineno = __pyx_lineno;
-            |             ^~
-      In file included from /usr/include/python3.13/Python.h:68:
-      /usr/include/python3.13/pytypedefs.h:22:16: note: forward declaration of ‘PyFrameObject’ {aka ‘struct _frame’}
-         22 | typedef struct _frame PyFrameObject;
-            |                ^~~~~~
-      error: command '/usr/bin/g++' failed with exit code 1
-      [end of output]
-
-  note: This error originates from a subprocess, and is likely not a problem with pip.
-  ERROR: Failed building wheel for re2
-Failed to build re2
-error: failed-wheel-build-for-install
-
-× Failed to build installable wheels for some pyproject.toml based projects
-╰─> re2
-(venv) many-regex (main) λ
-```
+I had an issue installing https://pypi.org/project/re2.
