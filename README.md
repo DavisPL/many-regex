@@ -16,7 +16,7 @@ Run a regex on tons of different libraries.
 | ---   | --       | --                                    | --                  |
 | Re    | Python   | No                                    | Yes                 |
 | Rure  | Python   | Yes "guarantees linear time"          | No                  |
-| Regex | Python   | Not sure                              | No                  |
+| Regex | Python   | Reduces backtracking chance but no guarantee                              | No                  |
 | Pyre2 | Python   | Yes "guarantees linear-time behavior" | No                  |
 
 
