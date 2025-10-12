@@ -289,31 +289,61 @@ def print_summary_stats(summary_stats):
         print(f"  Timeouts: {stats['timeout_count']}/{stats['total_count']}")
 
 
-if __name__ == "__main__":
+def run_scaling_test():
+    all_results = []
+
+    for test_id in range(1, 3):
+        for size in range(25):
+            results = run_single_test(test_id=test_id, input_size=size)
+
+            all_results.append(
+                {"test_id": test_id, "size": size, "result": results},
+            )
+
+    with open("scaling_test.json", "w") as file:
+        json.dump(all_results, file)
+
+
+def main_run_all_tests():
     INPUT_SIZE = 20
     NUM_RUNS = 3
 
-    # Either a test ID to run or None
-    run_specific_test = None
+    # Run all tests
+    libraries = get_libraries()
+    all_results = run_all_tests(
+        num_runs=NUM_RUNS, libraries=libraries, input_size=INPUT_SIZE
+    )
+    summary_stats = calculate_summary_stats(all_results, libraries)
+    save_results(
+        all_results,
+        summary_stats,
+        libraries,
+        NUM_RUNS,
+        len(get_test_cases(INPUT_SIZE)),
+    )
+    print_summary_stats(summary_stats)
 
-    if run_specific_test is None:
-        # Run all tests
-        libraries = get_libraries()
-        all_results = run_all_tests(
-            num_runs=NUM_RUNS, libraries=libraries, input_size=INPUT_SIZE
-        )
-        summary_stats = calculate_summary_stats(all_results, libraries)
-        save_results(
-            all_results,
-            summary_stats,
-            libraries,
-            NUM_RUNS,
-            len(get_test_cases(INPUT_SIZE)),
-        )
-        print_summary_stats(summary_stats)
+
+def main_run_single_test():
+    INPUT_SIZE = 20
+
+    # Run a single test
+    print("Running single test example:")
+    results = run_single_test(test_id=run_specific_test, input_size=INPUT_SIZE)
+    for result in results:
+        print(f"{result['library']}: {result['result']}")
+
+
+if __name__ == "__main__":
+    scaling_test = True
+
+    if scaling_test:
+        run_scaling_test()
     else:
-        # Run a single test
-        print("Running single test example:")
-        results = run_single_test(test_id=run_specific_test, input_size=INPUT_SIZE)
-        for result in results:
-            print(f"{result['library']}: {result['result']}")
+        # Either a test ID to run or None
+        run_specific_test = None
+
+        if run_specific_test is None:
+            main_run_all_tests()
+        else:
+            main_run_single_test()
