@@ -14,7 +14,7 @@ class RegexLibrary(ABC):
     TIMEOUT_SECONDS = 2
 
     @abstractmethod
-    def setup_test(self, pattern: str, input: str):
+    def setup_test(self, pattern: str, input: str) -> bool:
         pass
 
     def test(self, pattern: str, input: str):
@@ -46,7 +46,7 @@ class RegexLibrary(ABC):
 class Rure(RegexLibrary):
     def setup_test(self, pattern: str, input: str):
         match = rure.match(pattern, input)
-        return bool(match) if match is not None else None
+        return bool(match) if match is not None else False
 
 
 class Re(RegexLibrary):
