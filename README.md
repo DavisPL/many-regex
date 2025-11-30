@@ -17,6 +17,7 @@ Linear-time Regex engines are considered the gold standard for reducing the risk
 - [ ] include JavaScript / TypeScript libraries
 - [ ] include Go libraries
 - [ ] include Rust libraries
+- [ ] include Re# library
 - [x] Vary input size and not just input pattern
 - [x] Make table of Regex libraries
 - [x] Collect more regex patterns from literature
