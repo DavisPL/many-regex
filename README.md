@@ -14,7 +14,7 @@
 - [ ] include Rust libraries
 - [x] Vary input size and not just input pattern
 - [x] Make table of Regex libraries
-- [ ] Collect more regex patterns from literature
+- [x] Collect more regex patterns from literature
 
 ## Libraries Tested
 
