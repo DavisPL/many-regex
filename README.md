@@ -2,6 +2,10 @@
 
 **Can some linear-time regex engines be considered harmful? A runtime analysis of linear-time regex engines in the context of production software systems.**
 
+## Introduction
+
+Linear-time Regex engines are considered the gold standard for reducing the risk of Regular Expression Denial of Service (ReDoS) attacks. However, engines that operate in linear-time can in theory still cause harm to software systems if the coefficient of the linear runtime is large enough. We investigate if any linear-time Regex engines found in either literature or libraries can be considered harmful in the context of production software systems, by causing a large enough stall in runtime. 
+
 ## Included 
 1. [Python code](main.py) to run a regex pattern with many different libraries
 2. [Code](graph.py) to interpret the runtime output
