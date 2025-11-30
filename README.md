@@ -9,6 +9,7 @@
 
 ## Roadmap
 
+- [x] include Python libraries
 - [ ] include JavaScript / TypeScript libraries
 - [ ] include Go libraries
 - [ ] include Rust libraries
