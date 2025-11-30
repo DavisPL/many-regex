@@ -1,6 +1,11 @@
 # Many Regex
 
-Run a regex on tons of different libraries.
+**Can some linear-time regex engines be considered harmful? A runtime analysis of linear-time regex engines in the context of production software systems.**
+
+## Included 
+1. [Python code](main.py) to run a regex pattern with many different libraries
+2. [Code](graph.py) to interpret the runtime output
+3. A [list of datasets](redos-datasets.md) for ReDoS
 
 ## Roadmap
 
