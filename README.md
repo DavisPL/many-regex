@@ -29,6 +29,13 @@ These libraries were picked after I searched for "linear time regex library pyth
 
 I use Python's default "re" library as a control even though it does not claim to be linear time.
 
+## Experiments ToC
+
+Test 1 and 2 were done in just Python
+
+- [Test 1 -- Scaling Test](#test-1----scaling-test)
+- [Test 2 -- Preliminary Results](#test-2----preliminary-results)
+
 ## Test 1 -- Scaling Test
 
 #### Methods
