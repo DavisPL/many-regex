@@ -21,6 +21,10 @@ Linear-time Regex engines are considered the gold standard for reducing the risk
 - [x] Make table of Regex libraries
 - [x] Collect more regex patterns from literature
 
+## Harmfulness Scale
+
+<img width="501" height="166" alt="image" src="https://github.com/user-attachments/assets/8e1cd8cd-83b8-4ab7-8394-b3ecc110eaf4" />
+
 ## Libraries Tested
 
 | Name  | Language | Claimed to be linear                         |
