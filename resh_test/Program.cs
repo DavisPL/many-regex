@@ -1,14 +1,25 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
+using System.IO;
+using System.Reflection;
 using System.Text;
 using Resharp;
+using DotnetRegex = System.Text.RegularExpressions.Regex;
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
+        if (args.Length > 0 && args[0] == "--child")
+        {
+            RunChild(args);
+            return;
+        }
+
         const int inputSize = 100;
+        var perTestTimeout = TimeSpan.FromSeconds(5);
         var tests = GetTestCases(inputSize);
 
         var totalStopwatch = Stopwatch.StartNew();
@@ -16,28 +27,166 @@ class Program
 
         foreach (var (pattern, input) in tests)
         {
-            try
-            {
-                var regex = new Regex(pattern);
-                var stopwatch = Stopwatch.StartNew();
-                var isMatch = regex.IsMatch(input);
-                stopwatch.Stop();
-
-                Console.WriteLine(
-                    $"Test {testId}: pattern={pattern}, input_length={input.Length}, match={isMatch}, time_ms={stopwatch.Elapsed.TotalMilliseconds:F3}"
-                );
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(
-                    $"Test {testId}: pattern={pattern}, input_length={input.Length}, error={ex.GetType().Name}, message={ex.Message}"
-                );
-            }
+            RunTestWithTimeout("RE#", pattern, input, testId, perTestTimeout);
+            RunTestWithTimeout("dotnet", pattern, input, testId, perTestTimeout);
             testId++;
         }
 
         totalStopwatch.Stop();
         Console.WriteLine($"Total time: {totalStopwatch.Elapsed.TotalMilliseconds:F3} ms");
+    }
+
+    static void RunChild(string[] args)
+    {
+        if (args.Length < 5)
+        {
+            Console.Error.WriteLine("Child invocation requires engine, pattern, input, and testId.");
+            return;
+        }
+
+        var engine = args[1];
+        var pattern = args[2];
+        var input = args[3];
+        var testId = int.Parse(args[4], CultureInfo.InvariantCulture);
+
+        if (engine == "RE#")
+        {
+            RunTest("RE#", () => new Regex(pattern).IsMatch(input), pattern, input, testId);
+            return;
+        }
+
+        if (engine == "dotnet")
+        {
+            RunTest("dotnet", () => new DotnetRegex(pattern).IsMatch(input), pattern, input, testId);
+            return;
+        }
+
+        Console.Error.WriteLine($"Unknown engine: {engine}");
+    }
+
+    static void RunTestWithTimeout(
+        string engine,
+        string pattern,
+        string input,
+        int testId,
+        TimeSpan timeout
+    )
+    {
+        var startInfo = CreateChildProcessStartInfo(engine, pattern, input, testId);
+        using var process = Process.Start(startInfo);
+
+        if (process == null)
+        {
+            Console.WriteLine(
+                $"Test {testId} ({engine}): pattern={pattern}, input_length={input.Length}, error=ProcessStartFailed, message=Failed to start child process"
+            );
+            return;
+        }
+
+        var stdoutTask = process.StandardOutput.ReadToEndAsync();
+        var stderrTask = process.StandardError.ReadToEndAsync();
+
+        if (!process.WaitForExit((int)timeout.TotalMilliseconds))
+        {
+            TryKillProcessTree(process);
+            Console.WriteLine(
+                $"Test {testId} ({engine}): pattern={pattern}, input_length={input.Length}, error=TimeoutException, message=Exceeded {timeout.TotalSeconds:F0} seconds"
+            );
+            return;
+        }
+
+        var stdout = stdoutTask.Result;
+        var stderr = stderrTask.Result;
+
+        if (!string.IsNullOrWhiteSpace(stdout))
+        {
+            Console.Write(stdout);
+        }
+
+        if (!string.IsNullOrWhiteSpace(stderr))
+        {
+            Console.Write(stderr);
+        }
+    }
+
+    static ProcessStartInfo CreateChildProcessStartInfo(
+        string engine,
+        string pattern,
+        string input,
+        int testId
+    )
+    {
+        var processPath = Environment.ProcessPath;
+        var assemblyPath = Assembly.GetExecutingAssembly().Location;
+
+        if (string.IsNullOrWhiteSpace(processPath))
+        {
+            throw new InvalidOperationException("Unable to determine current process path.");
+        }
+
+        var startInfo = new ProcessStartInfo
+        {
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            UseShellExecute = false,
+        };
+
+        if (Path.GetFileName(processPath).Equals("dotnet", StringComparison.OrdinalIgnoreCase)
+            && !string.IsNullOrWhiteSpace(assemblyPath))
+        {
+            startInfo.FileName = processPath;
+            startInfo.ArgumentList.Add(assemblyPath);
+        }
+        else
+        {
+            startInfo.FileName = processPath;
+        }
+
+        startInfo.ArgumentList.Add("--child");
+        startInfo.ArgumentList.Add(engine);
+        startInfo.ArgumentList.Add(pattern);
+        startInfo.ArgumentList.Add(input);
+        startInfo.ArgumentList.Add(testId.ToString(CultureInfo.InvariantCulture));
+
+        return startInfo;
+    }
+
+    static void TryKillProcessTree(Process process)
+    {
+        try
+        {
+            process.Kill(entireProcessTree: true);
+        }
+        catch (Exception)
+        {
+            // Ignore kill failures; timeout is already reported.
+        }
+    }
+
+    static void RunTest(
+        string engine,
+        Func<bool> isMatch,
+        string pattern,
+        string input,
+        int testId
+    )
+    {
+        try
+        {
+            var stopwatch = Stopwatch.StartNew();
+            var match = isMatch();
+            stopwatch.Stop();
+
+            Console.WriteLine(
+                $"Test {testId} ({engine}): pattern={pattern}, input_length={input.Length}, match={match}, time_ms={stopwatch.Elapsed.TotalMilliseconds:F3}"
+            );
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(
+                $"Test {testId} ({engine}): pattern={pattern}, input_length={input.Length}, error={ex.GetType().Name}, message={ex.Message}"
+            );
+        }
     }
 
     static List<(string Pattern, string Input)> GetTestCases(int inputSize = 20)
