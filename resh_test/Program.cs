@@ -19,7 +19,7 @@ class Program
         }
 
         const int inputSize = 100;
-        var perTestTimeout = TimeSpan.FromSeconds(5);
+        var perTestTimeout = TimeSpan.FromSeconds(1);
         var tests = GetTestCases(inputSize);
 
         var totalStopwatch = Stopwatch.StartNew();

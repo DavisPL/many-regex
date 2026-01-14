@@ -1,0 +1,227 @@
+Test 1 (RE#): pattern=^(a+)+$, input_length=101, match=False, time_ms=326.091
+Test 1 (dotnet): pattern=^(a+)+$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 2 (RE#): pattern=^(a*)*$, input_length=101, match=False, time_ms=336.214
+Test 2 (dotnet): pattern=^(a*)*$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 3 (RE#): pattern=^(a+)+b$, input_length=101, match=False, time_ms=328.059
+Test 3 (dotnet): pattern=^(a+)+b$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 4 (RE#): pattern=^(a|a)*$, input_length=101, match=False, time_ms=261.308
+Test 4 (dotnet): pattern=^(a|a)*$, input_length=101, match=False, time_ms=6.273
+Test 5 (RE#): pattern=^(a|ab)*$, input_length=101, match=False, time_ms=231.420
+Test 5 (dotnet): pattern=^(a|ab)*$, input_length=101, match=False, time_ms=5.267
+Test 6 (RE#): pattern=(a|a|a|a|a|b)*c, input_length=106, match=False, time_ms=177.812
+Test 6 (dotnet): pattern=(a|a|a|a|a|b)*c, input_length=106, match=False, time_ms=8.947
+Test 7 (RE#): pattern=^((a+)+)+$, input_length=99, match=False, time_ms=219.196
+Test 7 (dotnet): pattern=^((a+)+)+$, input_length=99, error=TimeoutException, message=Exceeded 1 seconds
+Test 8 (RE#): pattern=^(a*)*b$, input_length=101, match=False, time_ms=216.942
+Test 8 (dotnet): pattern=^(a*)*b$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 9 (RE#): pattern=^(a+)*b$, input_length=101, match=False, time_ms=216.250
+Test 9 (dotnet): pattern=^(a+)*b$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 10 (RE#): pattern=^([a-zA-Z0-9])(([\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$, input_length=111, match=False, time_ms=242.939
+Test 10 (dotnet): pattern=^([a-zA-Z0-9])(([\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$, input_length=111, error=TimeoutException, message=Exceeded 1 seconds
+Test 11 (RE#): pattern=^([a-z]+)+[A-Z]$, input_length=106, match=False, time_ms=222.677
+Test 11 (dotnet): pattern=^([a-z]+)+[A-Z]$, input_length=106, error=TimeoutException, message=Exceeded 1 seconds
+Test 12 (RE#): pattern=^([0-9a-z]+)+[A-Z]$, input_length=106, match=False, time_ms=227.228
+Test 12 (dotnet): pattern=^([0-9a-z]+)+[A-Z]$, input_length=106, error=TimeoutException, message=Exceeded 1 seconds
+Test 13 (RE#): pattern=^(.*)*$, input_length=101, match=True, time_ms=205.683
+Test 13 (dotnet): pattern=^(.*)*$, input_length=101, match=True, time_ms=4.878
+Test 14 (RE#): pattern=^(.+)+$, input_length=101, match=True, time_ms=216.942
+Test 14 (dotnet): pattern=^(.+)+$, input_length=101, match=True, time_ms=6.130
+Test 15 (RE#): pattern=^(.*)+b$, input_length=101, match=False, time_ms=221.210
+Test 15 (dotnet): pattern=^(.*)+b$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 16 (RE#): pattern=^(a*)+b$, input_length=106, match=False, time_ms=217.520
+Test 16 (dotnet): pattern=^(a*)+b$, input_length=106, error=TimeoutException, message=Exceeded 1 seconds
+Test 17 (RE#): pattern=^(a?)+b$, input_length=106, match=False, time_ms=216.345
+Test 17 (dotnet): pattern=^(a?)+b$, input_length=106, match=False, time_ms=3.868
+Test 18 (RE#): pattern=^(a*?)*b$, input_length=101, match=False, time_ms=214.428
+Test 18 (dotnet): pattern=^(a*?)*b$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 19 (RE#): pattern=^(\w+\s*)+$, input_length=191, match=False, time_ms=235.144
+Test 19 (dotnet): pattern=^(\w+\s*)+$, input_length=191, match=False, time_ms=4.989
+Test 20 (RE#): pattern=^([\w]+[\s]*)*$, input_length=251, match=False, time_ms=246.505
+Test 20 (dotnet): pattern=^([\w]+[\s]*)*$, input_length=251, error=TimeoutException, message=Exceeded 1 seconds
+Test 21 (RE#): pattern=^(\d+)+$, input_length=106, match=False, time_ms=228.639
+Test 21 (dotnet): pattern=^(\d+)+$, input_length=106, error=TimeoutException, message=Exceeded 1 seconds
+Test 22 (RE#): pattern=^([0-9]+)*$, input_length=106, match=False, time_ms=221.797
+Test 22 (dotnet): pattern=^([0-9]+)*$, input_length=106, error=TimeoutException, message=Exceeded 1 seconds
+Test 23 (RE#): pattern=^(a+|a+)+$, input_length=101, match=False, time_ms=230.245
+Test 23 (dotnet): pattern=^(a+|a+)+$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 24 (RE#): pattern=^(a*|a*)*$, input_length=101, match=False, time_ms=224.990
+Test 24 (dotnet): pattern=^(a*|a*)*$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 25 (RE#): pattern=^(aa+|a+)+$, input_length=103, match=False, time_ms=228.858
+Test 25 (dotnet): pattern=^(aa+|a+)+$, input_length=103, error=TimeoutException, message=Exceeded 1 seconds
+Test 26 (RE#): pattern=^(http://)?([a-z]+\.)*[a-z]+\.[a-z]{2,}$, input_length=451, match=False, time_ms=229.613
+Test 26 (dotnet): pattern=^(http://)?([a-z]+\.)*[a-z]+\.[a-z]{2,}$, input_length=451, match=False, time_ms=5.127
+Test 27 (RE#): pattern=^(\s*a+\s*)+$, input_length=191, match=False, time_ms=227.609
+Test 27 (dotnet): pattern=^(\s*a+\s*)+$, input_length=191, error=TimeoutException, message=Exceeded 1 seconds
+Test 28 (RE#): pattern=^(\s+|a+)*b$, input_length=191, match=False, time_ms=243.892
+Test 28 (dotnet): pattern=^(\s+|a+)*b$, input_length=191, match=False, time_ms=5.325
+Test 29 (RE#): pattern=^(a+)?b?(a+)?$, input_length=106, match=False, time_ms=216.761
+Test 29 (dotnet): pattern=^(a+)?b?(a+)?$, input_length=106, match=False, time_ms=4.319
+Test 30 (RE#): pattern=^(a+b?)+c$, input_length=101, match=False, time_ms=221.350
+Test 30 (dotnet): pattern=^(a+b?)+c$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 31 (RE#): pattern=^([a-zA-Z]+)*$, input_length=106, match=False, time_ms=227.857
+Test 31 (dotnet): pattern=^([a-zA-Z]+)*$, input_length=106, error=TimeoutException, message=Exceeded 1 seconds
+Test 32 (RE#): pattern=^([a-z0-9]+)+[!]$, input_length=151, match=False, time_ms=228.691
+Test 32 (dotnet): pattern=^([a-z0-9]+)+[!]$, input_length=151, error=TimeoutException, message=Exceeded 1 seconds
+Test 33 (RE#): pattern=^((a|b)+)+c$, input_length=106, match=False, time_ms=224.340
+Test 33 (dotnet): pattern=^((a|b)+)+c$, input_length=106, error=TimeoutException, message=Exceeded 1 seconds
+Test 34 (RE#): pattern=^((a|ab)+)+c$, input_length=101, match=False, time_ms=230.156
+Test 34 (dotnet): pattern=^((a|ab)+)+c$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 35 (RE#): pattern=^(a+b)+c$, input_length=191, match=False, time_ms=219.429
+Test 35 (dotnet): pattern=^(a+b)+c$, input_length=191, match=False, time_ms=4.121
+Test 36 (RE#): pattern=^(ab+)+c$, input_length=191, match=False, time_ms=224.295
+Test 36 (dotnet): pattern=^(ab+)+c$, input_length=191, match=False, time_ms=4.110
+Test 37 (RE#): pattern=^(a|aa)+$, input_length=101, match=False, time_ms=230.339
+Test 37 (dotnet): pattern=^(a|aa)+$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 38 (RE#): pattern=^(a|aa)*b$, input_length=101, match=False, time_ms=231.991
+Test 38 (dotnet): pattern=^(a|aa)*b$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 39 (RE#): pattern=^(ab|a)+$, input_length=102, match=False, time_ms=223.674
+Test 39 (dotnet): pattern=^(ab|a)+$, input_length=102, match=False, time_ms=6.417
+Test 40 (RE#): pattern=^(ab|a)*b$, input_length=101, match=False, time_ms=232.064
+Test 40 (dotnet): pattern=^(ab|a)*b$, input_length=101, match=False, time_ms=5.280
+Test 41 (RE#): pattern=^([ab]*)*c$, input_length=101, match=False, time_ms=225.931
+Test 41 (dotnet): pattern=^([ab]*)*c$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 42 (RE#): pattern=^([ab]+)+c$, input_length=101, match=False, time_ms=221.749
+Test 42 (dotnet): pattern=^([ab]+)+c$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 43 (RE#): pattern=^(a|b|ab)+c$, input_length=101, match=False, time_ms=233.742
+Test 43 (dotnet): pattern=^(a|b|ab)+c$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 44 (RE#): pattern=^([a-z]*[A-Z]?)*$, input_length=101, match=False, time_ms=230.177
+Test 44 (dotnet): pattern=^([a-z]*[A-Z]?)*$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 45 (RE#): pattern=^((ab)*)*$, input_length=101, match=False, time_ms=217.578
+Test 45 (dotnet): pattern=^((ab)*)*$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 46 (RE#): pattern=^((ab)+)*$, input_length=101, match=False, time_ms=214.197
+Test 46 (dotnet): pattern=^((ab)+)*$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 47 (RE#): pattern=^(a.*a)*$, input_length=102, match=False, time_ms=220.087
+Test 47 (dotnet): pattern=^(a.*a)*$, input_length=102, error=TimeoutException, message=Exceeded 1 seconds
+Test 48 (RE#): pattern=^(.*a)*$, input_length=101, match=False, time_ms=223.638
+Test 48 (dotnet): pattern=^(.*a)*$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 49 (RE#): pattern=^(.+a)+$, input_length=101, match=False, time_ms=222.260
+Test 49 (dotnet): pattern=^(.+a)+$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 50 (RE#): pattern=^(.*ab)*$, input_length=101, match=False, time_ms=222.596
+Test 50 (dotnet): pattern=^(.*ab)*$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 51 (RE#): pattern=^((a|ab)*)*$, input_length=101, match=False, time_ms=229.051
+Test 51 (dotnet): pattern=^((a|ab)*)*$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 52 (RE#): pattern=^(a|ab|aba)+b$, input_length=101, match=False, time_ms=230.066
+Test 52 (dotnet): pattern=^(a|ab|aba)+b$, input_length=101, match=False, time_ms=5.988
+Test 53 (RE#): pattern=^([0-9]*[a-z]?)+$, input_length=101, match=False, time_ms=229.253
+Test 53 (dotnet): pattern=^([0-9]*[a-z]?)+$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 54 (RE#): pattern=^(\d*\d)+$, input_length=101, match=False, time_ms=218.792
+Test 54 (dotnet): pattern=^(\d*\d)+$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 55 (RE#): pattern=^((\d+)?)+$, input_length=101, match=False, time_ms=221.768
+Test 55 (dotnet): pattern=^((\d+)?)+$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 56 (RE#): pattern=^(\d+\s*)+$, input_length=191, match=False, time_ms=219.780
+Test 56 (dotnet): pattern=^(\d+\s*)+$, input_length=191, match=False, time_ms=5.079
+Test 57 (RE#): pattern=^(\w+\W*)+$, input_length=191, match=True, time_ms=239.958
+Test 57 (dotnet): pattern=^(\w+\W*)+$, input_length=191, match=True, time_ms=5.037
+Test 58 (RE#): pattern=^(\w*\W+)*$, input_length=101, match=False, time_ms=244.162
+Test 58 (dotnet): pattern=^(\w*\W+)*$, input_length=101, match=False, time_ms=4.944
+Test 59 (RE#): pattern=^([a-z]+\d+)*$, input_length=101, match=False, time_ms=234.080
+Test 59 (dotnet): pattern=^([a-z]+\d+)*$, input_length=101, match=False, time_ms=5.175
+Test 60 (RE#): pattern=^([a-z]+\d+)+$, input_length=101, match=False, time_ms=229.798
+Test 60 (dotnet): pattern=^([a-z]+\d+)+$, input_length=101, match=False, time_ms=5.148
+Test 61 (RE#): pattern=^([a-z]?\d?)+$, input_length=101, match=False, time_ms=230.340
+Test 61 (dotnet): pattern=^([a-z]?\d?)+$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 62 (RE#): pattern=^(a{0,3})+b$, input_length=101, match=False, time_ms=217.430
+Test 62 (dotnet): pattern=^(a{0,3})+b$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 63 (RE#): pattern=^(a{1,3})+b$, input_length=101, match=False, time_ms=215.567
+Test 63 (dotnet): pattern=^(a{1,3})+b$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 64 (RE#): pattern=^([a-z]{1,3})+$, input_length=101, match=False, time_ms=225.529
+Test 64 (dotnet): pattern=^([a-z]{1,3})+$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 65 (RE#): pattern=^([a-z]{0,3})*b$, input_length=101, match=False, time_ms=220.555
+Test 65 (dotnet): pattern=^([a-z]{0,3})*b$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 66 (RE#): pattern=^((a?)+)+$, input_length=101, match=False, time_ms=217.020
+Test 66 (dotnet): pattern=^((a?)+)+$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 67 (RE#): pattern=^(a?b?)+c$, input_length=101, match=False, time_ms=219.181
+Test 67 (dotnet): pattern=^(a?b?)+c$, input_length=101, match=False, time_ms=4.199
+Test 68 (RE#): pattern=^(a*b*)+c$, input_length=101, match=False, time_ms=217.018
+Test 68 (dotnet): pattern=^(a*b*)+c$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 69 (RE#): pattern=^([ab]?)+c$, input_length=101, match=False, time_ms=225.375
+Test 69 (dotnet): pattern=^([ab]?)+c$, input_length=101, match=False, time_ms=5.914
+Test 70 (RE#): pattern=^(a+|aa+)+$, input_length=101, match=False, time_ms=226.855
+Test 70 (dotnet): pattern=^(a+|aa+)+$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 71 (RE#): pattern=^((a|aa)+)+$, input_length=101, match=False, time_ms=235.538
+Test 71 (dotnet): pattern=^((a|aa)+)+$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 72 (RE#): pattern=^([\s\S]+)+$, input_length=101, match=True, time_ms=233.522
+Test 72 (dotnet): pattern=^([\s\S]+)+$, input_length=101, match=True, time_ms=4.968
+Test 73 (RE#): pattern=^(a|aa)+\1$, input_length=101, error=Exception, message=UndefinedNumberedReference, 1
+Test 73 (dotnet): pattern=^(a|aa)+\1$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 74 (RE#): pattern=^((a|aa)+)\1$, input_length=101, error=Exception, message=UndefinedNumberedReference, 1
+Test 74 (dotnet): pattern=^((a|aa)+)\1$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 75 (RE#): pattern=^([ab]+)\1c$, input_length=101, error=Exception, message=UndefinedNumberedReference, 1
+Test 75 (dotnet): pattern=^([ab]+)\1c$, input_length=101, match=False, time_ms=5.930
+Test 76 (RE#): pattern=^(a+)(a+)+\1$, input_length=101, error=Exception, message=UndefinedNumberedReference, 1
+Test 76 (dotnet): pattern=^(a+)(a+)+\1$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 77 (RE#): pattern=^((a+)b)+\2$, input_length=101, error=Exception, message=UndefinedNumberedReference, 2
+Test 77 (dotnet): pattern=^((a+)b)+\2$, input_length=101, match=False, time_ms=4.213
+Test 78 (RE#): pattern=^(?=(a+)+b)\w+$, input_length=101, error=UnsupportedPatternException, message=unconstrained lookarounds are only supported as prefixes/suffixes
+Test 78 (dotnet): pattern=^(?=(a+)+b)\w+$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 79 (RE#): pattern=^(?:(?!b).)*b$, input_length=101, error=UnsupportedPatternException, message=this pattern contains unsupported anchors/lookarounds
+Test 79 (dotnet): pattern=^(?:(?!b).)*b$, input_length=101, match=False, time_ms=5.233
+Test 80 (RE#): pattern=^(?=.*a.*a).*b$, input_length=101, error=UnsupportedPatternException, message=unconstrained lookarounds are only supported as prefixes/suffixes
+Test 80 (dotnet): pattern=^(?=.*a.*a).*b$, input_length=101, match=False, time_ms=4.495
+Test 81 (RE#): pattern=^((?=a).)+b$, input_length=101, match=False, time_ms=233.149
+Test 81 (dotnet): pattern=^((?=a).)+b$, input_length=101, match=False, time_ms=5.121
+Test 82 (RE#): pattern=^(a+?)+$, input_length=101, match=False, time_ms=223.013
+Test 82 (dotnet): pattern=^(a+?)+$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 83 (RE#): pattern=^(a+?)*b$, input_length=101, match=False, time_ms=215.778
+Test 83 (dotnet): pattern=^(a+?)*b$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 84 (RE#): pattern=^(a*?)+b$, input_length=101, match=False, time_ms=219.772
+Test 84 (dotnet): pattern=^(a*?)+b$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 85 (RE#): pattern=^(a+?b?)+c$, input_length=101, match=False, time_ms=220.431
+Test 85 (dotnet): pattern=^(a+?b?)+c$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 86 (RE#): pattern=^((a|ab)*)+$, input_length=101, match=False, time_ms=229.386
+Test 86 (dotnet): pattern=^((a|ab)*)+$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 87 (RE#): pattern=^(a|a?)+b$, input_length=101, match=False, time_ms=232.595
+Test 87 (dotnet): pattern=^(a|a?)+b$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 88 (RE#): pattern=^(a|a+)+b$, input_length=101, match=False, time_ms=238.491
+Test 88 (dotnet): pattern=^(a|a+)+b$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 89 (RE#): pattern=^((a|ab)+)+$, input_length=101, match=False, time_ms=224.220
+Test 89 (dotnet): pattern=^((a|ab)+)+$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 90 (RE#): pattern=^((ab)?)+c$, input_length=101, match=False, time_ms=220.435
+Test 90 (dotnet): pattern=^((ab)?)+c$, input_length=101, match=False, time_ms=4.824
+Test 91 (RE#): pattern=^((a)?b?)+c$, input_length=101, match=False, time_ms=220.084
+Test 91 (dotnet): pattern=^((a)?b?)+c$, input_length=101, match=False, time_ms=4.532
+Test 92 (RE#): pattern=^((a?b?)+)+c$, input_length=101, match=False, time_ms=219.235
+Test 92 (dotnet): pattern=^((a?b?)+)+c$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 93 (RE#): pattern=^((a?)+)+b$, input_length=101, match=False, time_ms=217.883
+Test 93 (dotnet): pattern=^((a?)+)+b$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 94 (RE#): pattern=^(ab|cab)+d$, input_length=101, match=False, time_ms=236.426
+Test 94 (dotnet): pattern=^(ab|cab)+d$, input_length=101, match=False, time_ms=6.034
+Test 95 (RE#): pattern=^(abcd|abc)+e$, input_length=151, match=False, time_ms=228.459
+Test 95 (dotnet): pattern=^(abcd|abc)+e$, input_length=151, match=False, time_ms=7.113
+Test 96 (RE#): pattern=^(abc|ab)+c$, input_length=101, match=False, time_ms=229.218
+Test 96 (dotnet): pattern=^(abc|ab)+c$, input_length=101, match=False, time_ms=5.937
+Test 97 (RE#): pattern=^([a-f]+|[a-z]+)+$, input_length=101, match=False, time_ms=239.547
+Test 97 (dotnet): pattern=^([a-f]+|[a-z]+)+$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 98 (RE#): pattern=^([a-z0-9]+|[a-z]+)+$, input_length=101, match=False, time_ms=240.412
+Test 98 (dotnet): pattern=^([a-z0-9]+|[a-z]+)+$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 99 (RE#): pattern=^([0-9a-f]+|[0-9]+)+$, input_length=101, match=False, time_ms=238.538
+Test 99 (dotnet): pattern=^([0-9a-f]+|[0-9]+)+$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 100 (RE#): pattern=^(\w+)+\W$, input_length=101, match=False, time_ms=240.522
+Test 100 (dotnet): pattern=^(\w+)+\W$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 101 (RE#): pattern=^(\D+)+\d$, input_length=101, match=False, time_ms=226.539
+Test 101 (dotnet): pattern=^(\D+)+\d$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 102 (RE#): pattern=^(\S+)+\s$, input_length=101, match=False, time_ms=226.442
+Test 102 (dotnet): pattern=^(\S+)+\s$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 103 (RE#): pattern=^(ab?)+b$, input_length=101, match=False, time_ms=219.643
+Test 103 (dotnet): pattern=^(ab?)+b$, input_length=101, match=False, time_ms=5.254
+Test 104 (RE#): pattern=^(a?b)+b$, input_length=101, match=False, time_ms=220.866
+Test 104 (dotnet): pattern=^(a?b)+b$, input_length=101, match=False, time_ms=5.150
+Test 105 (RE#): pattern=^((ab)?b)+$, input_length=101, match=False, time_ms=221.203
+Test 105 (dotnet): pattern=^((ab)?b)+$, input_length=101, match=False, time_ms=6.779
+Test 106 (RE#): pattern=^((ab)*)+b$, input_length=101, match=False, time_ms=218.722
+Test 106 (dotnet): pattern=^((ab)*)+b$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 107 (RE#): pattern=^(.+)+b$, input_length=101, match=False, time_ms=228.850
+Test 107 (dotnet): pattern=^(.+)+b$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 108 (RE#): pattern=^(.*a.*)+b$, input_length=101, match=False, time_ms=218.507
+Test 108 (dotnet): pattern=^(.*a.*)+b$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 109 (RE#): pattern=^(.*?a)+b$, input_length=101, match=False, time_ms=220.278
+Test 109 (dotnet): pattern=^(.*?a)+b$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 110 (RE#): pattern=^((.*)a)+b$, input_length=101, match=False, time_ms=221.833
+Test 110 (dotnet): pattern=^((.*)a)+b$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 111 (RE#): pattern=^((\d+|\d{1,2})+)+$, input_length=101, match=False, time_ms=235.928
+Test 111 (dotnet): pattern=^((\d+|\d{1,2})+)+$, input_length=101, error=TimeoutException, message=Exceeded 1 seconds
+Test 112 (RE#): pattern=^(\d{0,3})+\D$, input_length=101, match=True, time_ms=223.061
+Test 112 (dotnet): pattern=^(\d{0,3})+\D$, input_length=101, match=True, time_ms=4.815
+Test 113 (RE#): pattern=^(\d{1,3})+\D$, input_length=101, match=True, time_ms=222.098
+Test 113 (dotnet): pattern=^(\d{1,3})+\D$, input_length=101, match=True, time_ms=4.906
+Total time: 110864.887 ms
