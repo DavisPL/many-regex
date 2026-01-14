@@ -120,3 +120,5 @@ I had an issue installing https://pypi.org/project/re2.
 I found a pull request from one of the authors of resharp where they optimize the dotnet regex library https://github.com/dotnet/runtime/pull/102655
 
 The source code for resharp has been moved or removed https://github.com/ieviev/resharp
+
+You can install it from the library website https://www.nuget.org/packages/Resharp
