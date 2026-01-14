@@ -7,6 +7,7 @@
 Linear-time Regex engines are considered the gold standard for reducing the risk of Regular Expression Denial of Service (ReDoS) attacks. However, engines that operate in linear-time can in theory still cause harm to software systems if the coefficient of the linear runtime is large enough. We investigate if any linear-time Regex engines found in either literature or libraries can be considered harmful in the context of production software systems, by causing a large enough stall in runtime. 
 
 ## Included 
+
 1. [Python code](main.py) to run a regex pattern with many different libraries
 2. [Code](graph.py) to interpret the runtime output
 3. A [list of datasets](redos-datasets.md) for ReDoS
@@ -115,3 +116,7 @@ This was the first test I ran where each pattern was run with a single input siz
 ## Notes
 
 I had an issue installing https://pypi.org/project/re2.
+
+I found a pull request from one of the authors of resharp where they optimize the dotnet regex library https://github.com/dotnet/runtime/pull/102655
+
+The source code for resharp has been moved or removed https://github.com/ieviev/resharp
