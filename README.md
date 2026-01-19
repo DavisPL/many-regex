@@ -52,6 +52,7 @@ Test 1 and 2 were done in just Python
 
 - [Test 1 -- Scaling Test](#test-1----scaling-test)
 - [Test 2 -- Preliminary Results](#test-2----preliminary-results)
+- [Test 3 -- Dotnet & RE# Test](#test-3----dotnet--re-test)
 
 ## Test 1 -- Scaling Test
 
@@ -122,6 +123,8 @@ This was the first test I ran where each pattern was run with a single input siz
 ## Test 3 -- Dotnet & RE# Test
 
 We run [Program.cs](./csharp/Program.cs) with `dotnet run`. This tests runs 113 tests in both the RE# library and the default Dotnet Regex library. The RE# library has zero cases that can be considered harmful, but 75 cases that can be conspired harmful. Those results are expected, as the Dotnet Regex library does not claim to be linear-time and RE# does claim to be linear.
+
+![RE# Results](./images/resh_results.png)
 
 Included are the [full results](./csharp/results.txt).
 
