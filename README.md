@@ -52,6 +52,7 @@ Test 1 and 2 were done in just Python
 
 - [Test 1 -- Scaling Test](#test-1----scaling-test)
 - [Test 2 -- Preliminary Results](#test-2----preliminary-results)
+- [Test 3 -- Dotnet & RE# Test](#test-3----dotnet--re-test)
 
 ## Test 1 -- Scaling Test
 
