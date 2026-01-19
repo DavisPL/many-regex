@@ -32,12 +32,14 @@ Linear-time Regex engines are considered the gold standard for reducing the risk
 
 ## Libraries Tested
 
-| Name  | Language | Claimed to be linear                         |
-| ---   | --       | --                                           |
-| Re    | Python   | No                                           |
-| Rure  | Python   | Yes "guarantees linear time"                 |
-| Regex | Python   | Reduces backtracking chance but no guarantee |
-| Pyre2 | Python   | Yes "guarantees linear-time behavior"        |
+| Name        | Language | Claimed to be linear                                                                                   |
+| ---         | --       | --                                                                                                     |
+| Re          | Python   | No                                                                                                     |
+| Rure        | Python   | Yes "guarantees linear time"                                                                           |
+| Regex       | Python   | Reduces backtracking chance but no guarantee                                                           |
+| Pyre2       | Python   | Yes "guarantees linear-time behavior"                                                                  |
+| RE#         | C#       | Yes "the main matching algorithm has input-linear complexity both in theory as well as experimentally" |
+| DotnetRegex | C#       | No                                                                                                     |
 
 These libraries were picked after I searched for "linear time regex library python". [Re2](https://pypi.org/project/re2/) was removed from the test because it could not be installed. Similarly, [Regexy](https://pypi.org/project/regexy) was archived and out of date, so it too was excluded.
 
@@ -115,6 +117,12 @@ This was the first test I ran where each pattern was run with a single input siz
 <img width="3947" height="2950" alt="regex_benchmark_comparison" src="https://github.com/user-attachments/assets/09dbd171-e07f-4d9f-add2-d89f2f86d2b3" />
 
 <img width="4760" height="2993" alt="regex_benchmark_line_chart" src="https://github.com/user-attachments/assets/b38cc7e2-e5fc-460f-bf4f-613f2663e779" />
+
+## Test 3 -- Dotnet & RE# Test
+
+We run [Program.cs](./resh_test/Program.cs) with `dotnet run`. This tests runs 113 tests in both the RE# library and the default Dotnet Regex library. The RE# library has zero cases that can be considered harmful, but 75 cases that can be conspired harmful. Those results are expected, as the Dotnet Regex library does not claim to be linear-time and RE# does claim to be linear.
+
+Included are the [full results](./resh_test/results.txt).
 
 ## Notes
 
