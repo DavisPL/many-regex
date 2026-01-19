@@ -25,6 +25,7 @@ Linear-time Regex engines are considered the gold standard for reducing the risk
 - [x] Make table of Regex libraries
 - [x] Collect more regex patterns from literature
 - [ ] Draft up [poster](https://docs.google.com/presentation/d/1hQlY_-CyS-_QAAD-QpMdrhmsrkSrwy6Pu9Qp7P5Rq18) for initial review
+- [ ] Make ReDoS test cases JSON
 
 ## Harmfulness Scale
 
