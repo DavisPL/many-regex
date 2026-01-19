@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 from concurrent.futures import ProcessPoolExecutor, TimeoutError
 import time
 import json
+from pathlib import Path
 from datetime import datetime
 
 import re  # default python
@@ -68,66 +69,18 @@ class Pyre2(RegexLibrary):
 
 
 def get_test_cases(input_size=20):
-    return [
-        # Classic nested quantifiers
-        ("^(a+)+$", "a" * input_size + "B"),
-        ("^(a*)*$", "a" * input_size + "B"),
-        ("^(a+)+b$", "a" * input_size + "c"),
-        # Alternation with overlapping patterns
-        ("^(a|a)*$", "a" * input_size + "B"),
-        ("^(a|ab)*$", "a" * input_size + "B"),
-        ("(a|a|a|a|a|b)*c", "a" * (input_size + 5) + "d"),
-        # Nested groups with quantifiers
-        ("^((a+)+)+$", "a" * (input_size - 2) + "B"),
-        ("^(a*)*b$", "a" * input_size + "c"),
-        ("^(a+)*b$", "a" * input_size + "c"),
-        # Email-like patterns (common real-world ReDoS)
-        (
-            "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
-            "a" * (input_size + 10) + "@",
-        ),
-        # Overlapping character classes
-        ("^([a-z]+)+[A-Z]$", "a" * (input_size + 5) + "1"),
-        ("^([0-9a-z]+)+[A-Z]$", "a" * (input_size + 5) + "!"),
-        # Grouping with wildcards
-        ("^(.*)*$", "a" * input_size + "B"),
-        ("^(.+)+$", "a" * input_size + "B"),
-        ("^(.*)+b$", "a" * input_size + "c"),
-        # Multiple overlapping quantifiers
-        ("^(a*)+b$", "a" * (input_size + 5) + "c"),
-        ("^(a?)+b$", "a" * (input_size + 5) + "c"),
-        ("^(a*?)*b$", "a" * input_size + "c"),
-        # Word boundary catastrophic cases
-        ("^(\\w+\\s*)+$", "a " * (input_size - 5) + "!"),
-        ("^([\\w]+[\\s]*)*$", "test " * (input_size // 2) + "!"),
-        # Digit patterns
-        ("^(\\d+)+$", "1" * (input_size + 5) + "a"),
-        ("^([0-9]+)*$", "9" * (input_size + 5) + "x"),
-        # Complex alternation
-        ("^(a+|a+)+$", "a" * input_size + "B"),
-        ("^(a*|a*)*$", "a" * input_size + "B"),
-        ("^(aa+|a+)+$", "a" * (input_size + 2) + "B"),
-        # Real-world URL pattern (simplified)
-        (
-            "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
-            "http://a." * (input_size // 2) + "!",
-        ),
-        # Whitespace patterns
-        ("^(\\s*a+\\s*)+$", " a" * (input_size - 5) + "!"),
-        ("^(\\s+|a+)*b$", "a " * (input_size - 5) + "c"),
-        # Optional group patterns
-        ("^(a+)?b?(a+)?$", "a" * (input_size + 5) + "c"),
-        ("^(a+b?)+c$", "a" * input_size + "d"),
-        # Character class repetition
-        ("^([a-zA-Z]+)*$", "a" * (input_size + 5) + "1"),
-        ("^([a-z0-9]+)+[!]$", "abc123" * (input_size // 4) + "?"),
-        # Nested alternation
-        ("^((a|b)+)+c$", "a" * (input_size + 5) + "d"),
-        ("^((a|ab)+)+c$", "a" * input_size + "d"),
-        # Long repeating patterns
-        ("^(a+b)+c$", "ab" * (input_size - 5) + "d"),
-        ("^(ab+)+c$", "ab" * (input_size - 5) + "d"),
-    ]
+    test_cases_path = Path(__file__).with_name("test_cases.json")
+
+    with test_cases_path.open("r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    cases = []
+    for entry in data:
+        pattern = entry["regex"]
+        repeat = entry["repeat"] * input_size
+        cases.append((pattern, repeat))
+
+    return cases
 
 
 def get_libraries():
