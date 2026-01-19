@@ -124,6 +124,8 @@ This was the first test I ran where each pattern was run with a single input siz
 
 We run [Program.cs](./resh_test/Program.cs) with `dotnet run`. This tests runs 113 tests in both the RE# library and the default Dotnet Regex library. The RE# library has zero cases that can be considered harmful, but 75 cases that can be conspired harmful. Those results are expected, as the Dotnet Regex library does not claim to be linear-time and RE# does claim to be linear.
 
+![RE# Results](./images/resh_results.png)
+
 Included are the [full results](./resh_test/results.txt).
 
 ## Notes
