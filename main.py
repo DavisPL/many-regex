@@ -4,11 +4,37 @@ import time
 import json
 from pathlib import Path
 from datetime import datetime
+from dataclasses import dataclass
+from typing import List, Optional
 
 import re  # default python
 import rure  # https://pypi.org/project/rure/
 import regex  # https://pypi.org/project/regex/
 import re2 as pyre2  # https://pypi.org/project/pyre2/
+
+
+@dataclass
+class LibraryResult:
+    library: str
+    result: Optional[bool]
+    time: float
+    timed_out: bool
+
+
+@dataclass
+class SingleTestResult:
+    test_id: int
+    pattern: str
+    input: str
+    library: str
+    result: LibraryResult
+
+
+@dataclass
+class ScalingTestEntry:
+    test_id: int
+    size: int
+    result: List[SingleTestResult]
 
 
 class RegexLibrary(ABC):
