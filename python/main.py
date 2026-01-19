@@ -232,7 +232,7 @@ def save_results(
     libraries,
     num_runs,
     tests_count,
-    filename="redos_test_results.json",
+    filename="py_redos_test_results.json",
 ):
     """Save results to a JSON file."""
     output_data = {
@@ -279,7 +279,7 @@ def run_scaling_test():
                 {"test_id": test_id, "size": size, "result": results},
             )
 
-    with open("scaling_test.json", "w") as file:
+    with open("py_scaling_test.json", "w") as file:
         json.dump(all_results, file)
 
 
