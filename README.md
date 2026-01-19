@@ -10,7 +10,7 @@ Linear-time Regex engines are considered the gold standard for reducing the risk
 
 ## Included 
 
-1. [Python code](main.py) to run a regex pattern with many different libraries
+1. [Python code](python/main.py) to run a regex pattern with many different libraries
 2. [Code](graph.py) to interpret the runtime output
 3. A [list of datasets](redos-datasets.md) for ReDoS
 
@@ -121,9 +121,9 @@ This was the first test I ran where each pattern was run with a single input siz
 
 ## Test 3 -- Dotnet & RE# Test
 
-We run [Program.cs](./resh_test/Program.cs) with `dotnet run`. This tests runs 113 tests in both the RE# library and the default Dotnet Regex library. The RE# library has zero cases that can be considered harmful, but 75 cases that can be conspired harmful. Those results are expected, as the Dotnet Regex library does not claim to be linear-time and RE# does claim to be linear.
+We run [Program.cs](./csharp/Program.cs) with `dotnet run`. This tests runs 113 tests in both the RE# library and the default Dotnet Regex library. The RE# library has zero cases that can be considered harmful, but 75 cases that can be conspired harmful. Those results are expected, as the Dotnet Regex library does not claim to be linear-time and RE# does claim to be linear.
 
-Included are the [full results](./resh_test/results.txt).
+Included are the [full results](./csharp/results.txt).
 
 ## Notes
 
