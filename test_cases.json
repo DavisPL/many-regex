@@ -1,0 +1,680 @@
+[
+  {
+    "regex": "^(a+)+$",
+    "repeat": "a",
+    "description": "Classic nested quantifiers",
+    "id": 1
+  },
+  {
+    "regex": "^(a*)*$",
+    "repeat": "a",
+    "description": "Classic nested quantifiers",
+    "id": 2
+  },
+  {
+    "regex": "^(a+)+b$",
+    "repeat": "a",
+    "description": "Classic nested quantifiers",
+    "id": 3
+  },
+  {
+    "regex": "^(a|a)*$",
+    "repeat": "a",
+    "description": "Alternation with overlapping patterns",
+    "id": 4
+  },
+  {
+    "regex": "^(a|ab)*$",
+    "repeat": "a",
+    "description": "Alternation with overlapping patterns",
+    "id": 5
+  },
+  {
+    "regex": "(a|a|a|a|a|b)*c",
+    "repeat": "a",
+    "description": "Alternation with overlapping patterns",
+    "id": 6
+  },
+  {
+    "regex": "^((a+)+)+$",
+    "repeat": "a",
+    "description": "Nested groups with quantifiers",
+    "id": 7
+  },
+  {
+    "regex": "^(a*)*b$",
+    "repeat": "a",
+    "description": "Nested groups with quantifiers",
+    "id": 8
+  },
+  {
+    "regex": "^(a+)*b$",
+    "repeat": "a",
+    "description": "Nested groups with quantifiers",
+    "id": 9
+  },
+  {
+    "regex": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
+    "repeat": "a",
+    "description": "Email-like patterns (common real-world ReDoS)",
+    "id": 10
+  },
+  {
+    "regex": "^([a-z]+)+[A-Z]$",
+    "repeat": "a",
+    "description": "Overlapping character classes",
+    "id": 11
+  },
+  {
+    "regex": "^([0-9a-z]+)+[A-Z]$",
+    "repeat": "a",
+    "description": "Overlapping character classes",
+    "id": 12
+  },
+  {
+    "regex": "^(.*)*$",
+    "repeat": "a",
+    "description": "Grouping with wildcards",
+    "id": 13
+  },
+  {
+    "regex": "^(.+)+$",
+    "repeat": "a",
+    "description": "Grouping with wildcards",
+    "id": 14
+  },
+  {
+    "regex": "^(.*)+b$",
+    "repeat": "a",
+    "description": "Grouping with wildcards",
+    "id": 15
+  },
+  {
+    "regex": "^(a*)+b$",
+    "repeat": "a",
+    "description": "Multiple overlapping quantifiers",
+    "id": 16
+  },
+  {
+    "regex": "^(a?)+b$",
+    "repeat": "a",
+    "description": "Multiple overlapping quantifiers",
+    "id": 17
+  },
+  {
+    "regex": "^(a*?)*b$",
+    "repeat": "a",
+    "description": "Multiple overlapping quantifiers",
+    "id": 18
+  },
+  {
+    "regex": "^(\\w+\\s*)+$",
+    "repeat": "a ",
+    "description": "Word boundary catastrophic cases",
+    "id": 19
+  },
+  {
+    "regex": "^([\\w]+[\\s]*)*$",
+    "repeat": "test ",
+    "description": "Word boundary catastrophic cases",
+    "id": 20
+  },
+  {
+    "regex": "^(\\d+)+$",
+    "repeat": "1",
+    "description": "Digit patterns",
+    "id": 21
+  },
+  {
+    "regex": "^([0-9]+)*$",
+    "repeat": "9",
+    "description": "Digit patterns",
+    "id": 22
+  },
+  {
+    "regex": "^(a+|a+)+$",
+    "repeat": "a",
+    "description": "Complex alternation",
+    "id": 23
+  },
+  {
+    "regex": "^(a*|a*)*$",
+    "repeat": "a",
+    "description": "Complex alternation",
+    "id": 24
+  },
+  {
+    "regex": "^(aa+|a+)+$",
+    "repeat": "a",
+    "description": "Complex alternation",
+    "id": 25
+  },
+  {
+    "regex": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
+    "repeat": "http://a.",
+    "description": "Real-world URL pattern (simplified)",
+    "id": 26
+  },
+  {
+    "regex": "^(\\s*a+\\s*)+$",
+    "repeat": " a",
+    "description": "Whitespace patterns",
+    "id": 27
+  },
+  {
+    "regex": "^(\\s+|a+)*b$",
+    "repeat": "a ",
+    "description": "Whitespace patterns",
+    "id": 28
+  },
+  {
+    "regex": "^(a+)?b?(a+)?$",
+    "repeat": "a",
+    "description": "Optional group patterns",
+    "id": 29
+  },
+  {
+    "regex": "^(a+b?)+c$",
+    "repeat": "a",
+    "description": "Optional group patterns",
+    "id": 30
+  },
+  {
+    "regex": "^([a-zA-Z]+)*$",
+    "repeat": "a",
+    "description": "Character class repetition",
+    "id": 31
+  },
+  {
+    "regex": "^([a-z0-9]+)+[!]$",
+    "repeat": "abc123",
+    "description": "Character class repetition",
+    "id": 32
+  },
+  {
+    "regex": "^((a|b)+)+c$",
+    "repeat": "a",
+    "description": "Nested alternation",
+    "id": 33
+  },
+  {
+    "regex": "^((a|ab)+)+c$",
+    "repeat": "a",
+    "description": "Nested alternation",
+    "id": 34
+  },
+  {
+    "regex": "^(a+b)+c$",
+    "repeat": "ab",
+    "description": "Long repeating patterns",
+    "id": 35
+  },
+  {
+    "regex": "^(ab+)+c$",
+    "repeat": "ab",
+    "description": "Long repeating patterns",
+    "id": 36
+  },
+  {
+    "regex": "^(a|aa)+$",
+    "repeat": "a",
+    "description": "Overlapping alternation and ambiguous prefixes",
+    "id": 37
+  },
+  {
+    "regex": "^(a|aa)*b$",
+    "repeat": "a",
+    "description": "Overlapping alternation and ambiguous prefixes",
+    "id": 38
+  },
+  {
+    "regex": "^(ab|a)+$",
+    "repeat": "ab",
+    "description": "Overlapping alternation and ambiguous prefixes",
+    "id": 39
+  },
+  {
+    "regex": "^(ab|a)*b$",
+    "repeat": "ab",
+    "description": "Overlapping alternation and ambiguous prefixes",
+    "id": 40
+  },
+  {
+    "regex": "^([ab]*)*c$",
+    "repeat": "a",
+    "description": "Nested character class repetition",
+    "id": 41
+  },
+  {
+    "regex": "^([ab]+)+c$",
+    "repeat": "a",
+    "description": "Nested character class repetition",
+    "id": 42
+  },
+  {
+    "regex": "^(a|b|ab)+c$",
+    "repeat": "ab",
+    "description": "Nested character class repetition",
+    "id": 43
+  },
+  {
+    "regex": "^([a-z]*[A-Z]?)*$",
+    "repeat": "a",
+    "description": "Nested character class repetition",
+    "id": 44
+  },
+  {
+    "regex": "^((ab)*)*$",
+    "repeat": "ab",
+    "description": "Repetition of repeated groups",
+    "id": 45
+  },
+  {
+    "regex": "^((ab)+)*$",
+    "repeat": "ab",
+    "description": "Repetition of repeated groups",
+    "id": 46
+  },
+  {
+    "regex": "^(a.*a)*$",
+    "repeat": "a",
+    "description": "Dot-heavy ambiguity",
+    "id": 47
+  },
+  {
+    "regex": "^(.*a)*$",
+    "repeat": "a",
+    "description": "Dot-heavy ambiguity",
+    "id": 48
+  },
+  {
+    "regex": "^(.+a)+$",
+    "repeat": "a",
+    "description": "Dot-heavy ambiguity",
+    "id": 49
+  },
+  {
+    "regex": "^(.*ab)*$",
+    "repeat": "ab",
+    "description": "Dot-heavy ambiguity",
+    "id": 50
+  },
+  {
+    "regex": "^((a|ab)*)*$",
+    "repeat": "a",
+    "description": "Dot-heavy ambiguity",
+    "id": 51
+  },
+  {
+    "regex": "^(a|ab|aba)+b$",
+    "repeat": "a",
+    "description": "Alternation with longer branches",
+    "id": 52
+  },
+  {
+    "regex": "^([0-9]*[a-z]?)+$",
+    "repeat": "1",
+    "description": "Digit/word class interactions",
+    "id": 53
+  },
+  {
+    "regex": "^(\\d*\\d)+$",
+    "repeat": "1",
+    "description": "Digit/word class interactions",
+    "id": 54
+  },
+  {
+    "regex": "^((\\d+)?)+$",
+    "repeat": "1",
+    "description": "Digit/word class interactions",
+    "id": 55
+  },
+  {
+    "regex": "^(\\d+\\s*)+$",
+    "repeat": "1 ",
+    "description": "Digit/word class interactions",
+    "id": 56
+  },
+  {
+    "regex": "^(\\w+\\W*)+$",
+    "repeat": "a!",
+    "description": "Digit/word class interactions",
+    "id": 57
+  },
+  {
+    "regex": "^(\\w*\\W+)*$",
+    "repeat": "a!",
+    "description": "Digit/word class interactions",
+    "id": 58
+  },
+  {
+    "regex": "^([a-z]+\\d+)*$",
+    "repeat": "a1",
+    "description": "Mixed alpha-numeric repeats",
+    "id": 59
+  },
+  {
+    "regex": "^([a-z]+\\d+)+$",
+    "repeat": "a1",
+    "description": "Mixed alpha-numeric repeats",
+    "id": 60
+  },
+  {
+    "regex": "^([a-z]?\\d?)+$",
+    "repeat": "a1",
+    "description": "Mixed alpha-numeric repeats",
+    "id": 61
+  },
+  {
+    "regex": "^(a{0,3})+b$",
+    "repeat": "a",
+    "description": "Bounded repeats",
+    "id": 62
+  },
+  {
+    "regex": "^(a{1,3})+b$",
+    "repeat": "a",
+    "description": "Bounded repeats",
+    "id": 63
+  },
+  {
+    "regex": "^([a-z]{1,3})+$",
+    "repeat": "a",
+    "description": "Bounded repeats",
+    "id": 64
+  },
+  {
+    "regex": "^([a-z]{0,3})*b$",
+    "repeat": "a",
+    "description": "Bounded repeats",
+    "id": 65
+  },
+  {
+    "regex": "^((a?)+)+$",
+    "repeat": "a",
+    "description": "Optional-heavy nesting",
+    "id": 66
+  },
+  {
+    "regex": "^(a?b?)+c$",
+    "repeat": "a",
+    "description": "Optional-heavy nesting",
+    "id": 67
+  },
+  {
+    "regex": "^(a*b*)+c$",
+    "repeat": "a",
+    "description": "Optional-heavy nesting",
+    "id": 68
+  },
+  {
+    "regex": "^([ab]?)+c$",
+    "repeat": "a",
+    "description": "Optional-heavy nesting",
+    "id": 69
+  },
+  {
+    "regex": "^(a+|aa+)+$",
+    "repeat": "a",
+    "description": "Optional-heavy nesting",
+    "id": 70
+  },
+  {
+    "regex": "^((a|aa)+)+$",
+    "repeat": "a",
+    "description": "Optional-heavy nesting",
+    "id": 71
+  },
+  {
+    "regex": "^([\\s\\S]+)+$",
+    "repeat": "a",
+    "description": "Optional-heavy nesting",
+    "id": 72
+  },
+  {
+    "regex": "^(a|aa)+\\1$",
+    "repeat": "a",
+    "description": "Backreferences and nested groups",
+    "id": 73
+  },
+  {
+    "regex": "^((a|aa)+)\\1$",
+    "repeat": "a",
+    "description": "Backreferences and nested groups",
+    "id": 74
+  },
+  {
+    "regex": "^([ab]+)\\1c$",
+    "repeat": "a",
+    "description": "Backreferences and nested groups",
+    "id": 75
+  },
+  {
+    "regex": "^(a+)(a+)+\\1$",
+    "repeat": "a",
+    "description": "Backreferences and nested groups",
+    "id": 76
+  },
+  {
+    "regex": "^((a+)b)+\\2$",
+    "repeat": "ab",
+    "description": "Backreferences and nested groups",
+    "id": 77
+  },
+  {
+    "regex": "^(?=(a+)+b)\\w+$",
+    "repeat": "a",
+    "description": "Lookarounds with repeats",
+    "id": 78
+  },
+  {
+    "regex": "^(?:(?!b).)*b$",
+    "repeat": "a",
+    "description": "Lookarounds with repeats",
+    "id": 79
+  },
+  {
+    "regex": "^(?=.*a.*a).*b$",
+    "repeat": "a",
+    "description": "Lookarounds with repeats",
+    "id": 80
+  },
+  {
+    "regex": "^((?=a).)+b$",
+    "repeat": "a",
+    "description": "Lookarounds with repeats",
+    "id": 81
+  },
+  {
+    "regex": "^(a+?)+$",
+    "repeat": "a",
+    "description": "Lazy/greedy interactions",
+    "id": 82
+  },
+  {
+    "regex": "^(a+?)*b$",
+    "repeat": "a",
+    "description": "Lazy/greedy interactions",
+    "id": 83
+  },
+  {
+    "regex": "^(a*?)+b$",
+    "repeat": "a",
+    "description": "Lazy/greedy interactions",
+    "id": 84
+  },
+  {
+    "regex": "^(a+?b?)+c$",
+    "repeat": "a",
+    "description": "Lazy/greedy interactions",
+    "id": 85
+  },
+  {
+    "regex": "^((a|ab)*)+$",
+    "repeat": "a",
+    "description": "Anchors and alternation",
+    "id": 86
+  },
+  {
+    "regex": "^(a|a?)+b$",
+    "repeat": "a",
+    "description": "Anchors and alternation",
+    "id": 87
+  },
+  {
+    "regex": "^(a|a+)+b$",
+    "repeat": "a",
+    "description": "Anchors and alternation",
+    "id": 88
+  },
+  {
+    "regex": "^((a|ab)+)+$",
+    "repeat": "a",
+    "description": "Anchors and alternation",
+    "id": 89
+  },
+  {
+    "regex": "^((ab)?)+c$",
+    "repeat": "ab",
+    "description": "Nested optional groups",
+    "id": 90
+  },
+  {
+    "regex": "^((a)?b?)+c$",
+    "repeat": "a",
+    "description": "Nested optional groups",
+    "id": 91
+  },
+  {
+    "regex": "^((a?b?)+)+c$",
+    "repeat": "a",
+    "description": "Nested optional groups",
+    "id": 92
+  },
+  {
+    "regex": "^((a?)+)+b$",
+    "repeat": "a",
+    "description": "Nested optional groups",
+    "id": 93
+  },
+  {
+    "regex": "^(ab|cab)+d$",
+    "repeat": "ab",
+    "description": "Alternation with shared suffixes",
+    "id": 94
+  },
+  {
+    "regex": "^(abcd|abc)+e$",
+    "repeat": "abc",
+    "description": "Alternation with shared suffixes",
+    "id": 95
+  },
+  {
+    "regex": "^(abc|ab)+c$",
+    "repeat": "ab",
+    "description": "Alternation with shared suffixes",
+    "id": 96
+  },
+  {
+    "regex": "^([a-f]+|[a-z]+)+$",
+    "repeat": "a",
+    "description": "Character class overlaps",
+    "id": 97
+  },
+  {
+    "regex": "^([a-z0-9]+|[a-z]+)+$",
+    "repeat": "a",
+    "description": "Character class overlaps",
+    "id": 98
+  },
+  {
+    "regex": "^([0-9a-f]+|[0-9]+)+$",
+    "repeat": "1",
+    "description": "Character class overlaps",
+    "id": 99
+  },
+  {
+    "regex": "^(\\w+)+\\W$",
+    "repeat": "a",
+    "description": "Unicode-ish class behavior with ASCII inputs",
+    "id": 100
+  },
+  {
+    "regex": "^(\\D+)+\\d$",
+    "repeat": "a",
+    "description": "Unicode-ish class behavior with ASCII inputs",
+    "id": 101
+  },
+  {
+    "regex": "^(\\S+)+\\s$",
+    "repeat": "a",
+    "description": "Unicode-ish class behavior with ASCII inputs",
+    "id": 102
+  },
+  {
+    "regex": "^(ab?)+b$",
+    "repeat": "a",
+    "description": "Repeats with fixed tokens",
+    "id": 103
+  },
+  {
+    "regex": "^(a?b)+b$",
+    "repeat": "a",
+    "description": "Repeats with fixed tokens",
+    "id": 104
+  },
+  {
+    "regex": "^((ab)?b)+$",
+    "repeat": "a",
+    "description": "Repeats with fixed tokens",
+    "id": 105
+  },
+  {
+    "regex": "^((ab)*)+b$",
+    "repeat": "ab",
+    "description": "Repeats with fixed tokens",
+    "id": 106
+  },
+  {
+    "regex": "^(.+)+b$",
+    "repeat": "a",
+    "description": "More dot/star ambiguity",
+    "id": 107
+  },
+  {
+    "regex": "^(.*a.*)+b$",
+    "repeat": "a",
+    "description": "More dot/star ambiguity",
+    "id": 108
+  },
+  {
+    "regex": "^(.*?a)+b$",
+    "repeat": "a",
+    "description": "More dot/star ambiguity",
+    "id": 109
+  },
+  {
+    "regex": "^((.*)a)+b$",
+    "repeat": "a",
+    "description": "More dot/star ambiguity",
+    "id": 110
+  },
+  {
+    "regex": "^((\\d+|\\d{1,2})+)+$",
+    "repeat": "1",
+    "description": "Nested alternation with digits",
+    "id": 111
+  },
+  {
+    "regex": "^(\\d{0,3})+\\D$",
+    "repeat": "1",
+    "description": "Nested alternation with digits",
+    "id": 112
+  },
+  {
+    "regex": "^(\\d{1,3})+\\D$",
+    "repeat": "1",
+    "description": "Nested alternation with digits",
+    "id": 113
+  }
+]
