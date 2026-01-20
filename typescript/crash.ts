@@ -14,6 +14,8 @@ type RegexLibrary = {
   timeoutMs: number;
 };
 
+const RUNS = 3;
+const INPUT_SIZE = 20;
 const DEFAULT_TIMEOUT_MS = 2000;
 
 function loadTestCases(): TestCase[] {
@@ -42,8 +44,8 @@ function runRegexWithTimeout(
   text: string,
   timeoutMs: number,
   engine: "native" | "re2" | "regolith",
-): Promise<boolean> {
-  return new Promise((resolve, reject) => {
+): Promise<void> {
+  return new Promise((resolve) => {
     const workerSource =
       engine === "re2"
         ? `
@@ -51,10 +53,10 @@ function runRegexWithTimeout(
       try {
         const RE2 = require('re2');
         const regex = new RE2(${JSON.stringify(pattern)});
-        const match = regex.test(${JSON.stringify(text)});
-        parentPort.postMessage({ success: true, match });
+        regex.test(${JSON.stringify(text)});
+        parentPort.postMessage({ ok: true });
       } catch (err) {
-        parentPort.postMessage({ success: false, error: err.message || String(err) });
+        parentPort.postMessage({ ok: false, error: err.message || String(err) });
       }
     `
         : engine === "regolith"
@@ -63,56 +65,62 @@ function runRegexWithTimeout(
       try {
         const { Regolith } = require('@regolithjs/regolith');
         const regex = new Regolith(${JSON.stringify(pattern)});
-        const match = regex.test(${JSON.stringify(text)});
-        parentPort.postMessage({ success: true, match });
+        regex.test(${JSON.stringify(text)});
+        parentPort.postMessage({ ok: true });
       } catch (err) {
-        parentPort.postMessage({ success: false, error: err.message || String(err) });
+        parentPort.postMessage({ ok: false, error: err.message || String(err) });
       }
     `
         : `
       const { parentPort } = require('worker_threads');
       try {
         const regex = new RegExp(${JSON.stringify(pattern)});
-        const match = regex.test(${JSON.stringify(text)});
-        parentPort.postMessage({ success: true, match });
+        regex.test(${JSON.stringify(text)});
+        parentPort.postMessage({ ok: true });
       } catch (err) {
-        parentPort.postMessage({ success: false, error: err.message || String(err) });
+        parentPort.postMessage({ ok: false, error: err.message || String(err) });
       }
     `;
 
+    let settled = false;
     const worker = new Worker(workerSource, { eval: true });
-
     const timer = setTimeout(() => {
-      worker.terminate();
-      reject(new Error("Regex timed out"));
+      if (settled) return;
+      settled = true;
+      worker.terminate().finally(resolve);
     }, timeoutMs);
 
-    worker.on("message", (msg) => {
+    worker.on("message", () => {
+      if (settled) return;
+      settled = true;
       clearTimeout(timer);
-      if (msg.success) {
-        resolve(msg.match);
-      } else {
-        reject(new Error(msg.error));
-      }
+      worker.terminate().finally(resolve);
     });
-
-    worker.on("error", (err) => {
+    worker.on("error", () => {
+      if (settled) return;
+      settled = true;
       clearTimeout(timer);
-      reject(err);
+      resolve();
+    });
+    worker.on("exit", () => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      resolve();
     });
   });
 }
 
 async function main(): Promise<void> {
   const libraries = getLibraries();
-  const tests = getTestCases(20);
-  const numRuns = 3;
+  const tests = getTestCases(INPUT_SIZE);
 
-  for (let run = 0; run < numRuns; run += 1) {
-    console.log(`Run ${run + 1}/${numRuns}`);
+  for (let run = 0; run < RUNS; run += 1) {
+    console.log(`Run ${run + 1}/${RUNS}`);
     for (let testIdx = 0; testIdx < tests.length; testIdx += 1) {
       const { pattern, input } = tests[testIdx];
       for (const library of libraries) {
+        console.log(`Engine=${library.engine} Pattern=${pattern}`);
         try {
           await runRegexWithTimeout(
             pattern,
@@ -121,7 +129,7 @@ async function main(): Promise<void> {
             library.engine,
           );
         } catch {
-          // Ignore per-test failures to mirror the main runner's behavior.
+          // Intentionally ignore per-test failures.
         }
       }
     }
