@@ -1,10 +1,11 @@
+import ast
 import json
 import matplotlib.pyplot as plt
 import numpy as np
 from collections import defaultdict
 
 # Load the JSON data
-with open("./redos_test_results.json", "r") as f:
+with open("./ts_redos_test_results.json", "r") as f:
     data = json.load(f)
 
 # Extract summary statistics
@@ -16,7 +17,13 @@ test_results = defaultdict(lambda: defaultdict(list))
 for result in data["results"]:
     lib = result["library"]
     test_id = result["test_id"]
-    result_data = eval(result["result"])
+    raw_result = result["result"]
+    if isinstance(raw_result, str):
+        result_data = ast.literal_eval(raw_result)
+    elif isinstance(raw_result, dict):
+        result_data = raw_result
+    else:
+        raise TypeError(f"Unsupported result type: {type(raw_result)}")
     test_results[test_id][lib].append(result_data["time"] * 1000)  # Convert to ms
 
 # Calculate averages per test
@@ -39,7 +46,21 @@ for test_id in test_results:
             test_averages[test_id][lib] = 0
 
 # Color scheme for libraries
-colors = {"Rure": "#3498db", "Re": "#e74c3c", "Regex": "#2ecc71", "Pyre2": "#f39c12"}
+default_palette = ["#3498db", "#e74c3c", "#2ecc71", "#f39c12", "#9b59b6", "#f1c40f"]
+colors = {
+    lib: default_palette[idx % len(default_palette)] for idx, lib in enumerate(libraries)
+}
+
+
+def get_successful_count(stats):
+    if "successful_count" in stats:
+        return stats["successful_count"]
+    return stats["total_count"] - stats["timeout_count"]
+
+
+def get_time_ms(stats, key):
+    value = stats.get(key)
+    return value * 1000 if value is not None else None
 
 ###############################################################################
 # FIGURE 1: Original Overview Charts
@@ -53,10 +74,11 @@ fig1.suptitle(
 
 # 1. Mean Execution Time Comparison
 ax1 = fig1.add_subplot(gs1[0, 0])
-mean_times = [summary[lib]["mean_time"] * 1000 for lib in libraries]  # Convert to ms
+mean_times = [get_time_ms(summary[lib], "mean_time") for lib in libraries]
+mean_times_plot = [val if val is not None else 0 for val in mean_times]
 bars1 = ax1.bar(
     libraries,
-    mean_times,
+    mean_times_plot,
     color=[colors[lib] for lib in libraries],
     alpha=0.7,
     edgecolor="black",
@@ -68,6 +90,8 @@ ax1.grid(axis="y", alpha=0.3, linestyle="--")
 # Add value labels on bars
 for bar, val in zip(bars1, mean_times):
     height = bar.get_height()
+    if val is None:
+        continue
     ax1.text(
         bar.get_x() + bar.get_width() / 2.0,
         height,
@@ -79,10 +103,11 @@ for bar, val in zip(bars1, mean_times):
 
 # 2. Success Rate and Timeouts
 ax2 = fig1.add_subplot(gs1[0, 1])
-success_rates = [
-    summary[lib]["successful_count"] / summary[lib]["total_count"] * 100
-    for lib in libraries
-]
+success_rates = []
+for lib in libraries:
+    stats = summary[lib]
+    success_count = get_successful_count(stats)
+    success_rates.append(success_count / stats["total_count"] * 100)
 timeout_counts = [summary[lib]["timeout_count"] for lib in libraries]
 
 x_pos = np.arange(len(libraries))
@@ -117,9 +142,12 @@ for i, (lib, timeout) in enumerate(zip(libraries, timeout_counts)):
 # 3. Min/Max Range Comparison
 ax4 = fig1.add_subplot(gs1[1, 0])
 for i, lib in enumerate(libraries):
-    min_time = summary[lib]["min_time"] * 1000
-    max_time = summary[lib]["max_time"] * 1000
-    median_time = summary[lib]["median_time"] * 1000
+    min_time = get_time_ms(summary[lib], "min_time")
+    max_time = get_time_ms(summary[lib], "max_time")
+    median_time = get_time_ms(summary[lib], "median_time")
+
+    if min_time is None or max_time is None or median_time is None:
+        continue
 
     # Plot range as a line
     ax4.plot([i, i], [min_time, max_time], color=colors[lib], linewidth=8, alpha=0.3)
@@ -160,9 +188,13 @@ headers = ["Library", "Mean (ms)", "Median (ms)", "Success", "Timeouts"]
 for lib in libraries:
     row = [
         lib,
-        f"{summary[lib]['mean_time'] * 1000:.2f}",
-        f"{summary[lib]['median_time'] * 1000:.2f}",
-        f"{summary[lib]['successful_count']}/{summary[lib]['total_count']}",
+        f"{get_time_ms(summary[lib], 'mean_time'):.2f}"
+        if summary[lib]["mean_time"] is not None
+        else "N/A",
+        f"{get_time_ms(summary[lib], 'median_time'):.2f}"
+        if summary[lib]["median_time"] is not None
+        else "N/A",
+        f"{get_successful_count(summary[lib])}/{summary[lib]['total_count']}",
         f"{summary[lib]['timeout_count']}",
     ]
     table_data.append(row)

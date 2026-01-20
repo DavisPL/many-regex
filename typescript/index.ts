@@ -47,7 +47,7 @@ function loadTestCases(): TestCase[] {
   return JSON.parse(raw) as TestCase[];
 }
 
-function getTestCases(inputSize = 20): Array<{ pattern: string; input: string }> {
+function getTestCases(inputSize = 50): Array<{ pattern: string; input: string }> {
   const cases = loadTestCases();
   return cases.map((entry) => ({
     pattern: entry.regex,
