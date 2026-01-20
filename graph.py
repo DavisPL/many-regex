@@ -1,12 +1,24 @@
 import ast
 import json
+from pathlib import Path
+import sys
 import matplotlib.pyplot as plt
 import numpy as np
 from collections import defaultdict
 
 # Load the JSON data
-with open("./ts_redos_test_results.json", "r") as f:
+input_path = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("./ts_redos_test_results.json")
+with input_path.open("r") as f:
     data = json.load(f)
+
+output_dir = Path("./images")
+output_dir.mkdir(exist_ok=True)
+if input_path.name.startswith("ts_"):
+    output_prefix = "ts_"
+elif input_path.name.startswith("py_"):
+    output_prefix = "py_"
+else:
+    output_prefix = ""
 
 # Extract summary statistics
 summary = data["summary_stats"]
@@ -231,8 +243,9 @@ ax5.set_title("Performance Summary", fontweight="bold", pad=20)
 summary_text = f"Total Tests: {data['metadata']['total_tests']} | Total Runs: {data['metadata']['total_runs']} | Total Executions: 720"
 fig1.text(0.5, 0.02, summary_text, ha="center", fontsize=10, style="italic")
 
-plt.savefig("regex_benchmark_comparison.png", dpi=300, bbox_inches="tight")
-print("Graph 1 saved as 'regex_benchmark_comparison.png'")
+comparison_path = output_dir / f"{output_prefix}regex_benchmark_comparison.png"
+plt.savefig(comparison_path, dpi=300, bbox_inches="tight")
+print(f"Graph 1 saved as '{comparison_path}'")
 
 ###############################################################################
 # FIGURE 2: Line Chart Performance by Test
@@ -295,7 +308,8 @@ fig2.text(
 )
 
 plt.tight_layout()
-plt.savefig("regex_benchmark_line_chart.png", dpi=300, bbox_inches="tight")
-print("Graph 2 saved as 'regex_benchmark_line_chart.png'")
+line_chart_path = output_dir / f"{output_prefix}regex_benchmark_line_chart.png"
+plt.savefig(line_chart_path, dpi=300, bbox_inches="tight")
+print(f"Graph 2 saved as '{line_chart_path}'")
 
 plt.show()

@@ -332,12 +332,12 @@ function getArgValue(flag: string): string | null {
 
 async function main(): Promise<void> {
   const libraries = getLibraries();
-  const inputSize = Number(getArgValue("--input-size") ?? "20");
+  const inputSize = Number(getArgValue("--input-size") ?? "50");
   const numRuns = Number(getArgValue("--runs") ?? "3");
   const singleTestId = getArgValue("--single");
 
   if (process.argv.includes("--scaling")) {
-    await runScalingTest(libraries, Number(getArgValue("--max-size") ?? "30"));
+    await runScalingTest(libraries, Number(getArgValue("--max-size") ?? "50"));
     return;
   }
 
