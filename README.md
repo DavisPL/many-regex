@@ -17,7 +17,7 @@ Linear-time Regex engines are considered the gold standard for reducing the risk
 ## Roadmap
 
 - [x] include Python libraries
-- [ ] include JavaScript / TypeScript libraries
+- [x] include JavaScript / TypeScript libraries
 - [ ] include Go libraries
 - [ ] include Rust libraries
 - [x] include Re# and Dotnet library
