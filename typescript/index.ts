@@ -2,6 +2,7 @@ import { Worker } from "worker_threads";
 import { readFileSync, writeFileSync } from "fs";
 import { performance } from "perf_hooks";
 import RE2 from "re2";
+import { Regolith } from "@regolithjs/regolith";
 
 type TestCase = {
   id: number;
@@ -33,7 +34,7 @@ type ScalingTestEntry = {
 
 type RegexLibrary = {
   name: string;
-  engine: "native" | "re2";
+  engine: "native" | "re2" | "regolith";
   timeoutMs: number;
 };
 
@@ -59,7 +60,7 @@ function runRegexWithTimeout(
   pattern: string,
   text: string,
   timeoutMs: number,
-  engine: "native" | "re2",
+  engine: "native" | "re2" | "regolith",
 ): Promise<boolean> {
   return new Promise((resolve, reject) => {
     const workerSource =
@@ -69,6 +70,18 @@ function runRegexWithTimeout(
       try {
         const RE2 = require('re2');
         const regex = new RE2(${JSON.stringify(pattern)});
+        const match = regex.test(${JSON.stringify(text)});
+        parentPort.postMessage({ success: true, match });
+      } catch (err) {
+        parentPort.postMessage({ success: false, error: err.message || String(err) });
+      }
+    `
+        : engine === "regolith"
+        ? `
+      const { parentPort } = require('worker_threads');
+      try {
+        const { Regolith } = require('@regolithjs/regolith');
+        const regex = new Regolith(${JSON.stringify(pattern)});
         const match = regex.test(${JSON.stringify(text)});
         parentPort.postMessage({ success: true, match });
       } catch (err) {
@@ -113,6 +126,7 @@ function getLibraries(): RegexLibrary[] {
   return [
     { name: "NativeRegExp", engine: "native", timeoutMs: DEFAULT_TIMEOUT_MS },
     { name: "RE2", engine: "re2", timeoutMs: DEFAULT_TIMEOUT_MS },
+    { name: "Regolith", engine: "regolith", timeoutMs: DEFAULT_TIMEOUT_MS },
   ];
 }
 
