@@ -1,6 +1,7 @@
 import { Worker } from "worker_threads";
 import { readFileSync, writeFileSync } from "fs";
 import { performance } from "perf_hooks";
+import RE2 from "re2";
 
 type TestCase = {
   id: number;
@@ -57,8 +58,8 @@ function getTestCases(inputSize = 20): Array<{ pattern: string; input: string }>
 function runRegexWithTimeout(
   pattern: string,
   text: string,
-  timeoutMs = 5000,
-  engine: "native" | "re2" = "native",
+  timeoutMs: number,
+  engine: "native" | "re2",
 ): Promise<boolean> {
   return new Promise((resolve, reject) => {
     const workerSource =
@@ -108,27 +109,11 @@ function runRegexWithTimeout(
   });
 }
 
-async function isModuleAvailable(moduleName: string): Promise<boolean> {
-  try {
-    await import(moduleName);
-    return true;
-  } catch {
-    return false;
-  }
-}
-
-async function getLibraries(): Promise<RegexLibrary[]> {
-  const libraries: RegexLibrary[] = [
+function getLibraries(): RegexLibrary[] {
+  return [
     { name: "NativeRegExp", engine: "native", timeoutMs: DEFAULT_TIMEOUT_MS },
+    { name: "RE2", engine: "re2", timeoutMs: DEFAULT_TIMEOUT_MS },
   ];
-
-  if (await isModuleAvailable("re2")) {
-    libraries.push({ name: "RE2", engine: "re2", timeoutMs: DEFAULT_TIMEOUT_MS });
-  } else {
-    console.warn("Optional library 're2' not available; skipping.");
-  }
-
-  return libraries;
 }
 
 async function runSingleTest(
@@ -346,7 +331,7 @@ function getArgValue(flag: string): string | null {
 }
 
 async function main(): Promise<void> {
-  const libraries = await getLibraries();
+  const libraries = getLibraries();
   const inputSize = Number(getArgValue("--input-size") ?? "20");
   const numRuns = Number(getArgValue("--runs") ?? "3");
   const singleTestId = getArgValue("--single");
