@@ -36,11 +36,13 @@ Linear-time Regex engines are considered the gold standard for reducing the risk
 | Name        | Language | Claimed to be linear                                                                                   |
 | ---         | --       | --                                                                                                     |
 | Re          | Python   | No                                                                                                     |
-| Rure        | Python   | Yes "guarantees linear time"                                                                           |
+| Dotnet Regex | C#       | No                                                                                                     |
 | Regex       | Python   | Reduces backtracking chance but no guarantee                                                           |
-| Pyre2       | Python   | Yes "guarantees linear-time behavior"                                                                  |
-| RE#         | C#       | Yes "the main matching algorithm has input-linear complexity both in theory as well as experimentally" |
-| DotnetRegex | C#       | No                                                                                                     |
+| Rure        | Python   | **Yes** "guarantees linear time"                                                                           |
+| Pyre2       | Python   | **Yes** "guarantees linear-time behavior"                                                                  |
+| RE#         | C#       | **Yes** "the main matching algorithm has input-linear complexity both in theory as well as experimentally" |
+| Regolith        | JavaScript   | **Yes** "guarantees linear time"                                                                           |
+
 
 These libraries were picked after I searched for "linear time regex library python". [Re2](https://pypi.org/project/re2/) was removed from the test because it could not be installed. Similarly, [Regexy](https://pypi.org/project/regexy) was archived and out of date, so it too was excluded.
 
