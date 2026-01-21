@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Reflection;
-using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using Resharp;
 using DotnetRegex = System.Text.RegularExpressions.Regex;
 
 class Program
 {
+    private const int DefaultInputSize = 50;
+    private const int DefaultRuns = 3;
+    private static readonly TimeSpan DefaultTimeout = TimeSpan.FromSeconds(2);
+
     static void Main(string[] args)
     {
         if (args.Length > 0 && args[0] == "--child")
@@ -18,95 +24,250 @@ class Program
             return;
         }
 
-        const int inputSize = 100;
-        var perTestTimeout = TimeSpan.FromSeconds(1);
+        var inputSize = ParseIntArg(args, "--input-size", DefaultInputSize);
+        var numRuns = ParseIntArg(args, "--runs", DefaultRuns);
+        var singleTestId = ParseNullableIntArg(args, "--single");
+
+        var libraries = GetLibraries();
         var tests = GetTestCases(inputSize);
 
-        var totalStopwatch = Stopwatch.StartNew();
-        var testId = 1;
-
-        foreach (var (pattern, input) in tests)
+        if (singleTestId.HasValue)
         {
-            RunTestWithTimeout("RE#", pattern, input, testId, perTestTimeout);
-            RunTestWithTimeout("dotnet", pattern, input, testId, perTestTimeout);
-            testId++;
+            var results = RunSingleTest(singleTestId.Value, libraries, tests);
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.Library}: {result.Result.Result}");
+            }
+            return;
         }
 
-        totalStopwatch.Stop();
-        Console.WriteLine($"Total time: {totalStopwatch.Elapsed.TotalMilliseconds:F3} ms");
+        var allResults = RunAllTests(numRuns, libraries, tests);
+        var summaryStats = CalculateSummaryStats(allResults, libraries);
+        SaveResults(allResults, summaryStats, libraries, numRuns, tests.Count);
     }
 
     static void RunChild(string[] args)
     {
         if (args.Length < 5)
         {
-            Console.Error.WriteLine("Child invocation requires engine, pattern, input, and testId.");
+            WriteChildResult(new ChildResult { Error = "Child invocation requires engine, pattern, input, and testId." });
             return;
         }
 
         var engine = args[1];
         var pattern = args[2];
         var input = args[3];
-        var testId = int.Parse(args[4], CultureInfo.InvariantCulture);
 
-        if (engine == "RE#")
+        try
         {
-            RunTest("RE#", () => new Regex(pattern).IsMatch(input), pattern, input, testId);
-            return;
-        }
+            if (engine == "RE#")
+            {
+                var match = new Regex(pattern).IsMatch(input);
+                WriteChildResult(new ChildResult { Match = match });
+                return;
+            }
 
-        if (engine == "dotnet")
+            if (engine == "dotnet")
+            {
+                var match = new DotnetRegex(pattern).IsMatch(input);
+                WriteChildResult(new ChildResult { Match = match });
+                return;
+            }
+
+            WriteChildResult(new ChildResult { Error = $"Unknown engine: {engine}" });
+        }
+        catch (Exception ex)
         {
-            RunTest("dotnet", () => new DotnetRegex(pattern).IsMatch(input), pattern, input, testId);
-            return;
+            WriteChildResult(new ChildResult { Error = $"{ex.GetType().Name}: {ex.Message}" });
         }
-
-        Console.Error.WriteLine($"Unknown engine: {engine}");
     }
 
-    static void RunTestWithTimeout(
-        string engine,
-        string pattern,
-        string input,
+    static void WriteChildResult(ChildResult result)
+    {
+        var options = new JsonSerializerOptions
+        {
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+        };
+        Console.WriteLine(JsonSerializer.Serialize(result, options));
+    }
+
+    static List<RegexLibrary> GetLibraries()
+    {
+        return new List<RegexLibrary>
+        {
+            new RegexLibrary { Name = "RE#", Engine = "RE#", Timeout = DefaultTimeout },
+            new RegexLibrary { Name = "dotnet", Engine = "dotnet", Timeout = DefaultTimeout },
+        };
+    }
+
+    static List<TestCaseRun> GetTestCases(int inputSize)
+    {
+        var testCasesPath = FindFilePath("test_cases.json");
+        if (string.IsNullOrWhiteSpace(testCasesPath))
+        {
+            throw new FileNotFoundException("Unable to locate test_cases.json.");
+        }
+
+        var raw = File.ReadAllText(testCasesPath);
+        var testCases = JsonSerializer.Deserialize<List<TestCase>>(
+            raw,
+            new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
+        );
+
+        if (testCases == null)
+        {
+            throw new InvalidOperationException("Failed to parse test_cases.json.");
+        }
+
+        return testCases
+            .OrderBy(tc => tc.Id)
+            .Select(tc => new TestCaseRun
+            {
+                Id = tc.Id,
+                Pattern = tc.Regex,
+                Input = RepeatString(tc.Repeat, inputSize)
+            })
+            .ToList();
+    }
+
+    static List<SingleTestResult> RunSingleTest(
         int testId,
-        TimeSpan timeout
+        List<RegexLibrary> libraries,
+        List<TestCaseRun> tests
     )
     {
-        var startInfo = CreateChildProcessStartInfo(engine, pattern, input, testId);
+        if (testId < 1 || testId > tests.Count)
+        {
+            throw new ArgumentOutOfRangeException(nameof(testId), $"Invalid test_id. Must be between 1 and {tests.Count}.");
+        }
+
+        var test = tests[testId - 1];
+        var results = new List<SingleTestResult>();
+
+        foreach (var library in libraries)
+        {
+            results.Add(RunTestWithTimeout(library, test.Id, test.Pattern, test.Input));
+        }
+
+        return results;
+    }
+
+    static List<SingleTestResult> RunAllTests(
+        int numRuns,
+        List<RegexLibrary> libraries,
+        List<TestCaseRun> tests
+    )
+    {
+        var allResults = new List<SingleTestResult>();
+
+        for (var run = 0; run < numRuns; run++)
+        {
+            Console.WriteLine($"Run {run + 1}/{numRuns}");
+            foreach (var test in tests)
+            {
+                foreach (var library in libraries)
+                {
+                    allResults.Add(RunTestWithTimeout(library, test.Id, test.Pattern, test.Input));
+                }
+            }
+        }
+
+        return allResults;
+    }
+
+    static SingleTestResult RunTestWithTimeout(
+        RegexLibrary library,
+        int testId,
+        string pattern,
+        string input
+    )
+    {
+        var startInfo = CreateChildProcessStartInfo(library.Engine, pattern, input, testId);
         using var process = Process.Start(startInfo);
+        var stopwatch = Stopwatch.StartNew();
 
         if (process == null)
         {
-            Console.WriteLine(
-                $"Test {testId} ({engine}): pattern={pattern}, input_length={input.Length}, error=ProcessStartFailed, message=Failed to start child process"
-            );
-            return;
+            stopwatch.Stop();
+            return BuildResult(testId, pattern, input, library.Name, null, stopwatch.Elapsed.TotalSeconds, timedOut: false);
         }
 
         var stdoutTask = process.StandardOutput.ReadToEndAsync();
         var stderrTask = process.StandardError.ReadToEndAsync();
 
-        if (!process.WaitForExit((int)timeout.TotalMilliseconds))
+        if (!process.WaitForExit((int)library.Timeout.TotalMilliseconds))
         {
             TryKillProcessTree(process);
-            Console.WriteLine(
-                $"Test {testId} ({engine}): pattern={pattern}, input_length={input.Length}, error=TimeoutException, message=Exceeded {timeout.TotalSeconds:F0} seconds"
-            );
-            return;
+            stopwatch.Stop();
+            return BuildResult(testId, pattern, input, library.Name, null, stopwatch.Elapsed.TotalSeconds, timedOut: true);
         }
 
+        stopwatch.Stop();
         var stdout = stdoutTask.Result;
         var stderr = stderrTask.Result;
+        var childResult = ParseChildResult(stdout, stderr);
 
-        if (!string.IsNullOrWhiteSpace(stdout))
-        {
-            Console.Write(stdout);
-        }
+        return BuildResult(
+            testId,
+            pattern,
+            input,
+            library.Name,
+            childResult.Match,
+            stopwatch.Elapsed.TotalSeconds,
+            timedOut: false
+        );
+    }
 
+    static ChildResult ParseChildResult(string stdout, string stderr)
+    {
         if (!string.IsNullOrWhiteSpace(stderr))
         {
-            Console.Write(stderr);
+            return new ChildResult { Error = stderr.Trim() };
         }
+
+        if (string.IsNullOrWhiteSpace(stdout))
+        {
+            return new ChildResult { Error = "Empty child output." };
+        }
+
+        try
+        {
+            var result = JsonSerializer.Deserialize<ChildResult>(
+                stdout,
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
+            );
+            return result ?? new ChildResult { Error = "Failed to parse child output." };
+        }
+        catch (Exception ex)
+        {
+            return new ChildResult { Error = $"Failed to parse child output: {ex.Message}" };
+        }
+    }
+
+    static SingleTestResult BuildResult(
+        int testId,
+        string pattern,
+        string input,
+        string libraryName,
+        bool? match,
+        double elapsedSeconds,
+        bool timedOut
+    )
+    {
+        return new SingleTestResult
+        {
+            TestId = testId,
+            Pattern = pattern,
+            Input = input,
+            Library = libraryName,
+            Result = new LibraryResult
+            {
+                Library = libraryName,
+                Result = match,
+                Time = elapsedSeconds,
+                TimedOut = timedOut
+            }
+        };
     }
 
     static ProcessStartInfo CreateChildProcessStartInfo(
@@ -159,203 +320,164 @@ class Program
         }
         catch (Exception)
         {
-            // Ignore kill failures; timeout is already reported.
         }
     }
 
-    static void RunTest(
-        string engine,
-        Func<bool> isMatch,
-        string pattern,
-        string input,
-        int testId
+    static Dictionary<string, SummaryStat> CalculateSummaryStats(
+        List<SingleTestResult> allResults,
+        List<RegexLibrary> libraries
     )
     {
-        try
-        {
-            var stopwatch = Stopwatch.StartNew();
-            var match = isMatch();
-            stopwatch.Stop();
+        var summary = new Dictionary<string, SummaryStat>();
 
-            Console.WriteLine(
-                $"Test {testId} ({engine}): pattern={pattern}, input_length={input.Length}, match={match}, time_ms={stopwatch.Elapsed.TotalMilliseconds:F3}"
-            );
-        }
-        catch (Exception ex)
+        foreach (var library in libraries)
         {
-            Console.WriteLine(
-                $"Test {testId} ({engine}): pattern={pattern}, input_length={input.Length}, error={ex.GetType().Name}, message={ex.Message}"
-            );
+            var results = allResults.Where(r => r.Library == library.Name).ToList();
+            var times = results
+                .Where(r => !r.Result.TimedOut)
+                .Select(r => r.Result.Time)
+                .OrderBy(t => t)
+                .ToList();
+
+            var totalCount = results.Count;
+            var timeoutCount = results.Count(r => r.Result.TimedOut);
+            double? mean = null;
+            double? median = null;
+            if (times.Count > 0)
+            {
+                mean = times.Sum() / times.Count;
+                median = times.Count % 2 == 0
+                    ? (times[times.Count / 2 - 1] + times[times.Count / 2]) / 2
+                    : times[times.Count / 2];
+            }
+
+            summary[library.Name] = new SummaryStat
+            {
+                MeanTime = mean,
+                MedianTime = median,
+                MinTime = times.Count > 0 ? times.First() : null,
+                MaxTime = times.Count > 0 ? times.Last() : null,
+                TimeoutCount = timeoutCount,
+                TotalCount = totalCount
+            };
         }
+
+        return summary;
     }
 
-    static List<(string Pattern, string Input)> GetTestCases(int inputSize = 20)
+    static void SaveResults(
+        List<SingleTestResult> allResults,
+        Dictionary<string, SummaryStat> summaryStats,
+        List<RegexLibrary> libraries,
+        int numRuns,
+        int testsCount
+    )
     {
-        return new List<(string, string)>
+        var testCasesPath = FindFilePath("test_cases.json");
+        if (string.IsNullOrWhiteSpace(testCasesPath))
         {
-            // Classic nested quantifiers
-            ("^(a+)+$", RepeatChar('a', inputSize) + "B"),
-            ("^(a*)*$", RepeatChar('a', inputSize) + "B"),
-            ("^(a+)+b$", RepeatChar('a', inputSize) + "c"),
-            // Alternation with overlapping patterns
-            ("^(a|a)*$", RepeatChar('a', inputSize) + "B"),
-            ("^(a|ab)*$", RepeatChar('a', inputSize) + "B"),
-            ("(a|a|a|a|a|b)*c", RepeatChar('a', inputSize + 5) + "d"),
-            // Nested groups with quantifiers
-            ("^((a+)+)+$", RepeatChar('a', inputSize - 2) + "B"),
-            ("^(a*)*b$", RepeatChar('a', inputSize) + "c"),
-            ("^(a+)*b$", RepeatChar('a', inputSize) + "c"),
-            // Email-like patterns (common real-world ReDoS)
-            (
-                @"^([a-zA-Z0-9])(([\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
-                RepeatChar('a', inputSize + 10) + "@"
-            ),
-            // Overlapping character classes
-            ("^([a-z]+)+[A-Z]$", RepeatChar('a', inputSize + 5) + "1"),
-            ("^([0-9a-z]+)+[A-Z]$", RepeatChar('a', inputSize + 5) + "!"),
-            // Grouping with wildcards
-            ("^(.*)*$", RepeatChar('a', inputSize) + "B"),
-            ("^(.+)+$", RepeatChar('a', inputSize) + "B"),
-            ("^(.*)+b$", RepeatChar('a', inputSize) + "c"),
-            // Multiple overlapping quantifiers
-            ("^(a*)+b$", RepeatChar('a', inputSize + 5) + "c"),
-            ("^(a?)+b$", RepeatChar('a', inputSize + 5) + "c"),
-            ("^(a*?)*b$", RepeatChar('a', inputSize) + "c"),
-            // Word boundary catastrophic cases
-            (@"^(\w+\s*)+$", RepeatString("a ", inputSize - 5) + "!"),
-            (@"^([\w]+[\s]*)*$", RepeatString("test ", inputSize / 2) + "!"),
-            // Digit patterns
-            (@"^(\d+)+$", RepeatChar('1', inputSize + 5) + "a"),
-            ("^([0-9]+)*$", RepeatChar('9', inputSize + 5) + "x"),
-            // Complex alternation
-            ("^(a+|a+)+$", RepeatChar('a', inputSize) + "B"),
-            ("^(a*|a*)*$", RepeatChar('a', inputSize) + "B"),
-            ("^(aa+|a+)+$", RepeatChar('a', inputSize + 2) + "B"),
-            // Real-world URL pattern (simplified)
-            (@"^(http://)?([a-z]+\.)*[a-z]+\.[a-z]{2,}$", RepeatString("http://a.", inputSize / 2) + "!"),
-            // Whitespace patterns
-            (@"^(\s*a+\s*)+$", RepeatString(" a", inputSize - 5) + "!"),
-            (@"^(\s+|a+)*b$", RepeatString("a ", inputSize - 5) + "c"),
-            // Optional group patterns
-            ("^(a+)?b?(a+)?$", RepeatChar('a', inputSize + 5) + "c"),
-            ("^(a+b?)+c$", RepeatChar('a', inputSize) + "d"),
-            // Character class repetition
-            ("^([a-zA-Z]+)*$", RepeatChar('a', inputSize + 5) + "1"),
-            ("^([a-z0-9]+)+[!]$", RepeatString("abc123", inputSize / 4) + "?"),
-            // Nested alternation
-            ("^((a|b)+)+c$", RepeatChar('a', inputSize + 5) + "d"),
-            ("^((a|ab)+)+c$", RepeatChar('a', inputSize) + "d"),
-            // Long repeating patterns
-            ("^(a+b)+c$", RepeatString("ab", inputSize - 5) + "d"),
-            ("^(ab+)+c$", RepeatString("ab", inputSize - 5) + "d"),
-            // Overlapping alternation and ambiguous prefixes
-            ("^(a|aa)+$", RepeatChar('a', inputSize) + "B"),
-            ("^(a|aa)*b$", RepeatChar('a', inputSize) + "c"),
-            ("^(ab|a)+$", RepeatString("ab", inputSize / 2) + "aB"),
-            ("^(ab|a)*b$", RepeatString("ab", inputSize / 2) + "a"),
-            // Nested character class repetition
-            ("^([ab]*)*c$", RepeatChar('a', inputSize) + "d"),
-            ("^([ab]+)+c$", RepeatChar('a', inputSize) + "d"),
-            ("^(a|b|ab)+c$", RepeatString("ab", inputSize / 2) + "d"),
-            ("^([a-z]*[A-Z]?)*$", RepeatChar('a', inputSize) + "!"),
-            // Repetition of repeated groups
-            ("^((ab)*)*$", RepeatString("ab", inputSize / 2) + "c"),
-            ("^((ab)+)*$", RepeatString("ab", inputSize / 2) + "c"),
-            // Dot-heavy ambiguity
-            ("^(a.*a)*$", "a" + RepeatChar('a', inputSize) + "B"),
-            ("^(.*a)*$", RepeatChar('a', inputSize) + "B"),
-            ("^(.+a)+$", RepeatChar('a', inputSize) + "B"),
-            ("^(.*ab)*$", RepeatString("ab", inputSize / 2) + "c"),
-            ("^((a|ab)*)*$", RepeatChar('a', inputSize) + "B"),
-            // Alternation with longer branches
-            ("^(a|ab|aba)+b$", RepeatChar('a', inputSize) + "c"),
-            // Digit/word class interactions
-            ("^([0-9]*[a-z]?)+$", RepeatChar('1', inputSize) + "!"),
-            (@"^(\d*\d)+$", RepeatChar('1', inputSize) + "a"),
-            (@"^((\d+)?)+$", RepeatChar('1', inputSize) + "a"),
-            (@"^(\d+\s*)+$", RepeatString("1 ", inputSize - 5) + "!"),
-            (@"^(\w+\W*)+$", RepeatString("a!", inputSize - 5) + "_"),
-            (@"^(\w*\W+)*$", RepeatString("a!", inputSize / 2) + "a"),
-            // Mixed alpha-numeric repeats
-            (@"^([a-z]+\d+)*$", RepeatString("a1", inputSize / 2) + "B"),
-            (@"^([a-z]+\d+)+$", RepeatString("a1", inputSize / 2) + "B"),
-            (@"^([a-z]?\d?)+$", RepeatString("a1", inputSize / 2) + "B"),
-            // Bounded repeats
-            ("^(a{0,3})+b$", RepeatChar('a', inputSize) + "c"),
-            ("^(a{1,3})+b$", RepeatChar('a', inputSize) + "c"),
-            ("^([a-z]{1,3})+$", RepeatChar('a', inputSize) + "!"),
-            ("^([a-z]{0,3})*b$", RepeatChar('a', inputSize) + "c"),
-            // Optional-heavy nesting
-            ("^((a?)+)+$", RepeatChar('a', inputSize) + "B"),
-            ("^(a?b?)+c$", RepeatChar('a', inputSize) + "d"),
-            ("^(a*b*)+c$", RepeatChar('a', inputSize) + "d"),
-            ("^([ab]?)+c$", RepeatChar('a', inputSize) + "d"),
-            ("^(a+|aa+)+$", RepeatChar('a', inputSize) + "B"),
-            ("^((a|aa)+)+$", RepeatChar('a', inputSize) + "B"),
-            (@"^([\s\S]+)+$", RepeatChar('a', inputSize) + "B"),
-            // Backreferences and nested groups
-            ("^(a|aa)+\\1$", RepeatChar('a', inputSize) + "B"),
-            ("^((a|aa)+)\\1$", RepeatChar('a', inputSize) + "B"),
-            ("^([ab]+)\\1c$", RepeatChar('a', inputSize) + "d"),
-            ("^(a+)(a+)+\\1$", RepeatChar('a', inputSize) + "B"),
-            ("^((a+)b)+\\2$", RepeatString("ab", inputSize / 2) + "B"),
-            // Lookarounds with repeats
-            ("^(?=(a+)+b)\\w+$", RepeatChar('a', inputSize) + "c"),
-            ("^(?:(?!b).)*b$", RepeatChar('a', inputSize) + "c"),
-            ("^(?=.*a.*a).*b$", RepeatChar('a', inputSize) + "c"),
-            ("^((?=a).)+b$", RepeatChar('a', inputSize) + "c"),
-            // Lazy/greedy interactions
-            ("^(a+?)+$", RepeatChar('a', inputSize) + "B"),
-            ("^(a+?)*b$", RepeatChar('a', inputSize) + "c"),
-            ("^(a*?)+b$", RepeatChar('a', inputSize) + "c"),
-            ("^(a+?b?)+c$", RepeatChar('a', inputSize) + "d"),
-            // Anchors and alternation
-            ("^((a|ab)*)+$", RepeatChar('a', inputSize) + "B"),
-            ("^(a|a?)+b$", RepeatChar('a', inputSize) + "c"),
-            ("^(a|a+)+b$", RepeatChar('a', inputSize) + "c"),
-            ("^((a|ab)+)+$", RepeatChar('a', inputSize) + "B"),
-            // Nested optional groups
-            ("^((ab)?)+c$", RepeatString("ab", inputSize / 2) + "d"),
-            ("^((a)?b?)+c$", RepeatChar('a', inputSize) + "d"),
-            ("^((a?b?)+)+c$", RepeatChar('a', inputSize) + "d"),
-            ("^((a?)+)+b$", RepeatChar('a', inputSize) + "c"),
-            // Alternation with shared suffixes
-            ("^(ab|cab)+d$", RepeatString("ab", inputSize / 2) + "c"),
-            ("^(abcd|abc)+e$", RepeatString("abc", inputSize / 2) + "d"),
-            ("^(abc|ab)+c$", RepeatString("ab", inputSize / 2) + "B"),
-            // Character class overlaps
-            ("^([a-f]+|[a-z]+)+$", RepeatChar('a', inputSize) + "B"),
-            ("^([a-z0-9]+|[a-z]+)+$", RepeatChar('a', inputSize) + "!"),
-            ("^([0-9a-f]+|[0-9]+)+$", RepeatChar('1', inputSize) + "g"),
-            // Unicode-ish class behavior with ASCII inputs
-            (@"^(\w+)+\W$", RepeatChar('a', inputSize) + "_"),
-            (@"^(\D+)+\d$", RepeatChar('a', inputSize) + "b"),
-            (@"^(\S+)+\s$", RepeatChar('a', inputSize) + "b"),
-            // Repeats with fixed tokens
-            ("^(ab?)+b$", RepeatChar('a', inputSize) + "c"),
-            ("^(a?b)+b$", RepeatChar('a', inputSize) + "c"),
-            ("^((ab)?b)+$", RepeatChar('a', inputSize) + "B"),
-            ("^((ab)*)+b$", RepeatString("ab", inputSize / 2) + "c"),
-            // More dot/star ambiguity
-            ("^(.+)+b$", RepeatChar('a', inputSize) + "c"),
-            ("^(.*a.*)+b$", RepeatChar('a', inputSize) + "c"),
-            ("^(.*?a)+b$", RepeatChar('a', inputSize) + "c"),
-            ("^((.*)a)+b$", RepeatChar('a', inputSize) + "c"),
-            // Nested alternation with digits
-            (@"^((\d+|\d{1,2})+)+$", RepeatChar('1', inputSize) + "a"),
-            (@"^(\d{0,3})+\D$", RepeatChar('1', inputSize) + "a"),
-            (@"^(\d{1,3})+\D$", RepeatChar('1', inputSize) + "a"),
+            throw new FileNotFoundException("Unable to locate test_cases.json.");
+        }
+
+        var outputPath = Path.Combine(Path.GetDirectoryName(testCasesPath) ?? ".", "csharp_redos_test_results.json");
+        var outputData = new ResultsFile
+        {
+            Metadata = new Metadata
+            {
+                Timestamp = DateTimeOffset.UtcNow.ToString("o", CultureInfo.InvariantCulture),
+                TotalRuns = numRuns,
+                TotalTests = testsCount,
+                TotalLibraries = libraries.Count,
+                Libraries = libraries.Select(lib => lib.Name).ToList()
+            },
+            SummaryStats = summaryStats,
+            Results = allResults
         };
+
+        var options = new JsonSerializerOptions
+        {
+            WriteIndented = true
+        };
+
+        File.WriteAllText(outputPath, JsonSerializer.Serialize(outputData, options));
+        Console.WriteLine($"Saved {allResults.Count} results to {outputPath}");
     }
 
-    static string RepeatChar(char value, int count)
+    static string? FindFilePath(string fileName)
     {
-        if (count <= 0)
+        var candidates = new List<string?>
         {
-            return string.Empty;
+            Directory.GetCurrentDirectory(),
+            AppContext.BaseDirectory
+        };
+
+        foreach (var start in candidates)
+        {
+            if (string.IsNullOrWhiteSpace(start))
+            {
+                continue;
+            }
+
+            var dir = new DirectoryInfo(start);
+            while (dir != null)
+            {
+                var candidate = Path.Combine(dir.FullName, fileName);
+                if (File.Exists(candidate))
+                {
+                    return candidate;
+                }
+
+                dir = dir.Parent;
+            }
         }
 
-        return new string(value, count);
+        return null;
+    }
+
+    static int ParseIntArg(string[] args, string flag, int defaultValue)
+    {
+        var raw = GetArgValue(args, flag);
+        if (raw == null)
+        {
+            return defaultValue;
+        }
+
+        if (!int.TryParse(raw, NumberStyles.Integer, CultureInfo.InvariantCulture, out var value))
+        {
+            throw new ArgumentException($"Invalid value for {flag}: {raw}");
+        }
+
+        return value;
+    }
+
+    static int? ParseNullableIntArg(string[] args, string flag)
+    {
+        var raw = GetArgValue(args, flag);
+        if (raw == null)
+        {
+            return null;
+        }
+
+        if (!int.TryParse(raw, NumberStyles.Integer, CultureInfo.InvariantCulture, out var value))
+        {
+            throw new ArgumentException($"Invalid value for {flag}: {raw}");
+        }
+
+        return value;
+    }
+
+    static string? GetArgValue(string[] args, string flag)
+    {
+        var prefix = $"{flag}=";
+        foreach (var arg in args)
+        {
+            if (arg.StartsWith(prefix, StringComparison.Ordinal))
+            {
+                return arg[prefix.Length..];
+            }
+        }
+
+        return null;
     }
 
     static string RepeatString(string value, int count)
@@ -365,12 +487,128 @@ class Program
             return string.Empty;
         }
 
-        var builder = new StringBuilder(value.Length * count);
-        for (var i = 0; i < count; i++)
-        {
-            builder.Append(value);
-        }
-
-        return builder.ToString();
+        return string.Concat(Enumerable.Repeat(value, count));
     }
+}
+
+class RegexLibrary
+{
+    public string Name { get; set; } = "";
+    public string Engine { get; set; } = "";
+    public TimeSpan Timeout { get; set; }
+}
+
+class TestCase
+{
+    [JsonPropertyName("id")]
+    public int Id { get; set; }
+
+    [JsonPropertyName("regex")]
+    public string Regex { get; set; } = "";
+
+    [JsonPropertyName("repeat")]
+    public string Repeat { get; set; } = "";
+
+    [JsonPropertyName("description")]
+    public string Description { get; set; } = "";
+}
+
+class TestCaseRun
+{
+    public int Id { get; set; }
+    public string Pattern { get; set; } = "";
+    public string Input { get; set; } = "";
+}
+
+class ChildResult
+{
+    [JsonPropertyName("match")]
+    public bool? Match { get; set; }
+
+    [JsonPropertyName("error")]
+    public string? Error { get; set; }
+}
+
+class LibraryResult
+{
+    [JsonPropertyName("library")]
+    public string Library { get; set; } = "";
+
+    [JsonPropertyName("result")]
+    public bool? Result { get; set; }
+
+    [JsonPropertyName("time")]
+    public double Time { get; set; }
+
+    [JsonPropertyName("timed_out")]
+    public bool TimedOut { get; set; }
+}
+
+class SingleTestResult
+{
+    [JsonPropertyName("test_id")]
+    public int TestId { get; set; }
+
+    [JsonPropertyName("pattern")]
+    public string Pattern { get; set; } = "";
+
+    [JsonPropertyName("input")]
+    public string Input { get; set; } = "";
+
+    [JsonPropertyName("library")]
+    public string Library { get; set; } = "";
+
+    [JsonPropertyName("result")]
+    public LibraryResult Result { get; set; } = new LibraryResult();
+}
+
+class SummaryStat
+{
+    [JsonPropertyName("mean_time")]
+    public double? MeanTime { get; set; }
+
+    [JsonPropertyName("median_time")]
+    public double? MedianTime { get; set; }
+
+    [JsonPropertyName("min_time")]
+    public double? MinTime { get; set; }
+
+    [JsonPropertyName("max_time")]
+    public double? MaxTime { get; set; }
+
+    [JsonPropertyName("timeout_count")]
+    public int TimeoutCount { get; set; }
+
+    [JsonPropertyName("total_count")]
+    public int TotalCount { get; set; }
+}
+
+class Metadata
+{
+    [JsonPropertyName("timestamp")]
+    public string Timestamp { get; set; } = "";
+
+    [JsonPropertyName("total_runs")]
+    public int TotalRuns { get; set; }
+
+    [JsonPropertyName("total_tests")]
+    public int TotalTests { get; set; }
+
+    [JsonPropertyName("total_libraries")]
+    public int TotalLibraries { get; set; }
+
+    [JsonPropertyName("libraries")]
+    public List<string> Libraries { get; set; } = new List<string>();
+}
+
+class ResultsFile
+{
+    [JsonPropertyName("metadata")]
+    public Metadata Metadata { get; set; } = new Metadata();
+
+    [JsonPropertyName("summary_stats")]
+    public Dictionary<string, SummaryStat> SummaryStats { get; set; } = new Dictionary<string, SummaryStat>();
+
+    [JsonPropertyName("results")]
+    public List<SingleTestResult> Results { get; set; } = new List<SingleTestResult>();
 }
