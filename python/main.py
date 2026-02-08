@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+import argparse
 from concurrent.futures import ProcessPoolExecutor, TimeoutError
 import time
 import json
@@ -326,45 +327,73 @@ def run_scaling_test():
         json.dump(all_results, file)
 
 
-def main_run_all_tests():
-    INPUT_SIZE = 20
-    NUM_RUNS = 3
+def timeout_label(timeout_seconds: float) -> str:
+    if float(timeout_seconds).is_integer():
+        return str(int(timeout_seconds))
+    return str(timeout_seconds).replace(".", "_")
+
+
+def build_output_filename(timeout_seconds: float) -> str:
+    return f"py_redos_test_results_timeout-{timeout_label(timeout_seconds)}.json"
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(description="Run regex tests across Python libraries.")
+    parser.add_argument("--runs", type=int, default=3)
+    parser.add_argument("--single", type=int, default=None)
+    parser.add_argument("--timeout", type=float, default=2.0)
+    parser.add_argument("--input-length", type=int, default=20)
+    parser.add_argument(
+        "--input-size",
+        type=int,
+        default=None,
+        help="Deprecated alias for --input-length.",
+    )
+    return parser.parse_args()
+
+
+def main_run_all_tests(input_length: int, num_runs: int, output_filename: str):
 
     # Run all tests
     libraries = get_libraries()
-    all_results = run_all_tests(
-        num_runs=NUM_RUNS, libraries=libraries, input_size=INPUT_SIZE
-    )
+    all_results = run_all_tests(num_runs=num_runs, libraries=libraries, input_size=input_length)
     summary_stats = calculate_summary_stats(all_results, libraries)
     save_results(
         all_results,
         summary_stats,
         libraries,
-        NUM_RUNS,
-        len(get_test_cases(INPUT_SIZE)),
+        num_runs,
+        len(get_test_cases(input_length)),
+        output_filename,
     )
     print_summary_stats(summary_stats)
 
 
-def main_run_single_test(input_size):
+def main_run_single_test(test_id: int, input_length: int):
 
     # Run a single test
     print("Running single test example:")
-    results = run_single_test(test_id=run_specific_test, input_size=input_size)
+    results = run_single_test(test_id=test_id, input_size=input_length)
     for result in results:
         print(f"{result['library']}: {result['result']}")
 
 
 if __name__ == "__main__":
+    args = parse_args()
+    input_length = args.input_size if args.input_size is not None else args.input_length
+    RegexLibrary.TIMEOUT_SECONDS = args.timeout
+    output_filename = build_output_filename(args.timeout)
+
     scaling_test = False
 
     if scaling_test:
         run_scaling_test()
     else:
-        # Either a test ID to run or None
-        run_specific_test = None
-
-        if run_specific_test is None:
-            main_run_all_tests()
+        if args.single is None:
+            main_run_all_tests(
+                input_length=input_length,
+                num_runs=args.runs,
+                output_filename=output_filename,
+            )
         else:
-            main_run_single_test(50)
+            main_run_single_test(args.single, input_length)

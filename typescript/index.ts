@@ -38,8 +38,8 @@ type RegexLibrary = {
   timeoutMs: number;
 };
 
-const DEFAULT_TIMEOUT_MS = 2000;
-const RESULTS_PATH = new URL("../ts_redos_test_results.json", import.meta.url);
+const DEFAULT_TIMEOUT_SECONDS = 2;
+const DEFAULT_TIMEOUT_MS = DEFAULT_TIMEOUT_SECONDS * 1000;
 const SCALING_RESULTS_PATH = new URL("../ts_scaling_test.json", import.meta.url);
 
 function loadTestCases(): TestCase[] {
@@ -122,11 +122,11 @@ function runRegexWithTimeout(
   });
 }
 
-function getLibraries(): RegexLibrary[] {
+function getLibraries(timeoutMs: number): RegexLibrary[] {
   return [
-    { name: "NativeRegExp", engine: "native", timeoutMs: DEFAULT_TIMEOUT_MS },
-    { name: "RE2", engine: "re2", timeoutMs: DEFAULT_TIMEOUT_MS },
-    { name: "Regolith", engine: "regolith", timeoutMs: DEFAULT_TIMEOUT_MS },
+    { name: "NativeRegExp", engine: "native", timeoutMs },
+    { name: "RE2", engine: "re2", timeoutMs },
+    { name: "Regolith", engine: "regolith", timeoutMs },
   ];
 }
 
@@ -300,6 +300,7 @@ function saveResults(
   libraries: RegexLibrary[],
   numRuns: number,
   testsCount: number,
+  outputPath: URL,
 ): void {
   const outputData = {
     metadata: {
@@ -313,8 +314,8 @@ function saveResults(
     results: allResults,
   };
 
-  writeFileSync(RESULTS_PATH, JSON.stringify(outputData, null, 2));
-  console.log(`Saved ${allResults.length} results to ${RESULTS_PATH.pathname}`);
+  writeFileSync(outputPath, JSON.stringify(outputData, null, 2));
+  console.log(`Saved ${allResults.length} results to ${outputPath.pathname}`);
 }
 
 async function runScalingTest(
@@ -345,11 +346,36 @@ function getArgValue(flag: string): string | null {
   return null;
 }
 
+function timeoutLabel(timeoutSeconds: number): string {
+  if (Number.isInteger(timeoutSeconds)) {
+    return `${timeoutSeconds}`;
+  }
+  return `${timeoutSeconds}`.replace(".", "_");
+}
+
+function buildOutputPath(timeoutSeconds: number): URL {
+  return new URL(
+    `../ts_redos_test_results_timeout-${timeoutLabel(timeoutSeconds)}.json`,
+    import.meta.url,
+  );
+}
+
 async function main(): Promise<void> {
-  const libraries = getLibraries();
-  const inputSize = Number(getArgValue("--input-size") ?? "50");
+  const timeoutSeconds = Number(
+    getArgValue("--timeout") ?? `${DEFAULT_TIMEOUT_SECONDS}`,
+  );
+  const timeoutMs = timeoutSeconds * 1000;
+  if (!Number.isFinite(timeoutMs) || timeoutMs <= 0) {
+    throw new Error(`Invalid value for --timeout: ${timeoutSeconds}`);
+  }
+
+  const libraries = getLibraries(timeoutMs);
+  const inputSize = Number(
+    getArgValue("--input-length") ?? getArgValue("--input-size") ?? "50",
+  );
   const numRuns = Number(getArgValue("--runs") ?? "3");
   const singleTestId = getArgValue("--single");
+  const outputPath = buildOutputPath(timeoutSeconds);
 
   if (process.argv.includes("--scaling")) {
     await runScalingTest(libraries, Number(getArgValue("--max-size") ?? "50"));
@@ -370,7 +396,14 @@ async function main(): Promise<void> {
 
   const allResults = await runAllTests(numRuns, libraries, inputSize);
   const summaryStats = calculateSummaryStats(allResults, libraries);
-  saveResults(allResults, summaryStats, libraries, numRuns, getTestCases(0).length);
+  saveResults(
+    allResults,
+    summaryStats,
+    libraries,
+    numRuns,
+    getTestCases(0).length,
+    outputPath,
+  );
 }
 
 main().catch((err) => {
