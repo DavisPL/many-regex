@@ -27,6 +27,7 @@ class Program
         var inputSize = ParseIntArg(args, "--input-size", DefaultInputSize);
         var numRuns = ParseIntArg(args, "--runs", DefaultRuns);
         var singleTestId = ParseNullableIntArg(args, "--single");
+        var showTests = HasFlag(args, "--show-tests");
 
         var libraries = GetLibraries();
         var tests = GetTestCases(inputSize);
@@ -41,7 +42,7 @@ class Program
             return;
         }
 
-        var allResults = RunAllTests(numRuns, libraries, tests);
+        var allResults = RunAllTests(numRuns, libraries, tests, showTests);
         var summaryStats = CalculateSummaryStats(allResults, libraries);
         SaveResults(allResults, summaryStats, libraries, numRuns, tests.Count);
     }
@@ -155,7 +156,8 @@ class Program
     static List<SingleTestResult> RunAllTests(
         int numRuns,
         List<RegexLibrary> libraries,
-        List<TestCaseRun> tests
+        List<TestCaseRun> tests,
+        bool showTests
     )
     {
         var allResults = new List<SingleTestResult>();
@@ -165,6 +167,11 @@ class Program
             Console.WriteLine($"Run {run + 1}/{numRuns}");
             foreach (var test in tests)
             {
+                if (showTests)
+                {
+                    Console.WriteLine($"  Test {test.Id}");
+                }
+
                 foreach (var library in libraries)
                 {
                     allResults.Add(RunTestWithTimeout(library, test.Id, test.Pattern, test.Input));
@@ -478,6 +485,11 @@ class Program
         }
 
         return null;
+    }
+
+    static bool HasFlag(string[] args, string flag)
+    {
+        return args.Any(arg => string.Equals(arg, flag, StringComparison.Ordinal));
     }
 
     static string RepeatString(string value, int count)
