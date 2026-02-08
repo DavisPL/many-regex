@@ -12,6 +12,18 @@ from statistics import mean, median
 import matplotlib.pyplot as plt
 import numpy as np
 
+LANGUAGE_COLORS = {
+    "Python": "#1f77b4",  # blue
+    "C#": "#9467bd",  # purple
+    "TypeScript": "#f2c200",  # yellow
+}
+
+METRIC_COLORS = {
+    "green": "#2ca02c",
+    "orange": "#ff8c00",
+    "red": "#d62728",
+}
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
@@ -146,7 +158,61 @@ def markdown_table(headers: list[str], rows: list[list[str]]) -> str:
     return "\n".join([header_line, sep_line, *body])
 
 
-def draw_table(ax, headers: list[str], rows: list[list[str]], title: str, font_size: int) -> None:
+def parse_numeric_cell(cell: str) -> float | None:
+    cleaned = cell.replace(",", "").replace("%", "").strip()
+    try:
+        return float(cleaned)
+    except ValueError:
+        return None
+
+
+def hex_to_rgb(color: str) -> tuple[int, int, int]:
+    color = color.lstrip("#")
+    return tuple(int(color[i : i + 2], 16) for i in (0, 2, 4))
+
+
+def rgb_to_hex(rgb: tuple[int, int, int]) -> str:
+    return "#{:02x}{:02x}{:02x}".format(*rgb)
+
+
+def blend_with_white(color: str, amount: float) -> str:
+    r, g, b = hex_to_rgb(color)
+    mixed = (
+        int((1 - amount) * 255 + amount * r),
+        int((1 - amount) * 255 + amount * g),
+        int((1 - amount) * 255 + amount * b),
+        )
+    return rgb_to_hex(mixed)
+
+
+def interpolate_color(c1: str, c2: str, t: float) -> str:
+    r1, g1, b1 = hex_to_rgb(c1)
+    r2, g2, b2 = hex_to_rgb(c2)
+    mixed = (
+        int(r1 + (r2 - r1) * t),
+        int(g1 + (g2 - g1) * t),
+        int(b1 + (b2 - b1) * t),
+    )
+    return rgb_to_hex(mixed)
+
+
+def metric_heat_color(value: float, min_val: float, max_val: float) -> str:
+    if max_val <= min_val:
+        return blend_with_white(METRIC_COLORS["orange"], 0.35)
+    t = (value - min_val) / (max_val - min_val)
+    if t <= 0.5:
+        return blend_with_white(interpolate_color(METRIC_COLORS["green"], METRIC_COLORS["orange"], t * 2.0), 0.38)
+    return blend_with_white(interpolate_color(METRIC_COLORS["orange"], METRIC_COLORS["red"], (t - 0.5) * 2.0), 0.38)
+
+
+def draw_table(
+    ax,
+    headers: list[str],
+    rows: list[list[str]],
+    title: str,
+    font_size: int,
+    col_widths: list[float] | None = None,
+) -> None:
     ax.axis("off")
     table = ax.table(
         cellText=rows,
@@ -154,6 +220,7 @@ def draw_table(ax, headers: list[str], rows: list[list[str]], title: str, font_s
         loc="center",
         cellLoc="center",
         colLoc="center",
+        colWidths=col_widths,
     )
     table.auto_set_font_size(False)
     table.set_fontsize(font_size)
@@ -164,13 +231,45 @@ def draw_table(ax, headers: list[str], rows: list[list[str]], title: str, font_s
         cell.set_facecolor("#263238")
         cell.set_text_props(color="white", weight="bold")
 
+    dataset_col_idx = headers.index("Dataset") if "Dataset" in headers else None
+    timeout_cols = {
+        i
+        for i, h in enumerate(headers)
+        if h in {"Timeouts", "Timeout %", "Timeout Tests", "Tests w/ Timeout"}
+    }
+    timeout_bad_cols = {i for i, h in enumerate(headers) if h in {"Timeout Tests", "Tests w/ Timeout"}}
+    speed_cols = {i for i, h in enumerate(headers) if h in {"Mean (ms)", "Median (ms)", "P95 (ms)", "Max (ms)"}}
+    metric_cols = timeout_cols | speed_cols
+
+    metric_ranges: dict[int, tuple[float, float]] = {}
+    for col_idx in metric_cols:
+        values: list[float] = []
+        for row in rows:
+            parsed = parse_numeric_cell(row[col_idx])
+            if parsed is not None:
+                values.append(parsed)
+        if values:
+            metric_ranges[col_idx] = (min(values), max(values))
+
     for row_idx in range(1, len(rows) + 1):
+        dataset_value = rows[row_idx - 1][dataset_col_idx] if dataset_col_idx is not None else None
+        row_tint = blend_with_white(dataset_color(dataset_value), 0.08) if dataset_value else None
         for col_idx in range(len(headers)):
             cell = table[row_idx, col_idx]
-            if row_idx % 2 == 0:
-                cell.set_facecolor("#f5f7fa")
-            else:
-                cell.set_facecolor("white")
+            base_color = "#f5f7fa" if row_idx % 2 == 0 else "white"
+            cell.set_facecolor(row_tint if row_tint is not None else base_color)
+            if dataset_col_idx is not None and col_idx == dataset_col_idx:
+                cell.set_facecolor(blend_with_white(dataset_color(rows[row_idx - 1][col_idx]), 0.25))
+                cell.set_text_props(weight="bold")
+                continue
+            if col_idx in metric_ranges:
+                value = parse_numeric_cell(rows[row_idx - 1][col_idx])
+                if value is not None:
+                    if col_idx in timeout_bad_cols and value > 0:
+                        cell.set_facecolor(blend_with_white(METRIC_COLORS["red"], 0.3))
+                        continue
+                    min_val, max_val = metric_ranges[col_idx]
+                    cell.set_facecolor(metric_heat_color(value, min_val, max_val))
 
     ax.set_title(title, fontsize=12, fontweight="bold", pad=10)
 
@@ -187,12 +286,14 @@ def save_matplotlib_tables(
     gs = fig.add_gridspec(2, 1, height_ratios=[1, 2.2], hspace=0.25)
 
     ax_top = fig.add_subplot(gs[0, 0])
+    dataset_col_widths = [0.13, 0.26, 0.13, 0.13, 0.13, 0.13, 0.14]
     draw_table(
         ax_top,
         dataset_headers,
         dataset_rows,
         title="Regex Benchmark Dataset Summary",
         font_size=10,
+        col_widths=dataset_col_widths,
     )
 
     ax_bottom = fig.add_subplot(gs[1, 0])
@@ -211,19 +312,13 @@ def save_matplotlib_tables(
 
 
 def dataset_color(dataset: str) -> str:
-    if dataset == "Python":
-        return "#1f77b4"
-    if dataset == "TypeScript":
-        return "#ff7f0e"
-    if dataset == "C#":
-        return "#2ca02c"
-    return "#7f7f7f"
+    return LANGUAGE_COLORS.get(dataset, "#7f7f7f")
 
 
 def save_overall_dashboard(library_rows: list[dict], output_path: Path, dpi: int) -> None:
     sorted_rows = sorted(library_rows, key=lambda r: (r["dataset"], r["library"]))
     labels = [f'{row["dataset"]}:{row["library"]}' for row in sorted_rows]
-    colors = [dataset_color(row["dataset"]) for row in sorted_rows]
+    lang_colors = [dataset_color(row["dataset"]) for row in sorted_rows]
     mean_ms = [row["mean_ms"] for row in sorted_rows]
     timeout_pct = [row["timeout_rate"] for row in sorted_rows]
 
@@ -232,7 +327,7 @@ def save_overall_dashboard(library_rows: list[dict], output_path: Path, dpi: int
 
     ax1 = fig.add_subplot(gs[0, 0])
     y_pos = np.arange(len(labels))
-    bars = ax1.barh(y_pos, mean_ms, color=colors, alpha=0.9)
+    bars = ax1.barh(y_pos, mean_ms, color=METRIC_COLORS["orange"], alpha=0.9)
     ax1.set_yticks(y_pos)
     ax1.set_yticklabels(labels, fontsize=9)
     ax1.invert_yaxis()
@@ -243,7 +338,7 @@ def save_overall_dashboard(library_rows: list[dict], output_path: Path, dpi: int
         ax1.text(bar.get_width(), bar.get_y() + bar.get_height() / 2, f" {val:.2f}", va="center", fontsize=8)
 
     ax2 = fig.add_subplot(gs[0, 1])
-    bars2 = ax2.bar(labels, timeout_pct, color=colors, alpha=0.9)
+    bars2 = ax2.bar(labels, timeout_pct, color=METRIC_COLORS["red"], alpha=0.9)
     ax2.set_ylabel("Timeout Rate (%)")
     ax2.set_title("Failure Rate by Library")
     ax2.set_xticks(range(len(labels)))
@@ -288,9 +383,9 @@ def save_speed_chart(library_rows: list[dict], output_path: Path, dpi: int) -> N
 
     width = 0.25
     fig, ax = plt.subplots(figsize=(16, 7))
-    ax.bar(x - width, median_vals, width=width, color="#2ca02c", label="Median (ms)")
-    ax.bar(x, mean_vals, width=width, color="#1f77b4", label="Mean (ms)")
-    ax.bar(x + width, p95_vals, width=width, color="#d62728", label="P95 (ms)")
+    ax.bar(x - width, median_vals, width=width, color=METRIC_COLORS["green"], label="Median (ms)")
+    ax.bar(x, mean_vals, width=width, color=METRIC_COLORS["orange"], label="Mean (ms)")
+    ax.bar(x + width, p95_vals, width=width, color=METRIC_COLORS["red"], label="P95 (ms)")
     ax.set_xticks(x)
     ax.set_xticklabels(labels, rotation=35, ha="right", fontsize=9)
     ax.set_ylabel("Execution Time (ms)")
@@ -313,19 +408,19 @@ def save_failure_chart(library_rows: list[dict], output_path: Path, dpi: int) ->
     timeout_tests = [row["tests_with_timeout"] for row in sorted_rows]
 
     fig, ax1 = plt.subplots(figsize=(16, 7))
-    bars = ax1.bar(x, timeout_rate, color="#9467bd", alpha=0.9, label="Timeout Rate (%)")
-    ax1.set_ylabel("Timeout Rate (%)", color="#9467bd")
-    ax1.tick_params(axis="y", labelcolor="#9467bd")
+    bars = ax1.bar(x, timeout_rate, color=METRIC_COLORS["red"], alpha=0.9, label="Timeout Rate (%)")
+    ax1.set_ylabel("Timeout Rate (%)", color=METRIC_COLORS["red"])
+    ax1.tick_params(axis="y", labelcolor=METRIC_COLORS["red"])
     ax1.set_xticks(x)
     ax1.set_xticklabels(labels, rotation=35, ha="right", fontsize=9)
     ax1.set_title("Failure Breakdown by Library")
     ax1.grid(axis="y", alpha=0.25, linestyle="--")
 
     ax2 = ax1.twinx()
-    ax2.plot(x, timeout_counts, color="#d62728", marker="o", linewidth=2, label="Timeout Count")
-    ax2.plot(x, timeout_tests, color="#ff9896", marker="s", linewidth=2, label="Tests with Timeout")
-    ax2.set_ylabel("Counts", color="#d62728")
-    ax2.tick_params(axis="y", labelcolor="#d62728")
+    ax2.plot(x, timeout_counts, color=METRIC_COLORS["orange"], marker="o", linewidth=2, label="Timeout Count")
+    ax2.plot(x, timeout_tests, color=METRIC_COLORS["green"], marker="s", linewidth=2, label="Tests with Timeout")
+    ax2.set_ylabel("Counts", color=METRIC_COLORS["orange"])
+    ax2.tick_params(axis="y", labelcolor=METRIC_COLORS["orange"])
 
     for bar, pct in zip(bars, timeout_rate):
         ax1.text(bar.get_x() + bar.get_width() / 2.0, bar.get_height(), f"{pct:.2f}%", ha="center", va="bottom", fontsize=8)
