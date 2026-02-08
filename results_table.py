@@ -10,6 +10,7 @@ from pathlib import Path
 from statistics import mean, median
 
 import matplotlib.pyplot as plt
+import numpy as np
 
 
 def parse_args() -> argparse.Namespace:
@@ -39,6 +40,12 @@ def parse_args() -> argparse.Namespace:
         type=int,
         default=250,
         help="Output image DPI.",
+    )
+    parser.add_argument(
+        "--graphs-dir",
+        type=Path,
+        default=None,
+        help="Directory for extra chart outputs (default: same directory as --out).",
     )
     return parser.parse_args()
 
@@ -197,6 +204,160 @@ def save_matplotlib_tables(
     plt.close(fig)
 
 
+def dataset_color(dataset: str) -> str:
+    if dataset == "Python":
+        return "#1f77b4"
+    if dataset == "TypeScript":
+        return "#ff7f0e"
+    return "#7f7f7f"
+
+
+def save_overall_dashboard(library_rows: list[dict], output_path: Path, dpi: int) -> None:
+    sorted_rows = sorted(library_rows, key=lambda r: (r["dataset"], r["library"]))
+    labels = [f'{row["dataset"]}:{row["library"]}' for row in sorted_rows]
+    colors = [dataset_color(row["dataset"]) for row in sorted_rows]
+    mean_ms = [row["mean_ms"] for row in sorted_rows]
+    timeout_pct = [row["timeout_rate"] for row in sorted_rows]
+
+    fig = plt.figure(figsize=(18, 11))
+    gs = fig.add_gridspec(2, 2, hspace=0.35, wspace=0.25)
+
+    ax1 = fig.add_subplot(gs[0, 0])
+    y_pos = np.arange(len(labels))
+    bars = ax1.barh(y_pos, mean_ms, color=colors, alpha=0.9)
+    ax1.set_yticks(y_pos)
+    ax1.set_yticklabels(labels, fontsize=9)
+    ax1.invert_yaxis()
+    ax1.set_xlabel("Mean Time (ms)")
+    ax1.set_title("Average Speed by Library")
+    ax1.grid(axis="x", alpha=0.3, linestyle="--")
+    for bar, val in zip(bars, mean_ms):
+        ax1.text(bar.get_width(), bar.get_y() + bar.get_height() / 2, f" {val:.2f}", va="center", fontsize=8)
+
+    ax2 = fig.add_subplot(gs[0, 1])
+    bars2 = ax2.bar(labels, timeout_pct, color=colors, alpha=0.9)
+    ax2.set_ylabel("Timeout Rate (%)")
+    ax2.set_title("Failure Rate by Library")
+    ax2.set_xticks(range(len(labels)))
+    ax2.set_xticklabels(labels, rotation=35, ha="right", fontsize=9)
+    ax2.grid(axis="y", alpha=0.3, linestyle="--")
+    for bar, val in zip(bars2, timeout_pct):
+        ax2.text(bar.get_x() + bar.get_width() / 2.0, bar.get_height(), f"{val:.2f}%", ha="center", va="bottom", fontsize=8)
+
+    ax3 = fig.add_subplot(gs[1, :])
+    for row in sorted_rows:
+        x = row["mean_ms"]
+        y = row["timeout_rate"]
+        ax3.scatter(
+            x,
+            y,
+            s=90,
+            color=dataset_color(row["dataset"]),
+            edgecolor="black",
+            linewidth=0.7,
+            alpha=0.9,
+        )
+        ax3.text(x, y, f' {row["dataset"]}:{row["library"]}', fontsize=8, va="center")
+    ax3.set_xlabel("Mean Time (ms)")
+    ax3.set_ylabel("Timeout Rate (%)")
+    ax3.set_title("Speed vs Failure Tradeoff")
+    ax3.grid(alpha=0.3, linestyle="--")
+
+    fig.suptitle("Regex Benchmark Overview", fontsize=15, fontweight="bold")
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(output_path, dpi=dpi, bbox_inches="tight")
+    plt.close(fig)
+
+
+def save_speed_chart(library_rows: list[dict], output_path: Path, dpi: int) -> None:
+    sorted_rows = sorted(library_rows, key=lambda r: r["mean_ms"])
+    labels = [f'{row["dataset"]}:{row["library"]}' for row in sorted_rows]
+    x = np.arange(len(labels))
+
+    mean_vals = [row["mean_ms"] for row in sorted_rows]
+    median_vals = [row["median_ms"] for row in sorted_rows]
+    p95_vals = [row["p95_ms"] for row in sorted_rows]
+
+    width = 0.25
+    fig, ax = plt.subplots(figsize=(16, 7))
+    ax.bar(x - width, median_vals, width=width, color="#2ca02c", label="Median (ms)")
+    ax.bar(x, mean_vals, width=width, color="#1f77b4", label="Mean (ms)")
+    ax.bar(x + width, p95_vals, width=width, color="#d62728", label="P95 (ms)")
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels, rotation=35, ha="right", fontsize=9)
+    ax.set_ylabel("Execution Time (ms)")
+    ax.set_title("Speed Breakdown (Median / Mean / P95)")
+    ax.grid(axis="y", alpha=0.3, linestyle="--")
+    ax.legend()
+    fig.tight_layout()
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(output_path, dpi=dpi, bbox_inches="tight")
+    plt.close(fig)
+
+
+def save_failure_chart(library_rows: list[dict], output_path: Path, dpi: int) -> None:
+    sorted_rows = sorted(library_rows, key=lambda r: (-r["timeout_rate"], -r["timeouts"], r["dataset"], r["library"]))
+    labels = [f'{row["dataset"]}:{row["library"]}' for row in sorted_rows]
+    x = np.arange(len(labels))
+
+    timeout_rate = [row["timeout_rate"] for row in sorted_rows]
+    timeout_counts = [row["timeouts"] for row in sorted_rows]
+    timeout_tests = [row["tests_with_timeout"] for row in sorted_rows]
+
+    fig, ax1 = plt.subplots(figsize=(16, 7))
+    bars = ax1.bar(x, timeout_rate, color="#9467bd", alpha=0.9, label="Timeout Rate (%)")
+    ax1.set_ylabel("Timeout Rate (%)", color="#9467bd")
+    ax1.tick_params(axis="y", labelcolor="#9467bd")
+    ax1.set_xticks(x)
+    ax1.set_xticklabels(labels, rotation=35, ha="right", fontsize=9)
+    ax1.set_title("Failure Breakdown by Library")
+    ax1.grid(axis="y", alpha=0.25, linestyle="--")
+
+    ax2 = ax1.twinx()
+    ax2.plot(x, timeout_counts, color="#d62728", marker="o", linewidth=2, label="Timeout Count")
+    ax2.plot(x, timeout_tests, color="#ff9896", marker="s", linewidth=2, label="Tests with Timeout")
+    ax2.set_ylabel("Counts", color="#d62728")
+    ax2.tick_params(axis="y", labelcolor="#d62728")
+
+    for bar, pct in zip(bars, timeout_rate):
+        ax1.text(bar.get_x() + bar.get_width() / 2.0, bar.get_height(), f"{pct:.2f}%", ha="center", va="bottom", fontsize=8)
+
+    handles1, labels1 = ax1.get_legend_handles_labels()
+    handles2, labels2 = ax2.get_legend_handles_labels()
+    ax1.legend(handles1 + handles2, labels1 + labels2, loc="upper right")
+    fig.tight_layout()
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(output_path, dpi=dpi, bbox_inches="tight")
+    plt.close(fig)
+
+
+def save_speed_vs_failure_scatter(library_rows: list[dict], output_path: Path, dpi: int) -> None:
+    fig, ax = plt.subplots(figsize=(11, 8))
+    for row in library_rows:
+        x = row["mean_ms"]
+        y = row["timeout_rate"]
+        size = 30 + min(row["executions"] / 4.0, 140)
+        ax.scatter(
+            x,
+            y,
+            s=size,
+            color=dataset_color(row["dataset"]),
+            alpha=0.85,
+            edgecolor="black",
+            linewidth=0.7,
+        )
+        ax.text(x, y, f' {row["library"]} ({row["dataset"]})', fontsize=9, va="center")
+
+    ax.set_xlabel("Mean Time (ms)")
+    ax.set_ylabel("Timeout Rate (%)")
+    ax.set_title("Speed vs Failure Rate")
+    ax.grid(alpha=0.3, linestyle="--")
+    fig.tight_layout()
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(output_path, dpi=dpi, bbox_inches="tight")
+    plt.close(fig)
+
+
 def main() -> None:
     args = parse_args()
 
@@ -268,6 +429,13 @@ def main() -> None:
         dpi=args.dpi,
     )
     print(f"Saved table image to {args.out}")
+
+    graphs_dir = args.graphs_dir if args.graphs_dir is not None else args.out.parent
+    save_overall_dashboard(library_rows, graphs_dir / "results_overall_dashboard.png", args.dpi)
+    save_speed_chart(library_rows, graphs_dir / "results_speed_breakdown.png", args.dpi)
+    save_failure_chart(library_rows, graphs_dir / "results_failure_breakdown.png", args.dpi)
+    save_speed_vs_failure_scatter(library_rows, graphs_dir / "results_speed_vs_failure.png", args.dpi)
+    print(f"Saved extra charts to {graphs_dir}")
 
 
 if __name__ == "__main__":
