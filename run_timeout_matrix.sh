@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-INPUT_LENGTH=1
+INPUT_LENGTH=100
 TIMEOUTS=(1 10 100)
 LOG_FILE="timeout_matrix_run.log"
 
