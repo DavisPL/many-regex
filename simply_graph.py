@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 
 import matplotlib.pyplot as plt
+from matplotlib.patches import Patch
 
 LANGUAGE_COLORS = {
     "Python": "#1f77b4",  # blue
@@ -113,14 +114,14 @@ def load_rows(path: Path, language: str) -> list[dict]:
 def build_plot(rows: list[dict], out_path: Path, dpi: int) -> None:
     rows = sorted(rows, key=lambda r: r["max_ms"], reverse=True)
 
-    fig, ax_table = plt.subplots(figsize=(12.5, 6.8), facecolor="#f7f8fb")
+    fig, ax_table = plt.subplots(figsize=(7.6, 6.8), facecolor="#f7f8fb")
     ax_table.axis("off")
     ax_table.set_title("Regex Library ReDoS Summary", fontsize=15, weight="bold", pad=14)
 
-    col_labels = ["Library", "Max (ms)", "Success Run #", "Timeouts"]
+    col_labels = ["Library", "Max ms", "Success", "Timeouts"]
     table_rows = [
         [
-            f"{r['library']} ({r['language']})",
+            r["library"],
             f"{r['max_ms']:,.2f}",
             f"{r['success_runs']:,}",
             f"{r['timeouts']:,}",
@@ -134,10 +135,10 @@ def build_plot(rows: list[dict], out_path: Path, dpi: int) -> None:
         loc="center",
         cellLoc="center",
         colLoc="center",
-        colWidths=[0.36, 0.2, 0.22, 0.16],
+        colWidths=[0.42, 0.19, 0.2, 0.15],
     )
     table.auto_set_font_size(False)
-    table.set_fontsize(10)
+    table.set_fontsize(9.4)
     table.scale(1, 1.42)
 
     for i in range(len(col_labels)):
@@ -166,8 +167,21 @@ def build_plot(rows: list[dict], out_path: Path, dpi: int) -> None:
         else:
             timeout_cell.set_text_props(color="#222222")
 
+    legend_handles = [
+        Patch(facecolor=blend_with_white(color, 0.22), edgecolor="#d0d3da", label=lang)
+        for lang, color in LANGUAGE_COLORS.items()
+    ]
+    fig.legend(
+        handles=legend_handles,
+        loc="lower center",
+        ncol=3,
+        frameon=False,
+        fontsize=9.6,
+        bbox_to_anchor=(0.5, 0.03),
+    )
+
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(out_path, dpi=dpi, bbox_inches="tight")
+    fig.savefig(out_path, dpi=dpi, bbox_inches="tight", pad_inches=0.15)
 
 
 def main() -> None:
