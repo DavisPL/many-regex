@@ -30,6 +30,12 @@ def parse_args() -> argparse.Namespace:
         help="Path to TypeScript results JSON.",
     )
     parser.add_argument(
+        "--cs",
+        type=Path,
+        default=Path("csharp_redos_test_results.json"),
+        help="Path to C# results JSON.",
+    )
+    parser.add_argument(
         "--out",
         type=Path,
         default=Path("images/results_table.png"),
@@ -198,7 +204,7 @@ def save_matplotlib_tables(
         font_size=9,
     )
 
-    fig.suptitle("Combined Results from Python + TypeScript Benchmarks", fontsize=14, fontweight="bold")
+    fig.suptitle("Combined Results from Python + TypeScript + C# Benchmarks", fontsize=14, fontweight="bold")
     output_path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(output_path, dpi=dpi, bbox_inches="tight")
     plt.close(fig)
@@ -209,6 +215,8 @@ def dataset_color(dataset: str) -> str:
         return "#1f77b4"
     if dataset == "TypeScript":
         return "#ff7f0e"
+    if dataset == "C#":
+        return "#2ca02c"
     return "#7f7f7f"
 
 
@@ -364,6 +372,7 @@ def main() -> None:
     datasets = [
         load_dataset(args.py, "Python"),
         load_dataset(args.ts, "TypeScript"),
+        load_dataset(args.cs, "C#"),
     ]
 
     dataset_rows = [d["dataset_row"] for d in datasets]

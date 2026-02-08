@@ -267,11 +267,9 @@ function calculateSummaryStats(
       .map((r) => r.result.time)
       .sort((a, b) => a - b);
 
-    // Count distinct tests rather than runs*tests so summaries are "out of N tests".
-    const totalCount = new Set(results.map((r) => r.test_id)).size;
-    const timeoutCount = new Set(
-      results.filter((r) => r.result.timed_out).map((r) => r.test_id),
-    ).size;
+    // Match python/main.py semantics: counts are per execution (runs * tests).
+    const totalCount = results.length;
+    const timeoutCount = results.filter((r) => r.result.timed_out).length;
     const mean =
       times.length > 0
         ? times.reduce((sum, time) => sum + time, 0) / times.length
