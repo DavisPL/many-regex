@@ -80,6 +80,17 @@ class RegexLibrary(ABC):
                     "timed_out": False,
                 }
 
+            except KeyboardInterrupt:
+                future.cancel()
+                executor.shutdown(wait=False, cancel_futures=True)
+
+                return {
+                    "library": self.__class__.__name__,
+                    "result": None,
+                    "time": None,
+                    "timed_out": False,
+                }
+
 
 class Rure(RegexLibrary):
     def setup_test(self, pattern: str, input: str):
