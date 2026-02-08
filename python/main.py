@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 import argparse
-from concurrent.futures import ProcessPoolExecutor, TimeoutError
+from multiprocessing import Pipe, Process
 import time
 import json
 from pathlib import Path
@@ -47,21 +47,20 @@ class RegexLibrary(ABC):
 
     def test(self, pattern: str, input: str):
         start_time = time.perf_counter()
+        parent_conn, child_conn = Pipe(duplex=False)
+        process = Process(
+            target=run_library_match_in_subprocess,
+            args=(self.__class__.__name__, pattern, input, child_conn),
+        )
 
-        with ProcessPoolExecutor(max_workers=1) as executor:
-            future = executor.submit(self.setup_test, pattern, input)
-            try:
-                result = future.result(timeout=self.TIMEOUT_SECONDS)
-                duration = time.perf_counter() - start_time
-                return {
-                    "library": self.__class__.__name__,
-                    "result": result,
-                    "time": duration,
-                    "timed_out": False,
-                }
-            except TimeoutError:
-                future.cancel()
-                executor.shutdown(wait=False, cancel_futures=True)
+        try:
+            process.start()
+            child_conn.close()
+            process.join(self.TIMEOUT_SECONDS)
+
+            if process.is_alive():
+                process.terminate()
+                process.join()
                 duration = time.perf_counter() - start_time
                 return {
                     "library": self.__class__.__name__,
@@ -70,10 +69,21 @@ class RegexLibrary(ABC):
                     "timed_out": True,
                 }
 
-            except rure.exceptions.RegexSyntaxError:
-                future.cancel()
-                executor.shutdown(wait=False, cancel_futures=True)
+            if parent_conn.poll():
+                response = parent_conn.recv()
+            else:
+                response = {"ok": False, "error": "NoResult"}
 
+            if response.get("ok"):
+                duration = time.perf_counter() - start_time
+                return {
+                    "library": self.__class__.__name__,
+                    "result": response["result"],
+                    "time": duration,
+                    "timed_out": False,
+                }
+
+            if response.get("error") == "RegexSyntaxError":
                 return {
                     "library": self.__class__.__name__,
                     "result": None,
@@ -81,16 +91,41 @@ class RegexLibrary(ABC):
                     "timed_out": False,
                 }
 
-            except KeyboardInterrupt:
-                future.cancel()
-                executor.shutdown(wait=False, cancel_futures=True)
+            duration = time.perf_counter() - start_time
+            return {
+                "library": self.__class__.__name__,
+                "result": None,
+                "time": duration,
+                "timed_out": False,
+            }
+        finally:
+            parent_conn.close()
 
-                return {
-                    "library": self.__class__.__name__,
-                    "result": None,
-                    "time": 0,
-                    "timed_out": False,
-                }
+
+def run_library_match_in_subprocess(library_name: str, pattern: str, input: str, conn):
+    try:
+        if library_name == "Rure":
+            match = rure.match(pattern, input)
+            result = bool(match) if match is not None else False
+        elif library_name == "Re":
+            result = re.match(pattern, input) is not None
+        elif library_name == "Regex":
+            result = regex.match(pattern, input) is not None
+        elif library_name == "Pyre2":
+            result = pyre2.match(pattern, input) is not None
+        else:
+            conn.send({"ok": False, "error": f"UnknownLibrary:{library_name}"})
+            return
+
+        conn.send({"ok": True, "result": result})
+    except rure.exceptions.RegexSyntaxError:
+        conn.send({"ok": False, "error": "RegexSyntaxError"})
+    except KeyboardInterrupt:
+        conn.send({"ok": False, "error": "KeyboardInterrupt"})
+    except Exception as exc:
+        conn.send({"ok": False, "error": f"Unhandled:{type(exc).__name__}"})
+    finally:
+        conn.close()
 
 
 class Rure(RegexLibrary):
