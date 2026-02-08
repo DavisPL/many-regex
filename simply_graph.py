@@ -17,6 +17,11 @@ LANGUAGE_COLORS = {
     "TypeScript": "#f2c200",  # yellow
 }
 
+LIBRARY_DISPLAY_NAMES = {
+    "NativeRegExp": "RegExp",
+    "dotnet": "Regex",
+}
+
 
 def hex_to_rgb(color: str) -> tuple[int, int, int]:
     color = color.lstrip("#")
@@ -121,7 +126,7 @@ def build_plot(rows: list[dict], out_path: Path, dpi: int) -> None:
     col_labels = ["Library", "Max ms", "Success", "Timeouts"]
     table_rows = [
         [
-            r["library"],
+            LIBRARY_DISPLAY_NAMES.get(r["library"], r["library"]),
             f"{r['max_ms']:,.2f}",
             f"{r['success_runs']:,}",
             f"{r['timeouts']:,}",
