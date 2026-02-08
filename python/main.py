@@ -76,7 +76,7 @@ class RegexLibrary(ABC):
                 return {
                     "library": self.__class__.__name__,
                     "result": None,
-                    "time": None,
+                    "time": 0,
                     "timed_out": False,
                 }
 
@@ -87,7 +87,7 @@ class RegexLibrary(ABC):
                 return {
                     "library": self.__class__.__name__,
                     "result": None,
-                    "time": None,
+                    "time": 0,
                     "timed_out": False,
                 }
 
@@ -209,14 +209,18 @@ def calculate_summary_stats(all_results, libraries):
     for lib in libraries:
         lib_name = lib.__class__.__name__
         lib_results = [r for r in all_results if r["library"] == lib_name]
+        unique_test_ids = {r["test_id"] for r in lib_results}
+        run_ids = {r["run"] for r in lib_results}
 
         times = []
         timeout_count = 0
+        timeout_test_ids = set()
 
         for r in lib_results:
             result_dict = eval(r["result"])
             if result_dict["timed_out"]:
                 timeout_count += 1
+                timeout_test_ids.add(r["test_id"])
             else:
                 times.append(result_dict["time"])
 
@@ -231,8 +235,11 @@ def calculate_summary_stats(all_results, libraries):
                 "min_time": min(times),
                 "max_time": max(times),
                 "timeout_count": timeout_count,
+                "timeout_tests_count": len(timeout_test_ids),
                 "successful_count": len(times),
                 "total_count": len(lib_results),
+                "total_test_cases": len(unique_test_ids),
+                "run_count": len(run_ids),
             }
         else:
             summary_stats[lib_name] = {
@@ -241,8 +248,11 @@ def calculate_summary_stats(all_results, libraries):
                 "min_time": None,
                 "max_time": None,
                 "timeout_count": timeout_count,
+                "timeout_tests_count": len(timeout_test_ids),
                 "successful_count": 0,
                 "total_count": len(lib_results),
+                "total_test_cases": len(unique_test_ids),
+                "run_count": len(run_ids),
             }
 
     return summary_stats
@@ -287,7 +297,16 @@ def print_summary_stats(summary_stats):
             print(f"  Max time: {stats['max_time']:.6f}s")
         else:
             print("  No successful completions")
-        print(f"  Timeouts: {stats['timeout_count']}/{stats['total_count']}")
+        print(
+            f"  Timeouts (executions): {stats['timeout_count']}/{stats['total_count']}"
+        )
+        print(
+            "  Timeout test cases (unique): "
+            f"{stats['timeout_tests_count']}/{stats['total_test_cases']}"
+        )
+        print(
+            f"  Runs: {stats['run_count']} | Unique test cases: {stats['total_test_cases']}"
+        )
 
 
 def run_scaling_test():
@@ -337,7 +356,7 @@ def main_run_single_test(input_size):
 
 
 if __name__ == "__main__":
-    scaling_test = True
+    scaling_test = False
 
     if scaling_test:
         run_scaling_test()
