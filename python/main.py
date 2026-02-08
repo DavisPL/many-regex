@@ -69,6 +69,17 @@ class RegexLibrary(ABC):
                     "timed_out": True,
                 }
 
+            except rure.exceptions.RegexSyntaxError:
+                future.cancel()
+                executor.shutdown(wait=False, cancel_futures=True)
+
+                return {
+                    "library": self.__class__.__name__,
+                    "result": None,
+                    "time": None,
+                    "timed_out": False,
+                }
+
 
 class Rure(RegexLibrary):
     def setup_test(self, pattern: str, input: str):
@@ -271,8 +282,10 @@ def print_summary_stats(summary_stats):
 def run_scaling_test():
     all_results = []
 
-    for test_id in range(1, 37):
-        for size in range(30):
+    tests_count = len(get_test_cases())
+
+    for test_id in range(1, tests_count):
+        for size in range(1, 3):
             results = run_single_test(test_id=test_id, input_size=size)
 
             all_results.append(
