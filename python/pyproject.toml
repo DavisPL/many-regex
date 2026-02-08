@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "matplotlib>=3.10.0",
     "pyre2>=0.3.10",
     "regex>=2026.1.15",
     "ruff>=0.15.0",
