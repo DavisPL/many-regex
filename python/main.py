@@ -285,7 +285,7 @@ def run_scaling_test():
     tests_count = len(get_test_cases())
 
     for test_id in range(1, tests_count):
-        for size in range(1, 3):
+        for size in range(30):
             results = run_single_test(test_id=test_id, input_size=size)
 
             all_results.append(
