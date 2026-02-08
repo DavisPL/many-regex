@@ -131,6 +131,12 @@ We run [Program.cs](./csharp/Program.cs) with `dotnet run`. This tests runs 113 
 
 Included are the [full results](./csharp/results.txt).
 
+## Test 4 -- Check Python, TypeScript (bun runtime), and C# (.NET)
+
+I standardized the tests into a JSON file called [test_cases.json](./test_cases.json) and changed how test cases are handled in Python, TS, and C# to use this test case file. I ran each language on these test cases and to get the results [py_redos_test_results.json](./py_redos_test_results.json), [ts_redos_test_results.json](./ts_redos_test_results.json), [csharp_redos_test_results.json](./csharp_redos_test_results.json). I then created [results_table.py](./results_table.py) that produced a few graphs and tables.
+
+![Results Table](./images/results_table.png)
+
 ## Notes
 
 I had an issue installing https://pypi.org/project/re2.
