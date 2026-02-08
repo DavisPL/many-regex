@@ -56,6 +56,7 @@ Test 1 and 2 were done in just Python
 - [Test 1 -- Scaling Test](#test-1----scaling-test)
 - [Test 2 -- Preliminary Results](#test-2----preliminary-results)
 - [Test 3 -- Dotnet & RE# Test](#test-3----dotnet--re-test)
+- [Test 4 -- Check Python, TypeScript (bun runtime), and C# (.NET)](#test-4----check-python-typescript-bun-runtime-and-c-net)
 
 ## Test 1 -- Scaling Test
 
@@ -136,6 +137,11 @@ Included are the [full results](./csharp/results.txt).
 I standardized the tests into a JSON file called [test_cases.json](./test_cases.json) and changed how test cases are handled in Python, TS, and C# to use this test case file. I ran each language on these test cases and to get the results [py_redos_test_results.json](./py_redos_test_results.json), [ts_redos_test_results.json](./ts_redos_test_results.json), [csharp_redos_test_results.json](./csharp_redos_test_results.json). I then created [results_table.py](./results_table.py) that produced a few graphs and tables.
 
 ![Results Table](./images/results_table.png)
+
+A few takeaways:
+
+1. C# Regex is very vulnerable to ReDoS compared to the other languages, failing in 40 test cases for each 3 of the runs
+2. We did not find evidence that any library that [claimed to be linear-time](#libraries-tested) can be considered harmful
 
 ## Notes
 
