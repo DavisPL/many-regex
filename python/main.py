@@ -95,7 +95,7 @@ class Pyre2(RegexLibrary):
 
 
 def get_test_cases(input_size=20):
-    test_cases_path = Path(__file__).with_name("test_cases.json")
+    test_cases_path = Path("test_cases.json")
 
     with test_cases_path.open("r", encoding="utf-8") as f:
         data = json.load(f)
@@ -303,12 +303,11 @@ def main_run_all_tests():
     print_summary_stats(summary_stats)
 
 
-def main_run_single_test():
-    INPUT_SIZE = 20
+def main_run_single_test(input_size):
 
     # Run a single test
     print("Running single test example:")
-    results = run_single_test(test_id=run_specific_test, input_size=INPUT_SIZE)
+    results = run_single_test(test_id=run_specific_test, input_size=input_size)
     for result in results:
         print(f"{result['library']}: {result['result']}")
 
@@ -325,4 +324,4 @@ if __name__ == "__main__":
         if run_specific_test is None:
             main_run_all_tests()
         else:
-            main_run_single_test()
+            main_run_single_test(50)
