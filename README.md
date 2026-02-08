@@ -26,6 +26,7 @@ Linear-time Regex engines are considered the gold standard for reducing the risk
 - [x] Collect more regex patterns from literature
 - [ ] Draft up [poster](https://docs.google.com/presentation/d/1hQlY_-CyS-_QAAD-QpMdrhmsrkSrwy6Pu9Qp7P5Rq18) for initial review
 - [x] Make ReDoS test cases JSON
+- [ ] Run scaling on tests in `./python/run_pyre2_timeout10_large.py` to check for exponential behavior
 
 ## Harmfulness Scale
 

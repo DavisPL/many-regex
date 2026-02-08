@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import ast
+import glob
 import json
 from pathlib import Path
 from statistics import mean, median
@@ -37,9 +38,10 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--ts",
-        type=Path,
-        default=Path("ts_redos_test_results.json"),
-        help="Path to TypeScript results JSON.",
+        type=str,
+        nargs="+",
+        default=["ts_redos_test_results.json"],
+        help="TypeScript results JSON path(s) or glob pattern(s).",
     )
     parser.add_argument(
         "--cs",
@@ -141,6 +143,29 @@ def load_dataset(path: Path, label: str) -> dict:
         )
 
     return {"dataset_row": dataset_row, "library_rows": library_rows}
+
+
+def expand_input_paths(raw_paths: list[str], arg_name: str) -> list[Path]:
+    expanded: list[Path] = []
+    for raw_path in raw_paths:
+        matches = sorted(Path(match) for match in glob.glob(raw_path))
+        if matches:
+            expanded.extend(path for path in matches if path.is_file())
+        else:
+            candidate = Path(raw_path)
+            if candidate.exists() and candidate.is_file():
+                expanded.append(candidate)
+            else:
+                raise FileNotFoundError(f"No files matched {arg_name} value: {raw_path}")
+
+    unique_paths: list[Path] = []
+    seen: set[Path] = set()
+    for path in expanded:
+        resolved = path.resolve()
+        if resolved not in seen:
+            seen.add(resolved)
+            unique_paths.append(path)
+    return unique_paths
 
 
 def fmt_int(value: int) -> str:
@@ -312,7 +337,10 @@ def save_matplotlib_tables(
 
 
 def dataset_color(dataset: str) -> str:
-    return LANGUAGE_COLORS.get(dataset, "#7f7f7f")
+    for language, color in LANGUAGE_COLORS.items():
+        if dataset == language or dataset.startswith(f"{language} ("):
+            return color
+    return "#7f7f7f"
 
 
 def save_overall_dashboard(library_rows: list[dict], output_path: Path, dpi: int) -> None:
@@ -464,11 +492,14 @@ def save_speed_vs_failure_scatter(library_rows: list[dict], output_path: Path, d
 def main() -> None:
     args = parse_args()
 
-    datasets = [
-        load_dataset(args.py, "Python"),
-        load_dataset(args.ts, "TypeScript"),
-        load_dataset(args.cs, "C#"),
-    ]
+    ts_paths = expand_input_paths(args.ts, "--ts")
+    ts_labels = (
+        ["TypeScript"] if len(ts_paths) == 1 else [f"TypeScript ({path.stem})" for path in ts_paths]
+    )
+
+    datasets = [load_dataset(args.py, "Python")]
+    datasets.extend(load_dataset(path, label) for path, label in zip(ts_paths, ts_labels))
+    datasets.append(load_dataset(args.cs, "C#"))
 
     dataset_rows = [d["dataset_row"] for d in datasets]
     library_rows = [r for d in datasets for r in d["library_rows"]]

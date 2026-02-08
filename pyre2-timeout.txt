@@ -1,0 +1,11 @@
+Matched Pyre2 timeout test IDs: [74, 76, 78]
+Running 3 tests with input_length=100 and timeout=10.0s
+Running test 74: pattern=^((a|aa)+)\1$, input_length=100
+  Testing with Pyre2...
+{'test_id': 74, 'pattern': '^((a|aa)+)\\1$', 'input': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'library': 'Pyre2', 'result': {'library': 'Pyre2', 'result': None, 'time': 10.013426232999905, 'timed_out': True}}
+Running test 76: pattern=^(a+)(a+)+\1$, input_length=100
+  Testing with Pyre2...
+{'test_id': 76, 'pattern': '^(a+)(a+)+\\1$', 'input': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'library': 'Pyre2', 'result': {'library': 'Pyre2', 'result': None, 'time': 10.011829501999955, 'timed_out': True}}
+Running test 78: pattern=^(?=(a+)+b)\w+$, input_length=100
+  Testing with Pyre2...
+{'test_id': 78, 'pattern': '^(?=(a+)+b)\\w+$', 'input': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'library': 'Pyre2', 'result': {'library': 'Pyre2', 'result': None, 'time': 10.011450269999955, 'timed_out': True}}
