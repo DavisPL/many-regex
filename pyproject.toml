@@ -9,3 +9,8 @@ dependencies = [
     "ruff>=0.15.0",
     "rure>=0.2.2",
 ]
+
+[tool.uv.workspace]
+members = [
+    "pyre2-test",
+]
