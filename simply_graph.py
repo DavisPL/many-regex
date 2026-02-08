@@ -140,7 +140,7 @@ def build_plot(rows: list[dict], out_path: Path, dpi: int) -> None:
         loc="center",
         cellLoc="center",
         colLoc="center",
-        colWidths=[0.42, 0.19, 0.2, 0.15],
+        colWidths=[0.23, 0.243, 0.2367, 0.2016],
     )
     table.auto_set_font_size(False)
     table.set_fontsize(9.4)
