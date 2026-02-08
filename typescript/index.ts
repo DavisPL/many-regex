@@ -267,6 +267,7 @@ function calculateSummaryStats(
       .map((r) => r.result.time)
       .sort((a, b) => a - b);
 
+    // Match python/main.py semantics: counts are per execution (runs * tests).
     const totalCount = results.length;
     const timeoutCount = results.filter((r) => r.result.timed_out).length;
     const mean =
