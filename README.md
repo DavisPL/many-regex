@@ -138,6 +138,11 @@ I standardized the tests into a JSON file called [test_cases.json](./test_cases.
 
 ![Results Table](./images/results_table.png)
 
+A few takeaways:
+
+1. C# Regex is very vulnerable to ReDoS compared to the other languages, failing in 40 test cases for each 3 of the runs
+2. We did not find evidence that any library that [claimed to be linear-time](#libraries-tested) can be considered harmful
+
 ## Notes
 
 I had an issue installing https://pypi.org/project/re2.
