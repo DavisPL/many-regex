@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
-from concurrent.futures import ProcessPoolExecutor, TimeoutError
+import argparse
+from multiprocessing import Pipe, Process
 import time
 import json
 from pathlib import Path
@@ -46,21 +47,20 @@ class RegexLibrary(ABC):
 
     def test(self, pattern: str, input: str):
         start_time = time.perf_counter()
+        parent_conn, child_conn = Pipe(duplex=False)
+        process = Process(
+            target=run_library_match_in_subprocess,
+            args=(self.__class__.__name__, pattern, input, child_conn),
+        )
 
-        with ProcessPoolExecutor(max_workers=1) as executor:
-            future = executor.submit(self.setup_test, pattern, input)
-            try:
-                result = future.result(timeout=self.TIMEOUT_SECONDS)
-                duration = time.perf_counter() - start_time
-                return {
-                    "library": self.__class__.__name__,
-                    "result": result,
-                    "time": duration,
-                    "timed_out": False,
-                }
-            except TimeoutError:
-                future.cancel()
-                executor.shutdown(wait=False, cancel_futures=True)
+        try:
+            process.start()
+            child_conn.close()
+            process.join(self.TIMEOUT_SECONDS)
+
+            if process.is_alive():
+                process.terminate()
+                process.join()
                 duration = time.perf_counter() - start_time
                 return {
                     "library": self.__class__.__name__,
@@ -69,10 +69,21 @@ class RegexLibrary(ABC):
                     "timed_out": True,
                 }
 
-            except rure.exceptions.RegexSyntaxError:
-                future.cancel()
-                executor.shutdown(wait=False, cancel_futures=True)
+            if parent_conn.poll():
+                response = parent_conn.recv()
+            else:
+                response = {"ok": False, "error": "NoResult"}
 
+            if response.get("ok"):
+                duration = time.perf_counter() - start_time
+                return {
+                    "library": self.__class__.__name__,
+                    "result": response["result"],
+                    "time": duration,
+                    "timed_out": False,
+                }
+
+            if response.get("error") == "RegexSyntaxError":
                 return {
                     "library": self.__class__.__name__,
                     "result": None,
@@ -80,16 +91,41 @@ class RegexLibrary(ABC):
                     "timed_out": False,
                 }
 
-            except KeyboardInterrupt:
-                future.cancel()
-                executor.shutdown(wait=False, cancel_futures=True)
+            duration = time.perf_counter() - start_time
+            return {
+                "library": self.__class__.__name__,
+                "result": None,
+                "time": duration,
+                "timed_out": False,
+            }
+        finally:
+            parent_conn.close()
 
-                return {
-                    "library": self.__class__.__name__,
-                    "result": None,
-                    "time": 0,
-                    "timed_out": False,
-                }
+
+def run_library_match_in_subprocess(library_name: str, pattern: str, input: str, conn):
+    try:
+        if library_name == "Rure":
+            match = rure.match(pattern, input)
+            result = bool(match) if match is not None else False
+        elif library_name == "Re":
+            result = re.match(pattern, input) is not None
+        elif library_name == "Regex":
+            result = regex.match(pattern, input) is not None
+        elif library_name == "Pyre2":
+            result = pyre2.match(pattern, input) is not None
+        else:
+            conn.send({"ok": False, "error": f"UnknownLibrary:{library_name}"})
+            return
+
+        conn.send({"ok": True, "result": result})
+    except rure.exceptions.RegexSyntaxError:
+        conn.send({"ok": False, "error": "RegexSyntaxError"})
+    except KeyboardInterrupt:
+        conn.send({"ok": False, "error": "KeyboardInterrupt"})
+    except Exception as exc:
+        conn.send({"ok": False, "error": f"Unhandled:{type(exc).__name__}"})
+    finally:
+        conn.close()
 
 
 class Rure(RegexLibrary):
@@ -326,45 +362,73 @@ def run_scaling_test():
         json.dump(all_results, file)
 
 
-def main_run_all_tests():
-    INPUT_SIZE = 20
-    NUM_RUNS = 3
+def timeout_label(timeout_seconds: float) -> str:
+    if float(timeout_seconds).is_integer():
+        return str(int(timeout_seconds))
+    return str(timeout_seconds).replace(".", "_")
+
+
+def build_output_filename(timeout_seconds: float) -> str:
+    return f"py_redos_test_results_timeout-{timeout_label(timeout_seconds)}.json"
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(description="Run regex tests across Python libraries.")
+    parser.add_argument("--runs", type=int, default=3)
+    parser.add_argument("--single", type=int, default=None)
+    parser.add_argument("--timeout", type=float, default=2.0)
+    parser.add_argument("--input-length", type=int, default=20)
+    parser.add_argument(
+        "--input-size",
+        type=int,
+        default=None,
+        help="Deprecated alias for --input-length.",
+    )
+    return parser.parse_args()
+
+
+def main_run_all_tests(input_length: int, num_runs: int, output_filename: str):
 
     # Run all tests
     libraries = get_libraries()
-    all_results = run_all_tests(
-        num_runs=NUM_RUNS, libraries=libraries, input_size=INPUT_SIZE
-    )
+    all_results = run_all_tests(num_runs=num_runs, libraries=libraries, input_size=input_length)
     summary_stats = calculate_summary_stats(all_results, libraries)
     save_results(
         all_results,
         summary_stats,
         libraries,
-        NUM_RUNS,
-        len(get_test_cases(INPUT_SIZE)),
+        num_runs,
+        len(get_test_cases(input_length)),
+        output_filename,
     )
     print_summary_stats(summary_stats)
 
 
-def main_run_single_test(input_size):
+def main_run_single_test(test_id: int, input_length: int):
 
     # Run a single test
     print("Running single test example:")
-    results = run_single_test(test_id=run_specific_test, input_size=input_size)
+    results = run_single_test(test_id=test_id, input_size=input_length)
     for result in results:
         print(f"{result['library']}: {result['result']}")
 
 
 if __name__ == "__main__":
+    args = parse_args()
+    input_length = args.input_size if args.input_size is not None else args.input_length
+    RegexLibrary.TIMEOUT_SECONDS = args.timeout
+    output_filename = build_output_filename(args.timeout)
+
     scaling_test = False
 
     if scaling_test:
         run_scaling_test()
     else:
-        # Either a test ID to run or None
-        run_specific_test = None
-
-        if run_specific_test is None:
-            main_run_all_tests()
+        if args.single is None:
+            main_run_all_tests(
+                input_length=input_length,
+                num_runs=args.runs,
+                output_filename=output_filename,
+            )
         else:
-            main_run_single_test(50)
+            main_run_single_test(args.single, input_length)

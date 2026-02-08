@@ -24,12 +24,18 @@ class Program
             return;
         }
 
-        var inputSize = ParseIntArg(args, "--input-size", DefaultInputSize);
+        var inputSize = ParseIntArg(args, "--input-length", ParseIntArg(args, "--input-size", DefaultInputSize));
         var numRuns = ParseIntArg(args, "--runs", DefaultRuns);
+        var timeoutSeconds = ParseDoubleArg(args, "--timeout", DefaultTimeout.TotalSeconds);
+        if (timeoutSeconds <= 0)
+        {
+            throw new ArgumentException($"Invalid value for --timeout: {timeoutSeconds.ToString(CultureInfo.InvariantCulture)}");
+        }
+        var timeout = TimeSpan.FromSeconds(timeoutSeconds);
         var singleTestId = ParseNullableIntArg(args, "--single");
         var showTests = HasFlag(args, "--show-tests");
 
-        var libraries = GetLibraries();
+        var libraries = GetLibraries(timeout);
         var tests = GetTestCases(inputSize);
 
         if (singleTestId.HasValue)
@@ -44,7 +50,7 @@ class Program
 
         var allResults = RunAllTests(numRuns, libraries, tests, showTests);
         var summaryStats = CalculateSummaryStats(allResults, libraries);
-        SaveResults(allResults, summaryStats, libraries, numRuns, tests.Count);
+        SaveResults(allResults, summaryStats, libraries, numRuns, tests.Count, timeoutSeconds);
     }
 
     static void RunChild(string[] args)
@@ -92,12 +98,12 @@ class Program
         Console.WriteLine(JsonSerializer.Serialize(result, options));
     }
 
-    static List<RegexLibrary> GetLibraries()
+    static List<RegexLibrary> GetLibraries(TimeSpan timeout)
     {
         return new List<RegexLibrary>
         {
-            new RegexLibrary { Name = "RE#", Engine = "RE#", Timeout = DefaultTimeout },
-            new RegexLibrary { Name = "dotnet", Engine = "dotnet", Timeout = DefaultTimeout },
+            new RegexLibrary { Name = "RE#", Engine = "RE#", Timeout = timeout },
+            new RegexLibrary { Name = "dotnet", Engine = "dotnet", Timeout = timeout },
         };
     }
 
@@ -377,7 +383,8 @@ class Program
         Dictionary<string, SummaryStat> summaryStats,
         List<RegexLibrary> libraries,
         int numRuns,
-        int testsCount
+        int testsCount,
+        double timeoutSeconds
     )
     {
         var testCasesPath = FindFilePath("test_cases.json");
@@ -386,7 +393,11 @@ class Program
             throw new FileNotFoundException("Unable to locate test_cases.json.");
         }
 
-        var outputPath = Path.Combine(Path.GetDirectoryName(testCasesPath) ?? ".", "csharp_redos_test_results.json");
+        var timeoutText = TimeoutLabel(timeoutSeconds);
+        var outputPath = Path.Combine(
+            Path.GetDirectoryName(testCasesPath) ?? ".",
+            $"csharp_redos_test_results_timeout-{timeoutText}.json"
+        );
         var outputData = new ResultsFile
         {
             Metadata = new Metadata
@@ -457,6 +468,22 @@ class Program
         return value;
     }
 
+    static double ParseDoubleArg(string[] args, string flag, double defaultValue)
+    {
+        var raw = GetArgValue(args, flag);
+        if (raw == null)
+        {
+            return defaultValue;
+        }
+
+        if (!double.TryParse(raw, NumberStyles.Float | NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out var value))
+        {
+            throw new ArgumentException($"Invalid value for {flag}: {raw}");
+        }
+
+        return value;
+    }
+
     static int? ParseNullableIntArg(string[] args, string flag)
     {
         var raw = GetArgValue(args, flag);
@@ -490,6 +517,16 @@ class Program
     static bool HasFlag(string[] args, string flag)
     {
         return args.Any(arg => string.Equals(arg, flag, StringComparison.Ordinal));
+    }
+
+    static string TimeoutLabel(double timeoutSeconds)
+    {
+        if (Math.Abs(timeoutSeconds - Math.Round(timeoutSeconds)) < 1e-9)
+        {
+            return ((int)Math.Round(timeoutSeconds)).ToString(CultureInfo.InvariantCulture);
+        }
+
+        return timeoutSeconds.ToString("0.###", CultureInfo.InvariantCulture).Replace(".", "_");
     }
 
     static string RepeatString(string value, int count)
