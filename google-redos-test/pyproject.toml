@@ -1,0 +1,9 @@
+[project]
+name = "google-redos-test"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "google-re2>=1.1.20251105",
+]
