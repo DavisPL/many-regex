@@ -1,0 +1,406 @@
+from abc import ABC, abstractmethod
+import argparse
+from multiprocessing import Pipe, Process
+import time
+import json
+from pathlib import Path
+from datetime import datetime
+from dataclasses import dataclass
+from typing import List, Optional
+
+import re2 as google_re2  # https://pypi.org/project/google-re2/
+
+
+@dataclass
+class LibraryResult:
+    library: str
+    result: Optional[bool]
+    time: float
+    timed_out: bool
+
+
+@dataclass
+class SingleTestResult:
+    test_id: int
+    pattern: str
+    input: str
+    library: str
+    result: LibraryResult
+
+
+@dataclass
+class ScalingTestEntry:
+    test_id: int
+    size: int
+    result: List[SingleTestResult]
+
+
+class RegexLibrary(ABC):
+    TIMEOUT_SECONDS = 2
+
+    @abstractmethod
+    def setup_test(self, pattern: str, input: str) -> bool:
+        pass
+
+    def test(self, pattern: str, input: str):
+        start_time = time.perf_counter()
+        parent_conn, child_conn = Pipe(duplex=False)
+        process = Process(
+            target=run_library_match_in_subprocess,
+            args=(self.__class__.__name__, pattern, input, child_conn),
+        )
+
+        try:
+            process.start()
+            child_conn.close()
+            process.join(self.TIMEOUT_SECONDS)
+
+            if process.is_alive():
+                process.terminate()
+                process.join()
+                duration = time.perf_counter() - start_time
+                return {
+                    "library": self.__class__.__name__,
+                    "result": None,
+                    "time": duration,
+                    "timed_out": True,
+                }
+
+            if parent_conn.poll():
+                response = parent_conn.recv()
+            else:
+                response = {"ok": False, "error": "NoResult"}
+
+            if response.get("ok"):
+                duration = time.perf_counter() - start_time
+                return {
+                    "library": self.__class__.__name__,
+                    "result": response["result"],
+                    "time": duration,
+                    "timed_out": False,
+                }
+
+            if response.get("error") == "RegexSyntaxError":
+                return {
+                    "library": self.__class__.__name__,
+                    "result": None,
+                    "time": 0,
+                    "timed_out": False,
+                }
+
+            duration = time.perf_counter() - start_time
+            return {
+                "library": self.__class__.__name__,
+                "result": None,
+                "time": duration,
+                "timed_out": False,
+            }
+        finally:
+            parent_conn.close()
+
+
+def run_library_match_in_subprocess(library_name: str, pattern: str, input: str, conn):
+    try:
+        if library_name == "GoogleRe2":
+            result = google_re2.match(pattern, input) is not None
+        else:
+            conn.send({"ok": False, "error": f"UnknownLibrary:{library_name}"})
+            return
+
+        conn.send({"ok": True, "result": result})
+    # except rure.exceptions.RegexSyntaxError:
+    #     conn.send({"ok": False, "error": "RegexSyntaxError"})
+    except KeyboardInterrupt:
+        conn.send({"ok": False, "error": "KeyboardInterrupt"})
+    except Exception as exc:
+        conn.send({"ok": False, "error": f"Unhandled:{type(exc).__name__}"})
+    finally:
+        conn.close()
+
+
+class GoogleRe2(RegexLibrary):
+    def setup_test(self, pattern: str, input: str):
+        match = google_re2.match(pattern, input)
+        return match is not None
+
+
+def get_test_cases(input_size=20):
+    test_cases_path = Path("test_cases.json")
+
+    with test_cases_path.open("r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    cases = []
+    for entry in data:
+        pattern = entry["regex"]
+        repeat = entry["repeat"] * input_size
+        cases.append((pattern, repeat))
+
+    return cases
+
+
+def get_libraries():
+    """Get all regex library instances."""
+    return [GoogleRe2()]
+
+
+def run_single_test(test_id, libraries=None, input_size=20):
+    """Run a single test case across all libraries."""
+    if libraries is None:
+        libraries = get_libraries()
+
+    tests = get_test_cases(input_size)
+
+    if test_id < 1 or test_id > len(tests):
+        raise ValueError(f"Invalid test_id. Must be between 1 and {len(tests)}")
+
+    pattern, text = tests[test_id - 1]
+    results = []
+
+    print(f"Running test {test_id}: pattern={pattern}, input_length={len(text)}")
+
+    for library in libraries:
+        print(f"  Testing with {library.__class__.__name__}...")
+        res = library.test(pattern, text)
+        results.append(
+            {
+                "test_id": test_id,
+                "pattern": pattern,
+                "input": text,
+                "library": library.__class__.__name__,
+                "result": res,
+            }
+        )
+
+    return results
+
+
+def run_all_tests(num_runs=3, libraries=None, input_size=20):
+    """Run all test cases for multiple iterations."""
+    if libraries is None:
+        libraries = get_libraries()
+
+    tests = get_test_cases(input_size)
+    all_results = []
+
+    print(
+        f"Running {num_runs} iterations of {len(tests)} tests across {len(libraries)} libraries..."
+    )
+    print(f"Input size multiplier: {input_size}")
+
+    for run in range(num_runs):
+        print(f"\nRun {run + 1}/{num_runs}")
+
+        for test_idx, (pattern, text) in enumerate(tests):
+            for library in libraries:
+                print(f"  {library.__class__.__name__} - Test {test_idx + 1}")
+
+                res = library.test(pattern, text)
+
+                result_entry = {
+                    "run": run + 1,
+                    "test_id": test_idx + 1,
+                    "pattern": pattern,
+                    "input": text,
+                    "library": library.__class__.__name__,
+                    "result": str(res),
+                }
+                all_results.append(result_entry)
+
+    return all_results
+
+
+def calculate_summary_stats(all_results, libraries):
+    """Calculate summary statistics from test results."""
+    summary_stats = {}
+
+    for lib in libraries:
+        lib_name = lib.__class__.__name__
+        lib_results = [r for r in all_results if r["library"] == lib_name]
+        unique_test_ids = {r["test_id"] for r in lib_results}
+        run_ids = {r["run"] for r in lib_results}
+
+        times = []
+        timeout_count = 0
+        timeout_test_ids = set()
+
+        for r in lib_results:
+            result_dict = eval(r["result"])
+            if result_dict["timed_out"]:
+                timeout_count += 1
+                timeout_test_ids.add(r["test_id"])
+            else:
+                times.append(result_dict["time"])
+
+        if times:
+            times_sorted = sorted(times)
+            n = len(times)
+            summary_stats[lib_name] = {
+                "mean_time": sum(times) / n,
+                "median_time": times_sorted[n // 2]
+                if n % 2 == 1
+                else (times_sorted[n // 2 - 1] + times_sorted[n // 2]) / 2,
+                "min_time": min(times),
+                "max_time": max(times),
+                "timeout_count": timeout_count,
+                "timeout_tests_count": len(timeout_test_ids),
+                "successful_count": len(times),
+                "total_count": len(lib_results),
+                "total_test_cases": len(unique_test_ids),
+                "run_count": len(run_ids),
+            }
+        else:
+            summary_stats[lib_name] = {
+                "mean_time": None,
+                "median_time": None,
+                "min_time": None,
+                "max_time": None,
+                "timeout_count": timeout_count,
+                "timeout_tests_count": len(timeout_test_ids),
+                "successful_count": 0,
+                "total_count": len(lib_results),
+                "total_test_cases": len(unique_test_ids),
+                "run_count": len(run_ids),
+            }
+
+    return summary_stats
+
+
+def save_results(
+    all_results,
+    summary_stats,
+    libraries,
+    num_runs,
+    tests_count,
+    filename="py_redos_test_results.json",
+):
+    """Save results to a JSON file."""
+    output_data = {
+        "metadata": {
+            "timestamp": datetime.now().isoformat(),
+            "total_runs": num_runs,
+            "total_tests": tests_count,
+            "total_libraries": len(libraries),
+            "libraries": [lib.__class__.__name__ for lib in libraries],
+        },
+        "summary_stats": summary_stats,
+        "results": all_results,
+    }
+
+    with open(filename, "w") as f:
+        json.dump(output_data, f, indent=2)
+
+    print(f"\n{len(all_results)} total test results saved to {filename}")
+
+
+def print_summary_stats(summary_stats):
+    """Print summary statistics in a readable format."""
+    print("\nSummary Statistics:")
+    for lib_name, stats in summary_stats.items():
+        print(f"\n{lib_name}:")
+        if stats["mean_time"]:
+            print(f"  Mean time: {stats['mean_time']:.6f}s")
+            print(f"  Median time: {stats['median_time']:.6f}s")
+            print(f"  Min time: {stats['min_time']:.6f}s")
+            print(f"  Max time: {stats['max_time']:.6f}s")
+        else:
+            print("  No successful completions")
+        print(
+            f"  Timeouts (executions): {stats['timeout_count']}/{stats['total_count']}"
+        )
+        print(
+            "  Timeout test cases (unique): "
+            f"{stats['timeout_tests_count']}/{stats['total_test_cases']}"
+        )
+        print(
+            f"  Runs: {stats['run_count']} | Unique test cases: {stats['total_test_cases']}"
+        )
+
+
+def run_scaling_test():
+    all_results = []
+
+    tests_count = len(get_test_cases())
+
+    for test_id in range(1, tests_count):
+        for size in range(30):
+            results = run_single_test(test_id=test_id, input_size=size)
+
+            all_results.append(
+                {"test_id": test_id, "size": size, "result": results},
+            )
+
+    with open("py_scaling_test.json", "w") as file:
+        json.dump(all_results, file)
+
+
+def timeout_label(timeout_seconds: float) -> str:
+    if float(timeout_seconds).is_integer():
+        return str(int(timeout_seconds))
+    return str(timeout_seconds).replace(".", "_")
+
+
+def build_output_filename(timeout_seconds: float) -> str:
+    return f"py_redos_test_results_timeout-{timeout_label(timeout_seconds)}.json"
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(description="Run regex tests across Python libraries.")
+    parser.add_argument("--runs", type=int, default=3)
+    parser.add_argument("--single", type=int, default=None)
+    parser.add_argument("--timeout", type=float, default=2.0)
+    parser.add_argument("--input-length", type=int, default=20)
+    parser.add_argument(
+        "--input-size",
+        type=int,
+        default=None,
+        help="Deprecated alias for --input-length.",
+    )
+    return parser.parse_args()
+
+
+def main_run_all_tests(input_length: int, num_runs: int, output_filename: str):
+
+    # Run all tests
+    libraries = get_libraries()
+    all_results = run_all_tests(num_runs=num_runs, libraries=libraries, input_size=input_length)
+    summary_stats = calculate_summary_stats(all_results, libraries)
+    save_results(
+        all_results,
+        summary_stats,
+        libraries,
+        num_runs,
+        len(get_test_cases(input_length)),
+        output_filename,
+    )
+    print_summary_stats(summary_stats)
+
+
+def main_run_single_test(test_id: int, input_length: int):
+
+    # Run a single test
+    print("Running single test example:")
+    results = run_single_test(test_id=test_id, input_size=input_length)
+    for result in results:
+        print(f"{result['library']}: {result['result']}")
+
+
+if __name__ == "__main__":
+    args = parse_args()
+    input_length = args.input_size if args.input_size is not None else args.input_length
+    RegexLibrary.TIMEOUT_SECONDS = args.timeout
+    output_filename = build_output_filename(args.timeout)
+
+    scaling_test = False
+
+    if scaling_test:
+        run_scaling_test()
+    else:
+        if args.single is None:
+            main_run_all_tests(
+                input_length=input_length,
+                num_runs=args.runs,
+                output_filename=output_filename,
+            )
+        else:
+            main_run_single_test(args.single, input_length)

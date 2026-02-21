@@ -1,0 +1,2739 @@
+{
+  "metadata": {
+    "timestamp": "2026-02-20T21:27:10.637956",
+    "total_runs": 3,
+    "total_tests": 113,
+    "total_libraries": 1,
+    "libraries": [
+      "GoogleRe2"
+    ]
+  },
+  "summary_stats": {
+    "GoogleRe2": {
+      "mean_time": 0.004233479056041162,
+      "median_time": 0.003667969999696652,
+      "min_time": 0.0028038689997629263,
+      "max_time": 0.07301194299998315,
+      "timeout_count": 0,
+      "timeout_tests_count": 0,
+      "successful_count": 339,
+      "total_count": 339,
+      "total_test_cases": 113,
+      "run_count": 3
+    }
+  },
+  "results": [
+    {
+      "run": 1,
+      "test_id": 1,
+      "pattern": "^(a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.008901727000193205, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 2,
+      "pattern": "^(a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.006877130000248144, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 3,
+      "pattern": "^(a+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.007233647999782988, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 4,
+      "pattern": "^(a|a)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004309602999910567, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 5,
+      "pattern": "^(a|ab)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004675459999816667, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 6,
+      "pattern": "(a|a|a|a|a|b)*c",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0052910449999217235, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 7,
+      "pattern": "^((a+)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0034019619997707196, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 8,
+      "pattern": "^(a*)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.00346219499988365, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 9,
+      "pattern": "^(a+)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.004364296999938233, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 10,
+      "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.004576012999677914, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 11,
+      "pattern": "^([a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003752048000023933, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 12,
+      "pattern": "^([0-9a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0034987930002898793, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 13,
+      "pattern": "^(.*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004893770000307995, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 14,
+      "pattern": "^(.+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0040241679998871405, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 15,
+      "pattern": "^(.*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003346166000028461, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 16,
+      "pattern": "^(a*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0034933919996547047, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 17,
+      "pattern": "^(a?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.005599463999715226, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 18,
+      "pattern": "^(a*?)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003596966999793949, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 19,
+      "pattern": "^(\\w+\\s*)+$",
+      "input": "a a a a a a a a a a a a a a a a a a a a ",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0029630179997184314, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 20,
+      "pattern": "^([\\w]+[\\s]*)*$",
+      "input": "test test test test test test test test test test test test test test test test test test test test ",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.003167832000144699, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 21,
+      "pattern": "^(\\d+)+$",
+      "input": "11111111111111111111",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0052353800001583295, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 22,
+      "pattern": "^([0-9]+)*$",
+      "input": "99999999999999999999",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.005065721999926609, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 23,
+      "pattern": "^(a+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.003727390999756608, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 24,
+      "pattern": "^(a*|a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0034113589999833493, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 25,
+      "pattern": "^(aa+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.005027709999922081, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 26,
+      "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
+      "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.004440379000243411, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 27,
+      "pattern": "^(\\s*a+\\s*)+$",
+      "input": " a a a a a a a a a a a a a a a a a a a a",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0030156070001794433, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 28,
+      "pattern": "^(\\s+|a+)*b$",
+      "input": "a a a a a a a a a a a a a a a a a a a a ",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0031891619996713416, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 29,
+      "pattern": "^(a+)?b?(a+)?$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004985000000033324, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 30,
+      "pattern": "^(a+b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0038554520001525816, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 31,
+      "pattern": "^([a-zA-Z]+)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0029841079999641806, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 32,
+      "pattern": "^([a-z0-9]+)+[!]$",
+      "input": "abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0032537629999751516, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 33,
+      "pattern": "^((a|b)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.004037643000174285, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 34,
+      "pattern": "^((a|ab)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.005535943999802839, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 35,
+      "pattern": "^(a+b)+c$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003486018999865337, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 36,
+      "pattern": "^(ab+)+c$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003089414999976725, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 37,
+      "pattern": "^(a|aa)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0057622179997451894, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 38,
+      "pattern": "^(a|aa)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.004803961000106938, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 39,
+      "pattern": "^(ab|a)+$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0035061469998254324, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 40,
+      "pattern": "^(ab|a)*b$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0030828029998701822, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 41,
+      "pattern": "^([ab]*)*c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.005219640999712283, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 42,
+      "pattern": "^([ab]+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003733492999799637, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 43,
+      "pattern": "^(a|b|ab)+c$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003071051000006264, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 44,
+      "pattern": "^([a-z]*[A-Z]?)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0028552459998536506, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 45,
+      "pattern": "^((ab)*)*$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004316867999932583, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 46,
+      "pattern": "^((ab)+)*$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.005330398999831232, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 47,
+      "pattern": "^(a.*a)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.003358550000029936, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 48,
+      "pattern": "^(.*a)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0033497530002932763, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 49,
+      "pattern": "^(.+a)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004695217000062257, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 50,
+      "pattern": "^(.*ab)*$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.005385601999932987, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 51,
+      "pattern": "^((a|ab)*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0029287229999681585, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 52,
+      "pattern": "^(a|ab|aba)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003131283999664447, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 53,
+      "pattern": "^([0-9]*[a-z]?)+$",
+      "input": "11111111111111111111",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004835890999856929, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 54,
+      "pattern": "^(\\d*\\d)+$",
+      "input": "11111111111111111111",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.005323465999936161, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 55,
+      "pattern": "^((\\d+)?)+$",
+      "input": "11111111111111111111",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004010422000192193, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 56,
+      "pattern": "^(\\d+\\s*)+$",
+      "input": "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 ",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.003910154000095645, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 57,
+      "pattern": "^(\\w+\\W*)+$",
+      "input": "a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0068991610000921355, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 58,
+      "pattern": "^(\\w*\\W+)*$",
+      "input": "a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004762542999742436, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 59,
+      "pattern": "^([a-z]+\\d+)*$",
+      "input": "a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.00392853900029877, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 60,
+      "pattern": "^([a-z]+\\d+)+$",
+      "input": "a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.005644157000006089, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 61,
+      "pattern": "^([a-z]?\\d?)+$",
+      "input": "a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004521430999830045, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 62,
+      "pattern": "^(a{0,3})+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0033562560001882957, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 63,
+      "pattern": "^(a{1,3})+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0035299720002512913, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 64,
+      "pattern": "^([a-z]{1,3})+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.005057346999819856, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 65,
+      "pattern": "^([a-z]{0,3})*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003845462999834126, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 66,
+      "pattern": "^((a?)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0033593110001675086, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 67,
+      "pattern": "^(a?b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0031552579998788133, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 68,
+      "pattern": "^(a*b*)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.005528840999886597, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 69,
+      "pattern": "^([ab]?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.004274187000191887, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 70,
+      "pattern": "^(a+|aa+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.003221623000172258, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 71,
+      "pattern": "^((a|aa)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0029652319999513566, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 72,
+      "pattern": "^([\\s\\S]+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0060845530001643056, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 73,
+      "pattern": "^(a|aa)+\\1$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': None, 'time': 0.07301194299998315, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 74,
+      "pattern": "^((a|aa)+)\\1$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': None, 'time': 0.004637758999706421, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 75,
+      "pattern": "^([ab]+)\\1c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': None, 'time': 0.005156231999990268, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 76,
+      "pattern": "^(a+)(a+)+\\1$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': None, 'time': 0.00620711300007315, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 77,
+      "pattern": "^((a+)b)+\\2$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': None, 'time': 0.004836101999899256, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 78,
+      "pattern": "^(?=(a+)+b)\\w+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': None, 'time': 0.004148681000060606, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 79,
+      "pattern": "^(?:(?!b).)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': None, 'time': 0.005140281999956642, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 80,
+      "pattern": "^(?=.*a.*a).*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': None, 'time': 0.0031684430000495922, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 81,
+      "pattern": "^((?=a).)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': None, 'time': 0.003033779999896069, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 82,
+      "pattern": "^(a+?)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004454205000001821, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 83,
+      "pattern": "^(a+?)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.005080479999833187, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 84,
+      "pattern": "^(a*?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003086749999965832, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 85,
+      "pattern": "^(a+?b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0028876659998786636, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 86,
+      "pattern": "^((a|ab)*)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004401085000154126, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 87,
+      "pattern": "^(a|a?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.005403866000051494, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 88,
+      "pattern": "^(a|a+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003067133000058675, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 89,
+      "pattern": "^((a|ab)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0030821810000816185, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 90,
+      "pattern": "^((ab)?)+c$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0033266099999309517, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 91,
+      "pattern": "^((a)?b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003980135999881895, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 92,
+      "pattern": "^((a?b?)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003884816000208957, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 93,
+      "pattern": "^((a?)+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003191106000031141, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 94,
+      "pattern": "^(ab|cab)+d$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003320157999951334, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 95,
+      "pattern": "^(abcd|abc)+e$",
+      "input": "abcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabc",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.006851070999800868, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 96,
+      "pattern": "^(abc|ab)+c$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.004029989000173373, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 97,
+      "pattern": "^([a-f]+|[a-z]+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0033194769998772244, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 98,
+      "pattern": "^([a-z0-9]+|[a-z]+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.00362900800018906, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 99,
+      "pattern": "^([0-9a-f]+|[0-9]+)+$",
+      "input": "11111111111111111111",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.00400486299986369, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 100,
+      "pattern": "^(\\w+)+\\W$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0038441299998339673, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 101,
+      "pattern": "^(\\D+)+\\d$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003064037000058306, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 102,
+      "pattern": "^(\\S+)+\\s$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003232783999919775, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 103,
+      "pattern": "^(ab?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.005496199999925011, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 104,
+      "pattern": "^(a?b)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0054664040003444825, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 105,
+      "pattern": "^((ab)?b)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0033143969999400724, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 106,
+      "pattern": "^((ab)*)+b$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003098562000104721, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 107,
+      "pattern": "^(.+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.005335277000085625, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 108,
+      "pattern": "^(.*a.*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003833109999959561, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 109,
+      "pattern": "^(.*?a)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0029227820000414795, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 110,
+      "pattern": "^((.*)a)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0034185429999524786, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 111,
+      "pattern": "^((\\d+|\\d{1,2})+)+$",
+      "input": "11111111111111111111",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0045222119997561094, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 112,
+      "pattern": "^(\\d{0,3})+\\D$",
+      "input": "11111111111111111111",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.004760510000323848, 'timed_out': False}"
+    },
+    {
+      "run": 1,
+      "test_id": 113,
+      "pattern": "^(\\d{1,3})+\\D$",
+      "input": "11111111111111111111",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003331539000100747, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 1,
+      "pattern": "^(a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0033570579998922767, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 2,
+      "pattern": "^(a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.006060628000341239, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 3,
+      "pattern": "^(a+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003605653000249731, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 4,
+      "pattern": "^(a|a)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.002908214999933989, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 5,
+      "pattern": "^(a|ab)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0034779030002027866, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 6,
+      "pattern": "(a|a|a|a|a|b)*c",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.004620837999937066, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 7,
+      "pattern": "^((a+)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0054403350000029604, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 8,
+      "pattern": "^(a*)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003780341000037879, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 9,
+      "pattern": "^(a+)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0033494230001451797, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 10,
+      "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.004521721999935835, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 11,
+      "pattern": "^([a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.004158920999998372, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 12,
+      "pattern": "^([0-9a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003406799999993382, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 13,
+      "pattern": "^(.*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0029434810003294842, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 14,
+      "pattern": "^(.+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.00585755700012669, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 15,
+      "pattern": "^(.*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.004225455999858241, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 16,
+      "pattern": "^(a*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003381061999789381, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 17,
+      "pattern": "^(a?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0034110480000890675, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 18,
+      "pattern": "^(a*?)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.005920927000261145, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 19,
+      "pattern": "^(\\w+\\s*)+$",
+      "input": "a a a a a a a a a a a a a a a a a a a a ",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0047043940003277385, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 20,
+      "pattern": "^([\\w]+[\\s]*)*$",
+      "input": "test test test test test test test test test test test test test test test test test test test test ",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.003108440999767481, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 21,
+      "pattern": "^(\\d+)+$",
+      "input": "11111111111111111111",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0038473170002362167, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 22,
+      "pattern": "^([0-9]+)*$",
+      "input": "99999999999999999999",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.00433863799980827, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 23,
+      "pattern": "^(a+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.003609791000144469, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 24,
+      "pattern": "^(a*|a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.003316521000215289, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 25,
+      "pattern": "^(aa+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0037540520002039557, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 26,
+      "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
+      "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.004800153999894974, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 27,
+      "pattern": "^(\\s*a+\\s*)+$",
+      "input": " a a a a a a a a a a a a a a a a a a a a",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004245553999680851, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 28,
+      "pattern": "^(\\s+|a+)*b$",
+      "input": "a a a a a a a a a a a a a a a a a a a a ",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0028713760002574418, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 29,
+      "pattern": "^(a+)?b?(a+)?$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.003628054999808228, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 30,
+      "pattern": "^(a+b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.005631894000089233, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 31,
+      "pattern": "^([a-zA-Z]+)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004200369000045612, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 32,
+      "pattern": "^([a-z0-9]+)+[!]$",
+      "input": "abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0033804109998527565, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 33,
+      "pattern": "^((a|b)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003698067000186711, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 34,
+      "pattern": "^((a|ab)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.005092161999982636, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 35,
+      "pattern": "^(a+b)+c$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.00405879299978551, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 36,
+      "pattern": "^(ab+)+c$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.00281715399978566, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 37,
+      "pattern": "^(a|aa)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0032307500000570144, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 38,
+      "pattern": "^(a|aa)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.004768313999647944, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 39,
+      "pattern": "^(ab|a)+$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004740701999708108, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 40,
+      "pattern": "^(ab|a)*b$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0028907320001962944, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 41,
+      "pattern": "^([ab]*)*c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0033711930000208667, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 42,
+      "pattern": "^([ab]+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.005003223999665352, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 43,
+      "pattern": "^(a|b|ab)+c$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0048322750003535475, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 44,
+      "pattern": "^([a-z]*[A-Z]?)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0033094580003307783, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 45,
+      "pattern": "^((ab)*)*$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0035980489997200493, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 46,
+      "pattern": "^((ab)+)*$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.006013499999880878, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 47,
+      "pattern": "^(a.*a)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004432875000020431, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 48,
+      "pattern": "^(.*a)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.003534289999606699, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 49,
+      "pattern": "^(.+a)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0033482609997008694, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 50,
+      "pattern": "^(.*ab)*$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004586122000091564, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 51,
+      "pattern": "^((a|ab)*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004764046000218514, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 52,
+      "pattern": "^(a|ab|aba)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0036047420003342268, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 53,
+      "pattern": "^([0-9]*[a-z]?)+$",
+      "input": "11111111111111111111",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0039480359996559855, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 54,
+      "pattern": "^(\\d*\\d)+$",
+      "input": "11111111111111111111",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004159984000125405, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 55,
+      "pattern": "^((\\d+)?)+$",
+      "input": "11111111111111111111",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0036761459996341728, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 56,
+      "pattern": "^(\\d+\\s*)+$",
+      "input": "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 ",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0032541939999646274, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 57,
+      "pattern": "^(\\w+\\W*)+$",
+      "input": "a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0033986250000452856, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 58,
+      "pattern": "^(\\w*\\W+)*$",
+      "input": "a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.005354414000066754, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 59,
+      "pattern": "^([a-z]+\\d+)*$",
+      "input": "a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004379976000109309, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 60,
+      "pattern": "^([a-z]+\\d+)+$",
+      "input": "a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0029719139997723687, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 61,
+      "pattern": "^([a-z]?\\d?)+$",
+      "input": "a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.003297265000128391, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 62,
+      "pattern": "^(a{0,3})+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0049038779998227255, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 63,
+      "pattern": "^(a{1,3})+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.004595910999796615, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 64,
+      "pattern": "^([a-z]{1,3})+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0032914140001594205, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 65,
+      "pattern": "^([a-z]{0,3})*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0031137400001171045, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 66,
+      "pattern": "^((a?)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0051683540000340145, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 67,
+      "pattern": "^(a?b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.004785966999861557, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 68,
+      "pattern": "^(a*b*)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003302845999769488, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 69,
+      "pattern": "^([ab]?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003188561000115442, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 70,
+      "pattern": "^(a+|aa+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004660010999941733, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 71,
+      "pattern": "^((a|aa)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004807678000361193, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 72,
+      "pattern": "^([\\s\\S]+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0036384249997354345, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 73,
+      "pattern": "^(a|aa)+\\1$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': None, 'time': 0.0036292570002842695, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 74,
+      "pattern": "^((a|aa)+)\\1$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': None, 'time': 0.005487382999945112, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 75,
+      "pattern": "^([ab]+)\\1c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': None, 'time': 0.004267795000032493, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 76,
+      "pattern": "^(a+)(a+)+\\1$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': None, 'time': 0.0034055480000461102, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 77,
+      "pattern": "^((a+)b)+\\2$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': None, 'time': 0.003553085000021383, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 78,
+      "pattern": "^(?=(a+)+b)\\w+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': None, 'time': 0.004487797999900067, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 79,
+      "pattern": "^(?:(?!b).)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': None, 'time': 0.004707329999746435, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 80,
+      "pattern": "^(?=.*a.*a).*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': None, 'time': 0.0029552430000876484, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 81,
+      "pattern": "^((?=a).)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': None, 'time': 0.003991035999661108, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 82,
+      "pattern": "^(a+?)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.005224600000019564, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 83,
+      "pattern": "^(a+?)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.004517294000379479, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 84,
+      "pattern": "^(a*?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003220309999960591, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 85,
+      "pattern": "^(a+?b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003908500999841635, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 86,
+      "pattern": "^((a|ab)*)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004454345000340254, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 87,
+      "pattern": "^(a|a?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.005011500999898999, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 88,
+      "pattern": "^(a|a+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0031422739998561156, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 89,
+      "pattern": "^((a|ab)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0034566630001791054, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 90,
+      "pattern": "^((ab)?)+c$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.005273841999951401, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 91,
+      "pattern": "^((a)?b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.004196390999823052, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 92,
+      "pattern": "^((a?b?)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.002877226999771665, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 93,
+      "pattern": "^((a?)+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003514812999583228, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 94,
+      "pattern": "^(ab|cab)+d$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.005069950000233803, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 95,
+      "pattern": "^(abcd|abc)+e$",
+      "input": "abcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabc",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.004409912000028271, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 96,
+      "pattern": "^(abc|ab)+c$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0032407889998467, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 97,
+      "pattern": "^([a-f]+|[a-z]+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.003284991999862541, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 98,
+      "pattern": "^([a-z0-9]+|[a-z]+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.005077603999779967, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 99,
+      "pattern": "^([0-9a-f]+|[0-9]+)+$",
+      "input": "11111111111111111111",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004727787999854627, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 100,
+      "pattern": "^(\\w+)+\\W$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0033472089999122545, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 101,
+      "pattern": "^(\\D+)+\\d$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0028995090001444623, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 102,
+      "pattern": "^(\\S+)+\\s$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0054551530001845094, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 103,
+      "pattern": "^(ab?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0042953669999405975, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 104,
+      "pattern": "^(a?b)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.00327723700002025, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 105,
+      "pattern": "^((ab)?b)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003934269999717799, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 106,
+      "pattern": "^((ab)*)+b$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0049780479998844385, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 107,
+      "pattern": "^(.+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.00397512600011396, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 108,
+      "pattern": "^(.*a.*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.00335690700012492, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 109,
+      "pattern": "^(.*?a)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0033693299997139547, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 110,
+      "pattern": "^((.*)a)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.00570123399984368, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 111,
+      "pattern": "^((\\d+|\\d{1,2})+)+$",
+      "input": "11111111111111111111",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004563690999930259, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 112,
+      "pattern": "^(\\d{0,3})+\\D$",
+      "input": "11111111111111111111",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0032361499997932697, 'timed_out': False}"
+    },
+    {
+      "run": 2,
+      "test_id": 113,
+      "pattern": "^(\\d{1,3})+\\D$",
+      "input": "11111111111111111111",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.00407051499996669, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 1,
+      "pattern": "^(a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.003898393000326905, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 2,
+      "pattern": "^(a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.00420232299984491, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 3,
+      "pattern": "^(a+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0032070960000964988, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 4,
+      "pattern": "^(a|a)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0033421289999751025, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 5,
+      "pattern": "^(a|ab)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0053586419999192, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 6,
+      "pattern": "(a|a|a|a|a|b)*c",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0035999930000798486, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 7,
+      "pattern": "^((a+)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0029484910000974196, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 8,
+      "pattern": "^(a*)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0031327859996963525, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 9,
+      "pattern": "^(a+)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.004869122999934916, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 10,
+      "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.004889681999884488, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 11,
+      "pattern": "^([a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003239455999846541, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 12,
+      "pattern": "^([0-9a-z]+)+[A-Z]$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0028630699998757336, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 13,
+      "pattern": "^(.*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004441049999968527, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 14,
+      "pattern": "^(.+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.00569041400012793, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 15,
+      "pattern": "^(.*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003369641000062984, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 16,
+      "pattern": "^(a*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003223376000278222, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 17,
+      "pattern": "^(a?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0047044339999047224, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 18,
+      "pattern": "^(a*?)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.005195895999804634, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 19,
+      "pattern": "^(\\w+\\s*)+$",
+      "input": "a a a a a a a a a a a a a a a a a a a a ",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0033964509998440917, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 20,
+      "pattern": "^([\\w]+[\\s]*)*$",
+      "input": "test test test test test test test test test test test test test test test test test test test test ",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0032121049998750095, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 21,
+      "pattern": "^(\\d+)+$",
+      "input": "11111111111111111111",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004711667999799829, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 22,
+      "pattern": "^([0-9]+)*$",
+      "input": "99999999999999999999",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.006144906999907107, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 23,
+      "pattern": "^(a+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.003534951000347064, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 24,
+      "pattern": "^(a*|a*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.003435515000091982, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 25,
+      "pattern": "^(aa+|a+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.007364363999840862, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 26,
+      "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
+      "input": "http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.http://a.",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0036611270002140373, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 27,
+      "pattern": "^(\\s*a+\\s*)+$",
+      "input": " a a a a a a a a a a a a a a a a a a a a",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0032597440003883094, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 28,
+      "pattern": "^(\\s+|a+)*b$",
+      "input": "a a a a a a a a a a a a a a a a a a a a ",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0051950450001641, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 29,
+      "pattern": "^(a+)?b?(a+)?$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.005162472999927559, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 30,
+      "pattern": "^(a+b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0031212449998747616, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 31,
+      "pattern": "^([a-zA-Z]+)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0030955259999245754, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 32,
+      "pattern": "^([a-z0-9]+)+[!]$",
+      "input": "abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.004356913000265195, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 33,
+      "pattern": "^((a|b)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.005418083000222396, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 34,
+      "pattern": "^((a|ab)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003407292000247253, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 35,
+      "pattern": "^(a+b)+c$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.00332901399997354, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 36,
+      "pattern": "^(ab+)+c$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.005786944000192307, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 37,
+      "pattern": "^(a|aa)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004703964000327687, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 38,
+      "pattern": "^(a|aa)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003344111999922461, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 39,
+      "pattern": "^(ab|a)+$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.00354359699986162, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 40,
+      "pattern": "^(ab|a)*b$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.00438746000008905, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 41,
+      "pattern": "^([ab]*)*c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.004800314000021899, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 42,
+      "pattern": "^([ab]+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0031244100000549224, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 43,
+      "pattern": "^(a|b|ab)+c$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.002941587999885087, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 44,
+      "pattern": "^([a-z]*[A-Z]?)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0056070880000334, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 45,
+      "pattern": "^((ab)*)*$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004802969000138546, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 46,
+      "pattern": "^((ab)+)*$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.003138457000204653, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 47,
+      "pattern": "^(a.*a)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0034122500001103617, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 48,
+      "pattern": "^(.*a)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004999928999950498, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 49,
+      "pattern": "^(.+a)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004290607999791973, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 50,
+      "pattern": "^(.*ab)*$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0030862290000186476, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 51,
+      "pattern": "^((a|ab)*)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0033356270000695076, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 52,
+      "pattern": "^(a|ab|aba)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.004913958000088314, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 53,
+      "pattern": "^([0-9]*[a-z]?)+$",
+      "input": "11111111111111111111",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.003493854000225838, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 54,
+      "pattern": "^(\\d*\\d)+$",
+      "input": "11111111111111111111",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0031720899996798835, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 55,
+      "pattern": "^((\\d+)?)+$",
+      "input": "11111111111111111111",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.003312502999960998, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 56,
+      "pattern": "^(\\d+\\s*)+$",
+      "input": "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 ",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.003868114999932004, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 57,
+      "pattern": "^(\\w+\\W*)+$",
+      "input": "a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0038386800001717347, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 58,
+      "pattern": "^(\\w*\\W+)*$",
+      "input": "a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!a!",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0032089390001601714, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 59,
+      "pattern": "^([a-z]+\\d+)*$",
+      "input": "a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0033207690003109747, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 60,
+      "pattern": "^([a-z]+\\d+)+$",
+      "input": "a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0033991860000242013, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 61,
+      "pattern": "^([a-z]?\\d?)+$",
+      "input": "a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.005388738000419835, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 62,
+      "pattern": "^(a{0,3})+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003423391000069387, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 63,
+      "pattern": "^(a{1,3})+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.002967096000247693, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 64,
+      "pattern": "^([a-z]{1,3})+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0035692850001396437, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 65,
+      "pattern": "^([a-z]{0,3})*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003918541000075493, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 66,
+      "pattern": "^((a?)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004064664999987144, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 67,
+      "pattern": "^(a?b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0028542230002130964, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 68,
+      "pattern": "^(a*b*)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0032216129998232645, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 69,
+      "pattern": "^([ab]?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0036327739999251207, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 70,
+      "pattern": "^(a+|aa+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004920409000078507, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 71,
+      "pattern": "^((a|aa)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0032377829998040397, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 72,
+      "pattern": "^([\\s\\S]+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0030037440001251525, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 73,
+      "pattern": "^(a|aa)+\\1$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': None, 'time': 0.0033333619999211805, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 74,
+      "pattern": "^((a|aa)+)\\1$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': None, 'time': 0.00404912499971033, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 75,
+      "pattern": "^([ab]+)\\1c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': None, 'time': 0.003820436999831145, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 76,
+      "pattern": "^(a+)(a+)+\\1$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': None, 'time': 0.0028038689997629263, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 77,
+      "pattern": "^((a+)b)+\\2$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': None, 'time': 0.0033798300000853487, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 78,
+      "pattern": "^(?=(a+)+b)\\w+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': None, 'time': 0.003667969999696652, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 79,
+      "pattern": "^(?:(?!b).)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': None, 'time': 0.004772040999796445, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 80,
+      "pattern": "^(?=.*a.*a).*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': None, 'time': 0.0032668880003257073, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 81,
+      "pattern": "^((?=a).)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': None, 'time': 0.0036257009996916167, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 82,
+      "pattern": "^(a+?)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.003570838000086951, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 83,
+      "pattern": "^(a+?)*b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0053505860000768735, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 84,
+      "pattern": "^(a*?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0030329490000440273, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 85,
+      "pattern": "^(a+?b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003249846000016987, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 86,
+      "pattern": "^((a|ab)*)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0035781420001512743, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 87,
+      "pattern": "^(a|a?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0034923509997497604, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 88,
+      "pattern": "^(a|a+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0035794249997707084, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 89,
+      "pattern": "^((a|ab)+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0031749059999128804, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 90,
+      "pattern": "^((ab)?)+c$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.00301212000022133, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 91,
+      "pattern": "^((a)?b?)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.002911291000145866, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 92,
+      "pattern": "^((a?b?)+)+c$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0032275940002364223, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 93,
+      "pattern": "^((a?)+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0041855009999380854, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 94,
+      "pattern": "^(ab|cab)+d$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0031508510001003742, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 95,
+      "pattern": "^(abcd|abc)+e$",
+      "input": "abcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabc",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0033395740001651575, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 96,
+      "pattern": "^(abc|ab)+c$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003022829999736132, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 97,
+      "pattern": "^([a-f]+|[a-z]+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004901203999907011, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 98,
+      "pattern": "^([a-z0-9]+|[a-z]+)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.0035042029999203805, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 99,
+      "pattern": "^([0-9a-f]+|[0-9]+)+$",
+      "input": "11111111111111111111",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.003262729999732983, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 100,
+      "pattern": "^(\\w+)+\\W$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0028455380002014863, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 101,
+      "pattern": "^(\\D+)+\\d$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0034358249999968393, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 102,
+      "pattern": "^(\\S+)+\\s$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.004225935999784269, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 103,
+      "pattern": "^(ab?)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003207567000117706, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 104,
+      "pattern": "^(a?b)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0032528420001654013, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 105,
+      "pattern": "^((ab)?b)+$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0031188399998427485, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 106,
+      "pattern": "^((ab)*)+b$",
+      "input": "abababababababababababababababababababab",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0039012280003589694, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 107,
+      "pattern": "^(.+)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.00365507600008641, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 108,
+      "pattern": "^(.*a.*)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003269552999881853, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 109,
+      "pattern": "^(.*?a)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0034060490002048027, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 110,
+      "pattern": "^((.*)a)+b$",
+      "input": "aaaaaaaaaaaaaaaaaaaa",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003513911000027292, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 111,
+      "pattern": "^((\\d+|\\d{1,2})+)+$",
+      "input": "11111111111111111111",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': True, 'time': 0.004765448999933142, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 112,
+      "pattern": "^(\\d{0,3})+\\D$",
+      "input": "11111111111111111111",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.0031859760001680115, 'timed_out': False}"
+    },
+    {
+      "run": 3,
+      "test_id": 113,
+      "pattern": "^(\\d{1,3})+\\D$",
+      "input": "11111111111111111111",
+      "library": "GoogleRe2",
+      "result": "{'library': 'GoogleRe2', 'result': False, 'time': 0.003576788999907876, 'timed_out': False}"
+    }
+  ]
+}
