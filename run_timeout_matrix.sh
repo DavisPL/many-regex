@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-INPUT_LENGTH=100
-TIMEOUTS=(1 10 100)
+INPUT_LENGTH=100000
+TIMEOUTS=(1)
 LOG_FILE="timeout_matrix_run.log"
 
 run_and_log() {

@@ -6,3 +6,22 @@
 2026-02-07T20:57:42-08:00 | lang=python timeout=10s input_length=100 status=0 elapsed_ms=1418023 ended_at=2026-02-07T21:21:20-08:00
 2026-02-07T21:21:20-08:00 | lang=typescript timeout=10s input_length=100 status=0 elapsed_ms=127906 ended_at=2026-02-07T21:23:28-08:00
 2026-02-07T21:23:28-08:00 | lang=csharp timeout=10s input_length=100 status=0 elapsed_ms=1348898 ended_at=2026-02-07T21:45:57-08:00
+
+=== Matrix run started at 2026-04-28T23:31:16-07:00 (input_length=10000) ===
+2026-04-28T23:31:16-07:00 | lang=python timeout=1s input_length=10000 status=130 elapsed_ms=44124 ended_at=2026-04-28T23:32:01-07:00
+
+=== Matrix run started at 2026-04-28T23:32:10-07:00 (input_length=10000) ===
+2026-04-28T23:32:10-07:00 | lang=python timeout=10s input_length=10000 status=130 elapsed_ms=22092 ended_at=2026-04-28T23:32:32-07:00
+
+=== Matrix run started at 2026-04-28T23:32:39-07:00 (input_length=100000) ===
+2026-04-28T23:32:39-07:00 | lang=python timeout=1s input_length=100000 status=0 elapsed_ms=206412 ended_at=2026-04-28T23:36:05-07:00
+2026-04-28T23:36:05-07:00 | lang=typescript timeout=1s input_length=100000 status=0 elapsed_ms=122446 ended_at=2026-04-28T23:38:07-07:00
+2026-04-28T23:38:07-07:00 | lang=csharp timeout=1s input_length=100000 status=127 elapsed_ms=1 ended_at=2026-04-28T23:38:07-07:00
+
+=== Matrix run started at 2026-04-28T23:41:44-07:00 (input_length=100000) ===
+2026-04-28T23:41:44-07:00 | lang=python timeout=1s input_length=100000 status=130 elapsed_ms=4612 ended_at=2026-04-28T23:41:49-07:00
+
+=== Matrix run started at 2026-04-28T23:42:16-07:00 (input_length=100000) ===
+2026-04-28T23:42:16-07:00 | lang=python timeout=1s input_length=100000 status=0 elapsed_ms=204967 ended_at=2026-04-28T23:45:41-07:00
+2026-04-28T23:45:41-07:00 | lang=typescript timeout=1s input_length=100000 status=0 elapsed_ms=121814 ended_at=2026-04-28T23:47:43-07:00
+2026-04-28T23:47:43-07:00 | lang=csharp timeout=1s input_length=100000 status=134 elapsed_ms=18579 ended_at=2026-04-28T23:48:02-07:00

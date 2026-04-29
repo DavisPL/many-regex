@@ -12,7 +12,7 @@ using DotnetRegex = System.Text.RegularExpressions.Regex;
 
 class Program
 {
-    private const int DefaultInputSize = 50;
+    private const int DefaultInputSize = 100_000;
     private const int DefaultRuns = 3;
     private static readonly TimeSpan DefaultTimeout = TimeSpan.FromSeconds(2);
 
@@ -48,22 +48,30 @@ class Program
             return;
         }
 
+        var worstCaseSeconds = (double)tests.Count * libraries.Count * numRuns * timeoutSeconds;
+        Console.WriteLine($"Config: {tests.Count} tests x {libraries.Count} libraries x {numRuns} runs (timeout {timeoutSeconds}s each)");
+        Console.WriteLine($"Worst-case duration: {FormatDuration(worstCaseSeconds)} (if every test times out)");
+
+        var overallStopwatch = Stopwatch.StartNew();
         var allResults = RunAllTests(numRuns, libraries, tests, showTests);
+        overallStopwatch.Stop();
+        Console.WriteLine($"Completed all runs in {FormatDuration(overallStopwatch.Elapsed.TotalSeconds)}");
+
         var summaryStats = CalculateSummaryStats(allResults, libraries);
         SaveResults(allResults, summaryStats, libraries, numRuns, tests.Count, timeoutSeconds);
     }
 
     static void RunChild(string[] args)
     {
-        if (args.Length < 5)
+        if (args.Length < 4)
         {
-            WriteChildResult(new ChildResult { Error = "Child invocation requires engine, pattern, input, and testId." });
+            WriteChildResult(new ChildResult { Error = "Child invocation requires engine, pattern, and testId." });
             return;
         }
 
         var engine = args[1];
         var pattern = args[2];
-        var input = args[3];
+        var input = Console.In.ReadToEnd();
 
         try
         {
@@ -170,19 +178,28 @@ class Program
 
         for (var run = 0; run < numRuns; run++)
         {
+            var runStopwatch = Stopwatch.StartNew();
             Console.WriteLine($"Run {run + 1}/{numRuns}");
-            foreach (var test in tests)
+            for (var i = 0; i < tests.Count; i++)
             {
+                var test = tests[i];
                 if (showTests)
                 {
-                    Console.WriteLine($"  Test {test.Id}");
+                    Console.WriteLine($"  Test {test.Id} ({i + 1}/{tests.Count})");
                 }
 
                 foreach (var library in libraries)
                 {
-                    allResults.Add(RunTestWithTimeout(library, test.Id, test.Pattern, test.Input));
+                    var result = RunTestWithTimeout(library, test.Id, test.Pattern, test.Input);
+                    allResults.Add(result);
+                    if (result.Result.TimedOut)
+                    {
+                        Console.WriteLine($"    [{library.Name}] test {test.Id} TIMED OUT after {result.Result.Time:0.00}s");
+                    }
                 }
             }
+            runStopwatch.Stop();
+            Console.WriteLine($"Run {run + 1}/{numRuns} finished in {FormatDuration(runStopwatch.Elapsed.TotalSeconds)}");
         }
 
         return allResults;
@@ -195,7 +212,7 @@ class Program
         string input
     )
     {
-        var startInfo = CreateChildProcessStartInfo(library.Engine, pattern, input, testId);
+        var startInfo = CreateChildProcessStartInfo(library.Engine, pattern, testId);
         using var process = Process.Start(startInfo);
         var stopwatch = Stopwatch.StartNew();
 
@@ -207,6 +224,7 @@ class Program
 
         var stdoutTask = process.StandardOutput.ReadToEndAsync();
         var stderrTask = process.StandardError.ReadToEndAsync();
+        _ = WriteStdinAsync(process, input);
 
         if (!process.WaitForExit((int)library.Timeout.TotalMilliseconds))
         {
@@ -286,7 +304,6 @@ class Program
     static ProcessStartInfo CreateChildProcessStartInfo(
         string engine,
         string pattern,
-        string input,
         int testId
     )
     {
@@ -300,6 +317,7 @@ class Program
 
         var startInfo = new ProcessStartInfo
         {
+            RedirectStandardInput = true,
             RedirectStandardOutput = true,
             RedirectStandardError = true,
             UseShellExecute = false,
@@ -319,10 +337,31 @@ class Program
         startInfo.ArgumentList.Add("--child");
         startInfo.ArgumentList.Add(engine);
         startInfo.ArgumentList.Add(pattern);
-        startInfo.ArgumentList.Add(input);
         startInfo.ArgumentList.Add(testId.ToString(CultureInfo.InvariantCulture));
 
         return startInfo;
+    }
+
+    static async System.Threading.Tasks.Task WriteStdinAsync(Process process, string input)
+    {
+        try
+        {
+            await process.StandardInput.WriteAsync(input);
+            await process.StandardInput.FlushAsync();
+        }
+        catch (Exception)
+        {
+        }
+        finally
+        {
+            try
+            {
+                process.StandardInput.Close();
+            }
+            catch (Exception)
+            {
+            }
+        }
     }
 
     static void TryKillProcessTree(Process process)
@@ -527,6 +566,19 @@ class Program
         }
 
         return timeoutSeconds.ToString("0.###", CultureInfo.InvariantCulture).Replace(".", "_");
+    }
+
+    static string FormatDuration(double seconds)
+    {
+        if (seconds < 60)
+        {
+            return $"{seconds:0.0}s";
+        }
+        if (seconds < 3600)
+        {
+            return $"{seconds / 60:0.0}m ({seconds:0}s)";
+        }
+        return $"{seconds / 3600:0.00}h ({seconds:0}s)";
     }
 
     static string RepeatString(string value, int count)
