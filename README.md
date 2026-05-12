@@ -30,11 +30,18 @@ You can also run [run_pyre2_timeout_simple.py](./python/run_pyre2_timeout_simple
 
 <img width="764" height="812" alt="image" src="https://github.com/user-attachments/assets/761a3160-ca16-4405-9ece-916dc0e2ab82" />
 
-## Included 
+## Included
 
-1. [Python code](python/main.py) to run a regex pattern with many different libraries
-2. [Code](graph.py) to interpret the runtime output
-3. A [list of datasets](redos-datasets.md) for ReDoS
+1. [Python code](python/) to run regex patterns against many different Python libraries (`main.py`, `run_pyre2_timeout_simple.py`, `run_pyre2_timeout10_large.py`, `test_pyre2_on_36.py`, etc.)
+2. [C# code](csharp/Program.cs) to test the default Dotnet Regex library and RE# (with [full results](csharp/results.txt))
+3. [TypeScript code](typescript/) to test regex libraries under the Bun runtime
+4. [Test cases JSON](test_cases.json) — the standardized ReDoS test cases used across Python, TypeScript, and C#
+5. [Graphing tools](graphing-tools/) to interpret and visualize the runtime output (`graph.py`, `graph_scaling.py`, `graph_resh_results.py`, `results_table.py`, etc.)
+6. [JSON result data](json-data/) for each language and timeout setting (`py_redos_test_results.json`, `ts_redos_test_results.json`, `csharp_redos_test_results.json`, scaling tests, and timeout variants)
+7. [Images](images/) — graphs, tables, and figures referenced throughout this README
+
+   ![Preview of generated images](images/preview.png)
+8. A [list of datasets](redos-datasets.md) for ReDoS
 
 ## Roadmap
 
