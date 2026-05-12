@@ -1,4 +1,6 @@
-# Many Regex
+<img width="1282" height="315" alt="Many Regex logo" src="https://github.com/user-attachments/assets/db6f8428-453b-4f40-a26d-ab02c62aa9c0" />
+
+---
 
 **Can some linear-time regex engines be considered harmful? A runtime analysis of linear-time regex engines in the context of production software systems.**
 
