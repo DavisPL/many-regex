@@ -4,7 +4,12 @@
 
 **Can some linear-time regex engines be considered harmful? A runtime analysis of linear-time regex engines in the context of production software systems.**
 
+## Quick Related Links
+
+- [Poster SQ2025](https://jr0.org/images/redos-research.png)
 - [Poster Draft Document](https://docs.google.com/presentation/d/1hQlY_-CyS-_QAAD-QpMdrhmsrkSrwy6Pu9Qp7P5Rq18/edit?usp=sharing)
+- [URC Talk](https://youtu.be/wvvvvJwWor4)
+- [Regolith](https://github.com/JakeRoggenbuck/regolith)
 
 ## Introduction
 
