@@ -30,6 +30,25 @@ You can also run [run_pyre2_timeout_simple.py](./python/run_pyre2_timeout_simple
 
 <img width="764" height="812" alt="image" src="https://github.com/user-attachments/assets/761a3160-ca16-4405-9ece-916dc0e2ab82" />
 
+## HATRA
+
+I will be submitting to [HATRA 2026](https://conf.researchr.org/home/splash-issta-2026/hatra-2026).
+
+**Work to be done:**
+
+1. Create a system to measure the following for a regex and input pair:
+
+- memory usage
+- regex match time
+- regex compile time (input independent)
+- AST depth (input independent)
+- number of loops (input independent)
+
+2. What is the reality* and max* of the input + regex for top 30 packages in two linear regex engines
+
+- reality is defined as the normal situation that this regex will be used in
+- max is defined as the most extreme case of regex operation permitted by the other code (ex. input lenght truncation)
+
 ## Included
 
 1. [Python code](python/) to run regex patterns against many different Python libraries (`main.py`, `run_pyre2_timeout_simple.py`, `run_pyre2_timeout10_large.py`, `test_pyre2_on_36.py`, etc.)
