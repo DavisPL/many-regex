@@ -32,6 +32,29 @@ class SingleTestResult:
 
 
 @dataclass
+class CaseMetadata:
+    """Per-case metadata carried from the new experiment-dataset schema.
+
+    Absent (None on the result entry) when running the legacy
+    `test_cases.json` flow, so backward compatibility is preserved.
+    """
+    group: Optional[str]
+    size: Optional[str]
+    ast_size: Optional[int]
+    ast_depth: Optional[int]
+    regex_size: Optional[int]
+    input_size: Optional[int]
+
+
+@dataclass
+class PreparedCase:
+    test_id: int
+    pattern: str
+    input: str
+    metadata: Optional[CaseMetadata]
+
+
+@dataclass
 class ScalingTestEntry:
     test_id: int
     size: int
@@ -159,11 +182,42 @@ def get_test_cases(input_size=20):
         data = json.load(f)
 
     cases = []
-    for entry in data:
+    for i, entry in enumerate(data):
         pattern = entry["regex"]
         repeat = entry["repeat"] * input_size
-        cases.append((pattern, repeat))
+        cases.append(PreparedCase(
+            test_id=i + 1,
+            pattern=pattern,
+            input=repeat,
+            metadata=None,
+        ))
 
+    return cases
+
+
+def get_dataset_cases(dataset_dir):
+    """Load every *.json file in [dataset_dir] as a new-schema per-case JSON.
+
+    Files are sorted by filename so the order matches the dataset `id`.
+    """
+    dataset_path = Path(dataset_dir)
+    cases = []
+    for path in sorted(dataset_path.glob("*.json")):
+        with path.open("r", encoding="utf-8") as f:
+            c = json.load(f)
+        cases.append(PreparedCase(
+            test_id=c["id"],
+            pattern=c["regex"],
+            input=c["input"],
+            metadata=CaseMetadata(
+                group=c.get("group"),
+                size=c.get("size"),
+                ast_size=c.get("ast_size"),
+                ast_depth=c.get("ast_depth"),
+                regex_size=c.get("regex_size"),
+                input_size=c.get("input_size"),
+            ),
+        ))
     return cases
 
 
@@ -172,17 +226,36 @@ def get_libraries():
     return [Rure(), Re(), Regex(), Pyre2()]
 
 
-def run_single_test(test_id, libraries=None, input_size=20):
-    """Run a single test case across all libraries."""
+def _metadata_dict(meta):
+    if meta is None:
+        return None
+    return {
+        "group": meta.group,
+        "size": meta.size,
+        "ast_size": meta.ast_size,
+        "ast_depth": meta.ast_depth,
+        "regex_size": meta.regex_size,
+        "input_size": meta.input_size,
+    }
+
+
+def run_single_test(test_id, libraries=None, input_size=20, tests=None):
+    """Run a single test case across all libraries.
+
+    Pass [tests] to reuse a preloaded case list (e.g. when running the new
+    dataset). When omitted, falls back to the legacy `test_cases.json` flow.
+    """
     if libraries is None:
         libraries = get_libraries()
 
-    tests = get_test_cases(input_size)
+    if tests is None:
+        tests = get_test_cases(input_size)
 
     if test_id < 1 or test_id > len(tests):
         raise ValueError(f"Invalid test_id. Must be between 1 and {len(tests)}")
 
-    pattern, text = tests[test_id - 1]
+    case = tests[test_id - 1]
+    pattern, text = case.pattern, case.input
     results = []
 
     print(f"Running test {test_id}: pattern={pattern}, input_length={len(text)}")
@@ -190,49 +263,59 @@ def run_single_test(test_id, libraries=None, input_size=20):
     for library in libraries:
         print(f"  Testing with {library.__class__.__name__}...")
         res = library.test(pattern, text)
-        results.append(
-            {
-                "test_id": test_id,
-                "pattern": pattern,
-                "input": text,
-                "library": library.__class__.__name__,
-                "result": res,
-            }
-        )
+        entry = {
+            "test_id": test_id,
+            "pattern": pattern,
+            "input": text,
+            "library": library.__class__.__name__,
+            "result": res,
+        }
+        md = _metadata_dict(case.metadata)
+        if md is not None:
+            entry["metadata"] = md
+        results.append(entry)
 
     return results
 
 
-def run_all_tests(num_runs=3, libraries=None, input_size=20):
-    """Run all test cases for multiple iterations."""
+def run_all_tests(num_runs=3, libraries=None, input_size=20, tests=None):
+    """Run all test cases for multiple iterations.
+
+    Pass [tests] to use the preloaded new-schema dataset; otherwise the
+    legacy `test_cases.json` cases are loaded.
+    """
     if libraries is None:
         libraries = get_libraries()
 
-    tests = get_test_cases(input_size)
+    if tests is None:
+        tests = get_test_cases(input_size)
     all_results = []
 
     print(
         f"Running {num_runs} iterations of {len(tests)} tests across {len(libraries)} libraries..."
     )
-    print(f"Input size multiplier: {input_size}")
 
     for run in range(num_runs):
         print(f"\nRun {run + 1}/{num_runs}")
 
-        for test_idx, (pattern, text) in enumerate(tests):
+        for case in tests:
+            pattern, text = case.pattern, case.input
+            md = _metadata_dict(case.metadata)
             for library in libraries:
-                print(f"  {library.__class__.__name__} - Test {test_idx + 1}")
+                print(f"  {library.__class__.__name__} - Test {case.test_id}")
 
                 res = library.test(pattern, text)
 
                 result_entry = {
                     "run": run + 1,
-                    "test_id": test_idx + 1,
+                    "test_id": case.test_id,
                     "pattern": pattern,
                     "input": text,
                     "library": library.__class__.__name__,
                     "result": str(res),
                 }
+                if md is not None:
+                    result_entry["metadata"] = md
                 all_results.append(result_entry)
 
     return all_results
@@ -384,31 +467,38 @@ def parse_args():
         default=None,
         help="Deprecated alias for --input-length.",
     )
+    parser.add_argument(
+        "--dataset",
+        type=str,
+        default=None,
+        help="Path to a directory of new-schema per-case JSON files "
+             "(e.g. experiment-dataset/). Overrides --input-length.",
+    )
     return parser.parse_args()
 
 
-def main_run_all_tests(input_length: int, num_runs: int, output_filename: str):
+def main_run_all_tests(tests, num_runs: int, output_filename: str):
 
     # Run all tests
     libraries = get_libraries()
-    all_results = run_all_tests(num_runs=num_runs, libraries=libraries, input_size=input_length)
+    all_results = run_all_tests(num_runs=num_runs, libraries=libraries, tests=tests)
     summary_stats = calculate_summary_stats(all_results, libraries)
     save_results(
         all_results,
         summary_stats,
         libraries,
         num_runs,
-        len(get_test_cases(input_length)),
+        len(tests),
         output_filename,
     )
     print_summary_stats(summary_stats)
 
 
-def main_run_single_test(test_id: int, input_length: int):
+def main_run_single_test(test_id: int, tests):
 
     # Run a single test
     print("Running single test example:")
-    results = run_single_test(test_id=test_id, input_size=input_length)
+    results = run_single_test(test_id=test_id, tests=tests)
     for result in results:
         print(f"{result['library']}: {result['result']}")
 
@@ -417,7 +507,16 @@ if __name__ == "__main__":
     args = parse_args()
     input_length = args.input_size if args.input_size is not None else args.input_length
     RegexLibrary.TIMEOUT_SECONDS = args.timeout
-    output_filename = build_output_filename(args.timeout)
+
+    if args.dataset is not None:
+        tests = get_dataset_cases(args.dataset)
+        output_filename = (
+            f"py_redos_test_results_dataset_timeout-"
+            f"{timeout_label(args.timeout)}.json"
+        )
+    else:
+        tests = get_test_cases(input_length)
+        output_filename = build_output_filename(args.timeout)
 
     scaling_test = False
 
@@ -426,9 +525,9 @@ if __name__ == "__main__":
     else:
         if args.single is None:
             main_run_all_tests(
-                input_length=input_length,
+                tests=tests,
                 num_runs=args.runs,
                 output_filename=output_filename,
             )
         else:
-            main_run_single_test(args.single, input_length)
+            main_run_single_test(args.single, tests)

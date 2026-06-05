@@ -34,9 +34,12 @@ class Program
         var timeout = TimeSpan.FromSeconds(timeoutSeconds);
         var singleTestId = ParseNullableIntArg(args, "--single");
         var showTests = HasFlag(args, "--show-tests");
+        var datasetDir = GetArgValue(args, "--dataset");
 
         var libraries = GetLibraries(timeout);
-        var tests = GetTestCases(inputSize);
+        var tests = datasetDir != null
+            ? GetDatasetCases(datasetDir)
+            : GetTestCases(inputSize);
 
         if (singleTestId.HasValue)
         {
@@ -58,7 +61,7 @@ class Program
         Console.WriteLine($"Completed all runs in {FormatDuration(overallStopwatch.Elapsed.TotalSeconds)}");
 
         var summaryStats = CalculateSummaryStats(allResults, libraries);
-        SaveResults(allResults, summaryStats, libraries, numRuns, tests.Count, timeoutSeconds);
+        SaveResults(allResults, summaryStats, libraries, numRuns, tests.Count, timeoutSeconds, datasetDir != null);
     }
 
     static void RunChild(string[] args)
@@ -145,6 +148,52 @@ class Program
             .ToList();
     }
 
+    /// <summary>
+    /// Load every *.json file under [datasetDir] as a new-schema DatasetCase.
+    /// Files are sorted by filename so the run order matches the case id.
+    /// </summary>
+    static List<TestCaseRun> GetDatasetCases(string datasetDir)
+    {
+        if (!Directory.Exists(datasetDir))
+        {
+            throw new DirectoryNotFoundException($"Dataset directory not found: {datasetDir}");
+        }
+
+        var files = Directory.GetFiles(datasetDir, "*.json");
+        Array.Sort(files, StringComparer.Ordinal);
+
+        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+        var result = new List<TestCaseRun>(files.Length);
+
+        foreach (var path in files)
+        {
+            var raw = File.ReadAllText(path);
+            var c = JsonSerializer.Deserialize<DatasetCase>(raw, options);
+            if (c == null)
+            {
+                throw new InvalidOperationException($"Failed to parse {path}.");
+            }
+
+            result.Add(new TestCaseRun
+            {
+                Id = c.Id,
+                Pattern = c.Regex,
+                Input = c.Input,
+                Metadata = new CaseMetadata
+                {
+                    Group = c.Group,
+                    Size = c.Size,
+                    AstSize = c.AstSize,
+                    AstDepth = c.AstDepth,
+                    RegexSize = c.RegexSize,
+                    InputSize = c.InputSize,
+                },
+            });
+        }
+
+        return result;
+    }
+
     static List<SingleTestResult> RunSingleTest(
         int testId,
         List<RegexLibrary> libraries,
@@ -161,7 +210,7 @@ class Program
 
         foreach (var library in libraries)
         {
-            results.Add(RunTestWithTimeout(library, test.Id, test.Pattern, test.Input));
+            results.Add(RunTestWithTimeout(library, test.Id, test.Pattern, test.Input, test.Metadata));
         }
 
         return results;
@@ -190,7 +239,7 @@ class Program
 
                 foreach (var library in libraries)
                 {
-                    var result = RunTestWithTimeout(library, test.Id, test.Pattern, test.Input);
+                    var result = RunTestWithTimeout(library, test.Id, test.Pattern, test.Input, test.Metadata);
                     allResults.Add(result);
                     if (result.Result.TimedOut)
                     {
@@ -209,7 +258,8 @@ class Program
         RegexLibrary library,
         int testId,
         string pattern,
-        string input
+        string input,
+        CaseMetadata? metadata
     )
     {
         var startInfo = CreateChildProcessStartInfo(library.Engine, pattern, testId);
@@ -219,7 +269,7 @@ class Program
         if (process == null)
         {
             stopwatch.Stop();
-            return BuildResult(testId, pattern, input, library.Name, null, stopwatch.Elapsed.TotalSeconds, timedOut: false);
+            return BuildResult(testId, pattern, input, library.Name, null, stopwatch.Elapsed.TotalSeconds, timedOut: false, metadata);
         }
 
         var stdoutTask = process.StandardOutput.ReadToEndAsync();
@@ -230,7 +280,7 @@ class Program
         {
             TryKillProcessTree(process);
             stopwatch.Stop();
-            return BuildResult(testId, pattern, input, library.Name, null, stopwatch.Elapsed.TotalSeconds, timedOut: true);
+            return BuildResult(testId, pattern, input, library.Name, null, stopwatch.Elapsed.TotalSeconds, timedOut: true, metadata);
         }
 
         stopwatch.Stop();
@@ -245,7 +295,8 @@ class Program
             library.Name,
             childResult.Match,
             stopwatch.Elapsed.TotalSeconds,
-            timedOut: false
+            timedOut: false,
+            metadata
         );
     }
 
@@ -282,7 +333,8 @@ class Program
         string libraryName,
         bool? match,
         double elapsedSeconds,
-        bool timedOut
+        bool timedOut,
+        CaseMetadata? metadata
     )
     {
         return new SingleTestResult
@@ -297,7 +349,8 @@ class Program
                 Result = match,
                 Time = elapsedSeconds,
                 TimedOut = timedOut
-            }
+            },
+            Metadata = metadata,
         };
     }
 
@@ -423,7 +476,8 @@ class Program
         List<RegexLibrary> libraries,
         int numRuns,
         int testsCount,
-        double timeoutSeconds
+        double timeoutSeconds,
+        bool fromDataset
     )
     {
         var testCasesPath = FindFilePath("test_cases.json");
@@ -433,9 +487,10 @@ class Program
         }
 
         var timeoutText = TimeoutLabel(timeoutSeconds);
+        var tag = fromDataset ? "_dataset" : "";
         var outputPath = Path.Combine(
             Path.GetDirectoryName(testCasesPath) ?? ".",
-            $"csharp_redos_test_results_timeout-{timeoutText}.json"
+            $"csharp_redos_test_results{tag}_timeout-{timeoutText}.json"
         );
         var outputData = new ResultsFile
         {
@@ -619,6 +674,58 @@ class TestCaseRun
     public int Id { get; set; }
     public string Pattern { get; set; } = "";
     public string Input { get; set; } = "";
+    public CaseMetadata? Metadata { get; set; }
+}
+
+class DatasetCase
+{
+    [JsonPropertyName("id")]
+    public int Id { get; set; }
+
+    [JsonPropertyName("regex")]
+    public string Regex { get; set; } = "";
+
+    [JsonPropertyName("input")]
+    public string Input { get; set; } = "";
+
+    [JsonPropertyName("regex_size")]
+    public int? RegexSize { get; set; }
+
+    [JsonPropertyName("input_size")]
+    public int? InputSize { get; set; }
+
+    [JsonPropertyName("ast_size")]
+    public long? AstSize { get; set; }
+
+    [JsonPropertyName("ast_depth")]
+    public long? AstDepth { get; set; }
+
+    [JsonPropertyName("group")]
+    public string? Group { get; set; }
+
+    [JsonPropertyName("size")]
+    public string? Size { get; set; }
+}
+
+class CaseMetadata
+{
+    [JsonPropertyName("group")]
+    public string? Group { get; set; }
+
+    [JsonPropertyName("size")]
+    public string? Size { get; set; }
+
+    [JsonPropertyName("ast_size")]
+    public long? AstSize { get; set; }
+
+    [JsonPropertyName("ast_depth")]
+    public long? AstDepth { get; set; }
+
+    [JsonPropertyName("regex_size")]
+    public int? RegexSize { get; set; }
+
+    [JsonPropertyName("input_size")]
+    public int? InputSize { get; set; }
 }
 
 class ChildResult
@@ -661,6 +768,10 @@ class SingleTestResult
 
     [JsonPropertyName("result")]
     public LibraryResult Result { get; set; } = new LibraryResult();
+
+    [JsonPropertyName("metadata")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public CaseMetadata? Metadata { get; set; }
 }
 
 class SummaryStat

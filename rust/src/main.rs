@@ -4,12 +4,55 @@ use serde::{Deserialize, Serialize};
 use std::collections::BTreeMap;
 use std::env;
 use std::fs;
+use std::path::Path;
 use std::time::Instant;
 
 #[derive(Deserialize)]
 struct TestCase {
     regex: String,
     repeat: String,
+}
+
+/// New-schema per-case JSON produced by `misc-scripts/build_dataset.py`.
+#[derive(Deserialize)]
+struct DatasetCase {
+    id: usize,
+    regex: String,
+    input: String,
+    #[serde(default)]
+    regex_size: Option<usize>,
+    #[serde(default)]
+    input_size: Option<usize>,
+    #[serde(default)]
+    ast_size: Option<i64>,
+    #[serde(default)]
+    ast_depth: Option<i64>,
+    #[serde(default)]
+    group: Option<String>,
+    #[serde(default)]
+    size: Option<String>,
+}
+
+/// Materialized per-case run input. `metadata` is `Some` only for new-schema
+/// dataset cases; `None` preserves the original `test_cases.json` flow.
+#[derive(Clone)]
+struct PreparedCase {
+    test_id: usize,
+    pattern: String,
+    input: String,
+    character: String,
+    count: usize,
+    metadata: Option<CaseMetadata>,
+}
+
+#[derive(Serialize, Clone)]
+struct CaseMetadata {
+    group: Option<String>,
+    size: Option<String>,
+    ast_size: Option<i64>,
+    ast_depth: Option<i64>,
+    regex_size: Option<usize>,
+    input_size: Option<usize>,
 }
 
 #[derive(Serialize, Clone)]
@@ -29,6 +72,8 @@ struct ResultEntry {
     count: usize,
     library: String,
     result: LibraryResult,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    metadata: Option<CaseMetadata>,
 }
 
 #[derive(Serialize)]
@@ -63,12 +108,62 @@ struct Output {
 
 const LIBRARY_NAME: &str = "Regex";
 
-fn get_test_cases(input_size: usize) -> Vec<(String, String, usize)> {
+fn get_test_cases(input_size: usize) -> Vec<PreparedCase> {
     let data = fs::read_to_string("test_cases.json").expect("read test_cases.json");
     let cases: Vec<TestCase> = serde_json::from_str(&data).expect("parse test_cases.json");
     cases
         .into_iter()
-        .map(|c| (c.regex, c.repeat, input_size))
+        .enumerate()
+        .map(|(i, c)| {
+            let input = c.repeat.repeat(input_size);
+            PreparedCase {
+                test_id: i + 1,
+                pattern: c.regex,
+                input,
+                character: c.repeat,
+                count: input_size,
+                metadata: None,
+            }
+        })
+        .collect()
+}
+
+/// Load every `*.json` file in [dataset_dir] as a new-schema [DatasetCase] and
+/// materialize it into a [PreparedCase]. Files are sorted by filename so the
+/// run order is stable and matches `id`.
+fn get_dataset_cases(dataset_dir: &Path) -> Vec<PreparedCase> {
+    let mut files: Vec<_> = fs::read_dir(dataset_dir)
+        .unwrap_or_else(|e| panic!("read dataset dir {:?}: {}", dataset_dir, e))
+        .filter_map(|e| e.ok())
+        .map(|e| e.path())
+        .filter(|p| p.extension().and_then(|s| s.to_str()) == Some("json"))
+        .collect();
+    files.sort();
+
+    files
+        .into_iter()
+        .map(|path| {
+            let data = fs::read_to_string(&path)
+                .unwrap_or_else(|e| panic!("read {:?}: {}", path, e));
+            let c: DatasetCase = serde_json::from_str(&data)
+                .unwrap_or_else(|e| panic!("parse {:?}: {}", path, e));
+            let count = c.input.len();
+            PreparedCase {
+                test_id: c.id,
+                pattern: c.regex,
+                input: c.input,
+                character: String::new(),
+                count,
+                metadata: Some(CaseMetadata {
+                    group: c.group,
+                    size: c.size,
+                    ast_size: c.ast_size,
+                    ast_depth: c.ast_depth,
+                    regex_size: c.regex_size,
+                    input_size: c.input_size,
+                }),
+            }
+        })
         .collect()
 }
 
@@ -87,8 +182,7 @@ fn run_library_match(pattern: &str, input: &str) -> LibraryResult {
     }
 }
 
-fn run_all_tests(num_runs: usize, input_size: usize) -> Vec<ResultEntry> {
-    let tests = get_test_cases(input_size);
+fn run_all_tests(num_runs: usize, tests: &[PreparedCase]) -> Vec<ResultEntry> {
     let mut all_results: Vec<ResultEntry> = Vec::new();
 
     println!(
@@ -97,22 +191,21 @@ fn run_all_tests(num_runs: usize, input_size: usize) -> Vec<ResultEntry> {
         tests.len(),
         LIBRARY_NAME
     );
-    println!("Input size multiplier: {}", input_size);
 
     for run in 0..num_runs {
         println!("\nRun {}/{}", run + 1, num_runs);
-        for (test_idx, (pattern, character, count)) in tests.iter().enumerate() {
-            println!("  {} - Test {}", LIBRARY_NAME, test_idx + 1);
-            let input = character.repeat(*count);
-            let res = run_library_match(pattern, &input);
+        for case in tests.iter() {
+            println!("  {} - Test {}", LIBRARY_NAME, case.test_id);
+            let res = run_library_match(&case.pattern, &case.input);
             all_results.push(ResultEntry {
                 run: run + 1,
-                test_id: test_idx + 1,
-                pattern: pattern.clone(),
-                character: character.clone(),
-                count: *count,
+                test_id: case.test_id,
+                pattern: case.pattern.clone(),
+                character: case.character.clone(),
+                count: case.count,
                 library: LIBRARY_NAME.to_string(),
                 result: res,
+                metadata: case.metadata.clone(),
             });
         }
     }
@@ -243,11 +336,13 @@ fn save_results(
 struct Args {
     runs: usize,
     input_length: usize,
+    dataset: Option<String>,
 }
 
 fn parse_args() -> Args {
     let mut runs = 3usize;
     let mut input_length = 20usize;
+    let mut dataset: Option<String> = None;
     let mut iter = env::args().skip(1);
     while let Some(arg) = iter.next() {
         match arg.as_str() {
@@ -263,24 +358,41 @@ fn parse_args() -> Args {
                     .and_then(|v| v.parse().ok())
                     .expect("--input-length <usize>");
             }
+            "--dataset" => {
+                dataset = Some(iter.next().expect("--dataset <path>"));
+            }
             other => panic!("unknown argument: {}", other),
         }
     }
-    Args { runs, input_length }
+    Args {
+        runs,
+        input_length,
+        dataset,
+    }
 }
 
 fn main() {
     let args = parse_args();
-    let all_results = run_all_tests(args.runs, args.input_length);
+    let (tests, output_filename) = match args.dataset.as_ref() {
+        Some(dir) => (
+            get_dataset_cases(Path::new(dir)),
+            "rust_redos_test_results_dataset.json".to_string(),
+        ),
+        None => (
+            get_test_cases(args.input_length),
+            "rust_redos_test_results.json".to_string(),
+        ),
+    };
+    let tests_count = tests.len();
+    let all_results = run_all_tests(args.runs, &tests);
     let summary = calculate_summary_stats(&all_results);
-    let tests_count = get_test_cases(args.input_length).len();
     print_summary_stats(&summary);
     save_results(
         all_results,
         summary,
         args.runs,
         tests_count,
-        "rust_redos_test_results.json",
+        &output_filename,
     );
 }
 
