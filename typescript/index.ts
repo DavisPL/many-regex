@@ -2,9 +2,11 @@ import { Worker } from "worker_threads";
 import { readFileSync, writeFileSync, readdirSync } from "fs";
 import { resolve as resolvePath, join as joinPath } from "path";
 import { performance } from "perf_hooks";
-// RE2 and Regolith are loaded inside worker source strings via require(), not
-// at the top level. Top-level imports were removed so the file loads under
-// node when @regolithjs/regolith is not installed.
+import { createRequire } from "module";
+// RE2 and Regolith are loaded via createRequire() on demand. They are not
+// imported at the top level so this file loads under node even when one of
+// them isn't installed (only the engines actually exercised need to resolve).
+const req = createRequire(import.meta.url);
 
 type TestCase = {
   id: number;
@@ -117,6 +119,25 @@ function getDatasetCases(datasetDir: string): PreparedCase[] {
   });
 }
 
+/** Synchronous in-process match. No timeout: a pathological native RegExp
+ *  can hang the whole run. Use --in-process only with engines you trust
+ *  (RE2 has linear-time guarantees; native and Regolith do not). */
+function runRegexInProcess(
+  pattern: string,
+  text: string,
+  engine: "native" | "re2" | "regolith",
+): boolean {
+  if (engine === "re2") {
+    const RE2: any = req("re2");
+    return new RE2(pattern).test(text);
+  }
+  if (engine === "regolith") {
+    const { Regolith }: any = req("@regolithjs/regolith");
+    return new Regolith(pattern).test(text);
+  }
+  return new RegExp(pattern).test(text);
+}
+
 function runRegexWithTimeout(
   pattern: string,
   text: string,
@@ -195,6 +216,7 @@ async function runSingleTest(
   testId: number,
   libraries: RegexLibrary[],
   tests: PreparedCase[],
+  inProcess: boolean = false,
 ): Promise<SingleTestResult[]> {
   if (testId < 1 || testId > tests.length) {
     throw new Error(`Invalid test_id. Must be between 1 and ${tests.length}`);
@@ -207,12 +229,14 @@ async function runSingleTest(
   for (const library of libraries) {
     const start = performance.now();
     try {
-      const match = await runRegexWithTimeout(
-        pattern,
-        input,
-        library.timeoutMs,
-        library.engine,
-      );
+      const match = inProcess
+        ? runRegexInProcess(pattern, input, library.engine)
+        : await runRegexWithTimeout(
+            pattern,
+            input,
+            library.timeoutMs,
+            library.engine,
+          );
       const duration = (performance.now() - start) / 1000;
       results.push({
         test_id: c.test_id,
@@ -253,23 +277,26 @@ async function runAllTests(
   numRuns: number,
   libraries: RegexLibrary[],
   tests: PreparedCase[],
+  inProcess: boolean = false,
 ): Promise<SingleTestResult[]> {
   const allResults: SingleTestResult[] = [];
 
   for (let run = 0; run < numRuns; run += 1) {
-    console.log(`Run ${run + 1}/${numRuns}`);
+    console.log(`Run ${run + 1}/${numRuns}${inProcess ? " (in-process)" : ""}`);
     for (let testIdx = 0; testIdx < tests.length; testIdx += 1) {
       const c = tests[testIdx];
       const { pattern, input, metadata } = c;
       for (const library of libraries) {
         const start = performance.now();
         try {
-          const match = await runRegexWithTimeout(
-            pattern,
-            input,
-            library.timeoutMs,
-            library.engine,
-          );
+          const match = inProcess
+            ? runRegexInProcess(pattern, input, library.engine)
+            : await runRegexWithTimeout(
+                pattern,
+                input,
+                library.timeoutMs,
+                library.engine,
+              );
           const duration = (performance.now() - start) / 1000;
           allResults.push({
             test_id: c.test_id,
@@ -417,8 +444,9 @@ function timeoutLabel(timeoutSeconds: number): string {
   return `${timeoutSeconds}`.replace(".", "_");
 }
 
-function buildOutputPath(timeoutSeconds: number, dataset: boolean): URL {
-  const tag = dataset ? "_dataset" : "";
+function buildOutputPath(timeoutSeconds: number, dataset: boolean,
+                          inProcess: boolean): URL {
+  const tag = (dataset ? "_dataset" : "") + (inProcess ? "_inproc" : "");
   return new URL(
     `../ts_redos_test_results${tag}_timeout-${timeoutLabel(timeoutSeconds)}.json`,
     import.meta.url,
@@ -441,10 +469,11 @@ async function main(): Promise<void> {
   const numRuns = Number(getArgValue("--runs") ?? "3");
   const singleTestId = getArgValue("--single");
   const datasetDir = getArgValue("--dataset");
+  const inProcess = process.argv.includes("--in-process");
   const tests = datasetDir !== null
     ? getDatasetCases(datasetDir)
     : getTestCases(inputSize);
-  const outputPath = buildOutputPath(timeoutSeconds, datasetDir !== null);
+  const outputPath = buildOutputPath(timeoutSeconds, datasetDir !== null, inProcess);
 
   if (process.argv.includes("--scaling")) {
     await runScalingTest(libraries, Number(getArgValue("--max-size") ?? "50"));
@@ -456,6 +485,7 @@ async function main(): Promise<void> {
       Number(singleTestId),
       libraries,
       tests,
+      inProcess,
     );
     for (const result of results) {
       console.log(`${result.library}: ${result.result.result}`);
@@ -463,7 +493,7 @@ async function main(): Promise<void> {
     return;
   }
 
-  const allResults = await runAllTests(numRuns, libraries, tests);
+  const allResults = await runAllTests(numRuns, libraries, tests, inProcess);
   const summaryStats = calculateSummaryStats(allResults, libraries);
   saveResults(
     allResults,
