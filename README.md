@@ -28,7 +28,7 @@ uv run --with pyre2==0.3.10 python -c "import re2 as pyre2; pyre2.match('^(?=(a+
 
 You can also run [run_pyre2_timeout_simple.py](./python/run_pyre2_timeout_simple.py) to see proof of concept.
 
-<img width="764" height="812" alt="image" src="https://github.com/user-attachments/assets/761a3160-ca16-4405-9ece-916dc0e2ab82" />
+<img width="382" height="406" alt="image" src="https://github.com/user-attachments/assets/761a3160-ca16-4405-9ece-916dc0e2ab82" />
 
 ## HATRA
 
@@ -62,7 +62,7 @@ The first round of this work is done -- see [Test 5](#test-5----hatra-experiment
 7. [JSON result data](json-data/) for each language and timeout setting (`py_redos_test_results.json`, `ts_redos_test_results.json`, `csharp_redos_test_results.json`, scaling tests, and timeout variants)
 8. [Images](images/) — graphs, tables, and figures referenced throughout this README
 
-   ![Preview of generated images](images/preview.png)
+   <img width="400" height="228" alt="Preview of generated images" src="images/preview.png" />
 9. A [list of datasets](redos-datasets.md) for ReDoS
 10. The [HATRA experiment dataset](experiment-dataset/) (1017 regex/input cases, see [design notes](experiment-design-notes.md)), the [scripts that build, run, and aggregate it](misc-scripts/) (`build_dataset.py`, `run_all_engines.sh`, `aggregate_results.py`, `plot_heatmaps.py`, `plot_size_vs_time.py`), and its [results and graphs](experiment-results/)
 
@@ -120,7 +120,7 @@ Each Regex pattern was run with an input size of 0 to 30 on all 4 of the tested 
 
 Here is an example of one of the tests where both Regex and Re can be considered harmful.
 
-<img width="3560" height="2063" alt="test_4_performance" src="https://github.com/user-attachments/assets/b60917b1-aa53-447a-a316-55182d26ed6b" />
+<img width="415" height="240" alt="test_4_performance" src="https://github.com/user-attachments/assets/b60917b1-aa53-447a-a316-55182d26ed6b" />
 
 Here is a list of each test run that links to its corresponding graph.
 
@@ -185,7 +185,7 @@ This was the first test I ran where each pattern was run with a single input siz
 
 We run [Program.cs](./csharp/Program.cs) with `dotnet run`. This tests runs 113 tests in both the RE# library and the default Dotnet Regex library. The RE# library has zero cases that can be considered harmful, but 75 cases that can be conspired harmful. Those results are expected, as the Dotnet Regex library does not claim to be linear-time and RE# does claim to be linear.
 
-![RE# Results](./images/resh_results.png)
+<img width="415" height="267" alt="RE# Results" src="./images/resh_results.png" />
 
 Included are the [full results](./csharp/results.txt).
 
@@ -193,7 +193,7 @@ Included are the [full results](./csharp/results.txt).
 
 I standardized the tests into a JSON file called [test_cases.json](./test_cases.json) and changed how test cases are handled in Python, TS, and C# to use this test case file. I ran each language on these test cases and to get the results [py_redos_test_results.json](./py_redos_test_results.json), [ts_redos_test_results.json](./ts_redos_test_results.json), [csharp_redos_test_results.json](./csharp_redos_test_results.json). I then created [results_table.py](./results_table.py) that produced a few graphs and tables.
 
-![Results Table](./images/results_table.png)
+<img width="415" height="249" alt="Results Table" src="./images/results_table.png" />
 
 A few takeaways:
 
