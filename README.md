@@ -62,7 +62,7 @@ The first round of this work is done -- see [Test 5](#test-5----hatra-experiment
 7. [JSON result data](json-data/) for each language and timeout setting (`py_redos_test_results.json`, `ts_redos_test_results.json`, `csharp_redos_test_results.json`, scaling tests, and timeout variants)
 8. [Images](images/) — graphs, tables, and figures referenced throughout this README
 
-   <img width="400" height="228" alt="Preview of generated images" src="images/preview.png" />
+   <img alt="Preview of generated images" src="images/preview.png" />
 9. A [list of datasets](redos-datasets.md) for ReDoS
 10. The [HATRA experiment dataset](experiment-dataset/) (1017 regex/input cases, see [design notes](experiment-design-notes.md)), the [scripts that build, run, and aggregate it](misc-scripts/) (`build_dataset.py`, `run_all_engines.sh`, `aggregate_results.py`, `plot_heatmaps.py`, `plot_size_vs_time.py`), and its [results and graphs](experiment-results/)
 
