@@ -49,25 +49,29 @@ I will be submitting to [HATRA 2026](https://conf.researchr.org/home/splash-isst
 - reality is defined as the normal situation that this regex will be used in
 - max is defined as the most extreme case of regex operation permitted by the other code (ex. input lenght truncation)
 
+The first round of this work is done -- see [Test 5](#test-5----hatra-experiment-group-x-size-dataset-across-four-languages) for the dataset, runners, and results, and [experiment-design-notes.md](experiment-design-notes.md) for how the dataset was built.
+
 ## Included
 
 1. [Python code](python/) to run regex patterns against many different Python libraries (`main.py`, `run_pyre2_timeout_simple.py`, `run_pyre2_timeout10_large.py`, `test_pyre2_on_36.py`, etc.)
 2. [C# code](csharp/Program.cs) to test the default Dotnet Regex library and RE# (with [full results](csharp/results.txt))
 3. [TypeScript code](typescript/) to test regex libraries under the Bun runtime
-4. [Test cases JSON](test_cases.json) — the standardized ReDoS test cases used across Python, TypeScript, and C#
-5. [Graphing tools](graphing-tools/) to interpret and visualize the runtime output (`graph.py`, `graph_scaling.py`, `graph_resh_results.py`, `results_table.py`, etc.)
-6. [JSON result data](json-data/) for each language and timeout setting (`py_redos_test_results.json`, `ts_redos_test_results.json`, `csharp_redos_test_results.json`, scaling tests, and timeout variants)
-7. [Images](images/) — graphs, tables, and figures referenced throughout this README
+4. [Rust code](rust/src/main.rs) to test the `regex` crate, including a runner for the [HATRA dataset](experiment-dataset/)
+5. [Test cases JSON](test_cases.json) — the standardized ReDoS test cases used across Python, TypeScript, and C#
+6. [Graphing tools](graphing-tools/) to interpret and visualize the runtime output (`graph.py`, `graph_scaling.py`, `graph_resh_results.py`, `results_table.py`, etc.)
+7. [JSON result data](json-data/) for each language and timeout setting (`py_redos_test_results.json`, `ts_redos_test_results.json`, `csharp_redos_test_results.json`, scaling tests, and timeout variants)
+8. [Images](images/) — graphs, tables, and figures referenced throughout this README
 
    ![Preview of generated images](images/preview.png)
-8. A [list of datasets](redos-datasets.md) for ReDoS
+9. A [list of datasets](redos-datasets.md) for ReDoS
+10. The [HATRA experiment dataset](experiment-dataset/) (1017 regex/input cases, see [design notes](experiment-design-notes.md)), the [scripts that build, run, and aggregate it](misc-scripts/) (`build_dataset.py`, `run_all_engines.sh`, `aggregate_results.py`, `plot_heatmaps.py`, `plot_size_vs_time.py`), and its [results and graphs](experiment-results/)
 
 ## Roadmap
 
 - [x] include Python libraries
 - [x] include JavaScript / TypeScript libraries
 - [ ] include Go libraries
-- [ ] include Rust libraries
+- [x] include Rust libraries
 - [x] include Re# and Dotnet library
 - [x] Vary input size and not just input pattern
 - [x] Make table of Regex libraries
@@ -106,6 +110,7 @@ Test 1 and 2 were done in just Python
 - [Test 2 -- Preliminary Results](#test-2----preliminary-results)
 - [Test 3 -- Dotnet & RE# Test](#test-3----dotnet--re-test)
 - [Test 4 -- Check Python, TypeScript (bun runtime), and C# (.NET)](#test-4----check-python-typescript-bun-runtime-and-c-net)
+- [Test 5 -- HATRA Experiment: Group x Size Dataset Across Four Languages](#test-5----hatra-experiment-group-x-size-dataset-across-four-languages)
 
 ## Test 1 -- Scaling Test
 
@@ -169,9 +174,12 @@ Here is a list of each test run that links to its corresponding graph.
 
 This was the first test I ran where each pattern was run with a single input size. These results are preliminary and were to test if I was using a reasonable method for running regex patterns.
 
-<img width="3947" height="2950" alt="regex_benchmark_comparison" src="https://github.com/user-attachments/assets/09dbd171-e07f-4d9f-add2-d89f2f86d2b3" />
-
-<img width="4760" height="2993" alt="regex_benchmark_line_chart" src="https://github.com/user-attachments/assets/b38cc7e2-e5fc-460f-bf4f-613f2663e779" />
+<table>
+<tr>
+<td><img alt="regex_benchmark_comparison" src="https://github.com/user-attachments/assets/09dbd171-e07f-4d9f-add2-d89f2f86d2b3" /></td>
+<td><img alt="regex_benchmark_line_chart" src="https://github.com/user-attachments/assets/b38cc7e2-e5fc-460f-bf4f-613f2663e779" /></td>
+</tr>
+</table>
 
 ## Test 3 -- Dotnet & RE# Test
 
@@ -191,6 +199,54 @@ A few takeaways:
 
 1. C# Regex is very vulnerable to ReDoS compared to the other languages, failing in 40 test cases for each 3 of the runs
 2. We did not find evidence that any library that [claimed to be linear-time](#libraries-tested) can be considered harmful
+
+## Test 5 -- HATRA Experiment: Group x Size Dataset Across Four Languages
+
+#### Methods
+
+For the [HATRA](#hatra) submission I built a 1017-case [dataset](experiment-dataset/) (described in [experiment-design-notes.md](experiment-design-notes.md)) that crosses three regex *groups* with three *sizes*, 113 cases each:
+
+- `known_bad` — the 113 hand-curated ReDoS regexes from [test_cases.json](test_cases.json), grown by repeating the regex core
+- `generated_low_complexity` — shallow-AST regexes with long `a`-literal runs, generated with [freak](https://github.com/lucasdu2/freak)
+- `generated_high_complexity` — regexes generated from freak's full grammar at AST depths of 3, 5, and 7
+
+Every case pairs a regex with a fixed 10,000-character input and records `regex_size`, `input_size`, `ast_size`, and `ast_depth` (computed uniformly via Python's `re._parser`) so the groups can be compared on the same metrics. I also added a [Rust runner](rust/src/main.rs) using the `regex` crate — finally checking off "include Rust libraries" on the [roadmap](#roadmap) — alongside the existing Python, TypeScript, and C# runners.
+
+[run_all_engines.sh](misc-scripts/run_all_engines.sh) drives all four engines over the dataset sequentially with a 2 second per-case timeout, then [aggregate_results.py](misc-scripts/aggregate_results.py), [plot_heatmaps.py](misc-scripts/plot_heatmaps.py), and [plot_size_vs_time.py](misc-scripts/plot_size_vs_time.py) combine the per-engine result JSONs into the [summary stats](experiment-results/summary.json) and graphs below.
+
+#### Results
+
+<table>
+<tr>
+<td><img alt="Median match time by group and size, per engine and library" src="./experiment-results/median_time_by_group_size.png" /></td>
+<td><img alt="Per-case timeouts by engine and library, stacked by group" src="./experiment-results/timeouts_by_library.png" /></td>
+</tr>
+<tr>
+<td><img alt="Heatmap of median match time across regex size x input size" src="./experiment-results/heatmap_time_regex_x_input_combined.png" /></td>
+<td><img alt="Median match time vs regex size, per engine and library" src="./experiment-results/size_vs_time_medians.png" /></td>
+</tr>
+</table>
+
+| Engine     | Library      | Median time (`known_bad`/large) | Timeouts (out of 1017) |
+| ---        | --           | --                              | --                     |
+| Rust       | Regex        | 87us                            | 0                      |
+| Python     | Rure         | 4.6ms                           | 0                      |
+| Python     | Pyre2        | 7.0ms                           | 10                     |
+| Python     | Regex        | 6.9ms                           | 20                     |
+| Python     | Re           | 4.6ms                           | 136                    |
+| TypeScript | RE2          | 20.3ms                          | 0                      |
+| TypeScript | Regolith     | 19.7ms                          | 0                      |
+| TypeScript | NativeRegExp | 19.5ms                          | 127                    |
+| C#         | RE#          | 323.2ms                         | 0                      |
+| C#         | dotnet       | 71.9ms                          | 140                    |
+
+As the heatmap and size-vs-time graphs above show, match time scales with regex size and group, not just input size. The [full per-engine summary](experiment-results/summary.txt) and raw [per-case results](json-data/rust_redos_test_results_dataset.json) are also included.
+
+A few takeaways:
+
+1. Rust's `regex` crate is dramatically faster than every other engine tested — tens of microseconds vs. single-digit-to-hundreds of milliseconds — and, being linear-time itself, it had zero timeouts across all 1017 cases
+2. Every library that [claims to be linear-time](#libraries-tested) — Rure, Pyre2 (mostly), RE2, Regolith, and RE# — had zero or near-zero timeouts, while Re, Python's `Regex`, NativeRegExp, and dotnet (none of which guarantee linear time) each timed out on dozens to over a hundred cases
+3. This is consistent with [Test 4](#test-4----check-python-typescript-bun-runtime-and-c-net): across a much larger and more varied dataset, we still find no evidence that a library which claims linear-time matching can be considered harmful
 
 ## Notes
 
