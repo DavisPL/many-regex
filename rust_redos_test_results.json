@@ -1,0 +1,1609 @@
+{
+  "metadata": {
+    "timestamp": "2026-06-04T14:53:59.419062542-07:00",
+    "total_runs": 1,
+    "total_tests": 113,
+    "total_libraries": 1,
+    "libraries": [
+      "Regex"
+    ]
+  },
+  "summary_stats": {
+    "Regex": {
+      "mean_time": 0.0008512742499999999,
+      "median_time": 0.00028969200000000003,
+      "min_time": 0.000227656,
+      "max_time": 0.00816143,
+      "timeout_count": 0,
+      "timeout_tests_count": 0,
+      "successful_count": 104,
+      "total_count": 113,
+      "total_test_cases": 113,
+      "run_count": 1
+    }
+  },
+  "results": [
+    {
+      "run": 1,
+      "test_id": 1,
+      "pattern": "^(a+)+$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.000743341,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 2,
+      "pattern": "^(a*)*$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.000298549,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 3,
+      "pattern": "^(a+)+b$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000264215,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 4,
+      "pattern": "^(a|a)*$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.000260487,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 5,
+      "pattern": "^(a|ab)*$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.000283461,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 6,
+      "pattern": "(a|a|a|a|a|b)*c",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000343573,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 7,
+      "pattern": "^((a+)+)+$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.00026717,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 8,
+      "pattern": "^(a*)*b$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.00024614,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 9,
+      "pattern": "^(a+)*b$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000240991,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 10,
+      "pattern": "^([a-zA-Z0-9])(([\\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000543337,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 11,
+      "pattern": "^([a-z]+)+[A-Z]$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000294201,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 12,
+      "pattern": "^([0-9a-z]+)+[A-Z]$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000266008,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 13,
+      "pattern": "^(.*)*$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.001281979,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 14,
+      "pattern": "^(.+)+$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.001214141,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 15,
+      "pattern": "^(.*)+b$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000975866,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 16,
+      "pattern": "^(a*)+b$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000242654,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 17,
+      "pattern": "^(a?)+b$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000242253,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 18,
+      "pattern": "^(a*?)*b$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.00026677,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 19,
+      "pattern": "^(\\w+\\s*)+$",
+      "character": "a ",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.006958329,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 20,
+      "pattern": "^([\\w]+[\\s]*)*$",
+      "character": "test ",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.006425843,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 21,
+      "pattern": "^(\\d+)+$",
+      "character": "1",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.001284212,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 22,
+      "pattern": "^([0-9]+)*$",
+      "character": "9",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.000287248,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 23,
+      "pattern": "^(a+|a+)+$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.000273452,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 24,
+      "pattern": "^(a*|a*)*$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.00027256,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 25,
+      "pattern": "^(aa+|a+)+$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.000290263,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 26,
+      "pattern": "^(http://)?([a-z]+\\.)*[a-z]+\\.[a-z]{2,}$",
+      "character": "http://a.",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.00037379,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 27,
+      "pattern": "^(\\s*a+\\s*)+$",
+      "character": " a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.001042,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 28,
+      "pattern": "^(\\s+|a+)*b$",
+      "character": "a ",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.00099923,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 29,
+      "pattern": "^(a+)?b?(a+)?$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.000271108,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 30,
+      "pattern": "^(a+b?)+c$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000274353,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 31,
+      "pattern": "^([a-zA-Z]+)*$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.000273311,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 32,
+      "pattern": "^([a-z0-9]+)+[!]$",
+      "character": "abc123",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000278611,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 33,
+      "pattern": "^((a|b)+)+c$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000263232,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 34,
+      "pattern": "^((a|ab)+)+c$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000314279,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 35,
+      "pattern": "^(a+b)+c$",
+      "character": "ab",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000260337,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 36,
+      "pattern": "^(ab+)+c$",
+      "character": "ab",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000257793,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 37,
+      "pattern": "^(a|aa)+$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.000277479,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 38,
+      "pattern": "^(a|aa)*b$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000294781,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 39,
+      "pattern": "^(ab|a)+$",
+      "character": "ab",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.000279593,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 40,
+      "pattern": "^(ab|a)*b$",
+      "character": "ab",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.000279302,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 41,
+      "pattern": "^([ab]*)*c$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.00032083,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 42,
+      "pattern": "^([ab]+)+c$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000259696,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 43,
+      "pattern": "^(a|b|ab)+c$",
+      "character": "ab",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000284562,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 44,
+      "pattern": "^([a-z]*[A-Z]?)*$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.000301645,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 45,
+      "pattern": "^((ab)*)*$",
+      "character": "ab",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.000269855,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 46,
+      "pattern": "^((ab)+)*$",
+      "character": "ab",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.000250599,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 47,
+      "pattern": "^(a.*a)*$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.000982078,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 48,
+      "pattern": "^(.*a)*$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.000975194,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 49,
+      "pattern": "^(.+a)+$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.000985283,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 50,
+      "pattern": "^(.*ab)*$",
+      "character": "ab",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.001041268,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 51,
+      "pattern": "^((a|ab)*)*$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.000289121,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 52,
+      "pattern": "^(a|ab|aba)+b$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000303477,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 53,
+      "pattern": "^([0-9]*[a-z]?)+$",
+      "character": "1",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.000276478,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 54,
+      "pattern": "^(\\d*\\d)+$",
+      "character": "1",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.001377538,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 55,
+      "pattern": "^((\\d+)?)+$",
+      "character": "1",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.00120788,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 56,
+      "pattern": "^(\\d+\\s*)+$",
+      "character": "1 ",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.001318517,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 57,
+      "pattern": "^(\\w+\\W*)+$",
+      "character": "a!",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.00816143,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 58,
+      "pattern": "^(\\w*\\W+)*$",
+      "character": "a!",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.005480504,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 59,
+      "pattern": "^([a-z]+\\d+)*$",
+      "character": "a1",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.001473347,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 60,
+      "pattern": "^([a-z]+\\d+)+$",
+      "character": "a1",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.001445385,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 61,
+      "pattern": "^([a-z]?\\d?)+$",
+      "character": "a1",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.001203301,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 62,
+      "pattern": "^(a{0,3})+b$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000290935,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 63,
+      "pattern": "^(a{1,3})+b$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000265356,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 64,
+      "pattern": "^([a-z]{1,3})+$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.000296535,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 65,
+      "pattern": "^([a-z]{0,3})*b$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.00029389,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 66,
+      "pattern": "^((a?)+)+$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.000251871,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 67,
+      "pattern": "^(a?b?)+c$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000248385,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 68,
+      "pattern": "^(a*b*)+c$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000265247,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 69,
+      "pattern": "^([ab]?)+c$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000262471,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 70,
+      "pattern": "^(a+|aa+)+$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.000277269,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 71,
+      "pattern": "^((a|aa)+)+$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.000297367,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 72,
+      "pattern": "^([\\s\\S]+)+$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.001055024,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 73,
+      "pattern": "^(a|aa)+\\1$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": null,
+        "time": 0.0,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 74,
+      "pattern": "^((a|aa)+)\\1$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": null,
+        "time": 0.0,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 75,
+      "pattern": "^([ab]+)\\1c$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": null,
+        "time": 0.0,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 76,
+      "pattern": "^(a+)(a+)+\\1$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": null,
+        "time": 0.0,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 77,
+      "pattern": "^((a+)b)+\\2$",
+      "character": "ab",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": null,
+        "time": 0.0,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 78,
+      "pattern": "^(?=(a+)+b)\\w+$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": null,
+        "time": 0.0,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 79,
+      "pattern": "^(?:(?!b).)*b$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": null,
+        "time": 0.0,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 80,
+      "pattern": "^(?=.*a.*a).*b$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": null,
+        "time": 0.0,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 81,
+      "pattern": "^((?=a).)+b$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": null,
+        "time": 0.0,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 82,
+      "pattern": "^(a+?)+$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.000227656,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 83,
+      "pattern": "^(a+?)*b$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000232184,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 84,
+      "pattern": "^(a*?)+b$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.00024064,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 85,
+      "pattern": "^(a+?b?)+c$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000273421,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 86,
+      "pattern": "^((a|ab)*)+$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.000281247,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 87,
+      "pattern": "^(a|a?)+b$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.00026203,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 88,
+      "pattern": "^(a|a+)+b$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000273312,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 89,
+      "pattern": "^((a|ab)+)+$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.00027802,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 90,
+      "pattern": "^((ab)?)+c$",
+      "character": "ab",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000250679,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 91,
+      "pattern": "^((a)?b?)+c$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000254205,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 92,
+      "pattern": "^((a?b?)+)+c$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000275846,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 93,
+      "pattern": "^((a?)+)+b$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000244668,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 94,
+      "pattern": "^(ab|cab)+d$",
+      "character": "ab",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000290764,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 95,
+      "pattern": "^(abcd|abc)+e$",
+      "character": "abc",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000316543,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 96,
+      "pattern": "^(abc|ab)+c$",
+      "character": "ab",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000279362,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 97,
+      "pattern": "^([a-f]+|[a-z]+)+$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.000285253,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 98,
+      "pattern": "^([a-z0-9]+|[a-z]+)+$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.000292076,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 99,
+      "pattern": "^([0-9a-f]+|[0-9]+)+$",
+      "character": "1",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.00030996,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 100,
+      "pattern": "^(\\w+)+\\W$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.007978107,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 101,
+      "pattern": "^(\\D+)+\\d$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.001900997,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 102,
+      "pattern": "^(\\S+)+\\s$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.00109549,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 103,
+      "pattern": "^(ab?)+b$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000247062,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 104,
+      "pattern": "^(a?b)+b$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000238627,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 105,
+      "pattern": "^((ab)?b)+$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000259145,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 106,
+      "pattern": "^((ab)*)+b$",
+      "character": "ab",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000292808,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 107,
+      "pattern": "^(.+)+b$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000977088,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 108,
+      "pattern": "^(.*a.*)+b$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.001007184,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 109,
+      "pattern": "^(.*?a)+b$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.001025158,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 110,
+      "pattern": "^((.*)a)+b$",
+      "character": "a",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.000997466,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 111,
+      "pattern": "^((\\d+|\\d{1,2})+)+$",
+      "character": "1",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": true,
+        "time": 0.001610614,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 112,
+      "pattern": "^(\\d{0,3})+\\D$",
+      "character": "1",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.002056729,
+        "timed_out": false
+      }
+    },
+    {
+      "run": 1,
+      "test_id": 113,
+      "pattern": "^(\\d{1,3})+\\D$",
+      "character": "1",
+      "count": 20,
+      "library": "Regex",
+      "result": {
+        "library": "Regex",
+        "result": false,
+        "time": 0.002159601,
+        "timed_out": false
+      }
+    }
+  ]
+}

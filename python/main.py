@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 import argparse
 from multiprocessing import Pipe, Process
+import signal
 import time
 import json
 from pathlib import Path
@@ -29,6 +30,29 @@ class SingleTestResult:
     input: str
     library: str
     result: LibraryResult
+
+
+@dataclass
+class CaseMetadata:
+    """Per-case metadata carried from the new experiment-dataset schema.
+
+    Absent (None on the result entry) when running the legacy
+    `test_cases.json` flow, so backward compatibility is preserved.
+    """
+    group: Optional[str]
+    size: Optional[str]
+    ast_size: Optional[int]
+    ast_depth: Optional[int]
+    regex_size: Optional[int]
+    input_size: Optional[int]
+
+
+@dataclass
+class PreparedCase:
+    test_id: int
+    pattern: str
+    input: str
+    metadata: Optional[CaseMetadata]
 
 
 @dataclass
@@ -152,6 +176,43 @@ class Pyre2(RegexLibrary):
         return match is not None
 
 
+# ---------- In-process timing (no subprocess) ---------- #
+
+class _InProcessTimeout(Exception):
+    pass
+
+
+def _sigalrm_handler(signum, frame):
+    raise _InProcessTimeout()
+
+
+def run_in_process(library, pattern: str, text: str, timeout: float) -> dict:
+    """Time library.setup_test() directly in the host process.
+
+    Uses SIGALRM to enforce a wall-clock timeout (Linux-only). On timeout,
+    the alarm raises _InProcessTimeout and we record a timed-out result with
+    the requested timeout as the time.
+    """
+    name = library.__class__.__name__
+    signal.signal(signal.SIGALRM, _sigalrm_handler)
+    signal.setitimer(signal.ITIMER_REAL, timeout)
+    start = time.perf_counter()
+    try:
+        result = library.setup_test(pattern, text)
+        duration = time.perf_counter() - start
+        return {"library": name, "result": result,
+                "time": duration, "timed_out": False}
+    except _InProcessTimeout:
+        return {"library": name, "result": None,
+                "time": timeout, "timed_out": True}
+    except Exception:
+        duration = time.perf_counter() - start
+        return {"library": name, "result": None,
+                "time": duration, "timed_out": False}
+    finally:
+        signal.setitimer(signal.ITIMER_REAL, 0)
+
+
 def get_test_cases(input_size=20):
     test_cases_path = Path("test_cases.json")
 
@@ -159,11 +220,42 @@ def get_test_cases(input_size=20):
         data = json.load(f)
 
     cases = []
-    for entry in data:
+    for i, entry in enumerate(data):
         pattern = entry["regex"]
         repeat = entry["repeat"] * input_size
-        cases.append((pattern, repeat))
+        cases.append(PreparedCase(
+            test_id=i + 1,
+            pattern=pattern,
+            input=repeat,
+            metadata=None,
+        ))
 
+    return cases
+
+
+def get_dataset_cases(dataset_dir):
+    """Load every *.json file in [dataset_dir] as a new-schema per-case JSON.
+
+    Files are sorted by filename so the order matches the dataset `id`.
+    """
+    dataset_path = Path(dataset_dir)
+    cases = []
+    for path in sorted(dataset_path.glob("*.json")):
+        with path.open("r", encoding="utf-8") as f:
+            c = json.load(f)
+        cases.append(PreparedCase(
+            test_id=c["id"],
+            pattern=c["regex"],
+            input=c["input"],
+            metadata=CaseMetadata(
+                group=c.get("group"),
+                size=c.get("size"),
+                ast_size=c.get("ast_size"),
+                ast_depth=c.get("ast_depth"),
+                regex_size=c.get("regex_size"),
+                input_size=c.get("input_size"),
+            ),
+        ))
     return cases
 
 
@@ -172,67 +264,106 @@ def get_libraries():
     return [Rure(), Re(), Regex(), Pyre2()]
 
 
-def run_single_test(test_id, libraries=None, input_size=20):
-    """Run a single test case across all libraries."""
+def _metadata_dict(meta):
+    if meta is None:
+        return None
+    return {
+        "group": meta.group,
+        "size": meta.size,
+        "ast_size": meta.ast_size,
+        "ast_depth": meta.ast_depth,
+        "regex_size": meta.regex_size,
+        "input_size": meta.input_size,
+    }
+
+
+def _exec_library(library, pattern, text, in_process: bool, timeout: float):
+    if in_process:
+        return run_in_process(library, pattern, text, timeout)
+    return library.test(pattern, text)
+
+
+def run_single_test(test_id, libraries=None, input_size=20, tests=None,
+                    in_process: bool = False, timeout: float = 2.0):
+    """Run a single test case across all libraries.
+
+    Pass [tests] to reuse a preloaded case list (e.g. when running the new
+    dataset). When omitted, falls back to the legacy `test_cases.json` flow.
+    """
     if libraries is None:
         libraries = get_libraries()
 
-    tests = get_test_cases(input_size)
+    if tests is None:
+        tests = get_test_cases(input_size)
 
     if test_id < 1 or test_id > len(tests):
         raise ValueError(f"Invalid test_id. Must be between 1 and {len(tests)}")
 
-    pattern, text = tests[test_id - 1]
+    case = tests[test_id - 1]
+    pattern, text = case.pattern, case.input
     results = []
 
     print(f"Running test {test_id}: pattern={pattern}, input_length={len(text)}")
 
     for library in libraries:
         print(f"  Testing with {library.__class__.__name__}...")
-        res = library.test(pattern, text)
-        results.append(
-            {
-                "test_id": test_id,
-                "pattern": pattern,
-                "input": text,
-                "library": library.__class__.__name__,
-                "result": res,
-            }
-        )
+        res = _exec_library(library, pattern, text, in_process, timeout)
+        entry = {
+            "test_id": test_id,
+            "pattern": pattern,
+            "input": text,
+            "library": library.__class__.__name__,
+            "result": res,
+        }
+        md = _metadata_dict(case.metadata)
+        if md is not None:
+            entry["metadata"] = md
+        results.append(entry)
 
     return results
 
 
-def run_all_tests(num_runs=3, libraries=None, input_size=20):
-    """Run all test cases for multiple iterations."""
+def run_all_tests(num_runs=3, libraries=None, input_size=20, tests=None,
+                  in_process: bool = False, timeout: float = 2.0):
+    """Run all test cases for multiple iterations.
+
+    Pass [tests] to use the preloaded new-schema dataset; otherwise the
+    legacy `test_cases.json` cases are loaded.
+    """
     if libraries is None:
         libraries = get_libraries()
 
-    tests = get_test_cases(input_size)
+    if tests is None:
+        tests = get_test_cases(input_size)
     all_results = []
 
+    mode = "in-process" if in_process else "subprocess"
     print(
-        f"Running {num_runs} iterations of {len(tests)} tests across {len(libraries)} libraries..."
+        f"Running {num_runs} iterations of {len(tests)} tests "
+        f"across {len(libraries)} libraries ({mode})..."
     )
-    print(f"Input size multiplier: {input_size}")
 
     for run in range(num_runs):
         print(f"\nRun {run + 1}/{num_runs}")
 
-        for test_idx, (pattern, text) in enumerate(tests):
+        for case in tests:
+            pattern, text = case.pattern, case.input
+            md = _metadata_dict(case.metadata)
             for library in libraries:
-                print(f"  {library.__class__.__name__} - Test {test_idx + 1}")
+                print(f"  {library.__class__.__name__} - Test {case.test_id}")
 
-                res = library.test(pattern, text)
+                res = _exec_library(library, pattern, text, in_process, timeout)
 
                 result_entry = {
                     "run": run + 1,
-                    "test_id": test_idx + 1,
+                    "test_id": case.test_id,
                     "pattern": pattern,
                     "input": text,
                     "library": library.__class__.__name__,
                     "result": str(res),
                 }
+                if md is not None:
+                    result_entry["metadata"] = md
                 all_results.append(result_entry)
 
     return all_results
@@ -384,31 +515,53 @@ def parse_args():
         default=None,
         help="Deprecated alias for --input-length.",
     )
+    parser.add_argument(
+        "--dataset",
+        type=str,
+        default=None,
+        help="Path to a directory of new-schema per-case JSON files "
+             "(e.g. experiment-dataset/). Overrides --input-length.",
+    )
+    parser.add_argument(
+        "--in-process",
+        action="store_true",
+        help="Time each match in the host process (no subprocess). Uses "
+             "SIGALRM (Linux) to enforce --timeout. Faster, lower overhead, "
+             "but a hung regex blocks the whole run until the alarm fires.",
+    )
     return parser.parse_args()
 
 
-def main_run_all_tests(input_length: int, num_runs: int, output_filename: str):
+def main_run_all_tests(tests, num_runs: int, output_filename: str,
+                       in_process: bool = False, timeout: float = 2.0):
 
     # Run all tests
     libraries = get_libraries()
-    all_results = run_all_tests(num_runs=num_runs, libraries=libraries, input_size=input_length)
+    all_results = run_all_tests(
+        num_runs=num_runs, libraries=libraries, tests=tests,
+        in_process=in_process, timeout=timeout,
+    )
     summary_stats = calculate_summary_stats(all_results, libraries)
     save_results(
         all_results,
         summary_stats,
         libraries,
         num_runs,
-        len(get_test_cases(input_length)),
+        len(tests),
         output_filename,
     )
     print_summary_stats(summary_stats)
 
 
-def main_run_single_test(test_id: int, input_length: int):
+def main_run_single_test(test_id: int, tests, in_process: bool = False,
+                         timeout: float = 2.0):
 
     # Run a single test
     print("Running single test example:")
-    results = run_single_test(test_id=test_id, input_size=input_length)
+    results = run_single_test(
+        test_id=test_id, tests=tests,
+        in_process=in_process, timeout=timeout,
+    )
     for result in results:
         print(f"{result['library']}: {result['result']}")
 
@@ -417,7 +570,22 @@ if __name__ == "__main__":
     args = parse_args()
     input_length = args.input_size if args.input_size is not None else args.input_length
     RegexLibrary.TIMEOUT_SECONDS = args.timeout
-    output_filename = build_output_filename(args.timeout)
+
+    inproc_tag = "_inproc" if args.in_process else ""
+    if args.dataset is not None:
+        tests = get_dataset_cases(args.dataset)
+        output_filename = (
+            f"py_redos_test_results_dataset{inproc_tag}_timeout-"
+            f"{timeout_label(args.timeout)}.json"
+        )
+    else:
+        tests = get_test_cases(input_length)
+        legacy_name = build_output_filename(args.timeout)
+        if args.in_process:
+            legacy_name = legacy_name.replace(
+                "py_redos_test_results", "py_redos_test_results_inproc"
+            )
+        output_filename = legacy_name
 
     scaling_test = False
 
@@ -426,9 +594,14 @@ if __name__ == "__main__":
     else:
         if args.single is None:
             main_run_all_tests(
-                input_length=input_length,
+                tests=tests,
                 num_runs=args.runs,
                 output_filename=output_filename,
+                in_process=args.in_process,
+                timeout=args.timeout,
             )
         else:
-            main_run_single_test(args.single, input_length)
+            main_run_single_test(
+                args.single, tests,
+                in_process=args.in_process, timeout=args.timeout,
+            )

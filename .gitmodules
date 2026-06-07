@@ -1,0 +1,3 @@
+[submodule "freak"]
+	path = freak
+	url = git@github.com:lucasdu2/freak.git

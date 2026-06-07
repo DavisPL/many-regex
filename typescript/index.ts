@@ -1,14 +1,49 @@
 import { Worker } from "worker_threads";
-import { readFileSync, writeFileSync } from "fs";
+import { readFileSync, writeFileSync, readdirSync } from "fs";
+import { resolve as resolvePath, join as joinPath } from "path";
 import { performance } from "perf_hooks";
-import RE2 from "re2";
-import { Regolith } from "@regolithjs/regolith";
+import { createRequire } from "module";
+// RE2 and Regolith are loaded via createRequire() on demand. They are not
+// imported at the top level so this file loads under node even when one of
+// them isn't installed (only the engines actually exercised need to resolve).
+const req = createRequire(import.meta.url);
 
 type TestCase = {
   id: number;
   regex: string;
   repeat: string;
   description: string;
+};
+
+/** New-schema per-case JSON written by misc-scripts/build_dataset.py. */
+type DatasetCase = {
+  id: number;
+  regex: string;
+  input: string;
+  regex_size?: number;
+  input_size?: number;
+  ast_size?: number;
+  ast_depth?: number;
+  group?: string;
+  size?: string;
+};
+
+/** Per-case metadata carried into every result entry when running the new
+ *  dataset; undefined for the legacy test_cases.json flow. */
+type CaseMetadata = {
+  group?: string;
+  size?: string;
+  ast_size?: number;
+  ast_depth?: number;
+  regex_size?: number;
+  input_size?: number;
+};
+
+type PreparedCase = {
+  test_id: number;
+  pattern: string;
+  input: string;
+  metadata?: CaseMetadata;
 };
 
 type LibraryResult = {
@@ -24,6 +59,7 @@ type SingleTestResult = {
   input: string;
   library: string;
   result: LibraryResult;
+  metadata?: CaseMetadata;
 };
 
 type ScalingTestEntry = {
@@ -48,12 +84,58 @@ function loadTestCases(): TestCase[] {
   return JSON.parse(raw) as TestCase[];
 }
 
-function getTestCases(inputSize = 50): Array<{ pattern: string; input: string }> {
+function getTestCases(inputSize = 50): PreparedCase[] {
   const cases = loadTestCases();
-  return cases.map((entry) => ({
+  return cases.map((entry, i) => ({
+    test_id: entry.id ?? i + 1,
     pattern: entry.regex,
     input: entry.repeat.repeat(inputSize),
   }));
+}
+
+/** Load every *.json file under [datasetDir] as a new-schema DatasetCase. */
+function getDatasetCases(datasetDir: string): PreparedCase[] {
+  const absDir = resolvePath(datasetDir);
+  const files = readdirSync(absDir)
+    .filter((f) => f.endsWith(".json"))
+    .sort();
+
+  return files.map((f) => {
+    const raw = readFileSync(joinPath(absDir, f), "utf-8");
+    const c = JSON.parse(raw) as DatasetCase;
+    return {
+      test_id: c.id,
+      pattern: c.regex,
+      input: c.input,
+      metadata: {
+        group: c.group,
+        size: c.size,
+        ast_size: c.ast_size,
+        ast_depth: c.ast_depth,
+        regex_size: c.regex_size,
+        input_size: c.input_size,
+      },
+    };
+  });
+}
+
+/** Synchronous in-process match. No timeout: a pathological native RegExp
+ *  can hang the whole run. Use --in-process only with engines you trust
+ *  (RE2 has linear-time guarantees; native and Regolith do not). */
+function runRegexInProcess(
+  pattern: string,
+  text: string,
+  engine: "native" | "re2" | "regolith",
+): boolean {
+  if (engine === "re2") {
+    const RE2: any = req("re2");
+    return new RE2(pattern).test(text);
+  }
+  if (engine === "regolith") {
+    const { Regolith }: any = req("@regolithjs/regolith");
+    return new Regolith(pattern).test(text);
+  }
+  return new RegExp(pattern).test(text);
 }
 
 function runRegexWithTimeout(
@@ -133,29 +215,31 @@ function getLibraries(timeoutMs: number): RegexLibrary[] {
 async function runSingleTest(
   testId: number,
   libraries: RegexLibrary[],
-  inputSize = 20,
+  tests: PreparedCase[],
+  inProcess: boolean = false,
 ): Promise<SingleTestResult[]> {
-  const tests = getTestCases(inputSize);
-
   if (testId < 1 || testId > tests.length) {
     throw new Error(`Invalid test_id. Must be between 1 and ${tests.length}`);
   }
 
-  const { pattern, input } = tests[testId - 1];
+  const c = tests[testId - 1];
+  const { pattern, input, metadata } = c;
   const results: SingleTestResult[] = [];
 
   for (const library of libraries) {
     const start = performance.now();
     try {
-      const match = await runRegexWithTimeout(
-        pattern,
-        input,
-        library.timeoutMs,
-        library.engine,
-      );
+      const match = inProcess
+        ? runRegexInProcess(pattern, input, library.engine)
+        : await runRegexWithTimeout(
+            pattern,
+            input,
+            library.timeoutMs,
+            library.engine,
+          );
       const duration = (performance.now() - start) / 1000;
       results.push({
-        test_id: testId,
+        test_id: c.test_id,
         pattern,
         input,
         library: library.name,
@@ -165,12 +249,13 @@ async function runSingleTest(
           time: duration,
           timed_out: false,
         },
+        ...(metadata ? { metadata } : {}),
       });
     } catch (err) {
       const duration = (performance.now() - start) / 1000;
       const timedOut = err instanceof Error && err.message === "Regex timed out";
       results.push({
-        test_id: testId,
+        test_id: c.test_id,
         pattern,
         input,
         library: library.name,
@@ -180,6 +265,7 @@ async function runSingleTest(
           time: duration,
           timed_out: timedOut,
         },
+        ...(metadata ? { metadata } : {}),
       });
     }
   }
@@ -190,27 +276,30 @@ async function runSingleTest(
 async function runAllTests(
   numRuns: number,
   libraries: RegexLibrary[],
-  inputSize: number,
+  tests: PreparedCase[],
+  inProcess: boolean = false,
 ): Promise<SingleTestResult[]> {
-  const tests = getTestCases(inputSize);
   const allResults: SingleTestResult[] = [];
 
   for (let run = 0; run < numRuns; run += 1) {
-    console.log(`Run ${run + 1}/${numRuns}`);
+    console.log(`Run ${run + 1}/${numRuns}${inProcess ? " (in-process)" : ""}`);
     for (let testIdx = 0; testIdx < tests.length; testIdx += 1) {
-      const { pattern, input } = tests[testIdx];
+      const c = tests[testIdx];
+      const { pattern, input, metadata } = c;
       for (const library of libraries) {
         const start = performance.now();
         try {
-          const match = await runRegexWithTimeout(
-            pattern,
-            input,
-            library.timeoutMs,
-            library.engine,
-          );
+          const match = inProcess
+            ? runRegexInProcess(pattern, input, library.engine)
+            : await runRegexWithTimeout(
+                pattern,
+                input,
+                library.timeoutMs,
+                library.engine,
+              );
           const duration = (performance.now() - start) / 1000;
           allResults.push({
-            test_id: testIdx + 1,
+            test_id: c.test_id,
             pattern,
             input,
             library: library.name,
@@ -220,12 +309,13 @@ async function runAllTests(
               time: duration,
               timed_out: false,
             },
+            ...(metadata ? { metadata } : {}),
           });
         } catch (err) {
           const duration = (performance.now() - start) / 1000;
           const timedOut = err instanceof Error && err.message === "Regex timed out";
           allResults.push({
-            test_id: testIdx + 1,
+            test_id: c.test_id,
             pattern,
             input,
             library: library.name,
@@ -235,6 +325,7 @@ async function runAllTests(
               time: duration,
               timed_out: timedOut,
             },
+            ...(metadata ? { metadata } : {}),
           });
         }
       }
@@ -322,12 +413,12 @@ async function runScalingTest(
   libraries: RegexLibrary[],
   maxSize = 30,
 ): Promise<void> {
-  const tests = getTestCases(0);
   const allResults: ScalingTestEntry[] = [];
-
-  for (let testId = 1; testId <= tests.length; testId += 1) {
-    for (let size = 0; size < maxSize; size += 1) {
-      const results = await runSingleTest(testId, libraries, size);
+  // Scaling test only operates on the legacy schema (varies input length).
+  for (let size = 0; size < maxSize; size += 1) {
+    const tests = getTestCases(size);
+    for (let testId = 1; testId <= tests.length; testId += 1) {
+      const results = await runSingleTest(testId, libraries, tests);
       allResults.push({ test_id: testId, size, result: results });
     }
   }
@@ -353,9 +444,11 @@ function timeoutLabel(timeoutSeconds: number): string {
   return `${timeoutSeconds}`.replace(".", "_");
 }
 
-function buildOutputPath(timeoutSeconds: number): URL {
+function buildOutputPath(timeoutSeconds: number, dataset: boolean,
+                          inProcess: boolean): URL {
+  const tag = (dataset ? "_dataset" : "") + (inProcess ? "_inproc" : "");
   return new URL(
-    `../ts_redos_test_results_timeout-${timeoutLabel(timeoutSeconds)}.json`,
+    `../ts_redos_test_results${tag}_timeout-${timeoutLabel(timeoutSeconds)}.json`,
     import.meta.url,
   );
 }
@@ -375,7 +468,12 @@ async function main(): Promise<void> {
   );
   const numRuns = Number(getArgValue("--runs") ?? "3");
   const singleTestId = getArgValue("--single");
-  const outputPath = buildOutputPath(timeoutSeconds);
+  const datasetDir = getArgValue("--dataset");
+  const inProcess = process.argv.includes("--in-process");
+  const tests = datasetDir !== null
+    ? getDatasetCases(datasetDir)
+    : getTestCases(inputSize);
+  const outputPath = buildOutputPath(timeoutSeconds, datasetDir !== null, inProcess);
 
   if (process.argv.includes("--scaling")) {
     await runScalingTest(libraries, Number(getArgValue("--max-size") ?? "50"));
@@ -386,7 +484,8 @@ async function main(): Promise<void> {
     const results = await runSingleTest(
       Number(singleTestId),
       libraries,
-      inputSize,
+      tests,
+      inProcess,
     );
     for (const result of results) {
       console.log(`${result.library}: ${result.result.result}`);
@@ -394,14 +493,14 @@ async function main(): Promise<void> {
     return;
   }
 
-  const allResults = await runAllTests(numRuns, libraries, inputSize);
+  const allResults = await runAllTests(numRuns, libraries, tests, inProcess);
   const summaryStats = calculateSummaryStats(allResults, libraries);
   saveResults(
     allResults,
     summaryStats,
     libraries,
     numRuns,
-    getTestCases(0).length,
+    tests.length,
     outputPath,
   );
 }
