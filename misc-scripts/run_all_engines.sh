@@ -8,6 +8,9 @@
 #   TIMEOUT=2      per-case timeout in seconds (default 2)
 #   DATASET=...    path to per-case JSON dir (default experiment-dataset)
 #   SKIP=rust,ts   comma-separated engines to skip (rust|python|ts|csharp)
+#   INPUT_SWEEP=.. comma-separated input sizes for the Rust runner, or `none`
+#                  to use each case's stored input (default: runner's built-in
+#                  sweep). Only the Rust runner sweeps input size so far.
 
 set -euo pipefail
 
@@ -18,6 +21,7 @@ RUNS="${RUNS:-1}"
 TIMEOUT="${TIMEOUT:-2}"
 DATASET="${DATASET:-experiment-dataset}"
 SKIP="${SKIP:-}"
+INPUT_SWEEP="${INPUT_SWEEP:-}"
 
 skip() { [[ ",$SKIP," == *",$1,"* ]]; }
 log()  { printf '\n=== %s ===\n' "$*"; }
@@ -42,23 +46,28 @@ run_step() {
 if ! skip rust; then
     run_step "Rust build (release)" \
         bash -c "cd rust && cargo build --release"
+    rust_args=(--dataset "$DATASET" --runs "$RUNS")
+    [[ -n "$INPUT_SWEEP" ]] && rust_args+=(--input-sweep "$INPUT_SWEEP")
     run_step "Rust runner" \
-        rust/target/release/rust --dataset "$DATASET" --runs "$RUNS"
+        rust/target/release/rust "${rust_args[@]}"
 fi
 
 # ---------- 2. Python ----------
 if ! skip python; then
+    py_args=(--dataset "$DATASET" --runs "$RUNS" --timeout "$TIMEOUT")
+    [[ -n "$INPUT_SWEEP" ]] && py_args+=(--input-sweep "$INPUT_SWEEP")
     run_step "Python runner" \
-        uv run --project python python/main.py \
-            --dataset "$DATASET" --runs "$RUNS" --timeout "$TIMEOUT"
+        uv run --project python python/main.py "${py_args[@]}"
 fi
 
 # ---------- 3. TypeScript ----------
 # Node, not Bun: Bun crashes when spawning 3000+ short-lived workers in a row.
 if ! skip ts; then
+    ts_sweep_arg=""
+    [[ -n "$INPUT_SWEEP" ]] && ts_sweep_arg="--input-sweep=$INPUT_SWEEP"
     run_step "TypeScript runner" \
         bash -c "cd typescript && node --experimental-strip-types index.ts \
-            --dataset=../$DATASET --runs=$RUNS --timeout=$TIMEOUT"
+            --dataset=../$DATASET --runs=$RUNS --timeout=$TIMEOUT $ts_sweep_arg"
 fi
 
 # ---------- 4. C# ----------
@@ -66,20 +75,21 @@ if ! skip csharp; then
     run_step "C# build (release)" \
         bash -c "cd csharp && dotnet build -c Release --nologo -v q"
     # Project files name the assembly `resh_test`; locate it under Release.
+    cs_args=(--dataset="$DATASET" --runs="$RUNS" --timeout="$TIMEOUT")
+    [[ -n "$INPUT_SWEEP" ]] && cs_args+=(--input-sweep="$INPUT_SWEEP")
     csharp_bin="$(find csharp/bin/Release -name 'resh_test' -type f -executable 2>/dev/null | head -1)"
     if [[ -z "$csharp_bin" ]]; then
         # Fall back to dotnet-launching the DLL if the native-AOT binary isn't there.
         csharp_dll="$(find csharp/bin/Release -name 'resh_test.dll' 2>/dev/null | head -1)"
         if [[ -n "$csharp_dll" ]]; then
             run_step "C# runner" \
-                dotnet "$csharp_dll" \
-                    --dataset="$DATASET" --runs="$RUNS" --timeout="$TIMEOUT"
+                dotnet "$csharp_dll" "${cs_args[@]}"
         else
             log "C# binary not found under csharp/bin/Release — skipping"
         fi
     else
         run_step "C# runner" \
-            "$csharp_bin" --dataset="$DATASET" --runs="$RUNS" --timeout="$TIMEOUT"
+            "$csharp_bin" "${cs_args[@]}"
     fi
 fi
 
