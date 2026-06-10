@@ -18,6 +18,12 @@ class Program
     private const int DefaultRuns = 3;
     private static readonly TimeSpan DefaultTimeout = TimeSpan.FromSeconds(2);
 
+    // Default input sizes (chars) swept per dataset case when --input-sweep is
+    // not given. Mirrors the Rust runner so all engines share the heatmap's
+    // input axis.
+    private static readonly int[] DefaultInputSweep =
+        { 1000, 10000, 25000, 50000, 75000, 100000, 150000, 200000 };
+
     static void Main(string[] args)
     {
         if (args.Length > 0 && args[0] == "--child")
@@ -43,6 +49,16 @@ class Program
         var tests = datasetDir != null
             ? GetDatasetCases(datasetDir)
             : GetTestCases(inputSize);
+
+        if (datasetDir != null)
+        {
+            var sweep = ParseInputSweep(GetArgValue(args, "--input-sweep")) ?? DefaultInputSweep;
+            if (sweep.Length > 0)
+            {
+                Console.WriteLine($"Sweeping input sizes: {string.Join(",", sweep)}");
+                tests = ExpandWithSweep(tests, sweep);
+            }
+        }
 
         if (singleTestId.HasValue)
         {
@@ -703,6 +719,78 @@ class Program
         }
 
         return string.Concat(Enumerable.Repeat(value, count));
+    }
+
+    /// <summary>
+    /// Rebuild an input of exactly <paramref name="target"/> chars from a case's
+    /// base string by repeating then truncating it (dataset inputs are runs of a
+    /// single repeat unit, so any prefix/extension is still a valid input).
+    /// </summary>
+    static string ResizeInput(string baseStr, int target)
+    {
+        if (target <= 0 || baseStr.Length == 0)
+        {
+            return string.Empty;
+        }
+
+        var reps = (target + baseStr.Length - 1) / baseStr.Length; // ceil
+        return string.Concat(Enumerable.Repeat(baseStr, reps)).Substring(0, target);
+    }
+
+    /// <summary>
+    /// One TestCaseRun per (case, swept input size), rebuilding the input and
+    /// overriding metadata.input_size.
+    /// </summary>
+    static List<TestCaseRun> ExpandWithSweep(List<TestCaseRun> cases, int[] sweep)
+    {
+        var expanded = new List<TestCaseRun>(cases.Count * sweep.Length);
+        foreach (var c in cases)
+        {
+            foreach (var target in sweep)
+            {
+                var input = ResizeInput(c.Input, target);
+                CaseMetadata? md = c.Metadata == null ? null : new CaseMetadata
+                {
+                    Group = c.Metadata.Group,
+                    Size = c.Metadata.Size,
+                    AstSize = c.Metadata.AstSize,
+                    AstDepth = c.Metadata.AstDepth,
+                    RegexSize = c.Metadata.RegexSize,
+                    InputSize = input.Length,
+                };
+                expanded.Add(new TestCaseRun
+                {
+                    Id = c.Id,
+                    Pattern = c.Pattern,
+                    Input = input,
+                    Metadata = md,
+                });
+            }
+        }
+
+        return expanded;
+    }
+
+    /// <summary>
+    /// Parse --input-sweep: a comma list of ints, or `none` to disable. Returns
+    /// null when the flag is absent (caller uses DefaultInputSweep).
+    /// </summary>
+    static int[]? ParseInputSweep(string? raw)
+    {
+        if (raw == null)
+        {
+            return null;
+        }
+
+        if (raw.Trim().Equals("none", StringComparison.OrdinalIgnoreCase))
+        {
+            return Array.Empty<int>();
+        }
+
+        return raw
+            .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+            .Select(s => int.Parse(s, CultureInfo.InvariantCulture))
+            .ToArray();
     }
 }
 

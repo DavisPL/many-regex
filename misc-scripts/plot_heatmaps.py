@@ -13,6 +13,7 @@ Outputs:
 
 from __future__ import annotations
 
+import argparse
 import json
 import statistics
 from collections import defaultdict
@@ -54,9 +55,12 @@ def _parse_time(engine: str, r: dict) -> tuple[float, bool]:
     return float(res["time"]), bool(res["timed_out"])
 
 
-def load_rows() -> list[dict]:
+def load_rows(engines: list[str] | None = None) -> list[dict]:
     rows: list[dict] = []
-    for engine, path in ENGINE_FILES.items():
+    selected = ENGINE_FILES if engines is None else {
+        e: ENGINE_FILES[e] for e in engines
+    }
+    for engine, path in selected.items():
         if not path.exists():
             print(f"  [skip] {engine}: missing {path.name}")
             continue
@@ -170,8 +174,40 @@ def _draw(ax, mat, input_sizes, rs_labels, title, vmin, vmax):
     return im
 
 
+def parse_args() -> argparse.Namespace:
+    p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument(
+        "--engines", nargs="+", choices=list(ENGINE_FILES),
+        help="Restrict to these engines (default: all).",
+    )
+    p.add_argument(
+        "--rust-only", action="store_true",
+        help="Shorthand for --engines Rust. Outputs are suffixed '_rust' "
+             "so they don't overwrite the all-engines heatmaps.",
+    )
+    return p.parse_args()
+
+
 def main() -> None:
-    rows = load_rows()
+    args = parse_args()
+    if args.rust_only:
+        engines = ["Rust"]
+    else:
+        engines = args.engines
+
+    # Suffix outputs + title when filtering so we never clobber the combined
+    # all-engines plots, and the source is unambiguous.
+    if engines is not None and len(engines) == 1:
+        suffix = f"_{engines[0].lower().replace('#', 'sharp')}"
+        scope = f"{engines[0]} only"
+    elif engines is not None:
+        suffix = "_" + "+".join(e.lower().replace("#", "sharp") for e in engines)
+        scope = ", ".join(engines)
+    else:
+        suffix = ""
+        scope = "all engines & libraries"
+
+    rows = load_rows(engines)
     if not rows:
         raise SystemExit("no rows loaded — run the engine binaries first")
 
@@ -184,12 +220,12 @@ def main() -> None:
         mat, input_sizes, rs_labels = grids[sz]
         fig, ax = plt.subplots(figsize=(10, max(3, 0.6 * len(input_sizes) + 2)))
         im = _draw(ax, mat, input_sizes, rs_labels,
-                   f"Median match time — size = {sz}", vmin, vmax)
+                   f"Median match time — size = {sz} ({scope})", vmin, vmax)
         if im is not None:
             cbar = fig.colorbar(im, ax=ax)
             cbar.set_label("median time (s, log)")
         fig.tight_layout()
-        out = OUT_DIR / f"heatmap_time_regex_x_input_{sz}.png"
+        out = OUT_DIR / f"heatmap_time_regex_x_input_{sz}{suffix}.png"
         fig.savefig(out, dpi=140)
         plt.close(fig)
         print(f"wrote {out}")
@@ -208,8 +244,8 @@ def main() -> None:
                             fraction=0.025, pad=0.02)
         cbar.set_label("median time (s, log)")
     fig.suptitle("Median match time vs regex × input size, per size group "
-                 "(all engines & libraries)", y=1.02)
-    out = OUT_DIR / "heatmap_time_regex_x_input_combined.png"
+                 f"({scope})", y=1.02)
+    out = OUT_DIR / f"heatmap_time_regex_x_input_combined{suffix}.png"
     fig.savefig(out, dpi=140, bbox_inches="tight")
     plt.close(fig)
     print(f"wrote {out}")

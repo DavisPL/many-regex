@@ -108,6 +108,55 @@ struct Output {
 
 const LIBRARY_NAME: &str = "Regex";
 
+/// Input sizes (in characters) swept per dataset case when no explicit
+/// `--input-sweep` is given. Large steps keep the run cheap while still
+/// covering ~1k–200k so the input-size axis of the heatmaps is populated.
+/// The dataset's "size" dimension varies the *regex*; this varies the *input*.
+const DEFAULT_INPUT_SWEEP: &[usize] =
+    &[1_000, 10_000, 25_000, 50_000, 75_000, 100_000, 150_000, 200_000];
+
+/// Rebuild an input of exactly `target` characters from a dataset case's base
+/// string by repeating then truncating it. The dataset inputs are runs of a
+/// single repeat unit (e.g. "a" or "a "), so any prefix/extension is still a
+/// valid same-character input. Inputs are ASCII, so byte and char lengths
+/// coincide and truncation lands on a char boundary.
+fn resize_input(base: &str, target: usize) -> String {
+    if target == 0 || base.is_empty() {
+        return String::new();
+    }
+    let mut s = String::with_capacity(target);
+    while s.len() < target {
+        s.push_str(base);
+    }
+    s.truncate(target);
+    s
+}
+
+/// Expand each base dataset case into one [PreparedCase] per swept input size,
+/// rebuilding the input to that length and overriding `input_size`/`count`.
+fn expand_with_sweep(cases: Vec<PreparedCase>, sweep: &[usize]) -> Vec<PreparedCase> {
+    let mut out = Vec::with_capacity(cases.len() * sweep.len());
+    for case in cases {
+        for &target in sweep {
+            let input = resize_input(&case.input, target);
+            let count = input.len();
+            let mut metadata = case.metadata.clone();
+            if let Some(md) = metadata.as_mut() {
+                md.input_size = Some(count);
+            }
+            out.push(PreparedCase {
+                test_id: case.test_id,
+                pattern: case.pattern.clone(),
+                input,
+                character: case.character.clone(),
+                count,
+                metadata,
+            });
+        }
+    }
+    out
+}
+
 fn get_test_cases(input_size: usize) -> Vec<PreparedCase> {
     let data = fs::read_to_string("test_cases.json").expect("read test_cases.json");
     let cases: Vec<TestCase> = serde_json::from_str(&data).expect("parse test_cases.json");
@@ -337,12 +386,17 @@ struct Args {
     runs: usize,
     input_length: usize,
     dataset: Option<String>,
+    /// In dataset mode, the input sizes (chars) to sweep per case. `None` means
+    /// use [DEFAULT_INPUT_SWEEP]; an empty vec disables sweeping (use each
+    /// case's stored input as-is).
+    input_sweep: Option<Vec<usize>>,
 }
 
 fn parse_args() -> Args {
     let mut runs = 3usize;
     let mut input_length = 20usize;
     let mut dataset: Option<String> = None;
+    let mut input_sweep: Option<Vec<usize>> = None;
     let mut iter = env::args().skip(1);
     while let Some(arg) = iter.next() {
         match arg.as_str() {
@@ -361,6 +415,19 @@ fn parse_args() -> Args {
             "--dataset" => {
                 dataset = Some(iter.next().expect("--dataset <path>"));
             }
+            // Comma-separated input sizes to sweep, e.g.
+            //   --input-sweep 10000,50000,100000
+            // The literal `none` disables sweeping (stored input used as-is).
+            "--input-sweep" => {
+                let raw = iter.next().expect("--input-sweep <n,n,...|none>");
+                input_sweep = Some(if raw.eq_ignore_ascii_case("none") {
+                    Vec::new()
+                } else {
+                    raw.split(',')
+                        .map(|s| s.trim().parse().expect("--input-sweep needs integers"))
+                        .collect()
+                });
+            }
             other => panic!("unknown argument: {}", other),
         }
     }
@@ -368,16 +435,29 @@ fn parse_args() -> Args {
         runs,
         input_length,
         dataset,
+        input_sweep,
     }
 }
 
 fn main() {
     let args = parse_args();
     let (tests, output_filename) = match args.dataset.as_ref() {
-        Some(dir) => (
-            get_dataset_cases(Path::new(dir)),
-            "rust_redos_test_results_dataset.json".to_string(),
-        ),
+        Some(dir) => {
+            let base = get_dataset_cases(Path::new(dir));
+            // Sweep input size across each case. Default sweep unless the caller
+            // overrode it; an explicit empty list keeps each stored input as-is.
+            let sweep: &[usize] = match args.input_sweep.as_deref() {
+                Some(s) => s,
+                None => DEFAULT_INPUT_SWEEP,
+            };
+            let tests = if sweep.is_empty() {
+                base
+            } else {
+                println!("Sweeping input sizes: {:?}", sweep);
+                expand_with_sweep(base, sweep)
+            };
+            (tests, "rust_redos_test_results_dataset.json".to_string())
+        }
         None => (
             get_test_cases(args.input_length),
             "rust_redos_test_results.json".to_string(),

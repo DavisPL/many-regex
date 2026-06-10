@@ -93,6 +93,54 @@ function getTestCases(inputSize = 50): PreparedCase[] {
   }));
 }
 
+// Default input sizes (chars) swept per dataset case when --input-sweep is not
+// given. Mirrors the Rust runner so all engines share the heatmap's input axis.
+const DEFAULT_INPUT_SWEEP = [
+  1000, 10000, 25000, 50000, 75000, 100000, 150000, 200000,
+];
+
+/** Rebuild an input of exactly `target` chars from a case's base string by
+ *  repeating then truncating it (dataset inputs are runs of one repeat unit). */
+function resizeInput(base: string, target: number): string {
+  if (target <= 0 || base.length === 0) return "";
+  const reps = Math.ceil(target / base.length);
+  return base.repeat(reps).slice(0, target);
+}
+
+/** One PreparedCase per (case, swept input size), rebuilding the input and
+ *  overriding metadata.input_size. */
+function expandWithSweep(
+  cases: PreparedCase[],
+  sweep: number[],
+): PreparedCase[] {
+  const out: PreparedCase[] = [];
+  for (const c of cases) {
+    for (const target of sweep) {
+      const input = resizeInput(c.input, target);
+      out.push({
+        test_id: c.test_id,
+        pattern: c.pattern,
+        input,
+        ...(c.metadata
+          ? { metadata: { ...c.metadata, input_size: input.length } }
+          : {}),
+      });
+    }
+  }
+  return out;
+}
+
+/** Parse --input-sweep: a comma list of ints, or `none` to disable. Returns
+ *  null when the flag is absent (caller uses DEFAULT_INPUT_SWEEP). */
+function parseInputSweep(raw: string | null): number[] | null {
+  if (raw === null) return null;
+  if (raw.trim().toLowerCase() === "none") return [];
+  return raw
+    .split(",")
+    .map((s) => Number(s.trim()))
+    .filter((n) => Number.isFinite(n));
+}
+
 /** Load every *.json file under [datasetDir] as a new-schema DatasetCase. */
 function getDatasetCases(datasetDir: string): PreparedCase[] {
   const absDir = resolvePath(datasetDir);
@@ -470,9 +518,17 @@ async function main(): Promise<void> {
   const singleTestId = getArgValue("--single");
   const datasetDir = getArgValue("--dataset");
   const inProcess = process.argv.includes("--in-process");
-  const tests = datasetDir !== null
+  let tests = datasetDir !== null
     ? getDatasetCases(datasetDir)
     : getTestCases(inputSize);
+  if (datasetDir !== null) {
+    const parsed = parseInputSweep(getArgValue("--input-sweep"));
+    const sweep = parsed === null ? DEFAULT_INPUT_SWEEP : parsed;
+    if (sweep.length > 0) {
+      console.log(`Sweeping input sizes: ${sweep.join(",")}`);
+      tests = expandWithSweep(tests, sweep);
+    }
+  }
   const outputPath = buildOutputPath(timeoutSeconds, datasetDir !== null, inProcess);
 
   if (process.argv.includes("--scaling")) {

@@ -6,7 +6,7 @@ import time
 import json
 from pathlib import Path
 from datetime import datetime
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from typing import List, Optional
 
 import re  # default python
@@ -231,6 +231,50 @@ def get_test_cases(input_size=20):
         ))
 
     return cases
+
+
+# Default input sizes (chars) swept per dataset case when --input-sweep is not
+# given. Mirrors the Rust runner so all engines share the heatmap's input axis.
+DEFAULT_INPUT_SWEEP = [1000, 10000, 25000, 50000, 75000, 100000, 150000, 200000]
+
+
+def resize_input(base: str, target: int) -> str:
+    """Rebuild an input of exactly `target` chars from a case's base string by
+    repeating then truncating it. Dataset inputs are runs of a single repeat
+    unit, so any prefix/extension is still a valid same-character input."""
+    if target <= 0 or not base:
+        return ""
+    reps = -(-target // len(base))  # ceil division
+    return (base * reps)[:target]
+
+
+def expand_with_sweep(cases, sweep):
+    """One PreparedCase per (case, swept input size), rebuilding the input and
+    overriding metadata.input_size."""
+    expanded = []
+    for case in cases:
+        for target in sweep:
+            new_input = resize_input(case.input, target)
+            meta = case.metadata
+            new_meta = (replace(meta, input_size=len(new_input))
+                        if meta is not None else None)
+            expanded.append(PreparedCase(
+                test_id=case.test_id,
+                pattern=case.pattern,
+                input=new_input,
+                metadata=new_meta,
+            ))
+    return expanded
+
+
+def parse_input_sweep(raw):
+    """Parse --input-sweep: a comma list of ints, or `none` to disable. Returns
+    None when the flag is absent (caller uses DEFAULT_INPUT_SWEEP)."""
+    if raw is None:
+        return None
+    if raw.strip().lower() == "none":
+        return []
+    return [int(s) for s in raw.split(",") if s.strip()]
 
 
 def get_dataset_cases(dataset_dir):
@@ -523,6 +567,14 @@ def parse_args():
              "(e.g. experiment-dataset/). Overrides --input-length.",
     )
     parser.add_argument(
+        "--input-sweep",
+        type=str,
+        default=None,
+        help="Comma-separated input sizes (chars) to sweep per dataset case, "
+             "or 'none' to use each case's stored input. Default: built-in "
+             "sweep. Only applies in --dataset mode.",
+    )
+    parser.add_argument(
         "--in-process",
         action="store_true",
         help="Time each match in the host process (no subprocess). Uses "
@@ -574,6 +626,12 @@ if __name__ == "__main__":
     inproc_tag = "_inproc" if args.in_process else ""
     if args.dataset is not None:
         tests = get_dataset_cases(args.dataset)
+        sweep = parse_input_sweep(args.input_sweep)
+        if sweep is None:
+            sweep = DEFAULT_INPUT_SWEEP
+        if sweep:
+            print(f"Sweeping input sizes: {sweep}")
+            tests = expand_with_sweep(tests, sweep)
         output_filename = (
             f"py_redos_test_results_dataset{inproc_tag}_timeout-"
             f"{timeout_label(args.timeout)}.json"
