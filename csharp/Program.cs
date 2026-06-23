@@ -14,7 +14,7 @@ using RegexMatchTimeoutException = System.Text.RegularExpressions.RegexMatchTime
 
 class Program
 {
-    private const int DefaultInputSize = 100_000;
+    private const int DefaultInputSize = 100_000_000;
     private const int DefaultRuns = 3;
     private static readonly TimeSpan DefaultTimeout = TimeSpan.FromSeconds(2);
 
